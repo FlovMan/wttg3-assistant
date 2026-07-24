@@ -1049,7 +1049,7 @@ function resolveGalleryMode() {
   if (q === "shots" || q === "screenshots") return "shots";
   const saved = localStorage.getItem(STORAGE_GALLERY_MODE);
   if (saved === "live" || saved === "shots") return saved;
-  return "shots";
+  return "live";
 }
 
 function setGalleryMode(mode, opts = {}) {

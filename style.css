@@ -1884,9 +1884,9 @@ body.gallery-open {
   inset: 0;
   z-index: 10000;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 24px;
 }
 
 .gallery-lightbox[hidden] {
@@ -1904,16 +1904,29 @@ body.gallery-open {
 .gallery-dialog {
   position: relative;
   z-index: 1;
-  width: min(1680px, 98vw);
-  height: 96vh;
-  max-height: 96vh;
+  width: min(980px, 100%);
+  max-height: min(94vh, 960px);
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 14px 16px 12px;
+  gap: 10px;
+  padding: 18px 18px 14px;
   background: linear-gradient(180deg, rgba(12, 28, 20, 0.98), rgba(8, 18, 14, 0.98));
   border: 1px solid var(--border);
   box-shadow: 0 0 0 1px rgba(51, 255, 153, 0.08), 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+/* Live HTML needs a near-fullscreen stage; screenshots keep the compact modal. */
+body.gallery-mode-live .gallery-lightbox {
+  align-items: stretch;
+  padding: 10px;
+}
+
+body.gallery-mode-live .gallery-dialog {
+  width: min(1680px, 98vw);
+  height: 96vh;
+  max-height: 96vh;
+  gap: 8px;
+  padding: 14px 16px 12px;
   overflow: hidden;
 }
 
@@ -2057,21 +2070,35 @@ body.gallery-open {
   gap: 8px;
   align-items: stretch;
   min-height: 0;
-  flex: 1 1 auto;
+  flex: 1;
 }
 
 .gallery-image-wrap {
   flex: 1 1 auto;
   min-width: 0;
-  min-height: 0;
   width: 100%;
-  height: auto;
-  max-height: none;
+  height: min(64vh, 680px);
+  max-height: min(64vh, 680px);
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(26, 58, 42, 0.8);
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--green-dim) transparent;
+}
+
+body.gallery-mode-live .gallery-stage {
+  flex: 1 1 auto;
+  height: 0; /* fill remaining dialog height */
+}
+
+body.gallery-mode-live .gallery-image-wrap {
+  min-height: 0;
+  height: auto;
+  max-height: none;
+}
+
+body.gallery-mode-live .gallery-notes {
+  max-height: 10vh;
 }
 
 .gallery-image {
@@ -2086,9 +2113,13 @@ body.gallery-open {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 100%;
+  min-height: min(64vh, 680px);
   border: 0;
   background: #fff;
+}
+
+body.gallery-mode-live .gallery-frame {
+  min-height: 100%;
 }
 
 .gallery-frame[hidden] {
@@ -2178,10 +2209,18 @@ body.gallery-open {
 
 @media (max-width: 640px) {
   .gallery-lightbox {
-    padding: 4px;
+    padding: 10px;
   }
 
   .gallery-dialog {
+    padding: 14px 12px 10px;
+  }
+
+  body.gallery-mode-live .gallery-lightbox {
+    padding: 4px;
+  }
+
+  body.gallery-mode-live .gallery-dialog {
     width: 100%;
     height: 100vh;
     max-height: 100vh;
@@ -2199,6 +2238,10 @@ body.gallery-open {
   }
 
   .gallery-image-wrap {
+    max-height: min(52vh, 460px);
+  }
+
+  body.gallery-mode-live .gallery-image-wrap {
     max-height: none;
   }
 
