@@ -288,9 +288,10 @@ const CREDIT_SOURCES = [
     profileUrl: "https://steamcommunity.com/id/nojembre",
   },
   {
-    author: "WTTG3 Reverse Wiki (peterrock)",
-    url: "https://wttgiii.peterrock.dev/website-visualizer/",
-    profileUrl: "https://wttgiii.peterrock.dev/",
+    author: "PeterRock",
+    url: "https://wttgiii.peterrock.dev/",
+    urlLabel: "WTTG3 Reverse Wiki",
+    profileUrl: "https://peterrock.dev/",
   },
 ];
 
@@ -342,8 +343,8 @@ const I18N = {
     welcomeRemember: ">> Zapamiętaj mnie",
     creditsTitle: "Credits i źródła",
     creditsDisclaimer:
-      "Stworzyłem tylko tego asystenta (UI i narzędzia). Nie jestem powiązany z twórcami gry. Dane, notatki i screenshoty pochodzą z publicznych poradników społeczności Steam — nie tworzyłem ich treści.",
-    creditsSourcesHeading: "Poradniki Steam (źródła):",
+      "Stworzyłem tylko tego asystenta (UI i narzędzia). Nie jestem powiązany z twórcami gry. Dane, notatki i screenshoty pochodzą z publicznych poradników społeczności Steam oraz z WTTG3 Reverse Wiki (PeterRock) — nie tworzyłem ich treści. Tryb Live HTML korzysta z odtworzonych stron z website-visualizer.",
+    creditsSourcesHeading: "Źródła:",
     creditsEmpty: "Lista źródeł zostanie wkrótce uzupełniona.",
     creditsGuideLink: "Poradnik",
     creditsProfileLink: "Profil",
@@ -586,8 +587,8 @@ const I18N = {
     welcomeRemember: ">> Remember Me",
     creditsTitle: "Credits & sources",
     creditsDisclaimer:
-      "I only built this assistant (UI and tools). I am not affiliated with the game’s creators. Site data, notes, and screenshots come from public Steam community guides — I did not author that guide content.",
-    creditsSourcesHeading: "Steam guides (sources):",
+      "I only built this assistant (UI and tools). I am not affiliated with the game’s creators. Site data, notes, and screenshots come from public Steam community guides and the WTTG3 Reverse Wiki (PeterRock) — I did not author that content. Live HTML mode uses reconstructed pages from the website-visualizer.",
+    creditsSourcesHeading: "Sources:",
     creditsEmpty: "Source list will be added shortly.",
     creditsGuideLink: "Guide",
     creditsProfileLink: "Profile",
@@ -1048,8 +1049,7 @@ function resolveGalleryMode() {
   if (q === "shots" || q === "screenshots") return "shots";
   const saved = localStorage.getItem(STORAGE_GALLERY_MODE);
   if (saved === "live" || saved === "shots") return saved;
-  // Preview branch default — switch back to "shots" when merging to main.
-  return "live";
+  return "shots";
 }
 
 function setGalleryMode(mode, opts = {}) {
@@ -1076,8 +1076,8 @@ function applyGalleryZoom() {
   if (galleryState.kind === "live") {
     if (!frame || frame.hidden) return;
     frame.style.width = widthPx;
-    frame.style.minHeight = `${Math.round((wrap?.clientHeight || 480) * Math.min(z, 1.5))}px`;
-    frame.style.height = z > 1 ? `${Math.round(680 * z)}px` : "100%";
+    frame.style.minHeight = `${Math.round((wrap?.clientHeight || 720) * Math.min(z, 1.25))}px`;
+    frame.style.height = z > 1 ? `${Math.round((wrap?.clientHeight || 720) * z)}px` : "100%";
     wrap?.classList.toggle("is-zoomed", z > 1);
   } else {
     if (!img || img.hidden) return;
@@ -1930,7 +1930,7 @@ function buildCreditsHtml(opts = {}) {
         const links = [];
         if (s.url) {
           links.push(
-            `<a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t("creditsGuideLink"))}</a>`
+            `<a href="${escapeHtml(s.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(s.urlLabel || t("creditsGuideLink"))}</a>`
           );
         }
         if (s.profileUrl) {
