@@ -176,47 +176,48 @@ const MINERS = {
     label: "Tier I",
     costKey: "minerCostTier1",
     computers: [
-      { name: "WebTyk", rate: 1.84 },
-      { name: "UserJyx", rate: 1.8 },
-      { name: "NetVorn", rate: 1.45 },
-      { name: "CloudFuz", rate: 0.88 },
-      { name: "SysBlip", rate: 0.87 },
-      { name: "DevQuix", rate: 0.64 },
-      { name: "IT_Kwez", rate: 0.42 },
-      { name: "DataRax", rate: 0.32 },
-      { name: "WorkZap", rate: 0.31 },
-      { name: "CodePlix", rate: 0.3 },
+      { name: "WebTyk", rate: 1.84, access: [384, 768], fail: [120, 220], reset: [240, 300] },
+      { name: "UserJyx", rate: 1.8, access: [384, 768], fail: [120, 480], reset: [120, 300] },
+      { name: "NetVorn", rate: 1.45, access: [380, 1008], fail: [240, 420], reset: [240, 300] },
+      { name: "CloudFuz", rate: 0.88, access: [440, 928], fail: [180, 240], reset: [180, 220] },
+      { name: "SysBlip", rate: 0.87, access: [384, 768], fail: [40, 80], reset: [120, 240] },
+      { name: "DevQuix", rate: 0.64, access: [408, 744], fail: [110, 220], reset: [60, 90] },
+      { name: "IT_Kwez", rate: 0.42, access: [445.6, 884.8], fail: [20, 45], reset: [120, 190] },
+      { name: "DataRax", rate: 0.32, access: [368, 752], fail: [45, 70], reset: [30, 210] },
+      { name: "WorkZap", rate: 0.31, access: [384, 768], fail: [90, 210], reset: [180, 220] },
+      { name: "CodePlix", rate: 0.3, access: [384, 768], fail: [15, 25], reset: [30, 75] },
     ],
   },
   tier2: {
     label: "Tier II",
     costKey: "minerCostTier2",
     computers: [
-      { name: "OpsHax", rate: 3.23 },
-      { name: "SecErux", rate: 2.73 },
-      { name: "GameDrux", rate: 2.57 },
-      { name: "PrintYis", rate: 2.43 },
-      { name: "FileNuz", rate: 1.88 },
-      { name: "Prod Glin", rate: 1.8 },
-      { name: "VM_Wekl", rate: 1.74 },
-      { name: "BackShiv", rate: 1.49 },
-      { name: "TestXor", rate: 1.36 },
-      { name: "LabBzop", rate: 0.48 },
+      { name: "OpsHax", rate: 3.23, access: [1200, 1620], fail: [600, 1200], reset: [300, 420] },
+      { name: "SecCrux", rate: 2.73, access: [900, 1320], fail: [180, 240], reset: [340, 380] },
+      { name: "GameDrux", rate: 2.57, access: [900, 1320], fail: [360, 600], reset: [300, 420] },
+      { name: "PrintYiv", rate: 2.43, access: [845, 1186], fail: [90, 270], reset: [360, 420] },
+      { name: "FileNuz", rate: 1.88, access: [900, 1320], fail: [180, 240], reset: [70, 220] },
+      { name: "ProdGlin", rate: 1.8, access: [996, 1468], fail: [180, 540], reset: [120, 360] },
+      { name: "VM_Wekl", rate: 1.74, access: [900, 1320], fail: [30, 90], reset: [240, 360] },
+      { name: "BackSkiv", rate: 1.49, access: [845, 1320], fail: [20, 40], reset: [120, 200] },
+      { name: "TestXor", rate: 1.36, access: [900, 1320], fail: [240, 480], reset: [180, 420] },
+      { name: "LabBZop", rate: 0.48, access: [988, 1419], fail: [60, 90], reset: [300, 420] },
     ],
   },
   tier3: {
     label: "Tier III",
     costKey: "minerCostTier3",
     computers: [
-      { name: "Phoenix", rate: 4.79 },
-      { name: "MediaVlu", rate: 3.93 },
-      { name: "QA_Pivz", rate: 3.58 },
-      { name: "HR_Treq", rate: 3.42 },
-      { name: "VPN_Qwer", rate: 3.38 },
-      { name: "SalesMiv", rate: 3.21 },
-      { name: "ChatEzk", rate: 3.17 },
-      { name: "EngZolp", rate: 2.63 },
-      { name: "LogJuk", rate: 0.3 },
+      { name: "Phoenix", rate: 4.79, access: [1740, 2160], fail: [1200, 1500], reset: [600, 780] },
+      { name: "MediaVlu", rate: 3.93, access: [1500, 1620], fail: [300, 420], reset: [540, 560] },
+      { name: "QA_Pivz", rate: 3.58, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
+      { name: "HR_Treq", rate: 3.42, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
+      { name: "VPN_Qwer", rate: 3.38, access: [1500, 2100], fail: [420, 660], reset: [480, 600] },
+      { name: "SalesMiv", rate: 3.21, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
+      { name: "ChatEzk", rate: 3.17, access: [1500, 2100], fail: [420, 600], reset: [480, 600] },
+      { name: "EngZolp", rate: 2.63, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
+      { name: "FinLoxu", rate: null, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
+      { name: "LogJuk", rate: 0.3, access: [2700, 3600], fail: [800, 1600], reset: [480, 600] },
     ],
   },
 };
@@ -396,6 +397,12 @@ const I18N = {
     minerCostTier1: "od początku",
     minerCostTier2: "75 DOS",
     minerCostTier3: "250 DOS",
+    minerAccess: "Access",
+    minerFailCd: "Fail CD",
+    minerResetCd: "Reset CD",
+    minerRateUnknown: "—",
+    minerColAccess: "Access window",
+    minerColRate: "DOS/min",
     threatsIntro: "Główne zagrożenia — sygnał dźwiękowy i jak się bronić:",
     threatColThreat: "Zagrożenie",
     threatColCue: "Sygnał",
@@ -426,7 +433,7 @@ const I18N = {
       ["Priorytety:", "tablica Max / Medium / Low pod listą. Strony z bieżącej zakładki świecą się na zielono, dopóki nie oznaczysz Odw./Klucz. Klik w nazwę = galeria."],
       ["Screenshoty:", "klik w nazwę strony. Start zawsze 100%; +/−, Ctrl+scroll lub 0 = zoom. ← → między obrazkami, Esc zamyka. Dwuklik = 100% ↔ 200%."],
       ["Okna czasowe:", "strony timed: minuty każdej godziny gry (np. :00–:14). Martwe = zawsze offline."],
-      ["Koparki:", "VM Grid Tier I–III z DOS/min — wybieraj najwyższe w odblokowanym tierze."],
+      ["Koparki:", "VM Grid Tier I–III: DOS/min + Access window (jak długo masz dostęp po udanym hacku). Fail/Reset CD w podpowiedzi (hover). Wybieraj najwyższe DOS w odblokowanym tierze."],
       ["Notatnik — klucze:", "format „N - kod”. Długi kod = zaszyfrowany. Krótki = zdekryptowany (idzie do montażu)."],
       ["Montaż 1–8:", "zdekryptowane kody w slotach #1–#8 według numeru. Cel: zebrać wszystkie 8, potem „Kopiuj finalny klucz”."],
       ["Sensory / zagrożenia:", "zakładki z setupem 3 sensorów oraz tabelą cue/obrona. Bomb Maker jest pod spoilerem."],
@@ -617,6 +624,12 @@ const I18N = {
     minerCostTier1: "from the start",
     minerCostTier2: "75 DOS",
     minerCostTier3: "250 DOS",
+    minerAccess: "Access",
+    minerFailCd: "Fail CD",
+    minerResetCd: "Reset CD",
+    minerRateUnknown: "—",
+    minerColAccess: "Access window",
+    minerColRate: "DOS/min",
     threatsIntro: "Main threats — sound cue and how to counter them:",
     threatColThreat: "Threat",
     threatColCue: "Cue",
@@ -647,7 +660,7 @@ const I18N = {
       ["Priorities:", "Max / Medium / Low board under the list. Sites on the current tab glow green until marked Visited/Key. Click a name for the gallery."],
       ["Screenshots:", "click a site name. Always starts at 100%; +/−, Ctrl+scroll, or 0 to zoom. Arrows change images, Esc closes. Double-click toggles 100% ↔ 200%."],
       ["Time windows:", "timed sites use in-game hour minutes (e.g. :00–:14). Dead sites stay offline."],
-      ["Miners:", "VM Grid Tier I–III with DOS/min — pick the highest in your unlocked tier."],
+      ["Miners:", "VM Grid Tier I–III: DOS/min + Access window (how long you keep access after a successful hack). Fail/Reset CD in the hover tooltip. Pick the highest DOS in your unlocked tier."],
       ["Notebook — keys:", "format “N - code”. Long code = encrypted. Short = decrypted (feeds assembly)."],
       ["Assembly 1–8:", "decrypted codes fill slots #1–#8 by number. Collect all 8, then “Copy final key”."],
       ["Sensors / threats:", "tabs for the 3-sensor setup and cue/counter table. Bomb Maker is behind a spoiler."],
@@ -1502,22 +1515,60 @@ function clearCurrentTab() {
    Miners / Info panels
    ========================================================================== */
 
+function formatSecAsMin(sec) {
+  const m = sec / 60;
+  if (Math.abs(m - Math.round(m)) < 0.05) return String(Math.round(m));
+  const fixed = m.toFixed(1);
+  return fixed.endsWith(".0") ? fixed.slice(0, -2) : fixed;
+}
+
+function formatMinRange(range) {
+  if (!range || range.length < 2) return "—";
+  return `${formatSecAsMin(range[0])}–${formatSecAsMin(range[1])} min`;
+}
+
+function formatSecRange(range) {
+  if (!range || range.length < 2) return "—";
+  const a = Number.isInteger(range[0]) ? range[0] : Number(range[0].toFixed(1));
+  const b = Number.isInteger(range[1]) ? range[1] : Number(range[1].toFixed(1));
+  return `${a}–${b} s`;
+}
+
+function minerTooltip(c) {
+  const parts = [
+    `${t("minerColAccess")}: ${formatMinRange(c.access)} (${formatSecRange(c.access)})`,
+    `${t("minerFailCd")}: ${formatMinRange(c.fail)} (${formatSecRange(c.fail)})`,
+    `${t("minerResetCd")}: ${formatMinRange(c.reset)} (${formatSecRange(c.reset)})`,
+  ];
+  return parts.join("\n");
+}
+
 function renderMiners() {
   const el = document.getElementById("miners-list");
+  if (!el) return;
+
   const html = Object.values(MINERS)
     .map((tier) => {
       const rows = tier.computers
         .map((c, i) => {
-          const top = i < 3 ? "top" : "";
-          return `<div class="miner-row ${top}">
+          const top = i < 3 && c.rate != null ? "top" : "";
+          const rateText =
+            c.rate == null ? t("minerRateUnknown") : `${c.rate.toFixed(2)} DOS/min`;
+          return `<div class="miner-row ${top}" title="${escapeHtml(minerTooltip(c))}">
             <span class="miner-name">${escapeHtml(c.name)}</span>
-            <span class="miner-rate">${c.rate.toFixed(2)} DOS/min</span>
+            <span class="miner-access" title="${escapeHtml(t("minerColAccess"))}">${escapeHtml(formatMinRange(c.access))}</span>
+            <span class="miner-rate">${escapeHtml(rateText)}</span>
           </div>`;
         })
         .join("");
 
       return `<div class="tier-block">
         <div class="tier-label">${escapeHtml(tier.label)}<span class="tier-cost">· ${escapeHtml(t(tier.costKey))}</span></div>
+        <div class="miner-cols" aria-hidden="true">
+          <span></span>
+          <span>${escapeHtml(t("minerAccess"))}</span>
+          <span>${escapeHtml(t("minerColRate"))}</span>
+        </div>
         ${rows}
       </div>`;
     })

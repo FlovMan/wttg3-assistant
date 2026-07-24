@@ -1000,17 +1000,25 @@ button.priority-chip.priority-keyed:hover {
   margin-left: 4px;
 }
 
-.miner-row {
+.miner-cols {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) minmax(72px, 0.9fr) auto;
   gap: 6px;
-  padding: 3px 6px;
-  border-radius: 2px;
-  font-size: 0.75rem;
+  padding: 0 6px 2px;
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
-.miner-row:nth-child(-n+4) {
-  /* top rows after label get subtle highlight via .top class */
+.miner-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(72px, 0.9fr) auto;
+  gap: 6px;
+  align-items: baseline;
+  padding: 3px 6px;
+  border-radius: 2px;
+  font-size: 0.72rem;
 }
 
 .miner-row.top {
@@ -1028,10 +1036,20 @@ button.priority-chip.priority-keyed:hover {
   white-space: nowrap;
 }
 
+.miner-access {
+  color: var(--amber);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  font-size: 0.68rem;
+  text-align: right;
+}
+
 .miner-rate {
   color: var(--cyan);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+  text-align: right;
+  min-width: 7.5em;
 }
 
 /* ===== Notebook ===== */
