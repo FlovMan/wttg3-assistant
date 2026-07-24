@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Succulentmeal</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+﻿/* FONTS */
+
+@font-face {
+    font-family: 'Azeret Mono';
+    src: url("https://wttgiii.peterrock.dev/website-assets/dc957a469796d0b19b35.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Azeret Mono';
+    src: url("https://wttgiii.peterrock.dev/website-assets/dc957a469796d0b19b35.ttf") format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mirza';
+    src: url("https://wttgiii.peterrock.dev/website-assets/4769a8745c2239806e08.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mirza';
+    src: url("https://wttgiii.peterrock.dev/website-assets/4769a8745c2239806e08.ttf") format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url("https://wttgiii.peterrock.dev/website-assets/74f80c64c921efa4557b.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url("https://wttgiii.peterrock.dev/website-assets/74f80c64c921efa4557b.ttf") format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url("https://wttgiii.peterrock.dev/website-assets/46488bb6930b8e629771.ttf") format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* INDEX */
+
+.page-index,
+.page-index html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.page-index {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/0a88072afbafdecc8580.png");
+    background-size: cover;
+    background-repeat: repeat-y;
+    font-family: 'Azeret Mono', serif;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.page-index .title {
+    position: relative;
+    top: 35px;
+    left: 35px;
+    font-size: 28pt;
+    width: 80%;
+    color: white;
+    white-space: nowrap;
+}
+
+.page-index .bold {
+    font-weight: bold;
+}
+
+.page-index .baker {
+    position: relative;
+    top: 18vh;
+    width: 35vw;
+    z-index: 0;
+}
+
+.page-index .try {
+    display: flex;
+    flex-flow: column nowrap;
+    z-index: 5;
+    position: relative;
+    bottom: 25vh;
+    left: 35vw;
+    width: max-content;
+}
+
+.page-index .try h2 {
+    color: white;
+    font-size: 3vw;
+}
+
+.page-index .try div {
+    display: flex;
+    flex-flow: row nowrap;
+    padding-left: 20px;
+    align-items: center;
+}
+
+.page-index .try div p {
+    padding-right: 20px;
+}
+
+.page-index .try div p:nth-child(2) {
+    font-size: 2vw;
+}
+
+.page-index .available {
+    color: white;
+    margin-left: 20px;
+}
+
+.page-index .try div p:first-child {
+    font-size: 3vw;
+}
+
+.page-index .try p:nth-child(4) {
+    font-size: 3vw;
+    padding-left: 20px;
+}
+
+.page-index .stuff {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-index .stuff img {
+    height: 35vw;
+    z-index: 1;
+    position: relative;
+    bottom: 75px;
+}
+
+.page-index .stuff h2 {
+    z-index: 5;
+}
+
+.page-index .getTreats {
+    font-size: 36pt;
+    color: white;
+    z-index: 5;
+}
+
+.page-index .getTreats .CPTAG, .page-index .getTreats .CFTAG {
+    padding: 0;
+}
+
+.page-index .chunk {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.page-index .chunk * {
+    padding: 0 10px;
+}
+
+.page-index .chunkyGuy {
+    position: relative;
+    width: 303px;
+    height: 342px;
+    z-index: 5;
+}
+
+.page-index .chonkers {
+    opacity: 0.55;
+}
+
+.page-index .chunkyGuy a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    position: absolute;
+}
+
+.page-index .overlayContainer {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    z-index: 3;
+}
+
+.page-index .overlay {
+    height: 100%;
+    width: 100vw;
+    object-fit: cover;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.page-index .fingerPoint {
+    padding: 0;
+    margin: 0;
+    z-index: 6;
+    top: 0;
+    position: relative;
+}
+
+.page-index .PTAG {
+    color: rgb(66, 66, 87);
+    font-size: 12pt;
+    z-index: 5;
+}
+
+.page-index .PTAG.second {
+    color: rgb(59, 76, 161);
+    font-size: 12pt;
+    z-index: 5;
+}
+
+/* MY FRIENDS */
+
+.page-myfriends,
+.page-myfriends html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.page-myfriends {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/9c408debc95ff5302028.gif");
+    background-repeat: repeat;
+    background-size: 50%;
+}
+
+.page-myfriends .darken {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.page-myfriends h1 {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 48pt;
+    font-weight: bold;
+}
+
+.page-myfriends .title {
+    margin-left: 50px;
+    padding-top: 100px;
+}
+
+.page-myfriends .friends {
+    width: 400px;
+    margin: 130px 0 0 250px;
+    font-family: 'Azaret Mono', monospace;
+}
+
+.page-myfriends .friend {
+    font-size: 48pt;
+    font-family: 'Azaret Mono', monospace;
+    font-weight: bold;
+}
+
+.page-myfriends .footer {
+    text-align: center;
+    padding: 200px 0 400px 0;
+}
+
+.page-myfriends .container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.page-myfriends .container > a {
+    padding-right: 20px;
+}
+
+.page-myfriends em {
+    font-size: 12pt;
+    color: darkgray;
+}
+
+/* GET MONEY */
+
+.page-getmoney,
+.page-getmoney html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page-getmoney {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/29e150f009e5a7368fde.png");
+    background-size: cover;
+    background-repeat: repeat-y;
+    font-family: 'Mirza', cursive;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.page-getmoney .title {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.page-getmoney .title h1 {
+    font-size: 60pt;
+    margin-bottom: 0;
+    line-height: 40pt;
+    white-space: nowrap;
+}
+
+.page-getmoney .title h2 {
+    font-size: 24pt;
+}
+
+.page-getmoney .bold {
+    font-weight: bold;
+}
+
+.page-getmoney .doYouLike {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(101, 237, 91, 0.75);
+    width: 960px;
+}
+
+.page-getmoney .rowWrap {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.page-getmoney .i p {
+    font-size: 48pt;
+}
+
+.page-getmoney .ii {
+    font-size: 40pt;
+    line-height: 30pt;
+}
+
+.page-getmoney .iii {
+    font-size: 30pt;
+}
+
+.page-getmoney .downloadArrow {
+    width: 85px;
+}
+
+.page-getmoney .serving {
+    width: 960px;
+    background-color: rgba(81, 162, 93, 0.75);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+    padding-top: 25px;
+    margin-bottom: 150px;
+}
+
+.page-getmoney .wowContainer {
+    position: static;
+}
+
+.page-getmoney .click {
+    margin-right: 150px;
+}
+
+.page-getmoney .currently,
+.page-getmoney .reserve {
+    font-size: 48pt;
+}
+
+.page-getmoney .waiting {
+    font-size: 30pt;
+}
+
+.page-getmoney .download {
+    font-size: 18pt;
+}
+
+.page-getmoney .footer p {
+    visibility: hidden;
+}
+
+.page-getmoney em {
+    font-weight: bold;
+    color: greenyellow;
+    font-size: 12pt;
+}
+
+/* SUCCULENT MEAL */
+
+.page-succulentmeal,
+.page-succulentmeal html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page-succulentmeal {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/7e97a319798fc02ebf36.png");
+    background-repeat: repeat;
+    background-size: cover;
+    font-family: 'Merriweather', serif;
+}
+
+.page-succulentmeal .rowData {
+    padding-top: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-succulentmeal .padBot {
+    padding-bottom: 40px;
+}
+
+.page-succulentmeal .rowData > img {
+    padding: 0 30px 0 30px;
+    height: 100px;
+}
+
+.page-succulentmeal .mediumText {
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.page-succulentmeal .title {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: left;
+    font-size: 4vw;
+    padding: 120px 0;
+    margin-left: 100px;
+    font-weight: normal;
+}
+
+.page-succulentmeal .title > h1 {
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.page-succulentmeal .bold {
+    font-weight: bold;
+}
+
+.page-succulentmeal .ital {
+    font-style: italic;
+}
+
+.page-succulentmeal .shiftLeft {
+    width: 70%;
+}
+
+.page-succulentmeal .cheers {
+    width: 100%;
+}
+
+.page-succulentmeal .recipe {
+    width: 88%;
+}
+
+.page-succulentmeal .textContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-succulentmeal .footer {
+    padding-bottom: 200px;
+}
+
+.page-succulentmeal .blurred {
+    filter: blur(4px);
+}
+
+.page-succulentmeal .occasionally {
+    font-size: 14pt;
+    text-decoration: underline;
+}
+
+.page-succulentmeal .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.page-succulentmeal em {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* OCCASIONALLY */
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page-occasionally {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/db616db4135d2c5709fa.png");
+    background-repeat: repeat;
+    background-size: cover;
+    font-family: 'Merriweather', serif;
+    color: #e8b20f;
+}
+
+.page-occasionally .container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.page-occasionally h1 {
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.page-occasionally .pwField {
+    background-color: transparent;
+    width: 30%;
+    height: 2.5rem;
+    border: 2px solid #a09c9c;
+    font-size: 28pt;
+    color: #e8b20f;
+    margin-bottom: 30px;
+}
+
+.page-occasionally a {
+    padding: 10px 50px;
+    background-color: #a09c9c;
+}
+
+.page-occasionally .CPTAG, .page-occasionally .CFTAG{
+    padding: 0;
+    background-color: unset;
+}
+
+.page-occasionally .floating {
+    text-align: left;
+    position: relative;
+    left: -16%;
+}
+
+.page-occasionally .watching {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 30vw;
+}
+
+.page-occasionally em {
+    font-size: 12pt;
+    color: rgb(82, 82, 82);
+}
+
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+﻿/* FONTS */
+
+@font-face {
+    font-family: 'Azeret Mono';
+    src: url("https://wttgiii.peterrock.dev/website-assets/dc957a469796d0b19b35.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Azeret Mono';
+    src: url("https://wttgiii.peterrock.dev/website-assets/dc957a469796d0b19b35.ttf") format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mirza';
+    src: url("https://wttgiii.peterrock.dev/website-assets/4769a8745c2239806e08.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mirza';
+    src: url("https://wttgiii.peterrock.dev/website-assets/4769a8745c2239806e08.ttf") format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url("https://wttgiii.peterrock.dev/website-assets/74f80c64c921efa4557b.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url("https://wttgiii.peterrock.dev/website-assets/74f80c64c921efa4557b.ttf") format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url("https://wttgiii.peterrock.dev/website-assets/46488bb6930b8e629771.ttf") format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* INDEX */
+
+.page-index,
+.page-index html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.page-index {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/0a88072afbafdecc8580.png");
+    background-size: cover;
+    background-repeat: repeat-y;
+    font-family: 'Azeret Mono', serif;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.page-index .title {
+    position: relative;
+    top: 35px;
+    left: 35px;
+    font-size: 28pt;
+    width: 80%;
+    color: white;
+    white-space: nowrap;
+}
+
+.page-index .bold {
+    font-weight: bold;
+}
+
+.page-index .baker {
+    position: relative;
+    top: 18vh;
+    width: 35vw;
+    z-index: 0;
+}
+
+.page-index .try {
+    display: flex;
+    flex-flow: column nowrap;
+    z-index: 5;
+    position: relative;
+    bottom: 25vh;
+    left: 35vw;
+    width: max-content;
+}
+
+.page-index .try h2 {
+    color: white;
+    font-size: 3vw;
+}
+
+.page-index .try div {
+    display: flex;
+    flex-flow: row nowrap;
+    padding-left: 20px;
+    align-items: center;
+}
+
+.page-index .try div p {
+    padding-right: 20px;
+}
+
+.page-index .try div p:nth-child(2) {
+    font-size: 2vw;
+}
+
+.page-index .available {
+    color: white;
+    margin-left: 20px;
+}
+
+.page-index .try div p:first-child {
+    font-size: 3vw;
+}
+
+.page-index .try p:nth-child(4) {
+    font-size: 3vw;
+    padding-left: 20px;
+}
+
+.page-index .stuff {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-index .stuff img {
+    height: 35vw;
+    z-index: 1;
+    position: relative;
+    bottom: 75px;
+}
+
+.page-index .stuff h2 {
+    z-index: 5;
+}
+
+.page-index .getTreats {
+    font-size: 36pt;
+    color: white;
+    z-index: 5;
+}
+
+.page-index .getTreats .CPTAG, .page-index .getTreats .CFTAG {
+    padding: 0;
+}
+
+.page-index .chunk {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.page-index .chunk * {
+    padding: 0 10px;
+}
+
+.page-index .chunkyGuy {
+    position: relative;
+    width: 303px;
+    height: 342px;
+    z-index: 5;
+}
+
+.page-index .chonkers {
+    opacity: 0.55;
+}
+
+.page-index .chunkyGuy a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    position: absolute;
+}
+
+.page-index .overlayContainer {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    z-index: 3;
+}
+
+.page-index .overlay {
+    height: 100%;
+    width: 100vw;
+    object-fit: cover;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.page-index .fingerPoint {
+    padding: 0;
+    margin: 0;
+    z-index: 6;
+    top: 0;
+    position: relative;
+}
+
+.page-index .PTAG {
+    color: rgb(66, 66, 87);
+    font-size: 12pt;
+    z-index: 5;
+}
+
+.page-index .PTAG.second {
+    color: rgb(59, 76, 161);
+    font-size: 12pt;
+    z-index: 5;
+}
+
+/* MY FRIENDS */
+
+.page-myfriends,
+.page-myfriends html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.page-myfriends {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/9c408debc95ff5302028.gif");
+    background-repeat: repeat;
+    background-size: 50%;
+}
+
+.page-myfriends .darken {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.page-myfriends h1 {
+    font-family: 'Azeret Mono', monospace;
+    font-size: 48pt;
+    font-weight: bold;
+}
+
+.page-myfriends .title {
+    margin-left: 50px;
+    padding-top: 100px;
+}
+
+.page-myfriends .friends {
+    width: 400px;
+    margin: 130px 0 0 250px;
+    font-family: 'Azaret Mono', monospace;
+}
+
+.page-myfriends .friend {
+    font-size: 48pt;
+    font-family: 'Azaret Mono', monospace;
+    font-weight: bold;
+}
+
+.page-myfriends .footer {
+    text-align: center;
+    padding: 200px 0 400px 0;
+}
+
+.page-myfriends .container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.page-myfriends .container > a {
+    padding-right: 20px;
+}
+
+.page-myfriends em {
+    font-size: 12pt;
+    color: darkgray;
+}
+
+/* GET MONEY */
+
+.page-getmoney,
+.page-getmoney html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page-getmoney {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/29e150f009e5a7368fde.png");
+    background-size: cover;
+    background-repeat: repeat-y;
+    font-family: 'Mirza', cursive;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.page-getmoney .title {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.page-getmoney .title h1 {
+    font-size: 60pt;
+    margin-bottom: 0;
+    line-height: 40pt;
+    white-space: nowrap;
+}
+
+.page-getmoney .title h2 {
+    font-size: 24pt;
+}
+
+.page-getmoney .bold {
+    font-weight: bold;
+}
+
+.page-getmoney .doYouLike {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(101, 237, 91, 0.75);
+    width: 960px;
+}
+
+.page-getmoney .rowWrap {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.page-getmoney .i p {
+    font-size: 48pt;
+}
+
+.page-getmoney .ii {
+    font-size: 40pt;
+    line-height: 30pt;
+}
+
+.page-getmoney .iii {
+    font-size: 30pt;
+}
+
+.page-getmoney .downloadArrow {
+    width: 85px;
+}
+
+.page-getmoney .serving {
+    width: 960px;
+    background-color: rgba(81, 162, 93, 0.75);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+    padding-top: 25px;
+    margin-bottom: 150px;
+}
+
+.page-getmoney .wowContainer {
+    position: static;
+}
+
+.page-getmoney .click {
+    margin-right: 150px;
+}
+
+.page-getmoney .currently,
+.page-getmoney .reserve {
+    font-size: 48pt;
+}
+
+.page-getmoney .waiting {
+    font-size: 30pt;
+}
+
+.page-getmoney .download {
+    font-size: 18pt;
+}
+
+.page-getmoney .footer p {
+    visibility: hidden;
+}
+
+.page-getmoney em {
+    font-weight: bold;
+    color: greenyellow;
+    font-size: 12pt;
+}
+
+/* SUCCULENT MEAL */
+
+.page-succulentmeal,
+.page-succulentmeal html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page-succulentmeal {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/7e97a319798fc02ebf36.png");
+    background-repeat: repeat;
+    background-size: cover;
+    font-family: 'Merriweather', serif;
+}
+
+.page-succulentmeal .rowData {
+    padding-top: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-succulentmeal .padBot {
+    padding-bottom: 40px;
+}
+
+.page-succulentmeal .rowData > img {
+    padding: 0 30px 0 30px;
+    height: 100px;
+}
+
+.page-succulentmeal .mediumText {
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.page-succulentmeal .title {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: left;
+    font-size: 4vw;
+    padding: 120px 0;
+    margin-left: 100px;
+    font-weight: normal;
+}
+
+.page-succulentmeal .title > h1 {
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.page-succulentmeal .bold {
+    font-weight: bold;
+}
+
+.page-succulentmeal .ital {
+    font-style: italic;
+}
+
+.page-succulentmeal .shiftLeft {
+    width: 70%;
+}
+
+.page-succulentmeal .cheers {
+    width: 100%;
+}
+
+.page-succulentmeal .recipe {
+    width: 88%;
+}
+
+.page-succulentmeal .textContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-succulentmeal .footer {
+    padding-bottom: 200px;
+}
+
+.page-succulentmeal .blurred {
+    filter: blur(4px);
+}
+
+.page-succulentmeal .occasionally {
+    font-size: 14pt;
+    text-decoration: underline;
+}
+
+.page-succulentmeal .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.page-succulentmeal em {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* OCCASIONALLY */
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page-occasionally {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/db616db4135d2c5709fa.png");
+    background-repeat: repeat;
+    background-size: cover;
+    font-family: 'Merriweather', serif;
+    color: #e8b20f;
+}
+
+.page-occasionally .container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.page-occasionally h1 {
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.page-occasionally .pwField {
+    background-color: transparent;
+    width: 30%;
+    height: 2.5rem;
+    border: 2px solid #a09c9c;
+    font-size: 28pt;
+    color: #e8b20f;
+    margin-bottom: 30px;
+}
+
+.page-occasionally a {
+    padding: 10px 50px;
+    background-color: #a09c9c;
+}
+
+.page-occasionally .CPTAG, .page-occasionally .CFTAG{
+    padding: 0;
+    background-color: unset;
+}
+
+.page-occasionally .floating {
+    text-align: left;
+    position: relative;
+    left: -16%;
+}
+
+.page-occasionally .watching {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 30vw;
+}
+
+.page-occasionally em {
+    font-size: 12pt;
+    color: rgb(82, 82, 82);
+}
+
+</style>
+</head>
+<body>
+<!DOCTYPE HTML>
+<html language="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<title>Succulent!</title>
+	<link rel="stylesheet" href="../Global/reset.css"/>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+<body class="page-succulentmeal">
+    <div class="rowData mediumText ital">
+        <img src="https://wttgiii.peterrock.dev/website-assets/76ec49a9b9a33f37910a.png">
+        <p>If you want to impress your guests, be sure to try <em class="PTAG"></em> this recipe! It’s guaranteed to garner some “ooh”s and “ahhh”s and earn a place for your name atop the lists for any dinner parties afterward!<br><br>
+            It is a bit intensive, but for the home chef looking to display the breadth of their skills, the process will be well worth it.
+            </p>
+        <img src="https://wttgiii.peterrock.dev/website-assets/76ec49a9b9a33f37910a.png">
+    </div>
+
+    <div class="shiftLeft">
+        <div class="title">
+            <h1 class="ital">How to Make: </h1><h1 class="bold">A Succulent Meal<a class="CFTAG">...</a></h1>
+        </div>
+
+        <div class="textContainer padBot">
+            <div class="recipe">
+                <h2 class="bold">Ingredients:</h2>
+                <p>6 slices bacon, cut into small rectangles<br>
+                <em class="PTAG"></em>3 1/2 tablespoons extra-virgin olive oil<br>
+                3 pounds center-cut lamb tenderloin (1 ½ kg), cut into 2-inch chunks<br>
+                1 large parsnip, sliced<br>
+                1 tablespoon butter<br>
+                2 shallots, minced<br>
+                1 large red onion, finely diced<em class="PTAG"></em><br>
+                1 pinch coarse salt and freshly ground pepper<br>
+                2 tablespoons all-purpose flour<br>
+                3 cups white wine like a chardonnay<br>
+                2 ½ to 3 ½  cups lamb stock<br>
+                1 tablespoon anchovy paste<br>
+                2 cloves smashed garlic<br>
+                ½ teaspoon thyme<br>
+                1 crumbled bay leaf<br>
+                18 to 24 small pearl onions<br>
+                <em class="PTAG"></em>3 ½ tablespoons butter<br>
+                1 herb bouquet (4 sprigs parsley, 2 sprigs thyme, 1 bay leaf)<br>
+                1 pound fresh white mushrooms, quartere<br>
+                kosher salt, to taste<br>
+                black pepper, to taste<br>
+                ¼ cup english mustard(60 g)<br>
+                2 lb cremini mushroom<a class="CPTAG">(910 g)</a>, minced<br>
+                5 cloves garlic, minced<br>
+                ½ lb prosciutto(225 g), thinly sliced, or ham<br>
+                2 eggs, beaten</p>
+            </div>
+        </div>
+    </div>
+
+    <img class="cheers" src="https://wttgiii.peterrock.dev/website-assets/f5617a3ac7690bc10b75.png">
+
+    <div class="rowData mediumText bold padBot">
+        <img src="https://wttgiii.peterrock.dev/website-assets/76ec49a9b9a33f37910a.png">
+        <p>Enjoy the cooking process. The fruits of your labor  nourish the body, making those who eat stronger. Feel the power that comes with many hungry mouths depending on your cook. Remember they will eat what you make, but if you cook well they will consume plenty more.
+            </p>
+        <img src="https://wttgiii.peterrock.dev/website-assets/76ec49a9b9a33f37910a.png">
+    </div>
+
+    <div class="textContainer footer">
+        <div class="recipe">
+            <h2 class="bold"><a class="CFTAG">Preparation:</a></h2>
+            <p>Let the lamb tenderloin come to room temperature—season with kosher salt and pepper on all sides.<br><br>
+                Add extra-virgin olive oil to a large pan on high heat. Once the oil is hot, add the bouquet of herbs and chunks of tenderloin. Without moving the tenderloin, cook until a dark brown crust forms, about 3 minutes per side. Repeat searing on all six sides, spooning the herb-infused oil over the chunks occasionally.<br><br>
+                Remove the tenderloin from the pan, transfer <em class="PTAG"></em>it to a cutting board or wire rack, and remove the fat.<br><br>
+                Remove the bouquet of herbs without losing the liquid.<br><br>
+                Brush the mustard on all sides of the meat while it’s still warm. Let the meat rest for a while, making the duxelles (mushrooms cooked and reduced until dry).<br><br>
+                Add the butter, <a class="CPTAG">mushrooms</a>, minced shallot, and minced garlic to the same pan over medium-high heat. Cook, stirring <a onclick="LinkClick('occasionally.html')" class="occasionally bold">occasionally</a>, until all the liquid evaporates and the mushroom mixture becomes a thick 25-30 minutes, dry-like paste—season with salt and pepper to taste.<br><br>
+                Remove the mushrooms from the pan and let cool completely.<br><br>
+                Place a large layer of overlapping sheets of plastic wrap on your work surface twice the length and width of the pile of tenderloin <em class="PTAG"></em> chunks.<br><br>
+                Lay overlapping strips of prosciutto on the plastic into an even square layer.<br><br>
+                Spread a layer of the mushrooms evenly over the prosciutto.<br><br></p>
+                <p class="blurred unselectable">Tightly and evenly wrap the tenderloin with the prosciutto, using plastic wrap to wrap it tighter and seal the ends. Tie the ends of the plastic wrap together to hold the wadded meat’s shape—place in the refrigerator for 15 minutes.<br><br>
+                Preheat oven to 400°F (200°C).<br><br>
+                Place a new layer of plastic wrap on the work surface and lay a sheet of baking paper over it. Unwrap the prosciutto-wrapped lamb wad onto the baking paper, wrapping until the ends meet. Cut off any extra paper, making sure there is no overlap.<br><br>
+                Wrap the baking paper in plastic wrap, tying the ends together to form a log shape—place in the refrigerator for 15 minutes.<br><br>
+                Remove the plastic wrap.<br><br>
+                Place the lamb ball on a greased, parchment paper-lined baking sheet. Brush the surface with the beaten eggs. With a fork, poke holes in the parchment paper.<br><br>
+                Decorate with additional herbs (optional). Sprinkle with kosher salt.<br><br>
+                Bake for 40 minutes or until the baking paper is dark brown and beginning to burn, and the lamb's internal temperature is 135°F (57°C) for medium-rare.<br><br>
+                Share with friends and enjoy!</p>
+            <h2 class="bold" style="text-align: center; position: relative; bottom: 250px; font-size: 24pt; text-shadow: 2px 2px 5px #000000;">Only readers who are subscribed get access to the full post.</h2>
+        </div>
+    </div>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/978642988f9da00d1a0b.ttf") format("truetype");
+    font-weight: 300;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/94cc03a8a668a8657735.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/353c525f8afc461ca621.ttf") format("truetype");
+    font-weight: 700;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/472460969d0882bcfbf2.ttf") format("truetype");
+    font-weight: 800;
+}
+
+body{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/7453eefddaefd982fd27.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Almarai', sans-serif;
+    color: #131a76;
+}
+
+.container {
+    margin: 0 10%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap-middle {
+    width: 85%;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+header .bg {
+    width: 100%;
+    height: 45vh;
+}
+
+p {
+    font-size: 14pt;
+}
+
+.lineBreak {
+    padding: 0;
+    position: absolute;
+    top: 43vh;
+    left: 0;
+    width: 100%;
+}
+
+.title {
+    width: 45%;
+    position: absolute;
+    top: 38%;
+}
+
+nav ul {
+    margin-top: 5%;
+    text-transform: uppercase;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 32pt;
+}
+
+nav ul li {
+    padding: 0 15px;
+}
+
+.top {
+    margin-top: 5%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.top h5 {
+    width: 45%;
+    font-size: 16pt;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bolder {
+    font-weight: bolder;
+}
+
+.thin {
+    font-weight: lighter;
+}
+
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.description {
+    width: 85%;
+}
+
+.description p {
+    margin: 30px 0;
+}
+
+.button {
+    font-size: 32pt;
+    padding: 35px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/7ef8c8379e6c07d66618.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ol li {
+    margin: 15px 0;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.enlightenment-rules {
+    margin: 20px;
+    font-size: 18pt;
+}
+
+.cycle {
+    width: 50vw;
+}
+
+.freedom p {
+    margin: 30px 0;
+}
+
+.foot {
+    margin-bottom: 200px;
+}
+
+.testimonial-pics {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-pics img {
+    margin: 20px;
+}
+
+.break {
+    width: 70vw;
+    height: 30px;
+}
+
+.separator {
+    margin-top: 100px;
+}
+
+.purchase-text {
+    font-size: 18pt;
+}
+
+.notice {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+#notice-img {
+    padding: 5px;
+    min-width: fit-content;
+}
+
+#notice-text {
+    padding: 5px;
+}
+
+.target {
+    width: fit-content;
+    position: relative;
+}
+
+.target a {
+    background-color: transparent;
+    position: absolute;
+}
+
+.A a {
+    width: 25px;
+    height: 25px;
+    bottom: 83px;
+    right: 70px;
+}
+
+.B a {
+    width: 25px;
+    height: 25px;
+    top: 70px;
+    left: 95px;
+}
+
+.C a {
+    width: 40px;
+    height: 35px;
+    top: 80px;
+    left: 120px;
+}
+
+.PTAG {
+    color: #8b89c7;
+    white-space: nowrap;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/978642988f9da00d1a0b.ttf") format("truetype");
+    font-weight: 300;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/94cc03a8a668a8657735.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/353c525f8afc461ca621.ttf") format("truetype");
+    font-weight: 700;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/472460969d0882bcfbf2.ttf") format("truetype");
+    font-weight: 800;
+}
+
+body{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/7453eefddaefd982fd27.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Almarai', sans-serif;
+    color: #131a76;
+}
+
+.container {
+    margin: 0 10%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap-middle {
+    width: 85%;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+header .bg {
+    width: 100%;
+    height: 45vh;
+}
+
+p {
+    font-size: 14pt;
+}
+
+.lineBreak {
+    padding: 0;
+    position: absolute;
+    top: 43vh;
+    left: 0;
+    width: 100%;
+}
+
+.title {
+    width: 45%;
+    position: absolute;
+    top: 38%;
+}
+
+nav ul {
+    margin-top: 5%;
+    text-transform: uppercase;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 32pt;
+}
+
+nav ul li {
+    padding: 0 15px;
+}
+
+.top {
+    margin-top: 5%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.top h5 {
+    width: 45%;
+    font-size: 16pt;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bolder {
+    font-weight: bolder;
+}
+
+.thin {
+    font-weight: lighter;
+}
+
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.description {
+    width: 85%;
+}
+
+.description p {
+    margin: 30px 0;
+}
+
+.button {
+    font-size: 32pt;
+    padding: 35px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/7ef8c8379e6c07d66618.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ol li {
+    margin: 15px 0;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.enlightenment-rules {
+    margin: 20px;
+    font-size: 18pt;
+}
+
+.cycle {
+    width: 50vw;
+}
+
+.freedom p {
+    margin: 30px 0;
+}
+
+.foot {
+    margin-bottom: 200px;
+}
+
+.testimonial-pics {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-pics img {
+    margin: 20px;
+}
+
+.break {
+    width: 70vw;
+    height: 30px;
+}
+
+.separator {
+    margin-top: 100px;
+}
+
+.purchase-text {
+    font-size: 18pt;
+}
+
+.notice {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+#notice-img {
+    padding: 5px;
+    min-width: fit-content;
+}
+
+#notice-text {
+    padding: 5px;
+}
+
+.target {
+    width: fit-content;
+    position: relative;
+}
+
+.target a {
+    background-color: transparent;
+    position: absolute;
+}
+
+.A a {
+    width: 25px;
+    height: 25px;
+    bottom: 83px;
+    right: 70px;
+}
+
+.B a {
+    width: 25px;
+    height: 25px;
+    top: 70px;
+    left: 95px;
+}
+
+.C a {
+    width: 40px;
+    height: 35px;
+    top: 80px;
+    left: 120px;
+}
+
+.PTAG {
+    color: #8b89c7;
+    white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE HTML>
+<html language="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<title>VoluVision</title>
+	<link rel="stylesheet" href="../Global/reset.css"/>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+<body>
+    <header>
+        <img src="https://wttgiii.peterrock.dev/website-assets/aa3007c9068341532c76.png" class="bg">
+        <img src="https://wttgiii.peterrock.dev/website-assets/4411f35080e5b05bdde0.png" class="lineBreak">
+        <img src="https://wttgiii.peterrock.dev/website-assets/79376f46636d5c1d97fe.png" class="title">
+    </header>
+
+    <nav>
+        <ul class="bolder">
+            <li><a onclick="LinkClick('index.html')">home</a></li>
+            <li><a onclick="LinkClick('testimonials.html')">testimonials</a></li>
+            <li><a onclick="LinkClick('purchase.html')">purchase!!!</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section class="top">
+            <h5 class="bold">Welcome spiritual<em class="PTAG"></em> travelers! You are safe here. You are home. Let me welcome you to the final level of your inner being. <br><br>
+            Just like you, I went walking through life with my eyes closed, and I didn’t even realize it until I discovered the power of Voluvision!</h5>
+            <img src="https://wttgiii.peterrock.dev/website-assets/8c3308230f9e76c528b0.png">
+        </section>
+        <section class="description wrap-middle">
+            <p class="pre-wrap">
+                <em class="bold">Voluvision</em> is a simple but highly refined liquid salve for the eyes composed of phytonutrients, microminerals, and nano-crystalline anti-toxins. All it takes is just one drop in each eye after a restful sleep and your consciousness will expand past the confines of your body. Everything you thought you knew will be seen in a new light and the world will open up to you. In short, it’s a detox for the regular human day-to-day perception and notion of reality.<br><br>
+                If everyone could see the very real nature of the world around us, and the connectedness, there would be no more wars, no conflicts over religion and ideology, no more violence and <a class = "CFTAG">cruelty</a>, because the way we are all One can’t be ignored, and all pain and torment we inflict on others will be plainly self-inflicted. Love and truth and balance will become more possible than we ever could have thought.
+            </p>
+        
+            <p class="centered-text thin">“Peace is not as distant a goal as we think.”</p>
+        
+            <p class="pre-wrap">
+                Spiritual leaders in cultures across the world have discovered secrets to existence that modern civilizations could only dream of, and though I am without the lifelong training that often comes with these respected positions as leaders of mind and soul, I give credit and love to them for the inspiration behind what I call ‘Coming Home to Source Reality:’<br>
+                In my very first true experience of unhindered reality, <em class="PTAG"></em>I was charged with the responsibility to deliver this message and method, by beings that can only be described as extra-dimensional, so I have done my best with the platform that has the widest reach possible. 
+            </p>
+       
+            <p class="centered-text thin">
+                “I can’t change the world, but I can at least offer a select few the experience I’ve had in the hopes that I won’t be alone anymore.”
+            </p>
+        </section>
+
+        <a onclick="LinkClick('purchase.html')"><h3 class="bolder button">PURCHASE NOW!</h3></a>
+
+        <section class="wrap-middle">
+            <p>Once you have access to this miracle <a class="CPTAG">substance</a>, it comes with a prescribed<em class="PTAG"></em> method of utilizing it based upon my own firsthand experience. A method which, once followed, has never failed.</p>
+            <br>
+            <p>Waiting may be impossible for some, so to bide your time between an order here and receipt of our salve we offer an avenue with alternative products for sale.</p>
+            <div class="notice">
+                <div id="notice-img">
+                    <img src="https://wttgiii.peterrock.dev/website-assets/024e55ddbe862bc05ce2.png">
+                </div>
+                <div id="notice-text">
+                    <p>#VelvetRoad is that path if you deem it's necessary to take.</p>
+                </div>
+            </div>
+            <h3 class="bolder underlined centered-text enlightenment-rules">Rules for enlightenment.</h3>
+            <ol>
+                <li>It is vital that your environment reflect the level of enlightenment you wish to achieve, while respecting the needs of the incredible but fragile structures of the human brain.</li>
+                <li>Ensure that all lighting is dim and calming, it will appear much brighter once the consciousness opens to the universe.</li><em class="PTAG"></em>
+                <li>Make sure that you are in a safe place, sometimes the hypervision granted by Voluvision supercedes mundane obstacles such as chairs and litter on the ground outside.</li>
+                <li>Set the scene with soothing music at a low volume. My personal favorite is Opening the Chakra Space by yogi Louis ‘leaf brother’ Grant, available on most streaming platforms.</li>
+                <li>Keep some drinking water near at hand, sometimes the experience can leave one feeling quite thirsty afterward.</li>
+                <li>Recline somewhere comfortable where your body can be supported yet relaxed.</li>
+                <li>Embark on the beginning of your new life with love and an open heart.</li>
+            </ol>
+        </section>
+        
+        <div class="target A">
+            <img src="https://wttgiii.peterrock.dev/website-assets/7749ab522f91f715014a.png" />
+            <a class="CFTAG"></a>
+        </div>
+
+        <section class="freedom wrap-middle">
+            <p>
+                Unfortunately, the real freedom of experience can’t fully be conveyed through such a limited platform as the text on a webpage, as the 
+                <em class="bold">Voluvision</em> is a vital component to this ritual.
+            </p>
+            <p>
+                The only downside is that the effects given by <em class="bold">Voluvision</em> are temporary. Once the eyes have been widened to the true soul-affirming beauty 
+                of everything that surrounds and links us, returning to the dulled level of sensory input that was your life before can seem like a de-evolution 
+                of the <a class="CPTAG">freed mind</a>. Don’t worry, though, <em class="bold">Voluvision</em> is safe to use as often as you need with virtually zero negative side effects.</p>
+            <p>
+                Don’t just take my word for it, check out our <a class="underlined bold" onclick="LinkClick('testimonials.html')">TESTIMONIALS</a> for consciousness surfers, <em class="PTAG"></em>just like you!
+            </p>
+        </section>
+
+        <a class="foot" onclick="LinkClick('purchase.html')"><h3 class="bolder button">PURCHASE NOW!</h3></a>
+    </div>
+</body>
+</body>
+</html>

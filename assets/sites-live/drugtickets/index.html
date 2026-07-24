@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Cardo-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/618b2a4db94db3f59eed.ttf");
+}
+@font-face {
+    font-family: Lato-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/d7f0b7f2570f2f28b504.ttf");
+}
+@font-face {
+    font-family: Lato-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/3be26bf6973f49df6a7d.ttf");
+}
+@font-face {
+    font-family: Lato-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/e82542aed8293f49fc83.ttf");
+}
+*{
+    margin: 0;
+    font-family: Lato-Regular;
+}
+
+body{
+    background-color: #73819D;
+}
+
+header > img{
+    display: block;
+    height: 100px;
+}
+
+header{
+    display: flex;
+    width: 900px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+header > h1{
+    font-size: 3em;
+    font-family: Cardo-Regular;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+main{
+    display: block;
+    width: 820px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+p{
+    font-size: 1.1em;
+}
+
+#notice{
+    font-family: Lato-Italic;
+    background-color: white;
+    padding: 4px;
+    text-align: center;
+}
+
+h3{
+    margin-top: 40px;
+    font-family: Lato-Bold;
+    font-weight: bold;
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+#themap{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    height: auto;
+    width: auto;
+}
+
+small{
+    display: block;
+    font-family: Lato-Italic;
+    margin-top: 20px;
+}
+
+.pads{
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    width: 650px;
+}
+
+.pads > small{
+    margin-top: 0;
+}
+
+.pads > h4{
+    font-family: Lato-Bold;
+}
+
+.pads > img, .pads > h4, .pads > small{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.2em;
+}
+.pads > h4{
+    margin-left: 10px;
+}
+.order{
+    display: block;
+    margin-left: 60px;
+    margin-top: 5px;
+}
+.pads > img{
+    float:left;
+}
+
+.pads > .order > label{
+    display: inline-block;
+    font-family: Lato-Italic;
+    margin-top: 5px;
+    font-size: 1.1em;
+}
+
+input[type=number]{
+    background: url("https://wttgiii.peterrock.dev/website-assets/8c3cc5116bbc5f9d078c.png");
+    width: 60px;
+    height: 22px;
+    background-repeat: no-repeat;
+    display: inline;
+    text-align: right;
+    color: white;
+}
+hr {
+    display: inline-block;
+    width: 300px;
+    background: black;
+    height: 1px;
+    margin-left: 15px;
+    vertical-align: middle;
+    z-index: 1;
+}
+
+.order > a {
+    display: inline-block;
+    background: url("https://wttgiii.peterrock.dev/website-assets/6b0ffc4a69142f438ac6.png");
+    width: 82px;
+    height: 33px;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.proceedinfo{
+    zoom: 1.2;
+    display: flex;
+    margin: auto;
+    width: 800px;
+    height: 56px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/44f7778619b5ac6d6fb7.png");
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.proceedinfo > input {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/9a909e821cc95b2e2855.png");
+    height: 38px;
+    width: 240px;
+    font-family: Lato-Bold;
+    padding-left: 15px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.proceedinfo > a{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/ce30eaf7c57212dda760.png");
+    display: block;
+    width: 200px;
+    height: 40px;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Cardo-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/618b2a4db94db3f59eed.ttf");
+}
+@font-face {
+    font-family: Lato-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/d7f0b7f2570f2f28b504.ttf");
+}
+@font-face {
+    font-family: Lato-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/3be26bf6973f49df6a7d.ttf");
+}
+@font-face {
+    font-family: Lato-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/e82542aed8293f49fc83.ttf");
+}
+*{
+    margin: 0;
+    font-family: Lato-Regular;
+}
+
+body{
+    background-color: #73819D;
+}
+
+header > img{
+    display: block;
+    height: 100px;
+}
+
+header{
+    display: flex;
+    width: 900px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+header > h1{
+    font-size: 3em;
+    font-family: Cardo-Regular;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+main{
+    display: block;
+    width: 820px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+p{
+    font-size: 1.1em;
+}
+
+#notice{
+    font-family: Lato-Italic;
+    background-color: white;
+    padding: 4px;
+    text-align: center;
+}
+
+h3{
+    margin-top: 40px;
+    font-family: Lato-Bold;
+    font-weight: bold;
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+#themap{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    height: auto;
+    width: auto;
+}
+
+small{
+    display: block;
+    font-family: Lato-Italic;
+    margin-top: 20px;
+}
+
+.pads{
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    width: 650px;
+}
+
+.pads > small{
+    margin-top: 0;
+}
+
+.pads > h4{
+    font-family: Lato-Bold;
+}
+
+.pads > img, .pads > h4, .pads > small{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.2em;
+}
+.pads > h4{
+    margin-left: 10px;
+}
+.order{
+    display: block;
+    margin-left: 60px;
+    margin-top: 5px;
+}
+.pads > img{
+    float:left;
+}
+
+.pads > .order > label{
+    display: inline-block;
+    font-family: Lato-Italic;
+    margin-top: 5px;
+    font-size: 1.1em;
+}
+
+input[type=number]{
+    background: url("https://wttgiii.peterrock.dev/website-assets/8c3cc5116bbc5f9d078c.png");
+    width: 60px;
+    height: 22px;
+    background-repeat: no-repeat;
+    display: inline;
+    text-align: right;
+    color: white;
+}
+hr {
+    display: inline-block;
+    width: 300px;
+    background: black;
+    height: 1px;
+    margin-left: 15px;
+    vertical-align: middle;
+    z-index: 1;
+}
+
+.order > a {
+    display: inline-block;
+    background: url("https://wttgiii.peterrock.dev/website-assets/6b0ffc4a69142f438ac6.png");
+    width: 82px;
+    height: 33px;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.proceedinfo{
+    zoom: 1.2;
+    display: flex;
+    margin: auto;
+    width: 800px;
+    height: 56px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/44f7778619b5ac6d6fb7.png");
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.proceedinfo > input {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/9a909e821cc95b2e2855.png");
+    height: 38px;
+    width: 240px;
+    font-family: Lato-Bold;
+    padding-left: 15px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.proceedinfo > a{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/ce30eaf7c57212dda760.png");
+    display: block;
+    width: 200px;
+    height: 40px;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    vertical-align: middle;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <title>Drug Tickets</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+<body>
+    <header>
+        <img src="https://wttgiii.peterrock.dev/website-assets/59260e33e34a98ef0040.png" alt="Logo">
+        <h1>Drug Tickets</h1>
+    </header>
+
+    <main>
+        <p>
+            Tired of having to track down a good supplier for your drug needs? Looking to <a class="CFTAG">re-up</a> on a more consistent basis? How about knowing for sure that your hard earned cash is going towards what you truly desire?
+        </p><br>
+        <p>
+            If you said yes to any of the above then cut out the <a class="CPTAG">middleman</a> <em class="PTAG text-dark"></em> and go directly to a pharmacy to pick-up your drugs. Get the quantity you need with a frequency that matches your usage.
+        </p><br>
+        <p>
+            Want more? Simply order extra and share to others, or <a class="CFTAG">sell</a> them yourself and quickly make your money back.
+        </p><br>
+        <p id="notice">
+            Only looking to order drugs? Connect with dealers via ACRS channel #VelvetRoad. 24/7 access
+        </p>
+        <h3>Available prescription pads by US <a class="CFTAG">State</a></h3>
+        
+        <em class="PTAG text-dark" style="position: absolute; margin-left: 280px; margin-top: 107px; color: rgb(198, 198, 8)"></em>
+        <img id="themap" src="https://wttgiii.peterrock.dev/website-assets/ae4f1621ea897459e52a.png" alt="map">
+
+        <small>
+            Notice: Controlled substances have more stringent laws in certain states, so be wary when ordering a prescription pad if you do not currently reside in the state it is originating from and plan on using it for that reason.
+        </small>
+        <small>
+            Prescriptions are only valid inside the USA and US territories (Puerto <a class="CPTAG">Rico</a>, U.S. Virgin Islands, American Samoa, Guam, Northern Mariana Islands)<em class="PTAG text-dark"></em>
+        </small>
+        <div class="pads">
+            <img src="https://wttgiii.peterrock.dev/website-assets/8ab16013ef7ddd192a23.png" alt="Pill Bottle">
+            <h4>Missouri</h4>
+            <small>(total prescription pads available 48)</small><br>
+            <div class="order">
+                <span>-29 prescription pads for sale | 40 prescription sheets on each | 84 DOSCoin/pad</span><br>
+                <label for="numberSize">Quantity:</label>
+                <input type="number" min="1" max="29" name="quantity" id="numberSize" oninput="(!validity.rangeOverflow||(value=29)) && (!validity.rangeUnderflow||(value=1)) &&
+                (!validity.stepMismatch||(value=parseInt(this.value)));" placeholder="# -----">
+                <hr>
+                <a onClick="if(document.getElementById('numberSize').value != 0) LinkClick('checkout.html')" class="active"></a><br>
+                <span>-19 prescription pads for sale | 40 prescription sheets on each | 77 DOSCoin/pad</span><br>
+                <label for="numberSize1">Quantity:</label>
+                <input type="number" min="1" max="19" name="quantity" id="numberSize1" oninput="(!validity.rangeOverflow||(value=19)) && (!validity.rangeUnderflow||(value=1)) &&
+                (!validity.stepMismatch||(value=parseInt(this.value)));" placeholder="# -----">
+                <hr>
+                <a onClick="if(document.getElementById('numberSize1').value != 0) LinkClick('checkout.html')" class="active"></a><br>
+            </div>
+        </div>
+
+        <div class="pads">
+            <img src="https://wttgiii.peterrock.dev/website-assets/8ab16013ef7ddd192a23.png" alt="Pill Bottle">
+            <h4>Wyoming</h4>
+            <small>(total prescription pads available 108)</small><br>
+            <div class="order">
+                <span>-35 prescription pads for sale | 40 prescription sheets on each | 44 DOSCoin/pad</span><br>
+                <label for="numberSize2">Quantity:</label>
+                <input type="number" min="1" max="35" name="quantity" id="numberSize2" oninput="(!validity.rangeOverflow||(value=35)) && (!validity.rangeUnderflow||(value=1)) &&
+                (!validity.stepMismatch||(value=parseInt(this.value)));" placeholder="# -----">
+                <hr>
+                <a onClick="if(document.getElementById('numberSize2').value != 0) LinkClick('checkout.html')" class="active"></a><br>
+                <span>-52 prescription pads for sale | 40 prescription sheets on each | 43 DOSCoin/pad</span><br>
+                <label for="numberSize3">Quantity:</label>
+                <input type="number" min="1" max="52" name="quantity" id="numberSize3" oninput="(!validity.rangeOverflow||(value=52)) && (!validity.rangeUnderflow||(value=1)) &&
+                (!validity.stepMismatch||(value=parseInt(this.value)));" placeholder="# -----">
+                <hr>
+                <a onClick="if(document.getElementById('numberSize3').value != 0) LinkClick('checkout.html')" class="active"></a><br>
+                <span>-21 prescription pads for sale | 40 prescription sheets on each | 37 DOSCoin/pad</span><br>
+                <label for="numberSize4">Quantity:</label>
+                <input type="number" min="1" max="21" name="quantity" id="numberSize4" oninput="(!validity.rangeOverflow||(value=21)) && (!validity.rangeUnderflow||(value=1)) &&
+                (!validity.stepMismatch||(value=parseInt(this.value)));" placeholder="# -----">
+                <hr>
+                <a onClick="if(document.getElementById('numberSize4').value != 0) LinkClick('checkout.html')" class="active"></a><br>
+            </div>
+        </div>
+        <div class="pads">
+            <img src="https://wttgiii.peterrock.dev/website-assets/8ab16013ef7ddd192a23.png" alt="Pill Bottle">
+            <h4>Georgia</h4>
+            <small>(total prescription pads <a class="CPTAG">available</a> 22)</small><br>
+            <div class="order">
+                <span>-16 prescription pads for sale | 50 prescription sheets on each | 91 DOSCoin/pad</span><br>
+                <label for="numberSize5">Quantity:</label>
+                <input type="number" min="1" max="16" name="quantity" id="numberSize5" oninput="(!validity.rangeOverflow||(value=16)) && (!validity.rangeUnderflow||(value=1)) &&
+                (!validity.stepMismatch||(value=parseInt(this.value)));" placeholder="# -----">
+                <hr>
+                <a onClick="if(document.getElementById('numberSize5').value != 0) LinkClick('checkout.html')" class="active"></a><br>
+                <span>-6 prescription pads for sale | 50 prescription sheets on each | 100 DOSCoin/pad</span><br>
+                <label for="numberSize6">Quantity:</label>
+                <input type="number" min="1" max="6" name="quantity" id="numberSize6" oninput="(!validity.rangeOverflow||(value=6)) && (!validity.rangeUnderflow||(value=1)) &&
+                (!validity.stepMismatch||(value=parseInt(this.value)));" placeholder="# -----">
+                <hr>
+                <a onClick="if(document.getElementById('numberSize6').value != 0) LinkClick('checkout.html')" class="active"></a><br>
+            </div>
+        </div>
+
+        <div class="pads">
+            <img src="https://wttgiii.peterrock.dev/website-assets/8ab16013ef7ddd192a23.png" alt="Pill Bottle">
+            <h4>West Virginia</h4>
+            <small>(total prescription pads available 94)</small><br>
+            <div class="order">
+                <span>-94 prescription pads for sale | 30 prescription sheets on each | 56 DOSCoin/pad</span><br>
+                <label for="numberSize7">Quantity:</label>
+                <input type="number" min="1" max="94" name="quantity" id="numberSize7" oninput="(!validity.rangeOverflow||(value=94)) && (!validity.rangeUnderflow||(value=1)) &&
+                (!validity.stepMismatch||(value=parseInt(this.value)));" placeholder="# -----">
+                <hr>
+                <a onClick="if(document.getElementById('numberSize7').value != 0) LinkClick('checkout.html')" class="active"></a><br><em class="PTAG text-dark" style="font-size: 0.8em; margin-top: -10px; position: absolute;"></em>
+            </div>
+        </div><br><br><br>
+    </main>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "World Wide Workers",
+  "domain": "worldwideworkers",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "index",
+      "file": "index.html"
+    },
+    {
+      "id": "about",
+      "title": "About",
+      "file": "about.html"
+    },
+    {
+      "id": "submit",
+      "title": "Submit",
+      "file": "submit.html"
+    }
+  ]
+}

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>No Content</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+
+@font-face {
+	font-family: Cardo-Regular;
+	src: url("https://wttgiii.peterrock.dev/website-assets/618b2a4db94db3f59eed.ttf");
+}
+
+body {
+	overflow: hidden;
+	background-color: black;
+	color: white;
+	font-family: Cardo-Regular;
+}
+
+
+#noContent {
+	position: static;
+	right: 0;
+	bottom: 0;
+	margin:auto;
+	z-index: 0;
+	transform: translate(-18%, 0);
+}
+
+.message {
+	position: absolute;
+	top:100px;
+	left: 120px;
+	bottom: 0;
+	text-align: left;
+	z-index: 2;
+}
+
+h3 {
+	color: white;
+	text-align: left;
+	font-size: 26pt;
+	z-index: -1;
+}
+
+video {
+	left: 400px;
+}
+
+.PTAG.inner{
+	font-family: Cardo-Regular, sans-serif;
+	color: #2A48B2;
+	font-size: 14pt;
+	transform: translate(500px,-296px);
+	position: absolute;
+}
+
+.PTAG.stat{
+	font-family: Cardo-Regular, sans-serif;
+	color: #4874EB;
+	font-size: 14pt;
+	position: absolute;
+	transform: translate(280px,-200px);
+	writing-mode: vertical-rl;
+	/*z-index: 3;*/
+}
+
+/*
+.PTAG.shadow {
+	color: #1A1A1A;
+	font-size: 14pt;
+	writing-mode: vertical-rl;
+	filter: blur(0.75px);
+	transform: translate(400px, 240px);
+}
+*/
+
+.PTAG.FOUR {
+	font-family: Cardo-Regular, sans-serif;
+	color: #3AA0AF;
+	/*color: white;*/
+	font-size: 13pt;
+	/*zoom: 0.8;*/
+	position: absolute;
+	/*transform: translate(1060px, -960px);*/
+	transform: translate(860px, -120px);
+	z-index: 3;
+}
+
+/* index changes */
+
+h1 {
+	
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+
+@font-face {
+	font-family: Cardo-Regular;
+	src: url("https://wttgiii.peterrock.dev/website-assets/618b2a4db94db3f59eed.ttf");
+}
+
+body {
+	overflow: hidden;
+	background-color: black;
+	color: white;
+	font-family: Cardo-Regular;
+}
+
+
+#noContent {
+	position: static;
+	right: 0;
+	bottom: 0;
+	margin:auto;
+	z-index: 0;
+	transform: translate(-18%, 0);
+}
+
+.message {
+	position: absolute;
+	top:100px;
+	left: 120px;
+	bottom: 0;
+	text-align: left;
+	z-index: 2;
+}
+
+h3 {
+	color: white;
+	text-align: left;
+	font-size: 26pt;
+	z-index: -1;
+}
+
+video {
+	left: 400px;
+}
+
+.PTAG.inner{
+	font-family: Cardo-Regular, sans-serif;
+	color: #2A48B2;
+	font-size: 14pt;
+	transform: translate(500px,-296px);
+	position: absolute;
+}
+
+.PTAG.stat{
+	font-family: Cardo-Regular, sans-serif;
+	color: #4874EB;
+	font-size: 14pt;
+	position: absolute;
+	transform: translate(280px,-200px);
+	writing-mode: vertical-rl;
+	/*z-index: 3;*/
+}
+
+/*
+.PTAG.shadow {
+	color: #1A1A1A;
+	font-size: 14pt;
+	writing-mode: vertical-rl;
+	filter: blur(0.75px);
+	transform: translate(400px, 240px);
+}
+*/
+
+.PTAG.FOUR {
+	font-family: Cardo-Regular, sans-serif;
+	color: #3AA0AF;
+	/*color: white;*/
+	font-size: 13pt;
+	/*zoom: 0.8;*/
+	position: absolute;
+	/*transform: translate(1060px, -960px);*/
+	transform: translate(860px, -120px);
+	z-index: 3;
+}
+
+/* index changes */
+
+h1 {
+	
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../Global/Basic.js"></script>
+  <link rel="stylesheet" href="../Global/reset.css">
+  <link rel="stylesheet" href="style.css">
+    <title>TOO LATE!</title>
+</head>
+<body>
+    <video autoplay muted loop id="noContent">
+      <source src="https://wttgiii.peterrock.dev/website-assets/e20d98dc7184298fce2e.webm" type="video/webm">
+    </video>
+    <div class="message">
+      <h3> content <br />
+            <a class = "CPTAG CFTAG">no</a> <br />
+            <a class = "CPTAG CFTAG">longer</a> <br />
+            <a class = "CPTAG CFTAG">available</a> <br />
+             <a class = "CPTAG CFTAG">you’ll</a> need to be <a class = "CPTAG CFTAG">quicker</a> next <a class = "CPTAG CFTAG">time</a>...
+           </h3>
+<!--
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=----@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ *-:@@@@@@@@@@@@%::==...@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+@@@@@@@- =*.@@@@@@@#:..@.++=++   @@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=+++@@@@@@@  .:@...-@=:. .:+* ++* ..=@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@++***@@@@@@@:*:@@-+.*@#*   .***.*+. ..@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@=::::..*@=+***+%@@@@@@@@@@@+# .=.+.*..-*.**....:@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@.:.-----=--+****###@@@:. =@@@@=. *=...*..   .*....-@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@%-=--=-==-==#*#*@@@@@@:. ..:@@@@@@@@...++     .:...-@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@*--+==#++===%#%#%#@@@:==*. .:@@@@@@@:. +=.    .+*.:..@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@==++*%#++=+#%%*#*@@-++++....===.@@@@-..-@.... **:=+.=@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@=+#-#*+++++=%@%*=@@:**.**. .=**+:@@@@@@@.*.....-=***-@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@===+#*+++==*#%++++@:**-:* **= :.-@@@@@@@ .*.%+@@@  -@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@==+=*#+**+=++++#+=@:.*   +*#+.*.@@@@@@@@.  .@@@@@@-@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@***+**++=+=++*+**@@.  . ..-@@@@@  *.@@@@-:@@@@@-:.=@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@+=%+++*+**+*#%+==@@--..:.:*@@@@@  *-@@@@@@@@@@:**-=.@@@==-@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@==#++++++**#@+===@....*==.:-@@@@....@@@@*@@@@ .*=+* :@ *+.@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@+=@%++**+##@@+==+...****+==:-@@@=..-@-:....:@  ..** .@. :.@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%++#+*+*@@*===.  ****+=--.:@@@@@@:.+=---..   **...@::+: @@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@=%+-+**#**@@+=-=   ***.=+==..-@@@@-.**++*+..:.   ..-@@@. .-@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@*==+-%%##+@@*==*   .=..++++=..@@@@.#**.++*.....+*.-@@@@. :.@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@===+-+***@@--><em class="PTAG inner"></em><!--..@@@-.-=*-..:@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@====+-*++@@==*=    .***+*+ ..@@@.  .. **....=.  **+--+ @@=-:...-@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@-=-+=*-+*@@-===    =***....  ::--     *....:+.  .:+  ..@-.:=- .. =@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=====*-+@@-=+..   .**...... -....     -. .-+. .**+= *:..=-=++ ...@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=-===++:@-=+=...  .........:=* ...   +**..=%.+.*** @@=.++++**....:@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@+-===+++--=+=...++*+  .....=++.......+**-=@@** .. .-@ -*#.+++....:@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=-=+++++--@@-..++**. ...:-*+*...:...-.::::-::....@.:.***.***....:=@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@====**+#**@@@-:****.--><em class="PTAG FOUR"></em><!--+**.:**....:=@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-===***#@@-@@@--##...:-=.   . **--  ++=--=- ..- #.@@..+*..**   .:=@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-=-+#*#@@@@-@@@@=----=#@.    .*#-:.****++++:.. **@@@.     . +++.:@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@===+##@@@@@@=@@@@@@@@@@@@. ....-:.#***.++**+ ...@@@@..      +**.-@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-+=+==@@@@@@@@=@@@@@@@@@@@@:..:@-..****.*++** ...%@@@@.      +**-@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@+==*+=++@@@@@@@@@+@@@@@@@@@@ .@@@@...***#.**+*.....=@@-:.  .....+:=@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@+=+++--++@@@@@@@@@@*@@@@@@@@ *+.@@@ .  *...***......-@:.*+-.....:-@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@#==+*#++**=@@@@@@@@@@#@@@@@@@  ..@@@..    ..***......- .**.++:::+@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@%%=++#@+++*@@@@@@@@@@@%%@@@@@.+.:@@@.       **......:=  *#.+* .@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@%%%@@@+++=@@@@@@@@@@@@@+@@@@@*%@@@@..      ...  ...:=.  .**...=@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@%#%@@@*++-@@@@@@@@@@@@@@=@@@@...@@@@  .    .*+. ..:-@.   *....+@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@*%%@@@+*@@@@@@@@@@@@@@@%=@@.*++.@@@...    ++*+...:=@:.  *...:@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%@@@*#++@@@@@@@@@@@@%%#%:...:.......... ++***.:=@@@..+*+.:=@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@@@%#%#%@@@@@@@@@@@%%##-.  *= =**=.....+***.:=@@@@@:.#=:=@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@--><em class="PTAG stat"></em><!--@@@%@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ .%.**.*..  ***:.#-----= *+.@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.*@@.-@=-.. +....@@: :-@  ..@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:.+:...@@@.  =@.+ :@@@@@@@@@@@@@@@@@@@@@@@
+-->
+   </div>
+  </body>
+</html>
+
+</body>
+</html>

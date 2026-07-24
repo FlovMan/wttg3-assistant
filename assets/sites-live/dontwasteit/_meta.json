@@ -1,0 +1,29 @@
+{
+  "name": "Don't Waste It",
+  "domain": "dontwasteit",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "holdit",
+      "title": "Hold It",
+      "file": "holdit.html"
+    },
+    {
+      "id": "no",
+      "title": "No",
+      "file": "no.html"
+    },
+    {
+      "id": "yes",
+      "title": "Yes",
+      "file": "yes.html"
+    }
+  ]
+}

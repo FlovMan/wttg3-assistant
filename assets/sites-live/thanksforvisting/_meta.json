@@ -1,0 +1,74 @@
+{
+  "name": "Thanks For Visiting!",
+  "domain": "thanksforvisting",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "bar",
+      "title": "Bar",
+      "file": "bar.html"
+    },
+    {
+      "id": "connected",
+      "title": "Connected",
+      "file": "connected.html"
+    },
+    {
+      "id": "creepy",
+      "title": "Creepy",
+      "file": "creepy.html"
+    },
+    {
+      "id": "fakemain",
+      "title": "Fake Main",
+      "file": "fakemain.html"
+    },
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "jolly",
+      "title": "Jolly",
+      "file": "jolly.html"
+    },
+    {
+      "id": "plug",
+      "title": "Plug",
+      "file": "plug.html"
+    },
+    {
+      "id": "portal",
+      "title": "Portal",
+      "file": "portal.html"
+    },
+    {
+      "id": "sleeptalk",
+      "title": "Sleep Talk",
+      "file": "sleeptalk.html"
+    },
+    {
+      "id": "slide2",
+      "title": "Slide2",
+      "file": "slide2.html"
+    },
+    {
+      "id": "smile",
+      "title": "Smile",
+      "file": "smile.html"
+    },
+    {
+      "id": "ulike",
+      "title": "ulike",
+      "file": "ulike.html"
+    },
+    {
+      "id": "vision",
+      "title": "Vision",
+      "file": "vision.html"
+    }
+  ]
+}

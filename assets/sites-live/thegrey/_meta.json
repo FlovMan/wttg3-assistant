@@ -1,0 +1,34 @@
+{
+  "name": "The Grey",
+  "domain": "thegrey",
+  "availability": "SECOND_HALF",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "inanis",
+      "title": "Inanis",
+      "file": "inanis.html"
+    },
+    {
+      "id": "centrum",
+      "title": "Centrum",
+      "file": "centrum.html"
+    },
+    {
+      "id": "interius",
+      "title": "Interius",
+      "file": "interius.html"
+    },
+    {
+      "id": "latus",
+      "title": "Latus",
+      "file": "latus.html"
+    }
+  ]
+}

@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saved</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: disc;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    color: #F0E2C8;
+    background-color: #990000;
+    font-family: Arial;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a,
+a:focus,
+a:hover,
+a:visited {
+    color: #ffeb3b;
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+
+a.CTAG,
+a.CTAG:focus,
+a.CTAG:visited,
+a.CTAG:hover{
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    color: #e6dac9;
+    font-size: 24px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+    max-width: 800px;
+    text-indent: 1em;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+#header {
+    background-color: #E6DAC9;
+    border-bottom: 18px solid #CBA985;
+    min-height: 20px;
+}
+
+#content {
+    text-align: start;
+    padding: 30px 40px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+#content div {
+    margin: 0 auto;
+}
+
+.compact {
+    max-width: 800px;
+}
+
+.compact .PTAG::before {
+    content: '•';
+    position: relative;
+    right: 1.05em;
+
+}
+
+.PTAG.compact:empty {
+    display: none;
+}
+
+
+.compact li {
+    font-size: 16px;
+    color: #F0E2C8;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 1px #F0E2C8, 0 0 2px #F0E2C8;
+  }
+  
+  to {
+    text-shadow: 0 0 2px #F0E2C8, 0 0 6px #ffff66;
+  }
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 1px #F0E2C8, 0 0 2px #F0E2C8;
+  }
+  
+  to {
+    text-shadow: 0 0 2px #F0E2C8, 0 0 6px #ffff66;
+  }
+}
+
+.compact li:hover {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.compact em:hover {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+#glow-link {
+    transition: 0.2s all ease-in-out;
+}
+
+#glow-link:hover {
+    text-shadow: 0 0 6px #F0E2C8, 0 0 12px #ffff66;
+}
+
+.text-quote {
+    color: #eee9e6;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 15%;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 50px;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+    display: inline-block;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: disc;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    color: #F0E2C8;
+    background-color: #990000;
+    font-family: Arial;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a,
+a:focus,
+a:hover,
+a:visited {
+    color: #ffeb3b;
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+
+a.CTAG,
+a.CTAG:focus,
+a.CTAG:visited,
+a.CTAG:hover{
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    color: #e6dac9;
+    font-size: 24px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+    max-width: 800px;
+    text-indent: 1em;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+#header {
+    background-color: #E6DAC9;
+    border-bottom: 18px solid #CBA985;
+    min-height: 20px;
+}
+
+#content {
+    text-align: start;
+    padding: 30px 40px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+#content div {
+    margin: 0 auto;
+}
+
+.compact {
+    max-width: 800px;
+}
+
+.compact .PTAG::before {
+    content: '•';
+    position: relative;
+    right: 1.05em;
+
+}
+
+.PTAG.compact:empty {
+    display: none;
+}
+
+
+.compact li {
+    font-size: 16px;
+    color: #F0E2C8;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 1px #F0E2C8, 0 0 2px #F0E2C8;
+  }
+  
+  to {
+    text-shadow: 0 0 2px #F0E2C8, 0 0 6px #ffff66;
+  }
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 1px #F0E2C8, 0 0 2px #F0E2C8;
+  }
+  
+  to {
+    text-shadow: 0 0 2px #F0E2C8, 0 0 6px #ffff66;
+  }
+}
+
+.compact li:hover {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.compact em:hover {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+#glow-link {
+    transition: 0.2s all ease-in-out;
+}
+
+#glow-link:hover {
+    text-shadow: 0 0 6px #F0E2C8, 0 0 12px #ffff66;
+}
+
+.text-quote {
+    color: #eee9e6;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 15%;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 50px;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+    display: inline-block;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+</style>
+</head>
+<body>
+<!Doctype HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<meta name="description" content="">
+		<title>The Light Within</title>
+		<link rel="stylesheet" href="../Global/reset.css">
+		<link rel="stylesheet" href="style.css">
+		<script language="javascript" type="text/javascript" src="../Global/Basic.js"></script>
+	</head>
+	<body id="page">
+		<div id="header"></div>
+		<div id="content">
+			<h1 class="text-center text-underline mb">SAVED <em class="PTAG"></em> SOULS</h1>
+			<p class="text-center"> Gone from these women is the dark work of <a class="CPTAG">Satan</a>. Live reborn of my seed.
+				<br>There is still much work to be done. </p>
+			<div class="compact">
+				<ul class="pull-left">
+					<li> Rebecca L. </li>
+					<li> <a class="CFTAG">Aiyana C.</a> </li>
+					<li> Ivy C. </li>
+					<li> Krista M. </li>
+					<li> Reagan T. </li>
+					<li> Karla F. </li>
+					<li> Cristina W. </li>
+					<li> <a class="CPTAG">Danielle D.</a> </li>
+					<li> Lilianna P. </li>
+					<li> Tori Y. </li>
+					<li> Kaylah S. </li>
+					<li> Scarlet E. </li>
+					<li> Celia K. </li>
+					<li> Jordan V. </li>
+					<li> Margaret C. </li>
+					<li> Abigail C. </li>
+					<li> Cristal C. </li>
+					<li> Lara S. </li>
+					<li> Kennedi H. </li>
+					<li> Alex B. </li>
+					<li> Amber T. </li>
+					<li> Lydia H. </li>
+					<li> <a class="CFTAG">Norah S.</a> </li>
+					<li> Angela E. </li>
+					<li> Bridget N. </li>
+					<li> Amira T. </li>
+					<li> Ashley A. </li>
+					<li> Megan F. </li>
+					<li> Olivia U. </li>
+				</ul>
+				<ul class="pull-left pl">
+					<li> Veronica B. </li>
+					<li> Monica U. </li>
+					<li> Makayla D. </li>
+					<li> Dayana P. </li>
+					<li> Gina R. </li>
+					<li> Joy E. </li>
+					<li> Nina H. </li>
+					<li> Jaden S. </li>
+					<li> Erica F. </li>
+					<li> <a class="CPTAG">Emily I.</a> </li>
+					<li> Kinsley O. </li>
+					<li> Aisha T. </li>
+					<li> Sarah G. </li>
+					<li> Tarah H. </li>
+					<li> Lillie P. </li>
+					<li> Sadie D. </li>
+					<li> Karli B. </li>
+					<li> Kelly A. </li>
+					<li> Makena F. </li>
+					<li> Parker N. </li>
+					<li> <a class="CFTAG">Jordyn C.</a> </li>
+					<li> Alyson U. </li>
+					<li> Brook D. </li>
+					<li> Ada I. </li>
+					<li> Julie S. </li>
+					<em class="PTAG compact"></em>
+					<li> Carley D. </li>
+					<li> Violet N. </li>
+					<li> Ciara E. </li>
+					<li> Desirae T. </li>
+				</ul>
+				<ul class="pull-left pl">
+					<li> Kaitlynn B. </li>
+					<li> Zoe P. </li>
+					<li> Briana C. </li>
+					<li> <a class="CPTAG">Kaydence J.</a> </li>
+					<li> Nathalie R. </li>
+					<li> Cynthia E. </li>
+					<li> Abigayle J. </li>
+					<li> Tania H. </li>
+					<li> Britney H. </li>
+					<li> Jennifer P. </li>
+					<li> Madison L. </li>
+					<li> Kendall B. </li>
+					<li> Heather O. </li>
+					<li> Shamika J. </li>
+					<li> <a class="CFTAG">Keisha A.</a> </li>
+					<li> Tara D. </li>
+					<li> Shawna J. </li>
+					<li> Sabrina R. </li>
+					<li> Crystal B. </li>
+					<li> DaRhonda G. </li>
+					<li> Aubrey G. </li>
+					<li> Phoebe L. </li>
+					<li> Alisha H. </li>
+					<li> Sherry M. </li>
+					<li> <a class="CPTAG">Monica R.</a> </li>
+					<li> Monique S. </li>
+					<li> Christina W. </li>
+					<li> <a class="CFTAG">Yolanda M.</a> </li>
+					<li> Lauren I. </li>
+					<em class="PTAG compact"></em>
+				</ul>
+				<img src="https://wttgiii.peterrock.dev/website-assets/09faafec979f21c34c65.jpg" class="pull-right" width="234">
+			</div>
+			<h1 class="text-center mb mt pull-left">Pray that you and I cross future paths. Only those who <em class="PTAG"></em> wish for salvation will find it</h1>
+		</div>
+	</body>
+</html>
+</body>
+</html>

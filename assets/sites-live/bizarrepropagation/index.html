@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/362ac4d010b3997bfca6.png");
+  background-repeat: no-repeat;
+  background-size:  cover;
+  background-color: black;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  min-height: fit-content;
+}
+
+#header {
+  width: fit-content;
+  height: 100px;
+  margin: 50px;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  max-height: 600px;
+  height: 100%;
+  padding: 0 50px;
+}
+
+#container button {
+  position: absolute;
+  cursor: pointer;
+}
+
+p {
+  font-family: Arial;
+  color: white;
+  font-weight: 900;
+  font-size: 24px;
+  text-shadow: 3px 3px black;
+}
+
+button#play {
+  margin: 0 0 0 0;
+  border: 0;
+  background: inherit;
+  cursor: pointer;
+  outline: none;
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/711ee3ad50b9ddabfe1c.png");
+  background-repeat: no-repeat;
+  width: 113px;
+  height: 65px;
+  border: none;
+  z-index: 2;
+}
+
+button#stop {
+  margin: 0 0 0 20px;
+  border: 0;
+  background: inherit;
+  cursor: pointer;
+  outline: none;
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/dcbe226e830042ef2ab3.png");
+  background-repeat: no-repeat;
+  width: 113px;
+  height: 65px;
+  border: none;
+  z-index: 2;
+}
+
+#bizAudio1 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/152725b23ee1fdd3357b.png");
+  width: 45px;
+  height: 36px;
+  border: none;
+  top: 10%;
+  left: 35%;
+}
+
+#bizAudio99 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/62f08415435888a77d97.png");
+  width: 57px;
+  height: 46px;
+  border: none;
+  top: 13%;
+  left: 7%;
+}
+
+#bizAudio419 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/f723aaa3118c082d0eec.png");
+  width: 38px;
+  height: 31px;
+  border: none;
+  top: 35%;
+  left: 7%;
+}
+
+#bizAudio8 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/9c512fd5bb72ae449963.png");
+  width: 47px;
+  height: 38px;
+  border: none;
+  top: 30%;
+  left: 20%;
+}
+
+#bizAudio311 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/9c512fd5bb72ae449963.png");
+  width: 47px;
+  height: 38px;
+  border: none;
+  top: 20%;
+  left: 50%;
+}
+
+#bizAudio76 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/21c7f2562bf5dae16c3c.png");
+  width: 32px;
+  height: 26px;
+  border: none;
+  top: 33%;
+  left: 32%;
+}
+
+#bizAudio808 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/ab331a991b5ec6e0152c.png");
+  width: 50px;
+  height: 41px;
+  border: none;
+  bottom: 20%;
+  right: 40%;
+}
+
+#bizAudio000 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/5bc3c6d19bc5072af164.png");
+  width: 24px;
+  height: 20px;
+  border: none;
+  bottom: 15%;
+  left: 10%;
+}
+
+#bizAudio16 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/74d91dccf86ee953dff2.png");
+  width: 23px;
+  height: 19px;
+  border: none;
+  bottom: 5%;
+  left: 55%;
+}
+
+#cross {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  top: 20%;
+  right: 20%;
+  position: absolute;
+}
+
+#wash {
+  position: absolute;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  top: 10px;
+  right: 50px;
+}
+
+#daisy {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  position: fixed;
+  bottom: 20px;
+  left: 15px;
+}
+
+.PTAG {
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-shadow: 5px 5px 5px #000;
+    white-space: nowrap;
+}
+
+#fake-button {
+  position: absolute;
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/ab331a991b5ec6e0152c.png");
+  background-size: cover;
+  width: 45px;
+  height: 37px;
+  border: none;
+  bottom: 35%;
+  right: 25%;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/362ac4d010b3997bfca6.png");
+  background-repeat: no-repeat;
+  background-size:  cover;
+  background-color: black;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  min-height: fit-content;
+}
+
+#header {
+  width: fit-content;
+  height: 100px;
+  margin: 50px;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  max-height: 600px;
+  height: 100%;
+  padding: 0 50px;
+}
+
+#container button {
+  position: absolute;
+  cursor: pointer;
+}
+
+p {
+  font-family: Arial;
+  color: white;
+  font-weight: 900;
+  font-size: 24px;
+  text-shadow: 3px 3px black;
+}
+
+button#play {
+  margin: 0 0 0 0;
+  border: 0;
+  background: inherit;
+  cursor: pointer;
+  outline: none;
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/711ee3ad50b9ddabfe1c.png");
+  background-repeat: no-repeat;
+  width: 113px;
+  height: 65px;
+  border: none;
+  z-index: 2;
+}
+
+button#stop {
+  margin: 0 0 0 20px;
+  border: 0;
+  background: inherit;
+  cursor: pointer;
+  outline: none;
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/dcbe226e830042ef2ab3.png");
+  background-repeat: no-repeat;
+  width: 113px;
+  height: 65px;
+  border: none;
+  z-index: 2;
+}
+
+#bizAudio1 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/152725b23ee1fdd3357b.png");
+  width: 45px;
+  height: 36px;
+  border: none;
+  top: 10%;
+  left: 35%;
+}
+
+#bizAudio99 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/62f08415435888a77d97.png");
+  width: 57px;
+  height: 46px;
+  border: none;
+  top: 13%;
+  left: 7%;
+}
+
+#bizAudio419 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/f723aaa3118c082d0eec.png");
+  width: 38px;
+  height: 31px;
+  border: none;
+  top: 35%;
+  left: 7%;
+}
+
+#bizAudio8 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/9c512fd5bb72ae449963.png");
+  width: 47px;
+  height: 38px;
+  border: none;
+  top: 30%;
+  left: 20%;
+}
+
+#bizAudio311 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/9c512fd5bb72ae449963.png");
+  width: 47px;
+  height: 38px;
+  border: none;
+  top: 20%;
+  left: 50%;
+}
+
+#bizAudio76 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/21c7f2562bf5dae16c3c.png");
+  width: 32px;
+  height: 26px;
+  border: none;
+  top: 33%;
+  left: 32%;
+}
+
+#bizAudio808 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/ab331a991b5ec6e0152c.png");
+  width: 50px;
+  height: 41px;
+  border: none;
+  bottom: 20%;
+  right: 40%;
+}
+
+#bizAudio000 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/5bc3c6d19bc5072af164.png");
+  width: 24px;
+  height: 20px;
+  border: none;
+  bottom: 15%;
+  left: 10%;
+}
+
+#bizAudio16 {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/74d91dccf86ee953dff2.png");
+  width: 23px;
+  height: 19px;
+  border: none;
+  bottom: 5%;
+  left: 55%;
+}
+
+#cross {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  top: 20%;
+  right: 20%;
+  position: absolute;
+}
+
+#wash {
+  position: absolute;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  top: 10px;
+  right: 50px;
+}
+
+#daisy {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  position: fixed;
+  bottom: 20px;
+  left: 15px;
+}
+
+.PTAG {
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-shadow: 5px 5px 5px #000;
+    white-space: nowrap;
+}
+
+#fake-button {
+  position: absolute;
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/ab331a991b5ec6e0152c.png");
+  background-size: cover;
+  width: 45px;
+  height: 37px;
+  border: none;
+  bottom: 35%;
+  right: 25%;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <link rel="stylesheet" href="style.css">
+	<title>Bizarre Propagation</title>
+</head>
+<body>
+	<div id="header">
+		<a class="CFTAG"><p id="selection">Select sound</p></a>
+		<button id="play" onclick="playTrack()" type="button"></button>
+		<button id="stop" onclick="stopTrack()" type="button"></button>
+	</div>
+
+	<div id="container">
+		<button id="bizAudio1" onclick="selectAudio(this)" type="button"></button>
+		<button id="bizAudio99" onclick="selectAudio(this)" type="button"></button>
+		<button id="bizAudio419" onclick="selectAudio(this)" type="button"></button>
+		<button id="bizAudio8" onclick="selectAudio(this)" type="button"></button>
+		<button id="bizAudio311" onclick="selectAudio(this)" type="button"></button>
+		<button id="bizAudio76" onclick="selectAudio(this)" type="button"></button>
+		<button id="bizAudio808" onclick="selectAudio(this)" type="button"></button>
+		<button id="bizAudio000" onclick="selectAudio(this)" type="button"></button>
+		<button id="bizAudio16" onclick="selectAudio(this)" type="button"></button>
+
+		<em class="PTAG" id="cross"></em>
+		
+		<a class="CPTAG">
+			<div id="fake-button"></div>
+		</a>
+	</div>
+	<em class="PTAG" id="wash"></em>
+	<em class="PTAG" id="daisy"></em>
+	<script type="text/javascript" src="audioPlay.js"></script>
+</body>
+</html>
+</body>
+</html>

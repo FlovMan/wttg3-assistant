@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+:root {
+    --lightPink: #eae5eb;
+    --darkPink: #7d5e73;
+    --lightGreen: #c7d3c5;
+    --darkGreen: #587461;
+}
+
+@font-face {
+    font-family: WSExtraBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/a56bbcf7772ef55c1b69.ttf");
+}
+
+@font-face {
+    font-family: WSSemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/cf7ae8d55dd1927fbaaf.ttf");
+}
+
+@font-face {
+    font-family: WSRegular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/1b94e0d8ca23cc01c51d.ttf");
+}
+
+* {
+    margin: auto;
+    color: black;
+}
+
+body {
+    position: relative;
+    background-color: var(--darkPink);
+}
+
+header {
+    width: 100%;
+    min-width: 960px;
+    height: 100px;
+    background-color: var(--lightGreen);
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/ce557f0650323465ac0b.png");
+    background-repeat: no-repeat;
+    line-height: 15px;
+}
+
+header h2 {
+    font-family: WSExtraBold;
+    font-size: 3em;
+    padding-top: 22px;
+    margin-left: 55px;
+}
+
+header p {
+    font-family: WSSemiBold;
+    font-size: 0.75em;
+    margin-top: 8px;
+    margin-left: 55px;
+}
+
+main {
+    font-family: WSRegular;
+    background-color: var(--lightPink);
+    width: 800px;
+    padding: 50px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    zoom: 1.2;
+}
+
+main h2 {
+    margin-left: 10px;
+}
+.columns {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    flex-direction: row;
+    align-content: flex-start;
+    padding-top: 20px;
+    gap: 40px;
+}
+
+.line {
+    display: block;
+    flex-shrink: 0;
+    min-width: 5px;
+    width: 5px;
+    height: 90px;
+    background-color: var(--darkPink);
+}
+
+.lineHor {
+    width: 100%;
+    height: 5px;
+    margin: 30px 0px;
+}
+
+.height870 {
+    height: 870px;
+}
+
+.width45 {
+    width: 45%;
+}
+
+.textCenter {
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.textExtraBold {
+    font-family: WSExtraBold;
+}
+
+.textBold {
+    font-family: WSSemiBold;
+}
+
+b {
+    font-size: 110%;
+}
+
+.mainHeader {
+    font-family: WSSemiBold;
+}
+
+section {
+    margin-top: 0px;
+}
+
+section p{
+    margin-top: 20px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    align-content: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.button {
+    display: block;
+    width: 210px;
+    height: auto;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--darkGreen);
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.greenBlock {
+    display: block;
+    width: fit-content;
+    height: auto;
+    text-align: center;
+    background-color: var(--darkGreen);
+    padding: 10px 15px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.greenBlock p {
+    margin-top: 0;
+}
+
+footer a {
+    font-family: WSExtraBold;
+    font-size: 1.2em;
+    text-decoration: none;
+    text-align: center;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+:root {
+    --lightPink: #eae5eb;
+    --darkPink: #7d5e73;
+    --lightGreen: #c7d3c5;
+    --darkGreen: #587461;
+}
+
+@font-face {
+    font-family: WSExtraBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/a56bbcf7772ef55c1b69.ttf");
+}
+
+@font-face {
+    font-family: WSSemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/cf7ae8d55dd1927fbaaf.ttf");
+}
+
+@font-face {
+    font-family: WSRegular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/1b94e0d8ca23cc01c51d.ttf");
+}
+
+* {
+    margin: auto;
+    color: black;
+}
+
+body {
+    position: relative;
+    background-color: var(--darkPink);
+}
+
+header {
+    width: 100%;
+    min-width: 960px;
+    height: 100px;
+    background-color: var(--lightGreen);
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/ce557f0650323465ac0b.png");
+    background-repeat: no-repeat;
+    line-height: 15px;
+}
+
+header h2 {
+    font-family: WSExtraBold;
+    font-size: 3em;
+    padding-top: 22px;
+    margin-left: 55px;
+}
+
+header p {
+    font-family: WSSemiBold;
+    font-size: 0.75em;
+    margin-top: 8px;
+    margin-left: 55px;
+}
+
+main {
+    font-family: WSRegular;
+    background-color: var(--lightPink);
+    width: 800px;
+    padding: 50px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    zoom: 1.2;
+}
+
+main h2 {
+    margin-left: 10px;
+}
+.columns {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    flex-direction: row;
+    align-content: flex-start;
+    padding-top: 20px;
+    gap: 40px;
+}
+
+.line {
+    display: block;
+    flex-shrink: 0;
+    min-width: 5px;
+    width: 5px;
+    height: 90px;
+    background-color: var(--darkPink);
+}
+
+.lineHor {
+    width: 100%;
+    height: 5px;
+    margin: 30px 0px;
+}
+
+.height870 {
+    height: 870px;
+}
+
+.width45 {
+    width: 45%;
+}
+
+.textCenter {
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.textExtraBold {
+    font-family: WSExtraBold;
+}
+
+.textBold {
+    font-family: WSSemiBold;
+}
+
+b {
+    font-size: 110%;
+}
+
+.mainHeader {
+    font-family: WSSemiBold;
+}
+
+section {
+    margin-top: 0px;
+}
+
+section p{
+    margin-top: 20px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    align-content: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.button {
+    display: block;
+    width: 210px;
+    height: auto;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--darkGreen);
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.greenBlock {
+    display: block;
+    width: fit-content;
+    height: auto;
+    text-align: center;
+    background-color: var(--darkGreen);
+    padding: 10px 15px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.greenBlock p {
+    margin-top: 0;
+}
+
+footer a {
+    font-family: WSExtraBold;
+    font-size: 1.2em;
+    text-decoration: none;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <title>CavityLease</title>
+</head>
+<body>
+    <header>
+        <h2>CAVITY LEASE</h2>
+        <p>Sign up as a <a class="CFTAG">Transporter</a> or a <a class="CPTAG">Sender</a> in a one-stop-marketplace<br/> for mules and those that need them.</p>
+        <em class="PTAG text-dark" style="position: absolute; top: 0; right: 0; margin-top: 5px; margin-right: 5px; font-size: 1em; color: azure;"></em>
+    </header>
+    <main>
+        <div class="columns">
+            <p class="width45">Got something small you need transported? Want to escape legal scrutiny and superficial pat downs? Get all you need in one place and find the <a class="CFTAG">right</a> transporter for you! <em class="PTAG text-dark"></em></p>
+            <span class="line"></span>
+            <p class="width45">Looking for work? Got a hole or two free? That's all you need to get paid to transport valuable goods in small quantities using nothing but what your mamma gave you.</p>
+        </div>
+
+        <p class="textCenter">
+            <b>Find a listing you can fulfill? Want to hire a Transporter?</b><br/> 
+            Send a message to CavityLease@oig891fa05nj0l33<a class="CPTAG">.ann</a> with the listing title for more information.
+        </p>
+
+        <div class="columns">
+            <section class="width45">
+                <h2>Browse Sender Listings</h2>
+                <p><span class="mainHeader">High volume shipment, multiple transporters needed:</span><br/> Need a transporter and four friends to take small packages of <a class="CFTAG">pills</a> from Florida to New Jersey, bonus pay for speed</p>
+                <p><span class="mainHeader">Regular transportation needed:</span><br/> Willing to pay a flat high rate for transporter willing to work many jobs this summer, loyalty and trust highly valued for a well-protected organization</p>
+                <p><span class="mainHeader">Transporter needed for two small packages:</span><br/> Fragile microchips <em class="PTAG text-dark"></em> needed for transport between UK and Germany, packages must be kept separate and sealed inside anti-static material</p>
+                <p><span class="mainHeader">High-capacity transporter needed:</span><br/> One medium-sized package (cylindrical, about the size of an average coffee cup minus handle) suitable for a well-trained cavity (not for amateurs!!) transported over the northern border to Canada</p>
+                <p><span class="mainHeader">Fast and discreet transport needed:</span><br/> Bonus pay for speed, shipment includes 3 small baggies of powder and a sealed container of small flash drives</p>
+                <p><span class="mainHeader">Small parcel to be shipped:</span><br/> 1 small flat parcel (business card-sized) to be moved to Texas from Mexico</p>
+            </section>
+            <span class="line height870"></span>
+            <section class="width45">
+                <h2>Browse <a class="CPTAG">Transporter</a> Listings</h2>
+                <p><span class="mainHeader">Male - 1 cavity</span><br/> Extra spacious bodily cavity for lease, very clean and well-clenched transporter with loads of experience carrying loads, frequently cross state lines</p>
+                <p><span class="mainHeader">Female - 2 cavities</span><br/> cavities Licensed interstate truck driver ex-con on parole, extra safe due to regular superficial check-ins that always pass scrutiny, no one will look twice after getting the thumbs up from my P.O.</p>
+                <p><span class="mainHeader">Female - 1 cavity</span><br/> cavity International flight attendant with great turnaround, location depends on where the job takes me but I've flown everywhere while working just tell me what you need and I'll communicate my schedule</p>
+                <p><span class="mainHeader">Male - 2 cavities</span><br/> cavities Surgically implanted transport is an option with me for an extra <a class="CPTAG">fee</a>, I'm a pharmaceutical <em class="PTAG text-dark"></em> drug rep that frequently crosses the border in Mexico, special relationship with border patrol due to family ties</p>
+                <p><span class="mainHeader">Male - 1 cavity</span><br/> Lots of experience vomiting, so with the right container I can swallow multiple small packages for short-term transport, no toxic substances please</p>
+                <p><span class="mainHeader">Female - 1 cavity</span><br/> cavity Mule with one glass eye, I own a hollow glass eye with RFID blocking material on the inside for small highly sensitive packages</p>
+            </section>
+        </div>
+        <footer>
+            <a class="button" onClick="LinkClick('submit.html')" class="active">REQUEST<br/> TRANSPORT</a>
+            <a class="button" onClick="LinkClick('submit.html')" class="active">SUBMIT<br/> SENDER DETAILS</a>
+        </footer>
+        <em class="PTAG text-dark" style="position: absolute; bottom: 0; left: 0; rotate: 90deg; margin-left: 5px; font-size: 0.8em; color: rgb(103, 32, 170);"></em>
+    </main>
+</body>
+</html>
+</body>
+</html>

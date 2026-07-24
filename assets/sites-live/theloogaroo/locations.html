@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Locations</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: 'Trajan Pro';
+    src: url("https://wttgiii.peterrock.dev/website-assets/c30c4f0c2efbfaf4c063.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+body {
+    position: relative;
+    color: white;
+    background: black;
+    font-size: x-large;
+    line-height: 1.2;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.relative {
+    display: inline-block;
+    position: relative;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 10px;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 50px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-large {
+    font-size: 48px;
+}
+
+.text-medium {
+    font-size: 32px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-blueish {
+    color: rgb(179, 197, 206);
+}
+
+.text-red {
+    color: red;
+}
+
+.clearfix {
+    clear: both;
+    display: inline-block;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+#top {
+    border-bottom: 10px solid #031116;
+}
+
+#container {
+    margin: 0 auto;
+    width: 70%;
+    max-width: 900px;
+}
+
+.map-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flex-column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-start;
+    margin: 5px;
+}
+
+.column-left {
+    width: 55%;
+}
+
+.column-right {
+    width: 45%;
+}
+
+.flex-column img {
+    max-height: 700px;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    align-self: flex-start;
+    user-select: none;
+}
+
+#image-2 {
+    width: 95%;
+    margin-left: 5%;
+    margin-bottom: 5px;
+}
+
+#MAP-TAG {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 8px;
+    color: black;
+    font-size: 0.8em;
+}
+
+#BODY-TAG {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 16px;
+    color: grey;
+    font-size: 0.8em;
+}
+
+h1 {
+    font-family: 'Trajan Pro';
+}
+
+#altar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: 'Trajan Pro';
+    src: url("https://wttgiii.peterrock.dev/website-assets/c30c4f0c2efbfaf4c063.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+body {
+    position: relative;
+    color: white;
+    background: black;
+    font-size: x-large;
+    line-height: 1.2;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.relative {
+    display: inline-block;
+    position: relative;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 10px;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 50px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-large {
+    font-size: 48px;
+}
+
+.text-medium {
+    font-size: 32px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-blueish {
+    color: rgb(179, 197, 206);
+}
+
+.text-red {
+    color: red;
+}
+
+.clearfix {
+    clear: both;
+    display: inline-block;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+#top {
+    border-bottom: 10px solid #031116;
+}
+
+#container {
+    margin: 0 auto;
+    width: 70%;
+    max-width: 900px;
+}
+
+.map-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flex-column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-start;
+    margin: 5px;
+}
+
+.column-left {
+    width: 55%;
+}
+
+.column-right {
+    width: 45%;
+}
+
+.flex-column img {
+    max-height: 700px;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    align-self: flex-start;
+    user-select: none;
+}
+
+#image-2 {
+    width: 95%;
+    margin-left: 5%;
+    margin-bottom: 5px;
+}
+
+#MAP-TAG {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 8px;
+    color: black;
+    font-size: 0.8em;
+}
+
+#BODY-TAG {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 16px;
+    color: grey;
+    font-size: 0.8em;
+}
+
+h1 {
+    font-family: 'Trajan Pro';
+}
+
+#altar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Loogaroo</title>
+        <script type="text/javascript" src="../Global/Basic.js"></script>
+        <link rel="stylesheet" href="../Global/reset.css"/>
+        <link rel="stylesheet" href="style.css" type="text/css">   
+    </head>
+
+    <body>
+        <div id="top" class="mb">
+            <img src="https://wttgiii.peterrock.dev/website-assets/1bf683d0934f47c65d01.png" width="100%">
+        </div>
+        <div id="container">
+            <h1 class="text-center text-blueish mb"><a class="CPTAG">Mother</a> yearns for <em class="PTAG"></em> sacrifices in these locations</h1>
+            
+            <div class="map-container mb">
+                <div class="flex-column column-left">
+                    <em id="MAP-TAG" class="PTAG"></em>
+                    <img src="https://wttgiii.peterrock.dev/website-assets/16e72328b05ac3f11bbc.jpeg">
+                </div>
+                <div class="flex-column column-right">
+                    <a class="CFTAG"><img id="image-2" src="https://wttgiii.peterrock.dev/website-assets/e89e8d41169f3e0fb778.jpeg"></a>
+                    <img id="image-3" src="https://wttgiii.peterrock.dev/website-assets/05e9ecc1d41d1f6f8888.jpeg">
+                </div>
+            </div>
+
+            <h1 class="text-center text-blueish text-italic mt mb">Become family by bringing living <a class="CPTAG">BLOOD</a></h1>
+            <p class="text-center text-blueish">Contact us for information before delivering a <a class="CFTAG">sacrifice</a> to any of the above locations</p>
+            <p class="text-center text-red text-strong">give@ksv43hv98q2qllnvaa240990dda.ann</p>
+            <em id="BODY-TAG" class="PTAG"></em>
+        </div>
+    </body>
+</html>
+</body>
+</html>

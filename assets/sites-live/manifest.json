@@ -1,0 +1,1003 @@
+{
+  "Bizarre Propagation": {
+    "slug": "bizarrepropagation",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/bizarrepropagation/index.html",
+        "note": "For some reason \"select sound\" did not show as red or have highlights, but its clickable"
+      }
+    ]
+  },
+  "Blackhat Post": {
+    "slug": "blackhatpost",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/blackhatpost/index.html"
+      },
+      {
+        "id": "submit",
+        "title": "Submit",
+        "html": "assets/sites-live/blackhatpost/submit.html"
+      }
+    ]
+  },
+  "Blushing Brides": {
+    "slug": "blushingbrides",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/blushingbrides/index.html"
+      },
+      {
+        "id": "join",
+        "title": "Join",
+        "html": "assets/sites-live/blushingbrides/join.html"
+      },
+      {
+        "id": "samples",
+        "title": "Samples",
+        "html": "assets/sites-live/blushingbrides/samples.html",
+        "note": "MOST BOTTOM RIGHT PREVIEW IMAGE OF THE BRIDES"
+      }
+    ]
+  },
+  "Building A Future": {
+    "slug": "buildingafuture",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/buildingafuture/index.html",
+        "note": "LOGO OF BUILDING A FUTURE. IMAGE OF CONSTRUCTION IN \"Invest in the future\" SECTION"
+      },
+      {
+        "id": "invest",
+        "title": "Invest",
+        "html": "assets/sites-live/buildingafuture/invest.html",
+        "note": "IMAGE OF THE MAN WITH TRANSPARENT BACKGROUND"
+      }
+    ]
+  },
+  "Cavity Lease": {
+    "slug": "cavitylease",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/cavitylease/index.html"
+      },
+      {
+        "id": "submit",
+        "title": "Submit",
+        "html": "assets/sites-live/cavitylease/submit.html"
+      }
+    ]
+  },
+  "Chevron": {
+    "slug": "chevron",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/chevron/index.html"
+      }
+    ]
+  },
+  "Crisis Calls": {
+    "slug": "crisiscalls",
+    "mode": "live",
+    "note": "Background color changed to green due to blue text",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/crisiscalls/index.html",
+        "note": "BONUS WHEEL SPIN IMAGE"
+      },
+      {
+        "id": "account",
+        "title": "Account",
+        "html": "assets/sites-live/crisiscalls/account.html",
+        "note": "HEADER IMAGE IS CLICKABLE"
+      },
+      {
+        "id": "resetpassword",
+        "title": "Reset Password",
+        "html": "assets/sites-live/crisiscalls/resetpassword.html",
+        "note": "HEADER IMAGE IS CLICKABLE"
+      }
+    ]
+  },
+  "Crystal Guild": {
+    "slug": "crystalguild",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/crystalguild/index.html"
+      },
+      {
+        "id": "welcome",
+        "title": "Welcome",
+        "html": "assets/sites-live/crystalguild/welcome.html"
+      }
+    ]
+  },
+  "Doctor Murder": {
+    "slug": "doctormurder",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/doctormurder/index.html",
+        "note": "EACH OF THE FOUR DASHES IN THE CROSSHAIR-ISH FORMATION OF THE DOCTOR MURDER LOGO ARE CLICKABLE"
+      }
+    ]
+  },
+  "Don't Waste It": {
+    "slug": "dontwasteit",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/dontwasteit/index.html"
+      },
+      {
+        "id": "holdit",
+        "title": "Hold It",
+        "html": "assets/sites-live/dontwasteit/holdit.html"
+      },
+      {
+        "id": "no",
+        "title": "No",
+        "html": "assets/sites-live/dontwasteit/no.html"
+      },
+      {
+        "id": "yes",
+        "title": "Yes",
+        "html": "assets/sites-live/dontwasteit/yes.html"
+      }
+    ]
+  },
+  "Doughy": {
+    "slug": "doughy",
+    "mode": "live",
+    "note": "The big logo that says \"Doughy\" is the only click spot. No screenshots.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/doughy/index.html"
+      }
+    ]
+  },
+  "Drug Tickets": {
+    "slug": "drugtickets",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/drugtickets/index.html"
+      },
+      {
+        "id": "checkout",
+        "title": "Checkout",
+        "html": "assets/sites-live/drugtickets/checkout.html"
+      },
+      {
+        "id": "error",
+        "title": "Error",
+        "html": "assets/sites-live/drugtickets/error.html"
+      }
+    ]
+  },
+  "Eat My Shit": {
+    "slug": "ems",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/ems/index.html"
+      },
+      {
+        "id": "faq",
+        "title": "FAQ",
+        "html": "assets/sites-live/ems/faq.html"
+      },
+      {
+        "id": "questions",
+        "title": "Questions",
+        "html": "assets/sites-live/ems/questions.html"
+      },
+      {
+        "id": "secret",
+        "title": "Secret",
+        "html": "assets/sites-live/ems/secret.html"
+      }
+    ]
+  },
+  "Encrave": {
+    "slug": "encrave",
+    "mode": "live",
+    "note": "Text recoloring and underlining did NOT work. LOOK ONLY FOR BLUE HIGHLIGHTS.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/encrave/index.html"
+      },
+      {
+        "id": "gateopen",
+        "title": "Gateopen",
+        "html": "assets/sites-live/encrave/gateopen.html",
+        "note": "THE IMAGE OF THE LADY CAN BE CLICKED"
+      },
+      {
+        "id": "evident",
+        "title": "Evident",
+        "html": "assets/sites-live/encrave/evident.html"
+      }
+    ]
+  },
+  "finalStanding": {
+    "slug": "finalstanding",
+    "mode": "live",
+    "note": "Custom scrolling makes click spots annoying to show. Prefer timestamps to figure out which one to click.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/finalstanding/index.html"
+      }
+    ]
+  },
+  "FindLove": {
+    "slug": "findlove",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/findlove/index.html"
+      }
+    ]
+  },
+  "Forever Friend": {
+    "slug": "foreverfriend",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/foreverfriend/index.html",
+        "note": "THE LEFT IMAGE OF A DOCTOR HOLDING 2 PETS CAN BE CLICKED"
+      },
+      {
+        "id": "order",
+        "title": "Order",
+        "html": "assets/sites-live/foreverfriend/order.html"
+      }
+    ]
+  },
+  "Forsaken Gifts": {
+    "slug": "forsakengifts",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/forsakengifts/index.html"
+      },
+      {
+        "id": "gifts",
+        "title": "Gifts",
+        "html": "assets/sites-live/forsakengifts/gifts.html",
+        "note": "THE PICTURE OF THE JACKSON DOLL CAN BE CLICKED"
+      },
+      {
+        "id": "order",
+        "title": "Order",
+        "html": "assets/sites-live/forsakengifts/order.html"
+      }
+    ]
+  },
+  "I Am Here": {
+    "slug": "iamhere",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/iamhere/index.html"
+      }
+    ]
+  },
+  "Jakobs Sink": {
+    "slug": "jakobssink",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/jakobssink/index.html"
+      }
+    ]
+  },
+  "Keep Sake": {
+    "slug": "keepsake",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": " Index",
+        "html": "assets/sites-live/keepsake/index.html",
+        "note": "EVERY PICTURE IN THE INDEX (except the left-most one of the \"WHAT I DO\" section) IS CLICKABLE"
+      },
+      {
+        "id": "thesearch",
+        "title": "The Search",
+        "html": "assets/sites-live/keepsake/thesearch.html"
+      },
+      {
+        "id": "contact",
+        "title": "Contact",
+        "html": "assets/sites-live/keepsake/contact.html",
+        "note": "THE PICTURE IN THE SHIPMENT SECTION IS CLICKABLE"
+      }
+    ]
+  },
+  "Kill For Me": {
+    "slug": "killforme",
+    "mode": "live",
+    "note": "Text recoloring and underlining does not work. Use highlight.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/killforme/index.html"
+      },
+      {
+        "id": "instructions",
+        "title": "Instructions",
+        "html": "assets/sites-live/killforme/instructions.html"
+      },
+      {
+        "id": "targets",
+        "title": "Target",
+        "html": "assets/sites-live/killforme/targets.html",
+        "note": "$39,000 REWARD POST IMAGE IS CLICKABLE. $23,300 REWARD POST IMAGE IS CLICKABLE"
+      }
+    ]
+  },
+  "Lab Monkey": {
+    "slug": "labmonkey",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/labmonkey/index.html"
+      },
+      {
+        "id": "catalog",
+        "title": "Catalog",
+        "html": "assets/sites-live/labmonkey/catalog.html"
+      },
+      {
+        "id": "sign-in",
+        "title": "Sign In",
+        "html": "assets/sites-live/labmonkey/sign-in.html"
+      },
+      {
+        "id": "error",
+        "title": "Error",
+        "html": "assets/sites-live/labmonkey/error.html"
+      }
+    ]
+  },
+  "LostTapes": {
+    "slug": "losttapes",
+    "mode": "live",
+    "note": "Some tape pictures are clickable — check if the picture is upside down.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/losttapes/index.html"
+      },
+      {
+        "id": "page2",
+        "title": "Page2",
+        "html": "assets/sites-live/losttapes/page2.html"
+      },
+      {
+        "id": "purchase",
+        "title": "Purchase",
+        "html": "assets/sites-live/losttapes/purchase.html"
+      }
+    ]
+  },
+  "MamaBruguglio": {
+    "slug": "mamabruguglio",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/mamabruguglio/index.html"
+      }
+    ]
+  },
+  "Mors N More Market": {
+    "slug": "morsnmoremarket",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/morsnmoremarket/index.html"
+      },
+      {
+        "id": "menu",
+        "title": "Menu",
+        "html": "assets/sites-live/morsnmoremarket/menu.html"
+      },
+      {
+        "id": "order",
+        "title": "Order",
+        "html": "assets/sites-live/morsnmoremarket/order.html"
+      },
+      {
+        "id": "ordersent",
+        "title": "Order Sent",
+        "html": "assets/sites-live/morsnmoremarket/ordersent.html"
+      }
+    ]
+  },
+  "Oneless": {
+    "slug": "oneless",
+    "mode": "live",
+    "note": "Only the gif and the image reading \"Less\" can be clicked on this page.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/oneless/index.html"
+      }
+    ]
+  },
+  "Order Of Nine": {
+    "slug": "orderofnine",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/orderofnine/index.html",
+        "note": "Picture under \"The Order Of Nine Angels\" is clickable. Bottom-left picture is clickable. Both demons on the left and right are clickable."
+      },
+      {
+        "id": "join",
+        "title": "Join",
+        "html": "assets/sites-live/orderofnine/join.html",
+        "note": "THE RIGHT HAND CAN BE CLICKED"
+      }
+    ]
+  },
+  "Overnight Success": {
+    "slug": "overnightsuccess",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/overnightsuccess/index.html"
+      },
+      {
+        "id": "purchase",
+        "title": "Purchase",
+        "html": "assets/sites-live/overnightsuccess/purchase.html"
+      }
+    ]
+  },
+  "Prohibited Stockpile": {
+    "slug": "prohibitedstockpile",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/prohibitedstockpile/index.html"
+      },
+      {
+        "id": "nocontent",
+        "title": "No Content",
+        "html": "assets/sites-live/prohibitedstockpile/nocontent.html"
+      }
+    ]
+  },
+  "Red Handed": {
+    "slug": "redhanded",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/redhanded/index.html"
+      },
+      {
+        "id": "login",
+        "title": "Login",
+        "html": "assets/sites-live/redhanded/login.html"
+      },
+      {
+        "id": "post1",
+        "title": "Post 1",
+        "html": "assets/sites-live/redhanded/post1.html"
+      },
+      {
+        "id": "post2",
+        "title": "Post 2",
+        "html": "assets/sites-live/redhanded/post2.html"
+      },
+      {
+        "id": "post4",
+        "title": "Post 4",
+        "html": "assets/sites-live/redhanded/post4.html"
+      },
+      {
+        "id": "post6",
+        "title": "Post 6",
+        "html": "assets/sites-live/redhanded/post6.html"
+      }
+    ]
+  },
+  "Red Triangle": {
+    "slug": "redtriangle",
+    "mode": "live",
+    "note": "The \"III\" behind the right picture is also clickable.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/redtriangle/index.html"
+      }
+    ]
+  },
+  "Ring Ring": {
+    "slug": "ringring",
+    "mode": "live",
+    "note": "Green text highlight for easier readability.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/ringring/index.html"
+      },
+      {
+        "id": "answer",
+        "title": "Answer",
+        "html": "assets/sites-live/ringring/answer.html"
+      }
+    ]
+  },
+  "Shelter": {
+    "slug": "shelter",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/shelter/index.html"
+      },
+      {
+        "id": "events",
+        "title": "Events",
+        "html": "assets/sites-live/shelter/events.html"
+      },
+      {
+        "id": "donate",
+        "title": "Donate",
+        "html": "assets/sites-live/shelter/donate.html"
+      }
+    ]
+  },
+  "Symphoros Chosen": {
+    "slug": "symphoroschosen",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/symphoroschosen/index.html"
+      },
+      {
+        "id": "sendlinks",
+        "title": "Send Links",
+        "html": "assets/sites-live/symphoroschosen/sendlinks.html",
+        "note": "The white bar is clickable."
+      },
+      {
+        "id": "live",
+        "title": "Live",
+        "html": "assets/sites-live/symphoroschosen/live.html"
+      }
+    ]
+  },
+  "Synapse Decay": {
+    "slug": "synapsedecay",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/synapsedecay/index.html"
+      },
+      {
+        "id": "getmoney",
+        "title": "Get Money",
+        "html": "assets/sites-live/synapsedecay/getmoney.html"
+      },
+      {
+        "id": "myfriends",
+        "title": "My Friends",
+        "html": "assets/sites-live/synapsedecay/myfriends.html"
+      },
+      {
+        "id": "occasionally",
+        "title": "Cccasionally",
+        "html": "assets/sites-live/synapsedecay/occasionally.html",
+        "note": "Succulent and Meal are different clickables. The bottom left picture is clickable."
+      },
+      {
+        "id": "succulentmeal",
+        "title": "Succulentmeal",
+        "html": "assets/sites-live/synapsedecay/succulentmeal.html"
+      }
+    ]
+  },
+  "Tango Down": {
+    "slug": "tangodown",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "index",
+        "html": "assets/sites-live/tangodown/index.html",
+        "note": "Every picture under \"The Results\" is clickable."
+      },
+      {
+        "id": "hire",
+        "title": "Hire",
+        "html": "assets/sites-live/tangodown/hire.html"
+      },
+      {
+        "id": "payment",
+        "title": "Payment",
+        "html": "assets/sites-live/tangodown/payment.html"
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "html": "assets/sites-live/tangodown/results.html"
+      }
+    ]
+  },
+  "Thanks For Visiting!": {
+    "slug": "thanksforvisting",
+    "mode": "live",
+    "note": "Highlights are inconsistent (green / underline / red). Tip: replace (whatever).html with portal.html in the URL.",
+    "pages": [
+      {
+        "id": "bar",
+        "title": "Bar",
+        "html": "assets/sites-live/thanksforvisting/bar.html",
+        "note": "The light green bars are clickable."
+      },
+      {
+        "id": "connected",
+        "title": "Connected",
+        "html": "assets/sites-live/thanksforvisting/connected.html"
+      },
+      {
+        "id": "creepy",
+        "title": "Creepy",
+        "html": "assets/sites-live/thanksforvisting/creepy.html"
+      },
+      {
+        "id": "fakemain",
+        "title": "Fake Main",
+        "html": "assets/sites-live/thanksforvisting/fakemain.html"
+      },
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/thanksforvisting/index.html"
+      },
+      {
+        "id": "jolly",
+        "title": "Jolly",
+        "html": "assets/sites-live/thanksforvisting/jolly.html"
+      },
+      {
+        "id": "plug",
+        "title": "Plug",
+        "html": "assets/sites-live/thanksforvisting/plug.html"
+      },
+      {
+        "id": "portal",
+        "title": "Portal",
+        "html": "assets/sites-live/thanksforvisting/portal.html"
+      },
+      {
+        "id": "sleeptalk",
+        "title": "Sleep Talk",
+        "html": "assets/sites-live/thanksforvisting/sleeptalk.html",
+        "note": "Text highlight is fully opaque due to background."
+      },
+      {
+        "id": "slide2",
+        "title": "Slide2",
+        "html": "assets/sites-live/thanksforvisting/slide2.html",
+        "note": "Red background for visibility. \"click\" and \"here\" are both clickables."
+      },
+      {
+        "id": "smile",
+        "title": "Smile",
+        "html": "assets/sites-live/thanksforvisting/smile.html",
+        "note": "\"are\" and \"real\" are the only two clickables."
+      },
+      {
+        "id": "ulike",
+        "title": "ulike",
+        "html": "assets/sites-live/thanksforvisting/ulike.html"
+      },
+      {
+        "id": "vision",
+        "title": "Vision",
+        "html": "assets/sites-live/thanksforvisting/vision.html"
+      }
+    ]
+  },
+  "The Bomb Maker": {
+    "slug": "thebombmaker",
+    "mode": "live",
+    "note": "Opening this site starts Bomb Maker harassment — bombs around the motel + a code. Normal difficulty ~1:30 and 50 DOS to make him leave. Only highlights for clickables.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/thebombmaker/index.html"
+      }
+    ]
+  },
+  "The Grey": {
+    "slug": "thegrey",
+    "mode": "live",
+    "note": "Inconsistent key highlighting — check mostly for blue highlights.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/thegrey/index.html"
+      },
+      {
+        "id": "inanis",
+        "title": "Inanis",
+        "html": "assets/sites-live/thegrey/inanis.html"
+      },
+      {
+        "id": "centrum",
+        "title": "Centrum",
+        "html": "assets/sites-live/thegrey/centrum.html"
+      },
+      {
+        "id": "interius",
+        "title": "Interius",
+        "html": "assets/sites-live/thegrey/interius.html"
+      },
+      {
+        "id": "latus",
+        "title": "Latus",
+        "html": "assets/sites-live/thegrey/latus.html"
+      }
+    ]
+  },
+  "The Hall": {
+    "slug": "thehall",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/thehall/index.html"
+      }
+    ]
+  },
+  "The Hole": {
+    "slug": "thehole",
+    "mode": "live",
+    "note": "Due to various reasons, the areas in this image aren't perfectly aligned.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/thehole/index.html"
+      }
+    ]
+  },
+  "The Light Within": {
+    "slug": "thelightwithin",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/thelightwithin/index.html"
+      },
+      {
+        "id": "saved",
+        "title": "Saved",
+        "html": "assets/sites-live/thelightwithin/saved.html"
+      }
+    ]
+  },
+  "The Loogaroo": {
+    "slug": "theloogaroo",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/theloogaroo/index.html",
+        "note": "The picture right under this is clickable. The picture is clickable."
+      },
+      {
+        "id": "locations",
+        "title": "Locations",
+        "html": "assets/sites-live/theloogaroo/locations.html",
+        "note": "Only the top right picture is clickable."
+      }
+    ]
+  },
+  "The Prey": {
+    "slug": "theprey",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/theprey/index.html"
+      }
+    ]
+  },
+  "Time Sharing": {
+    "slug": "timesharing",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/timesharing/index.html",
+        "note": "The picture in the below image is clickable."
+      },
+      {
+        "id": "packages",
+        "title": "Packages",
+        "html": "assets/sites-live/timesharing/packages.html"
+      },
+      {
+        "id": "watch",
+        "title": "Watch",
+        "html": "assets/sites-live/timesharing/watch.html"
+      }
+    ]
+  },
+  "TRACK06": {
+    "slug": "track06",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "index",
+        "html": "assets/sites-live/track06/index.html"
+      }
+    ]
+  },
+  "ViaMarisRoute": {
+    "slug": "viamarisroute",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/viamarisroute/index.html"
+      },
+      {
+        "id": "order",
+        "title": "Order",
+        "html": "assets/sites-live/viamarisroute/order.html"
+      },
+      {
+        "id": "secondpage",
+        "title": "Second Page",
+        "html": "assets/sites-live/viamarisroute/secondpage.html"
+      },
+      {
+        "id": "thirdpage",
+        "title": "Third Page",
+        "html": "assets/sites-live/viamarisroute/thirdpage.html"
+      }
+    ]
+  },
+  "VoluVision": {
+    "slug": "voluvision",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/voluvision/index.html"
+      },
+      {
+        "id": "purchase",
+        "title": "Purchase",
+        "html": "assets/sites-live/voluvision/purchase.html"
+      },
+      {
+        "id": "testimonials",
+        "title": "Testimonials",
+        "html": "assets/sites-live/voluvision/testimonials.html"
+      }
+    ]
+  },
+  "World Wide Workers": {
+    "slug": "worldwideworkers",
+    "mode": "live",
+    "pages": [
+      {
+        "id": "index",
+        "title": "index",
+        "html": "assets/sites-live/worldwideworkers/index.html"
+      },
+      {
+        "id": "about",
+        "title": "About",
+        "html": "assets/sites-live/worldwideworkers/about.html"
+      },
+      {
+        "id": "submit",
+        "title": "Submit",
+        "html": "assets/sites-live/worldwideworkers/submit.html"
+      }
+    ]
+  },
+  "You There?": {
+    "slug": "youthere",
+    "mode": "live",
+    "note": "Each of the 6 different colors are their own clickables.",
+    "pages": [
+      {
+        "id": "index",
+        "title": "Index",
+        "html": "assets/sites-live/youthere/index.html"
+      }
+    ]
+  }
+}

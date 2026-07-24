@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Dosis Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/ca7bbe7fc615b0765f44.ttf");
+}
+
+@font-face {
+    font-family: Dosis Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/32affc808b994015719c.ttf");
+}
+
+@font-face {
+    font-family: Dosis SemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/1f2593d7b75cdeddebd2.ttf");
+}
+
+#page {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+img {
+    pointer-events: none;
+    user-select: none;
+}
+
+#container {
+    width: 768px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#top {
+    position: relative;
+    width: 100%;
+    margin-bottom: -32px;
+}
+
+#top em {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    z-index: 3;
+}
+
+#top reflect-videoplayer {
+    position: absolute;
+    height: 500px;
+    z-index: 1;
+    margin-top: 250px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    box-sizing: initial;
+}
+
+#top img {
+    width: 100%;
+    position: inherit;
+    z-index: 2;
+}
+
+#top img:last-child {
+    position: absolute;
+    width: 100%;
+    bottom: -52px;
+    left: 0;
+}
+
+#bottom {
+    padding: 0 43px;
+}
+
+#bottom>img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+}
+
+#bottom p {
+    font-size: 18px;
+    font-family: 'Dosis Regular';
+    margin: 18px 0;
+}
+
+#firstSection {
+    padding-top: 235px;
+    text-align: center;
+}
+
+#firstSection h2 {
+    font-size: 28px;
+    font-family: 'Dosis Bold';
+    padding-bottom: 0;
+    margin: 0;
+}
+
+#firstSection image {
+    width: 100%;
+}
+
+#ratingSystem {
+    user-select: none;
+    padding-top: 30px;
+    padding-bottom: 64px;
+    position: relative;
+}
+
+#ratingSystem a {
+    padding: 5px 12px;
+    background: #931f1e;
+    font-size: 18px;
+    font-family: 'Dosis SemiBold';
+    margin: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#ratingSystem a:first-child {
+    padding: 5px 14px;
+}
+
+#ratingSystem p {
+    position: absolute;
+    width: 100%;
+    display: none;
+    user-select: text;
+}
+
+#secondSection {
+    padding: 23px 59px 45px 59px;
+}
+
+#helpNotice {
+    position: fixed;
+    bottom: 5px;
+    margin-left: 503px;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.help-container {
+    position: relative;
+}
+
+.help-container>.CTAG-1 {
+    position: absolute;
+    display: block;
+    width: 5%;
+    height: 10%;
+    right: 32.5%;
+    top: 5%;
+
+    z-index: 999;
+}
+
+.help-container>.CTAG-2 {
+    position: absolute;
+    display: block;
+    width: 5%;
+    height: 10%;
+    left: 29%;
+    top: 5%;
+
+    z-index: 999;
+}
+
+.shadow{
+    top: 1343px;
+    padding-left: 640px;
+    color: #1a1a1a;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Dosis Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/ca7bbe7fc615b0765f44.ttf");
+}
+
+@font-face {
+    font-family: Dosis Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/32affc808b994015719c.ttf");
+}
+
+@font-face {
+    font-family: Dosis SemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/1f2593d7b75cdeddebd2.ttf");
+}
+
+#page {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow-x: hidden;
+}
+
+img {
+    pointer-events: none;
+    user-select: none;
+}
+
+#container {
+    width: 768px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#top {
+    position: relative;
+    width: 100%;
+    margin-bottom: -32px;
+}
+
+#top em {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    z-index: 3;
+}
+
+#top reflect-videoplayer {
+    position: absolute;
+    height: 500px;
+    z-index: 1;
+    margin-top: 250px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    box-sizing: initial;
+}
+
+#top img {
+    width: 100%;
+    position: inherit;
+    z-index: 2;
+}
+
+#top img:last-child {
+    position: absolute;
+    width: 100%;
+    bottom: -52px;
+    left: 0;
+}
+
+#bottom {
+    padding: 0 43px;
+}
+
+#bottom>img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+}
+
+#bottom p {
+    font-size: 18px;
+    font-family: 'Dosis Regular';
+    margin: 18px 0;
+}
+
+#firstSection {
+    padding-top: 235px;
+    text-align: center;
+}
+
+#firstSection h2 {
+    font-size: 28px;
+    font-family: 'Dosis Bold';
+    padding-bottom: 0;
+    margin: 0;
+}
+
+#firstSection image {
+    width: 100%;
+}
+
+#ratingSystem {
+    user-select: none;
+    padding-top: 30px;
+    padding-bottom: 64px;
+    position: relative;
+}
+
+#ratingSystem a {
+    padding: 5px 12px;
+    background: #931f1e;
+    font-size: 18px;
+    font-family: 'Dosis SemiBold';
+    margin: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#ratingSystem a:first-child {
+    padding: 5px 14px;
+}
+
+#ratingSystem p {
+    position: absolute;
+    width: 100%;
+    display: none;
+    user-select: text;
+}
+
+#secondSection {
+    padding: 23px 59px 45px 59px;
+}
+
+#helpNotice {
+    position: fixed;
+    bottom: 5px;
+    margin-left: 503px;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.help-container {
+    position: relative;
+}
+
+.help-container>.CTAG-1 {
+    position: absolute;
+    display: block;
+    width: 5%;
+    height: 10%;
+    right: 32.5%;
+    top: 5%;
+
+    z-index: 999;
+}
+
+.help-container>.CTAG-2 {
+    position: absolute;
+    display: block;
+    width: 5%;
+    height: 10%;
+    left: 29%;
+    top: 5%;
+
+    z-index: 999;
+}
+
+.shadow{
+    top: 1343px;
+    padding-left: 640px;
+    color: #1a1a1a;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <title>TRACK06</title>
+    <link rel="stylesheet" href="../Global/reset.css" />
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+
+<body id="page">
+    <div id="container">
+        <div class="help-container">
+            <img id="helpNotice" src="https://wttgiii.peterrock.dev/website-assets/6c6661ce56e9c4f5297d.png" alt="helpNotice.png">
+        </div>
+        <div id="top">
+            <reflect-videoplayer src="https://wttgiii.peterrock.dev/website-assets/056efaaa920462605439.webm" icon="white"></reflect-videoplayer>
+            <img src="https://wttgiii.peterrock.dev/website-assets/b0abbece87cbbb6f1f7c.png" alt="theater.png">
+            <em class="PTAG shadow"></em>
+            <div class="help-container">
+                <img src="https://wttgiii.peterrock.dev/website-assets/ed258031be4f7ec30b76.png" alt="rope.png">
+                <a class="CPTAG"></a>
+                <a class="CFTAG"></a>
+            </div>
+        </div>
+        <div id="bottom">
+            <img src="https://wttgiii.peterrock.dev/website-assets/2f4ac351cdf335f3f345.png" alt="bg_lower.png">
+            <div id="firstSection">
+                <h2>We hope you enjoyed the exhibition.<br>How would you <a class="CPTAG">rate</a> it?</h2>
+                <div id="ratingSystem">
+                    <a class="ratingBtn">1</a>
+                    <a class="ratingBtn">2</a>
+                    <a class="ratingBtn">3</a>
+                    <a class="ratingBtn">4</a>
+                    <a class="ratingBtn">5</a>
+                    <p>Your decision has been recorded<br><em class="PTAG text-dark"></em></p>
+                </div>
+                <img src="https://wttgiii.peterrock.dev/website-assets/83d2a8d27f5a1da837b4.png" alt="dashLine.png">
+            </div>
+            <div id="secondSection">
+                <p>
+                    Our talent works extremely hard to produce a captivating and gripping performance.
+                    They give it their all during a recording to hopefully create an experience that for a moment makes
+                    you question its origin.
+                    <br><br>
+                    This exhibition was recorded on location, in an isolated <em class="PTAG text-dark"></em> section of
+                    sea, far from any who would be within distance to hear it.
+                    The pureness of this performance derived from inherent fear; fear that in a body of water with a
+                    volume of over 1.35 billion cubic kilometers you are nothing.
+                    Being cast into the seemingly infinite surrounding ocean would almost certainly lead to your
+                    untimely end. <em class="PTAG text-dark"></em> No one would ever find you, nothing would be left of
+                    you.
+                    The sea and that which naturally inhabits it would remove any indication you were ever there.
+                    <br><br>
+                    Instilling those truths in our subject allowed for what you witnessed above to be <a
+                        class="CFTAG">created</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="ratingSystem.js"></script>
+    <script type="text/javascript" src="reflectVideoplayer.js"></script>
+</body>
+
+</html>
+</body>
+</html>

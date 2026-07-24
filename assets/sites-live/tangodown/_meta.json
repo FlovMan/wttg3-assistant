@@ -1,0 +1,29 @@
+{
+  "name": "Tango Down",
+  "domain": "tangodown",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "index",
+      "file": "index.html"
+    },
+    {
+      "id": "hire",
+      "title": "Hire",
+      "file": "hire.html"
+    },
+    {
+      "id": "payment",
+      "title": "Payment",
+      "file": "payment.html"
+    },
+    {
+      "id": "results",
+      "title": "Results",
+      "file": "results.html"
+    }
+  ]
+}

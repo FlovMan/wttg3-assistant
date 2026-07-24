@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Testimonials</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/978642988f9da00d1a0b.ttf") format("truetype");
+    font-weight: 300;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/94cc03a8a668a8657735.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/353c525f8afc461ca621.ttf") format("truetype");
+    font-weight: 700;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/472460969d0882bcfbf2.ttf") format("truetype");
+    font-weight: 800;
+}
+
+body{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/7453eefddaefd982fd27.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Almarai', sans-serif;
+    color: #131a76;
+}
+
+.container {
+    margin: 0 10%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap-middle {
+    width: 85%;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+header .bg {
+    width: 100%;
+    height: 45vh;
+}
+
+p {
+    font-size: 14pt;
+}
+
+.lineBreak {
+    padding: 0;
+    position: absolute;
+    top: 43vh;
+    left: 0;
+    width: 100%;
+}
+
+.title {
+    width: 45%;
+    position: absolute;
+    top: 38%;
+}
+
+nav ul {
+    margin-top: 5%;
+    text-transform: uppercase;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 32pt;
+}
+
+nav ul li {
+    padding: 0 15px;
+}
+
+.top {
+    margin-top: 5%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.top h5 {
+    width: 45%;
+    font-size: 16pt;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bolder {
+    font-weight: bolder;
+}
+
+.thin {
+    font-weight: lighter;
+}
+
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.description {
+    width: 85%;
+}
+
+.description p {
+    margin: 30px 0;
+}
+
+.button {
+    font-size: 32pt;
+    padding: 35px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/7ef8c8379e6c07d66618.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ol li {
+    margin: 15px 0;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.enlightenment-rules {
+    margin: 20px;
+    font-size: 18pt;
+}
+
+.cycle {
+    width: 50vw;
+}
+
+.freedom p {
+    margin: 30px 0;
+}
+
+.foot {
+    margin-bottom: 200px;
+}
+
+.testimonial-pics {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-pics img {
+    margin: 20px;
+}
+
+.break {
+    width: 70vw;
+    height: 30px;
+}
+
+.separator {
+    margin-top: 100px;
+}
+
+.purchase-text {
+    font-size: 18pt;
+}
+
+.notice {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+#notice-img {
+    padding: 5px;
+    min-width: fit-content;
+}
+
+#notice-text {
+    padding: 5px;
+}
+
+.target {
+    width: fit-content;
+    position: relative;
+}
+
+.target a {
+    background-color: transparent;
+    position: absolute;
+}
+
+.A a {
+    width: 25px;
+    height: 25px;
+    bottom: 83px;
+    right: 70px;
+}
+
+.B a {
+    width: 25px;
+    height: 25px;
+    top: 70px;
+    left: 95px;
+}
+
+.C a {
+    width: 40px;
+    height: 35px;
+    top: 80px;
+    left: 120px;
+}
+
+.PTAG {
+    color: #8b89c7;
+    white-space: nowrap;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/978642988f9da00d1a0b.ttf") format("truetype");
+    font-weight: 300;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/94cc03a8a668a8657735.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/353c525f8afc461ca621.ttf") format("truetype");
+    font-weight: 700;
+}
+
+@font-face{
+    font-family: 'Almarai';
+    src: url("https://wttgiii.peterrock.dev/website-assets/472460969d0882bcfbf2.ttf") format("truetype");
+    font-weight: 800;
+}
+
+body{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/7453eefddaefd982fd27.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Almarai', sans-serif;
+    color: #131a76;
+}
+
+.container {
+    margin: 0 10%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap-middle {
+    width: 85%;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+header .bg {
+    width: 100%;
+    height: 45vh;
+}
+
+p {
+    font-size: 14pt;
+}
+
+.lineBreak {
+    padding: 0;
+    position: absolute;
+    top: 43vh;
+    left: 0;
+    width: 100%;
+}
+
+.title {
+    width: 45%;
+    position: absolute;
+    top: 38%;
+}
+
+nav ul {
+    margin-top: 5%;
+    text-transform: uppercase;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 32pt;
+}
+
+nav ul li {
+    padding: 0 15px;
+}
+
+.top {
+    margin-top: 5%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.top h5 {
+    width: 45%;
+    font-size: 16pt;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bolder {
+    font-weight: bolder;
+}
+
+.thin {
+    font-weight: lighter;
+}
+
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.description {
+    width: 85%;
+}
+
+.description p {
+    margin: 30px 0;
+}
+
+.button {
+    font-size: 32pt;
+    padding: 35px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/7ef8c8379e6c07d66618.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ol li {
+    margin: 15px 0;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.enlightenment-rules {
+    margin: 20px;
+    font-size: 18pt;
+}
+
+.cycle {
+    width: 50vw;
+}
+
+.freedom p {
+    margin: 30px 0;
+}
+
+.foot {
+    margin-bottom: 200px;
+}
+
+.testimonial-pics {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-pics img {
+    margin: 20px;
+}
+
+.break {
+    width: 70vw;
+    height: 30px;
+}
+
+.separator {
+    margin-top: 100px;
+}
+
+.purchase-text {
+    font-size: 18pt;
+}
+
+.notice {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+#notice-img {
+    padding: 5px;
+    min-width: fit-content;
+}
+
+#notice-text {
+    padding: 5px;
+}
+
+.target {
+    width: fit-content;
+    position: relative;
+}
+
+.target a {
+    background-color: transparent;
+    position: absolute;
+}
+
+.A a {
+    width: 25px;
+    height: 25px;
+    bottom: 83px;
+    right: 70px;
+}
+
+.B a {
+    width: 25px;
+    height: 25px;
+    top: 70px;
+    left: 95px;
+}
+
+.C a {
+    width: 40px;
+    height: 35px;
+    top: 80px;
+    left: 120px;
+}
+
+.PTAG {
+    color: #8b89c7;
+    white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html language="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="description" content="" />
+    <title>VoluVision</title>
+    <link rel="stylesheet" href="../Global/reset.css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+  </head>
+  <body>
+    <header>
+      <img src="https://wttgiii.peterrock.dev/website-assets/aa3007c9068341532c76.png" class="bg" />
+      <img src="https://wttgiii.peterrock.dev/website-assets/4411f35080e5b05bdde0.png" class="lineBreak" />
+      <img src="https://wttgiii.peterrock.dev/website-assets/79376f46636d5c1d97fe.png" class="title" />
+    </header>
+
+    <nav>
+      <ul class="bolder">
+        <li><a onclick="LinkClick('index.html')">home</a></li>
+        <li><a onclick="LinkClick('testimonials.html')">testimonials</a></li>
+        <li><a onclick="LinkClick('purchase.html')">purchase!!!</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <section class="top wrap-middle">
+        <p class="pre-wrap">
+          Many users of Voluvision have lauded the power in these drops, whose effects are consciousness-elevating and access to a higher plane of awareness, <em class="PTAG"></em>and even granting the ability to witness beings who walk amongst us every day unseen by the unaided eyes. All planes of existence harmonize and align until it’s clear that the past, present, future, and all possible futures exist simultaneously in the same place and at the same time. It might seem like too much for some, but Voluvision’s dosage delivery has been precision engineered to grant only the exact amount of openness that our biological cerebrums can process.
+        </p>
+      </section>
+      <p class="bold wrap-middle">The following are testimonials and witness accounts of participants. With so many praising its effects, the <a class="CFTAG">benefits</a> can’t be ignored.</p>
+
+      <section class="wrap-middle separator">
+        <p>“It was like I came home to transcendence, and I was witness to the angels that walk with us. They are like us but so different, and all they want is to help. Without Voluvision I never would’ve known they were there!” - Jade H.</p>
+        <div class="testimonial-pics">
+          <div class="target C">
+            <img src="https://wttgiii.peterrock.dev/website-assets/bd6cb3247c1dfc26854b.png" />
+            <a class="CPTAG"></a>
+          </div>
+          <img src="https://wttgiii.peterrock.dev/website-assets/fae7031fb87caa447173.png" />
+        </div>
+      </section>
+      <img src="https://wttgiii.peterrock.dev/website-assets/7419f8be02b046b235ae.png" class="break" />
+      <section class="wrap-middle">
+        <p>“I woke up as if I was dreaming all my life and this was the truth. The dimensional travelers think of us like children, but when they realized I could see them, they were so happy I finally was on their level. I just wish I could stay there.” - Matthew F.</p>
+        <div class="testimonial-pics">
+          <img src="https://wttgiii.peterrock.dev/website-assets/623500f69a2a324b1e6e.png" />
+          <img src="https://wttgiii.peterrock.dev/website-assets/df054662d2eaf861594d.png" />
+        </div>
+        <em class="PTAG"></em>
+      </section>
+      <img src="https://wttgiii.peterrock.dev/website-assets/7419f8be02b046b235ae.png" class="break" />
+      <section class="wrap-middle">
+        <p>“Everything before this seems fake now. I just want to go back to that deep freedom I never knew before.I saw strange people whose galactic gaze passed through me and that’s when I knew that everything is going to be okay.” - Melanie P.</p>
+        <div class="testimonial-pics">
+          <div class="target B">
+            <img src="https://wttgiii.peterrock.dev/website-assets/03e630a2d3bb8df8fbb6.png" />
+            <a class="CFTAG"></a>
+          </div>
+          <img src="https://wttgiii.peterrock.dev/website-assets/ac54e49fd6c85428dfb2.png" />
+        </div>
+      </section>
+      <img src="https://wttgiii.peterrock.dev/website-assets/7419f8be02b046b235ae.png" class="break" />
+      <section class="wrap-middle">
+        <p>“I’ve been using Voluvision every day for a month and the elasticity of time and space is so obvious to me now. I am no longer me, I’ve evolved to access my own divinity. I am everything and everything is me.” - <a class = "CPTAG">Chad</a> W.<em class="PTAG"></em></p>
+        <div class="testimonial-pics">
+          <img src="https://wttgiii.peterrock.dev/website-assets/fcfda1dd06a38dae626d.png" />
+          <img src="https://wttgiii.peterrock.dev/website-assets/2e4bece3b454686842dd.png" />
+        </div>
+      </section>
+      <em class="PTAG"></em>
+
+      <a class="foot" onclick="LinkClick('purchase.html')"><h3 class="bolder button">PURCHASE NOW!</h3></a>
+    </div>
+  </body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "TRACK06",
+  "domain": "track06",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "index",
+      "file": "index.html"
+    }
+  ]
+}

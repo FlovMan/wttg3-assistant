@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Welcome</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Anybody-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/92aa52747dbee49485b2.ttf");
+  }
+  @font-face {
+    font-family: Anybody-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/eed36177e212196dd192.ttf");
+  }
+  @font-face {
+    font-family: Anybody-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/581c3c2c6393dcf97712.ttf");
+  }
+  @font-face {
+    font-family: Anybody-SemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/aa2a9bbf78080f3a211c.ttf");
+  }
+  @font-face {
+    font-family: ShortStack-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/e784abf10db68a62bbb1.ttf");
+  }
+
+* {
+    margin: auto;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    position: relative;
+    font-family: ShortStack-Regular;
+    background-color: #487c44;
+    font-size: 1.2em;
+}
+
+main, article {
+    width: 800px;
+}
+
+article {
+    text-align: left;
+}
+
+.purpleBG {
+    background-color: #4a275f;
+}
+
+header {
+    display: flex;
+    align-content: center;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/777e67eb8e70a65f2fec.png");
+}
+
+#intro, #prompt {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+#intro {
+    margin-bottom: 20px;
+}
+
+#background {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.thread {
+    background-color: #481b62;
+    font-family: Anybody-Regular;
+    padding: 15px;
+    border: 1px solid white;
+}
+
+.lock {
+    position: absolute;
+    width: 32px;
+    height: auto;
+    margin-left: -32px;
+    margin-top: -32px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.pdb30 {
+    padding-bottom: 30px;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#intro h1 {
+    text-decoration: underline 2px white;
+    text-underline-offset: 8px;
+}
+h2 {
+    font-family: Anybody-SemiBold;
+    font-size: 1.15em;
+}
+
+#time {
+    font-size: 2.5em;
+}
+
+#timer {
+    padding: 5px;
+    border: 2px solid white;
+}
+
+main p {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.textYellow {
+    color: #ffe404;
+}
+
+.textBold {
+    font-family: Anybody-SemiBold;
+    font-size: 1.25em;
+}
+
+.textRegular {
+    font-family: Anybody-Regular;
+    font-size: 1.25em;
+}
+
+.textMid {
+    font-family: Anybody-SemiBold;
+    font-size: 1em;
+}
+
+.textSmall {
+    font-size: 0.8em;
+}
+
+.textCenter {
+    text-align: center;
+}
+.formLeft {
+    width: 60%;
+    vertical-align: top;
+}
+
+.formRight {
+    width: 40%;
+    border-left: 1px solid #ffe404;
+    padding: 5px;
+}
+
+form, form img {
+    width: 100%;
+}
+
+label {
+    cursor: pointer;
+}
+
+button {
+    font-size: 1.1em;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #487c44;
+  }
+
+table {
+    font-family: Anybody-Regular;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table tr {
+    border-top: 1px solid #ffe404;
+    border-bottom: 1px solid #ffe404;
+}
+
+table td {
+    height: 220px;
+    padding-bottom: 20px;
+}
+
+table p {
+    text-align: left;
+}
+
+#submit {
+    font-family: Anybody-Bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+}
+
+#prompt {
+    display: none;
+    font-family: Anybody-Regular;
+}
+
+#prompt a {
+    display: flex;
+    width: fit-content;
+    align-self: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: #ffe404;
+    font-size: 3em;
+    font-family: ShortStack-Regular;
+    text-decoration: underline 3px #ffe404;
+    text-underline-offset: 8px;
+}
+
+/* inputs */
+
+.container {
+    display: flex;
+    width: fit-content;
+    height: auto;
+    float: left;
+    clear: both;
+    position: relative;
+    padding-left: 25px;
+    padding-top: 3px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On hover purple background color */
+  .container:hover input ~ .checkmark {
+    background-color: #4a275f;
+  }
+  
+  /* When the radio button is checked, add a yellow background */
+  .container input:checked ~ .checkmark {
+    background-color: #ffe404;
+  }
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Anybody-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/92aa52747dbee49485b2.ttf");
+  }
+  @font-face {
+    font-family: Anybody-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/eed36177e212196dd192.ttf");
+  }
+  @font-face {
+    font-family: Anybody-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/581c3c2c6393dcf97712.ttf");
+  }
+  @font-face {
+    font-family: Anybody-SemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/aa2a9bbf78080f3a211c.ttf");
+  }
+  @font-face {
+    font-family: ShortStack-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/e784abf10db68a62bbb1.ttf");
+  }
+
+* {
+    margin: auto;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    position: relative;
+    font-family: ShortStack-Regular;
+    background-color: #487c44;
+    font-size: 1.2em;
+}
+
+main, article {
+    width: 800px;
+}
+
+article {
+    text-align: left;
+}
+
+.purpleBG {
+    background-color: #4a275f;
+}
+
+header {
+    display: flex;
+    align-content: center;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/777e67eb8e70a65f2fec.png");
+}
+
+#intro, #prompt {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+#intro {
+    margin-bottom: 20px;
+}
+
+#background {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.thread {
+    background-color: #481b62;
+    font-family: Anybody-Regular;
+    padding: 15px;
+    border: 1px solid white;
+}
+
+.lock {
+    position: absolute;
+    width: 32px;
+    height: auto;
+    margin-left: -32px;
+    margin-top: -32px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.pdb30 {
+    padding-bottom: 30px;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#intro h1 {
+    text-decoration: underline 2px white;
+    text-underline-offset: 8px;
+}
+h2 {
+    font-family: Anybody-SemiBold;
+    font-size: 1.15em;
+}
+
+#time {
+    font-size: 2.5em;
+}
+
+#timer {
+    padding: 5px;
+    border: 2px solid white;
+}
+
+main p {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.textYellow {
+    color: #ffe404;
+}
+
+.textBold {
+    font-family: Anybody-SemiBold;
+    font-size: 1.25em;
+}
+
+.textRegular {
+    font-family: Anybody-Regular;
+    font-size: 1.25em;
+}
+
+.textMid {
+    font-family: Anybody-SemiBold;
+    font-size: 1em;
+}
+
+.textSmall {
+    font-size: 0.8em;
+}
+
+.textCenter {
+    text-align: center;
+}
+.formLeft {
+    width: 60%;
+    vertical-align: top;
+}
+
+.formRight {
+    width: 40%;
+    border-left: 1px solid #ffe404;
+    padding: 5px;
+}
+
+form, form img {
+    width: 100%;
+}
+
+label {
+    cursor: pointer;
+}
+
+button {
+    font-size: 1.1em;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #487c44;
+  }
+
+table {
+    font-family: Anybody-Regular;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table tr {
+    border-top: 1px solid #ffe404;
+    border-bottom: 1px solid #ffe404;
+}
+
+table td {
+    height: 220px;
+    padding-bottom: 20px;
+}
+
+table p {
+    text-align: left;
+}
+
+#submit {
+    font-family: Anybody-Bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+}
+
+#prompt {
+    display: none;
+    font-family: Anybody-Regular;
+}
+
+#prompt a {
+    display: flex;
+    width: fit-content;
+    align-self: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: #ffe404;
+    font-size: 3em;
+    font-family: ShortStack-Regular;
+    text-decoration: underline 3px #ffe404;
+    text-underline-offset: 8px;
+}
+
+/* inputs */
+
+.container {
+    display: flex;
+    width: fit-content;
+    height: auto;
+    float: left;
+    clear: both;
+    position: relative;
+    padding-left: 25px;
+    padding-top: 3px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On hover purple background color */
+  .container:hover input ~ .checkmark {
+    background-color: #4a275f;
+  }
+  
+  /* When the radio button is checked, add a yellow background */
+  .container input:checked ~ .checkmark {
+    background-color: #ffe404;
+  }
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>CrystalGuild</title>
+</head>
+<body>
+    <header>
+        <img src="https://wttgiii.peterrock.dev/website-assets/92ebf20aee29197a6908.gif">
+    </header>
+    <article>
+        <section id="intro">
+            <em class="PTAG text-dark" style="position: absolute; right: 0; margin-right: 5px; font-size: 0.7em; color: #54ba4c;"></em>
+            <h1>Welcome and Submit</h1>
+            <p>Soon, in the year of the <span class="textYellow">One Who Sings</span>, marks the hour we make our voice heard by those who created this world. Join us as we <span class="textYellow"><a class="CFTAG">magnify</a></span> our message to open up a line of communication to the <span class="textYellow">songbirds</span>.</p>
+        </section>
+    </article>
+    <div class="purpleBG" id="background">
+        <article>
+            <section class="pdb30">
+                <p class="textRegular textCenter" style="padding-top: 20px;"><span class="textBold"> Time Remaining:</span> <span id="timer"><span class="textYellow">000</span> years, <span class="textYellow">000</span> days, <span class="textYellow">00:00:00</span> hours</span></p>
+                <h1 class="textYellow textCenter" id="time">THE TIME <a class="CPTAG">HAS</a> COME</h1>
+                <p class="mt20">Activity on this site will be locked for <span class="textYellow" style="font-size: 1.3em;">72 hours</span> while we dedicate all our mental and physical energy to this mighty test. Join us!<em class="PTAG text-dark" style="margin-left: 5px;"></em></p>
+            </section>
+            
+            <section class="thread mt20">
+                <img src="https://wttgiii.peterrock.dev/website-assets/f16fe99e0a1e4050339e.svg" class="lock" alt="lock">
+
+                <p><span class="textBold">Most Recent Active Users:</span> <span class="textSmall">Batmoonglade4, Rexxy132121, 56AscendedEyes, Skyflyerquatro, warmstarkeeper, Hold4tongues, <em class="PTAG text-dark" style="margin-right: 5px;"></em> Great_Monitor724, Grievingwhispers, SilurianGem, ShadyaDylight, AmarantheSong4444, Beatrice_sharpe, DrLeafsong</span></p>
+            </section>
+
+            <section class="thread mt20">
+                <img src="https://wttgiii.peterrock.dev/website-assets/f16fe99e0a1e4050339e.svg" class="lock" alt="lock">
+
+                <p><span class="textBold">Pinned:</span><span class="textMid"> Welcome to the Crystal Guild, introduce yourself and receive a role</span></p>
+                <p class="textSmall">first posted by warmstarkeeper at 14:20 November 12, 2021, 156 replies</p>
+
+                <p class="mt20"><span class="textBold">Pinned:</span><span class="textMid"> Upcoming Focused Collective Mindwave Events 2XXX</span></p>
+                <p class="textSmall">first posted by warmstarkeeper at 04:01 April 30 2023, 28 replies</p>
+            </section>
+
+            <section class="thread mt20">
+                <img src="https://wttgiii.peterrock.dev/website-assets/f16fe99e0a1e4050339e.svg" class="lock" alt="lock">
+
+                <h2>CG Tenets Discussion</h2>
+                <p class="textSmall">first posted by <a class="CFTAG">Great_Monitor</a> 724 at 22:56 February 16, 2022, 264 replies</p>
+
+                <h2 class="mt20">The Sacred contact with divine extraterrestrial beings</h2>
+                <p class="textSmall">first posted by SilurianGem at 09:10 March 3 2023, 96 replies</p>
+
+                <h2 class="mt20">The seven living iterations of the Amethystine Embodiment</h2>
+                <p class="textSmall">first posted by Batmoonglade4 at 17:37 August 09, 2023, 41 replies</p>
+                
+                <h2 class="mt20">Recipes to channel cosmic energy while feeding your family</h2>
+                <p class="textSmall">first posted by DrLeafsong at 10:14 June 08, 2023, 33 replies</p>
+                
+                <h2 class="mt20">Favorite places to make <a class="CPTAG">personal</a> contact with the galactic mind</h2>
+                <p class="textSmall">first posted by Grievingwhispers at 13:23 September 05, 2023, 68 replies</p>
+            </section>
+
+            <section class="thread mt20">
+                <img src="https://wttgiii.peterrock.dev/website-assets/f16fe99e0a1e4050339e.svg" class="lock" alt="lock">
+
+                <h2><a class="CPTAG">share</a> your assigned lodestone subtype here!</h2>
+                <p class="textSmall">first posted by Beatrice Sharpe at 11:45 January 28, 2023, 77 replies</p>
+
+                <h2 class="mt20">what called you to the Crystal Guild? Let's talk predestined enlightenment</h2>
+                <p class="textSmall">first posted by Great_Monitor724 >JKOJIDbnidoaseqjwi1293jfd</p>
+                
+                <h2 class="mt20"><a class="CFTAG">Preparedness</a></h2>
+                <p class="textSmall">first posted by Mayraswish_22nd at 20:39 May 02, 2023, 82 replies</p><em class="PTAG text-dark" style="font-size: 0.8em;"></em>
+                
+                <h2 class="mt20">Crystal Guild resources and Information</h2>
+                <p class="textSmall">first posted by Batmoonglade4 at 12:50 April 19, 2023, 108 replies</p>
+            </section>
+        </article>
+    </div>
+    <em class="PTAG text-dark" style="position: absolute; bottom: 0; right: 0; margin-right: 5px; font-size: 0.8em; color: black;"></em>
+</body>
+</html>
+</body>
+</html>

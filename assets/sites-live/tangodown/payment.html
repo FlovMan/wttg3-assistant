@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Payment</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+li {
+    font-family: "Titillium Web Regular";
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    vertical-align: middle;
+}
+
+body {
+    color: white;
+    background: black url("https://wttgiii.peterrock.dev/website-assets/67b1c7e77597494ef62e.jpg");
+    font-size: 18px;
+    line-height: 1;
+}
+
+img {
+    max-width: 100%;
+}
+
+a,
+a:focus,
+a:visited,
+a:hover {
+    display: inline-block;
+    color: white;
+}
+
+h1 {
+    font-family: "Titillium Web SemiBold";
+    font-size: 36px;
+    line-height: 1.5;
+}
+
+p {
+    font-family: "Titillium Web Regular";
+    font-size: 18px;
+}
+
+p b {
+    padding: 0 !important;
+    font-family: "Titillium Web Bold";
+}
+
+.notice {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+#notice-img {
+    min-width: 40%;
+    padding: 5px;
+}
+
+#notice-text {
+    font-size: 16px;
+    text-align: center;
+}
+
+#container {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#nav {
+    padding: 20px;
+    max-width: 200px;
+    font-size: 18px;
+    font-family: "Titillium Web Light", sans-serif;
+    float: left;
+}
+
+#menu {
+    border-left: 1px solid white;
+    text-align: right;
+    padding: 2px 0;
+}
+
+#menu li {
+    padding: 7px;
+}
+
+#menu li a {
+    color: #7a7a7a;
+}
+
+a.bold {
+    font-family: "Titillium Web Bold", sans-serif;
+    color: white !important;
+}
+
+#logo {
+    padding-bottom: 40px;
+}
+
+#content {
+    background-color: #2d2a2c;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#box {
+    padding: 5px 20px;
+}
+
+#box p {
+    padding: 15px 0;
+}
+
+#box p.bold {
+    font-family: "Titillium Web Bold", sans-serif;
+}
+
+#box p:first-child {
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+#box p:nth-child(3) {
+    padding-top: 20px;
+}
+
+#column {
+    padding: 20px;
+}
+
+.flexbox {
+    display: flex;
+}
+
+#profile-image {
+    position: relative;
+    min-width: 313px;
+}
+
+#column-list {
+    padding-left: 80px;
+}
+
+#column-list li {
+    padding: 2px;
+}
+
+.list-numbers {
+    list-style: decimal;
+}
+
+.list-hyphen {
+    list-style: "- ";
+}
+
+#picturebox {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+    width: inherit;
+}
+
+.center p {
+    text-align: initial;
+    padding-bottom: 50px;
+}
+
+.center * {
+    padding: 5px;
+}
+
+@font-face {
+    font-family: "Titillium Web Light";
+    src: url("https://wttgiii.peterrock.dev/website-assets/10606c76bb84cbc0c6fd.ttf");
+}
+
+@font-face {
+    font-family: "Titillium Web Bold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/fe3d6895510631f14e0b.ttf");
+}
+
+@font-face {
+    font-family: "Titillium Web SemiBold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/3a285881faadbb793538.ttf");
+}
+
+@font-face {
+    font-family: "Titillium Web Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/486e78be7ca759637641.ttf");
+}
+
+#target-info-textarea {
+    font-family: "Titillium Web Regular";
+    /* font-style: italic; */
+    font-size: 0.9em;
+    display: block;
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #1f1f1f;
+    border-radius: 5px;
+    margin-top: 20px;
+    height: 200px;
+    word-wrap: break-word;
+    font-style: italic;
+}
+
+
+
+#deposit-btn {
+    display: block;
+    background-color: white;
+    margin: auto;
+    text-align: center;
+    color: #1f1f1f;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: "Titillium Web SemiBold";
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#error-msg {
+    display: block;
+    font-family: "Titillium Web SemiBold";
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#error-msg.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.inpic{
+    display: block;
+    position: absolute;
+
+    top: 5%;
+    left: 15%;
+    width: 20%;
+    height: 30%;
+    background-color: transparent;
+    margin-left: 10%;
+
+}
+
+.img-container {
+    position: relative;
+}
+
+.img-container img {
+    display: block;
+}
+
+.img-container>a img {
+    display: block;
+}
+
+.RESULTS {
+    display: block;
+    position: absolute;
+
+    top: 30%;
+    left: 18%;
+    width: 50%;
+    height: 40%;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+.RESULTS-1 {
+    display: block;
+    position: absolute;
+
+    top: 6%;
+    right: 5%;
+    width: 20%;
+    height: 40%;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+.RESULTS-2 {
+    display: block;
+    position: absolute;
+
+    top: 13%;
+    right: 35%;
+    width: 25%;
+    height: 40%;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+.INPROF {
+    display: block;
+    position: absolute;
+
+    top: 22%;
+    right: 37%;
+    width: 25%;
+    height: 12%;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+
+.profile-image>a img {
+    display: block;
+}
+
+.profile-image {
+    position: relative;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+li {
+    font-family: "Titillium Web Regular";
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    vertical-align: middle;
+}
+
+body {
+    color: white;
+    background: black url("https://wttgiii.peterrock.dev/website-assets/67b1c7e77597494ef62e.jpg");
+    font-size: 18px;
+    line-height: 1;
+}
+
+img {
+    max-width: 100%;
+}
+
+a,
+a:focus,
+a:visited,
+a:hover {
+    display: inline-block;
+    color: white;
+}
+
+h1 {
+    font-family: "Titillium Web SemiBold";
+    font-size: 36px;
+    line-height: 1.5;
+}
+
+p {
+    font-family: "Titillium Web Regular";
+    font-size: 18px;
+}
+
+p b {
+    padding: 0 !important;
+    font-family: "Titillium Web Bold";
+}
+
+.notice {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+#notice-img {
+    min-width: 40%;
+    padding: 5px;
+}
+
+#notice-text {
+    font-size: 16px;
+    text-align: center;
+}
+
+#container {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#nav {
+    padding: 20px;
+    max-width: 200px;
+    font-size: 18px;
+    font-family: "Titillium Web Light", sans-serif;
+    float: left;
+}
+
+#menu {
+    border-left: 1px solid white;
+    text-align: right;
+    padding: 2px 0;
+}
+
+#menu li {
+    padding: 7px;
+}
+
+#menu li a {
+    color: #7a7a7a;
+}
+
+a.bold {
+    font-family: "Titillium Web Bold", sans-serif;
+    color: white !important;
+}
+
+#logo {
+    padding-bottom: 40px;
+}
+
+#content {
+    background-color: #2d2a2c;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#box {
+    padding: 5px 20px;
+}
+
+#box p {
+    padding: 15px 0;
+}
+
+#box p.bold {
+    font-family: "Titillium Web Bold", sans-serif;
+}
+
+#box p:first-child {
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+#box p:nth-child(3) {
+    padding-top: 20px;
+}
+
+#column {
+    padding: 20px;
+}
+
+.flexbox {
+    display: flex;
+}
+
+#profile-image {
+    position: relative;
+    min-width: 313px;
+}
+
+#column-list {
+    padding-left: 80px;
+}
+
+#column-list li {
+    padding: 2px;
+}
+
+.list-numbers {
+    list-style: decimal;
+}
+
+.list-hyphen {
+    list-style: "- ";
+}
+
+#picturebox {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+    width: inherit;
+}
+
+.center p {
+    text-align: initial;
+    padding-bottom: 50px;
+}
+
+.center * {
+    padding: 5px;
+}
+
+@font-face {
+    font-family: "Titillium Web Light";
+    src: url("https://wttgiii.peterrock.dev/website-assets/10606c76bb84cbc0c6fd.ttf");
+}
+
+@font-face {
+    font-family: "Titillium Web Bold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/fe3d6895510631f14e0b.ttf");
+}
+
+@font-face {
+    font-family: "Titillium Web SemiBold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/3a285881faadbb793538.ttf");
+}
+
+@font-face {
+    font-family: "Titillium Web Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/486e78be7ca759637641.ttf");
+}
+
+#target-info-textarea {
+    font-family: "Titillium Web Regular";
+    /* font-style: italic; */
+    font-size: 0.9em;
+    display: block;
+    width: 80%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #1f1f1f;
+    border-radius: 5px;
+    margin-top: 20px;
+    height: 200px;
+    word-wrap: break-word;
+    font-style: italic;
+}
+
+
+
+#deposit-btn {
+    display: block;
+    background-color: white;
+    margin: auto;
+    text-align: center;
+    color: #1f1f1f;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: "Titillium Web SemiBold";
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#error-msg {
+    display: block;
+    font-family: "Titillium Web SemiBold";
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#error-msg.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.inpic{
+    display: block;
+    position: absolute;
+
+    top: 5%;
+    left: 15%;
+    width: 20%;
+    height: 30%;
+    background-color: transparent;
+    margin-left: 10%;
+
+}
+
+.img-container {
+    position: relative;
+}
+
+.img-container img {
+    display: block;
+}
+
+.img-container>a img {
+    display: block;
+}
+
+.RESULTS {
+    display: block;
+    position: absolute;
+
+    top: 30%;
+    left: 18%;
+    width: 50%;
+    height: 40%;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+.RESULTS-1 {
+    display: block;
+    position: absolute;
+
+    top: 6%;
+    right: 5%;
+    width: 20%;
+    height: 40%;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+.RESULTS-2 {
+    display: block;
+    position: absolute;
+
+    top: 13%;
+    right: 35%;
+    width: 25%;
+    height: 40%;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+.INPROF {
+    display: block;
+    position: absolute;
+
+    top: 22%;
+    right: 37%;
+    width: 25%;
+    height: 12%;
+    background-color: transparent;
+    margin-left: 10%;
+}
+
+
+.profile-image>a img {
+    display: block;
+}
+
+.profile-image {
+    position: relative;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <title>Tango Down</title>
+    <link rel="stylesheet" href="../Global/reset.css" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+
+<body id="page">
+    <div id="container">
+        <div id="nav">
+            <div id="logo">
+                <a class="CFTAG"><img src="https://wttgiii.peterrock.dev/website-assets/58b5409f2fffe4332d89.png" width="200"></a>
+            </div>
+            <ul id="menu">
+                <li>
+                    <a onClick="LinkClick('index.html')">The Job</a>
+                </li>
+                <li>
+                    <a onClick="LinkClick('payment.html')" class="bold">The Payment</a>
+                </li>
+                <li>
+                    <a onClick="LinkClick('results.html')">The Results</a>
+                </li>
+                <li>
+                    <a onClick="LinkClick('hire.html')">Hire Us</a>
+                </li>
+            </ul>
+            <em class="PTAG"></em>
+            <div class="notice">
+                <div id="notice-img">
+                    <img src="https://wttgiii.peterrock.dev/website-assets/024e55ddbe862bc05ce2.png">
+                </div>
+                <div> 
+                    <p id="notice-text">Available on #VelvetRoad</p>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <em class="PTAG"></em>
+            <div id="column" class="center" style="max-width: 770px;">
+                <h1>The Payment</h1> <em class="PTAG"></em>
+                <div class="img-container">
+                    <img src="https://wttgiii.peterrock.dev/website-assets/647813c966db57650e84.png" width="770">
+                    <a class="CPTAG inpic"></a>
+                </div>
+                <p>All hits require a <a class = "CFTAG">$2000</a> deposit, no refund. You must submit your deposit via electronic currency
+                    with the details of the hit. Once the deposit has been approved we will require the remaining
+                    balance in full. Do not try to rip us off. Do not waste our time. Placing the deposit marks the
+                    person for <a class = "CPTAG">death</a>, be prepared to pay. Do not make this your <b>last mistake</b>.</p>
+            </div>
+            <em class="PTAG"></em>
+        </div>
+    </div>
+</body>
+
+</html>
+</body>
+</html>

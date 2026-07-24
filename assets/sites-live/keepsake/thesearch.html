@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Search</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    color: silver;
+    background-color: #281C13;
+    font-family: 'Arial';
+    font-size: 18px;
+    line-height: 1;
+    padding: 20px;
+}
+
+section {
+    display: inline-block;
+    background-color: #1B1614;
+    margin-bottom: 50px;
+    padding: 15px 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*
+a,
+a:focus,
+a:visited,
+a:hover {
+    color: white;
+}
+ */
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    color: #d9b4a4;
+    font-size: 24px;
+    padding-bottom: 15px;
+}
+
+div {
+    padding-bottom: 25px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+#header {
+    background-color: #1B1614;
+    padding: 50px 0;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+#container {
+    padding: 20px 10px;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 10px;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.mb {
+    margin-bottom: 40px;
+}
+
+.text-initial {
+    font-family: initial;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-xxlarge {
+    font-size: 88px;
+}
+
+.text-xlarge {
+    font-size: 48px;
+}
+
+.text-large {
+    font-size: 32px;
+}
+
+.text-medium {
+    font-size: 24px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.img-border {
+    border: 5px solid black;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.navbar {
+    display: inline-flex;
+    background-color: #1b1613;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: silver;
+    font-family: initial;
+    padding: 15px 60px;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    background-color: #41352e;
+    color: #ffffff;
+}
+
+h1.text-center {
+    text-align: center;
+}
+
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    color: silver;
+    background-color: #281C13;
+    font-family: 'Arial';
+    font-size: 18px;
+    line-height: 1;
+    padding: 20px;
+}
+
+section {
+    display: inline-block;
+    background-color: #1B1614;
+    margin-bottom: 50px;
+    padding: 15px 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*
+a,
+a:focus,
+a:visited,
+a:hover {
+    color: white;
+}
+ */
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    color: #d9b4a4;
+    font-size: 24px;
+    padding-bottom: 15px;
+}
+
+div {
+    padding-bottom: 25px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+#header {
+    background-color: #1B1614;
+    padding: 50px 0;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+#container {
+    padding: 20px 10px;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 10px;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.mb {
+    margin-bottom: 40px;
+}
+
+.text-initial {
+    font-family: initial;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-xxlarge {
+    font-size: 88px;
+}
+
+.text-xlarge {
+    font-size: 48px;
+}
+
+.text-large {
+    font-size: 32px;
+}
+
+.text-medium {
+    font-size: 24px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.img-border {
+    border: 5px solid black;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.navbar {
+    display: inline-flex;
+    background-color: #1b1613;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: silver;
+    font-family: initial;
+    padding: 15px 60px;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    background-color: #41352e;
+    color: #ffffff;
+}
+
+h1.text-center {
+    text-align: center;
+}
+
+</style>
+</head>
+<body>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <title>Keep Sake</title>
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1 class="text-center text-xxlarge text-initial">KEEP SAKE</h1>
+        </div>
+        <div style="text-align: center; margin-bottom: 20px;">
+            <nav class="navbar">
+                <a onClick="LinkClick('index.html')" class="active">HOME</a>
+                <a onClick="LinkClick('thesearch.html')" class="active">THE SEARCH</a>
+                <a onClick="LinkClick('contact.html')" class="active">CONTACT</a>
+            </nav>
+        </div>
+        <section>
+            <h1 class="strong"> THE SEARCH </h1>
+            <img src="https://wttgiii.peterrock.dev/website-assets/c13d8d1e8c15004afd5d.jpg" class="pull-right pl" width="140">
+            <p> I have a near complete <a class="CFTAG">collection</a> that's amassed of many excellent pieces,
+                though there are still some voids which need to be filled for it to become complete.
+                As a token of <a class="CPTAG">appreciation</a> and way of <a class="CFTAG">donating</a> more than you could ever imagine I wish
+                to request your help. If you manage to find these any of items below send an image message
+                to my email, proving you're in current possession. I will pay <em class="PTAG text-dark"></em> for all shipping expeneses
+                and send a monetary reward to those who help complete my life's work.</p>
+            <p class="text-center strong"> KSh385@hg84h6vgs6mjmba1249d.ann </p>
+        </section>
+        <section>
+            <h1 class="strong"> WISHES </h1>
+            <p style="font-weight: bold;"> 1. Cervidae of any size that's succumbed to Chronic Wasting Disease</p>
+                <p style="padding-left: 30px;">A fascinating and always fatal disease that cannot be cured to date. Very difficult to find where I'm located and hard to track down in general before someone points them out to the game warden for removal.</p>
+                <p style="padding-left: 30px;">Please harbor the animal until it fully gives into the disease, then send its body using the prescribed goods.</p>
+                <br>
+            <p style="font-weight: bold;"> 2. Corpulent digits on a hand wearing metal jewelry that can no longer be removed</p>
+                <p style="padding-left: 30px;">A worn time capsule. Long ago was this appendage thin enough to slip on a prized possession, but now it's grown to such a size that removal is no longer a thought.</p>
+                <p style="padding-left: 30px;">Whether it be a wedding band that squeezes a wide digit thin or several rings engorged by fatty tissue, either would be perfect for my collection.</p>
+                <br>
+            <p style="font-weight: bold;"> 3. Any being born with <a class="CPTAG">polycephaly</a> that weighs over 5kg </p>
+                <p style="padding-left: 30px;">Extremely rare, a true prized piece that would earn the strongest of spots within my stock.</p>
+                <p style="padding-left: 30px;">I've broadened my scope to hopefully aquire <em class="PTAG text-dark"></em> this before my time comes, however if you can find the rarer condition, craniopagus parasiticus, I'll reward you handsomly for your great efforts and luck.</p>
+                <br>
+        </section>
+    </div>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Invest</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: "NotoSans";
+    src: url("https://wttgiii.peterrock.dev/website-assets/2ec33f84606cbaa0a1a9.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSans";
+    src: url("https://wttgiii.peterrock.dev/website-assets/8b6389d671315ddf9e50.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+:root {
+    --color-primary: #597081;
+    --color-secondary: #7ea0b7;
+    --color-black: #000000;
+    --color-grey: #36494e;
+    --color-light-blue: #a9cef4;
+
+    --flow-space: 2rem;
+
+    --gap-400: 1rem;
+    --gap-500: 2rem;
+}
+
+/* Composition classes */
+.flow > * + * {
+    margin-top: var(--flow-space, 1em);
+}
+
+/* Utility classes */
+.wrapper {
+    margin-inline: auto;
+    padding-inline: 2rem;
+    max-width: 768px;
+}
+
+.gap-400 {
+    gap: var(--gap-400, 1em);
+}
+
+.gap-500 {
+    gap: var(--gap-500, 1.5em);
+}
+
+.border-b-1 {
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.flex {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .flex {
+        flex-wrap: wrap;
+    }
+}
+
+.px-2 {
+    padding-inline: 0.5rem;
+}
+
+.px-8 {
+    padding-inline: 2rem;
+}
+
+.px-12 {
+    padding-inline: 3rem;
+}
+
+.py-4 {
+    padding-block: 1rem;
+}
+
+.py-8 {
+    padding-block: 2rem;
+}
+
+.fs-20 p {
+    font-size: 20px;
+}
+
+.fs-16 p {
+    font-size: 16px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.color-black {
+    color: var(--color-black);
+}
+
+.color-grey {
+    color: var(--color-grey);
+}
+
+.color-light-blue {
+    color: var(--color-light-blue);
+}
+
+.bg-light-blue {
+    background-color: var(--color-light-blue);
+}
+.color-primary {
+    color: var(--color-primary);
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.color-secondary {
+    color: var(--color-secondary);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.rounded-40 {
+    border-radius: 40px;
+}
+
+.rounded-30 {
+    border-radius: 30px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Block classes */
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+}
+
+img {
+    object-fit: cover;
+}
+
+header {
+    max-width: min-content;
+    padding-block-end: 1rem;
+}
+
+nav {
+    margin-inline: auto;
+    padding-block-end: 1rem;
+}
+
+#navbar-image, #navbar {
+    position: relative;
+}
+
+#image-tag {
+    color: var(--color-black);
+    opacity: 0.25;
+    position: absolute;
+    bottom: 5px;
+    left: 70px;
+}
+
+#navbar {
+    height: 145px;
+    min-height: fit-content;
+    width: auto;
+}
+
+#navbar-tag {
+    color: var(--color-black);
+    opacity: 0.25;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+#text-tag {
+    color: var(--color-black);
+    opacity: 0.25;
+}
+
+.nose {
+    position: relative;
+}
+
+.nose img {
+    width: 298px;
+    height: 371px;
+}
+
+#face-link {
+    position: absolute;
+    top: 60px;
+    left: 85px;
+    width: 130px;
+    height: 55px;
+    border-radius: 20px;
+}
+
+.boop {
+    color: var(--color-black);
+    opacity: 0.25;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+.flex-50 {
+    flex: 50%;
+}
+
+/* Exception classes */
+body {
+    font-size: var(--fs-400);
+    font-family: "NotoSans", sans-serif;
+    color: var(--color-secondary);
+    background-color: var(--color-grey);
+    margin: 0;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: "NotoSans";
+    src: url("https://wttgiii.peterrock.dev/website-assets/2ec33f84606cbaa0a1a9.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "NotoSans";
+    src: url("https://wttgiii.peterrock.dev/website-assets/8b6389d671315ddf9e50.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+:root {
+    --color-primary: #597081;
+    --color-secondary: #7ea0b7;
+    --color-black: #000000;
+    --color-grey: #36494e;
+    --color-light-blue: #a9cef4;
+
+    --flow-space: 2rem;
+
+    --gap-400: 1rem;
+    --gap-500: 2rem;
+}
+
+/* Composition classes */
+.flow > * + * {
+    margin-top: var(--flow-space, 1em);
+}
+
+/* Utility classes */
+.wrapper {
+    margin-inline: auto;
+    padding-inline: 2rem;
+    max-width: 768px;
+}
+
+.gap-400 {
+    gap: var(--gap-400, 1em);
+}
+
+.gap-500 {
+    gap: var(--gap-500, 1.5em);
+}
+
+.border-b-1 {
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.flex {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .flex {
+        flex-wrap: wrap;
+    }
+}
+
+.px-2 {
+    padding-inline: 0.5rem;
+}
+
+.px-8 {
+    padding-inline: 2rem;
+}
+
+.px-12 {
+    padding-inline: 3rem;
+}
+
+.py-4 {
+    padding-block: 1rem;
+}
+
+.py-8 {
+    padding-block: 2rem;
+}
+
+.fs-20 p {
+    font-size: 20px;
+}
+
+.fs-16 p {
+    font-size: 16px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.color-black {
+    color: var(--color-black);
+}
+
+.color-grey {
+    color: var(--color-grey);
+}
+
+.color-light-blue {
+    color: var(--color-light-blue);
+}
+
+.bg-light-blue {
+    background-color: var(--color-light-blue);
+}
+.color-primary {
+    color: var(--color-primary);
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.color-secondary {
+    color: var(--color-secondary);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.rounded-40 {
+    border-radius: 40px;
+}
+
+.rounded-30 {
+    border-radius: 30px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Block classes */
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+}
+
+img {
+    object-fit: cover;
+}
+
+header {
+    max-width: min-content;
+    padding-block-end: 1rem;
+}
+
+nav {
+    margin-inline: auto;
+    padding-block-end: 1rem;
+}
+
+#navbar-image, #navbar {
+    position: relative;
+}
+
+#image-tag {
+    color: var(--color-black);
+    opacity: 0.25;
+    position: absolute;
+    bottom: 5px;
+    left: 70px;
+}
+
+#navbar {
+    height: 145px;
+    min-height: fit-content;
+    width: auto;
+}
+
+#navbar-tag {
+    color: var(--color-black);
+    opacity: 0.25;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+#text-tag {
+    color: var(--color-black);
+    opacity: 0.25;
+}
+
+.nose {
+    position: relative;
+}
+
+.nose img {
+    width: 298px;
+    height: 371px;
+}
+
+#face-link {
+    position: absolute;
+    top: 60px;
+    left: 85px;
+    width: 130px;
+    height: 55px;
+    border-radius: 20px;
+}
+
+.boop {
+    color: var(--color-black);
+    opacity: 0.25;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+.flex-50 {
+    flex: 50%;
+}
+
+/* Exception classes */
+body {
+    font-size: var(--fs-400);
+    font-family: "NotoSans", sans-serif;
+    color: var(--color-secondary);
+    background-color: var(--color-grey);
+    margin: 0;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BuildingAFuture</title>
+        <link rel="stylesheet" href="../Global/reset.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script type="text/javascript" src="../Global/Basic.js"></script>
+    </head>
+    <body>
+        <main class="flow py-8">
+            <section id="navbar" class="wrapper flex flow">
+                <article id="navbar-image" class="flex gap-400 items-end">
+                    <figure>
+                        <img src="https://wttgiii.peterrock.dev/website-assets/52760dfec7e24f85aade.png" alt="" />
+                    </figure>
+                    <header>
+                        <h1 class="uppercase">
+                            <span class="color-black"><a class="CFTAG">Building</a></span> <a class="CPTAG">A</a> Future
+                        </h1>
+                    </header>
+                </article>
+                <nav class="flex items-end">
+                    <ul class="flex gap-500">
+                        <li class="border-b-1 px-2">
+                            <a onClick="LinkClick('index.html')"
+                                ><h4>MAIN</h4></a
+                            >
+                        </li>
+                        <li class="border-b-1 px-2">
+                            <a onClick="LinkClick('invest.html')"
+                                ><h4>INVEST</h4></a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section
+                class="wrapper flex bg-primary rounded-40 gap-500 items-center py-8"
+            >
+                <div class="nose">
+                    <em class="PTAG boop"></em>
+                    <div id="face-link"></div>
+                    <a class="CFTAG"><img src="https://wttgiii.peterrock.dev/website-assets/71d8bab81a59570a5b11.png" alt="" /></a>
+                </div>
+                <article class="flow color-light-blue flex-50">
+                    <h3 class="bold">Your money matters</h3>
+                    <p>
+                        We like to keep you abreast to the current happenings
+                        during the time your investment is growing. Projects
+                        span many weeks before completion and while we are paid
+                        throughout the construction process in small sums as
+                        progression is made, you will only receive a return when
+                        the full project is complete. These <a class="CPTAG">updates</a> help create
+                        insight as to how your investment is doing and offers a
+                        rough estimate of the timeline before your large return
+                        is sent. <em class="PTAG"></em><br /><br />
+                        Waiting until the end allows us to offer the <a class="CFTAG">greatest</a>
+                        return possible on your initial investment, but also
+                        keeps both parties safe from investigation. Siphoning
+                        funds constantly is not something we can do. If that is
+                        a deal breaker we hope you reconsider and invest at a
+                        future time. Putting your <a class="CPTAG">trust</a> in us there will result
+                        in a net gain, there is no question about it. The only
+                        question you have to ask yourself is will you be one of
+                        the lucky few to invest before the opportunity has
+                        vanished?
+                    </p>
+                </article>
+            </section>
+
+            <section class="wrapper">
+                <article
+                    class="flow rounded-30 bg-light-blue color-grey px-12 py-8"
+                >
+                    <h3 class="bold text-center">Available Candidates</h3>
+                    <section class="flex gap-500 fs-20">
+                        <section class="flex flex-column gap-400">
+                            <p>Number</p>
+                            <p>#4405</p>
+                            <p>#4473</p>
+                            <p>#4006</p>
+                            <p><a class="CPTAG">#4162</a></p>
+                            <p>#4411</p>
+                        </section>
+                        <section class="flex flex-column gap-400">
+                            <p>Initial Investment</p>
+                            <p>640 DOSCoin</p>
+                            <p>350 DOSCoin</p>
+                            <p>180 DOSCoin</p>
+                            <p>220 DOSCoin</p>
+                            <p>850 DOSCoin</p>
+                        </section>
+                        <section class="flex flex-column gap-400">
+                            <p>Age</p>
+                            <p>24</p>
+                            <p>49</p>
+                            <p>19</p>
+                            <p>33</p>
+                            <p>20</p>
+                        </section>
+                        <section class="flex flex-column gap-400">
+                            <p>*Expected Return</p>
+                            <p>10x</p>
+                            <p>2x</p>
+                            <p>2x</p>
+                            <p>2x <em class="PTAG" id="text-tag"></em></p>
+                            <p>5x</p>
+                        </section>
+                    </section>
+                    <section class="fs-16">
+                        <p>
+                            *Expected return is just an estimate based on
+                            health, physical attributes, and type of contract.
+                            Higher <em class="PTAG"></em> return multipliers are
+                            almost always also associated with projects that
+                            have an elevated risk assessment.
+                        </p>
+                    </section>
+                    section
+                </article>
+            </section>
+
+            <section class="wrapper">
+                <article
+                    class="flow bg-secondary rounded-30 color-grey px-12 py-8"
+                >
+                    <h3 class="bold">Contact</h3>
+                    <p>
+                        Send an email to<br />
+                        mc1mn85H81RT9iNwBGIpl8feSQdf6g@shadowmail.ann<br /><br />
+                        Format the email subject as follows: “Investment
+                        opportunity &lt;candidate number&gt;” without quotes.<br /><br />
+                        Do not include anything else in the email subject. If
+                        you fail to do so the email will not be read.<br /><br />
+                        In the case that the selected candidate is still
+                        available you’ll receive a response <em class="PTAG"></em> directing you to a 
+                        wallet address where investment can be sent. Upon
+                        successful transfer they will be removed from the
+                        available candidate list on this site shortly
+                        thereafter.
+                    </p>
+                </article>
+            </section>
+        </main>
+    </body>
+</html>
+</body>
+</html>

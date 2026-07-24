@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: disc;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    color: #F0E2C8;
+    background-color: #990000;
+    font-family: Arial;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a,
+a:focus,
+a:hover,
+a:visited {
+    color: #ffeb3b;
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+
+a.CTAG,
+a.CTAG:focus,
+a.CTAG:visited,
+a.CTAG:hover{
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    color: #e6dac9;
+    font-size: 24px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+    max-width: 800px;
+    text-indent: 1em;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+#header {
+    background-color: #E6DAC9;
+    border-bottom: 18px solid #CBA985;
+    min-height: 20px;
+}
+
+#content {
+    text-align: start;
+    padding: 30px 40px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+#content div {
+    margin: 0 auto;
+}
+
+.compact {
+    max-width: 800px;
+}
+
+.compact .PTAG::before {
+    content: '•';
+    position: relative;
+    right: 1.05em;
+
+}
+
+.PTAG.compact:empty {
+    display: none;
+}
+
+
+.compact li {
+    font-size: 16px;
+    color: #F0E2C8;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 1px #F0E2C8, 0 0 2px #F0E2C8;
+  }
+  
+  to {
+    text-shadow: 0 0 2px #F0E2C8, 0 0 6px #ffff66;
+  }
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 1px #F0E2C8, 0 0 2px #F0E2C8;
+  }
+  
+  to {
+    text-shadow: 0 0 2px #F0E2C8, 0 0 6px #ffff66;
+  }
+}
+
+.compact li:hover {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.compact em:hover {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+#glow-link {
+    transition: 0.2s all ease-in-out;
+}
+
+#glow-link:hover {
+    text-shadow: 0 0 6px #F0E2C8, 0 0 12px #ffff66;
+}
+
+.text-quote {
+    color: #eee9e6;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 15%;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 50px;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+    display: inline-block;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: disc;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    color: #F0E2C8;
+    background-color: #990000;
+    font-family: Arial;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a,
+a:focus,
+a:hover,
+a:visited {
+    color: #ffeb3b;
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+
+a.CTAG,
+a.CTAG:focus,
+a.CTAG:visited,
+a.CTAG:hover{
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    color: #e6dac9;
+    font-size: 24px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+    max-width: 800px;
+    text-indent: 1em;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+#header {
+    background-color: #E6DAC9;
+    border-bottom: 18px solid #CBA985;
+    min-height: 20px;
+}
+
+#content {
+    text-align: start;
+    padding: 30px 40px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+#content div {
+    margin: 0 auto;
+}
+
+.compact {
+    max-width: 800px;
+}
+
+.compact .PTAG::before {
+    content: '•';
+    position: relative;
+    right: 1.05em;
+
+}
+
+.PTAG.compact:empty {
+    display: none;
+}
+
+
+.compact li {
+    font-size: 16px;
+    color: #F0E2C8;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 1px #F0E2C8, 0 0 2px #F0E2C8;
+  }
+  
+  to {
+    text-shadow: 0 0 2px #F0E2C8, 0 0 6px #ffff66;
+  }
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 1px #F0E2C8, 0 0 2px #F0E2C8;
+  }
+  
+  to {
+    text-shadow: 0 0 2px #F0E2C8, 0 0 6px #ffff66;
+  }
+}
+
+.compact li:hover {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+.compact em:hover {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+#glow-link {
+    transition: 0.2s all ease-in-out;
+}
+
+#glow-link:hover {
+    text-shadow: 0 0 6px #F0E2C8, 0 0 12px #ffff66;
+}
+
+.text-quote {
+    color: #eee9e6;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 15%;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 50px;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+    display: inline-block;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+</style>
+</head>
+<body>
+<!Doctype HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<meta name="description" content="">
+		<title>The Light Within</title>
+		<link rel="stylesheet" href="../Global/reset.css">
+		<link rel="stylesheet" href="style.css">
+		<script language="javascript" type="text/javascript" src="../Global/Basic.js"></script>
+	</head>
+	<body id="page">
+		<div id="header"><img src="https://wttgiii.peterrock.dev/website-assets/8798f8e74597cc175dad.jpg" id="logo"> </div>
+		<div id="content">
+			<p> 
+				You have been blinded by the love of the flesh and subordinate reason to desire. 
+			</p>
+			<p> 
+				Women are fraught with sin. From the damning missteps of Eve to the shameful sluts sharing images of their flesh for <em class="PTAG"></em> the world to feel validated in their meaningless efforts to seduce for money. 
+				They seek nothing but lustful desire and to be seen as whores.
+			</p>
+			<p>
+				I know you seek me. I have seen countless others just like you. I know your smell. 
+				On the street wafting <a class="CFTAG">seductive</a> perfumes to the olfactory senses of the weak. I feel you. 
+				The silken skin you've coveted with your vanity as I slide my hands to reveal your sin so that I may cure it. 
+			</p>
+			<p class="text-quote strong"> 
+				"They are the ones who defiled a basic tenet of the <a class="CPTAG">LORD</a>. Went further to poison others into forgoing their own innocence. 
+				Wait not, go forth and sentence all those unpure to eternal damnation." <br/>
+				Numbers 31:7-18
+			</p>
+			<p> Death is what is deserved for your perversions to <a class="CPTAG">humanity</a>. 
+			</p>
+			<p>
+				However, I pity your souls. You are weak and unable to fight the temptations of Lucifer. You are not without faults. 
+				Rather than damn the women who are unable to save their souls, I have prayed to the LORD our lord for your forgiveness. I weep for your destiny in hell. 
+				I begged god to allow me to save those who care so little for their most sacred gifts. The LORD has answered.
+			</p>
+			<p>
+				I am here to deliver the word of our <a class="CFTAG">LORD</a> god that no woman may need be killed <em class="PTAG"></em> for laying with another man when I purify their corrupted essence with my radiant inner soul.
+			</p>
+			<p>
+				The LORD, your god, has delivered to me a divine ability which cleanses the <a class="CFTAG">soul</a> and may deliver you from Satan. 
+				You may be re-born through the light of my loins. Through the hammer and the rod shall I free you from the grips of the hurricane of <a class="CPTAG">lust</a>.
+			</p>
+			<p>
+				When I give myself into you, you will have dreamed of this moment many times before. 
+				Yet Lucifer will demand you fight and resist the great light that will burst forth. God's hand itself will be reaching through to your soul to set it free. 
+				You will not see it for you are but a <a class="CFTAG">mortal</a> in need of salvation. You will not hear it. 
+				As the Devil is cunning and will convince you there is no escape from your path. 
+				There will be pain, the Devil will grasp and claw onto your insides <em class="PTAG"></em> as you become more pure, but as the holy essence overwhelms his dark power, greater joy will wash over you. 
+				Your recompense for seeking salvation will be that of the seat  earned by the hand of god as it has been spoken to me.
+			</p>
+			<p>
+				All women who have laid with a man outside of holy vows have been damaged and their souls lost. The men corrupted by your sinful lust. 
+				The damage done to the flock of the earth is immense. I am your only redemption. 
+				Take my gift to you in holey <em class="PTAG"></em> light born from the fluids of our creation or burn forever in hell for if you fail to give in to the love of our lord, I will be forced to carry out the original wishes of our LORD, forcing you through the gates of hell and bring you to Lucifer. 
+				I take no pleasure in your <a class="CPTAG">desecration</a>. This is our burden and our pain to share.
+			</p>
+			<p> The god light of my loins will cleans the sinful. These are the wishes of our all mighty god. </p>
+			<p id="glow-link" class="text-center"><a onClick="LinkClick('saved.html')">THE SAVED</a></p>
+			<p class="text-center"><img src="https://wttgiii.peterrock.dev/website-assets/80214577e0d21a31ad49.jpg" width="400"> </p>
+		</div>
+	</body>
+</html>
+</body>
+</html>

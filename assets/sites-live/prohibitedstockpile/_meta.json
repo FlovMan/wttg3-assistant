@@ -1,0 +1,19 @@
+{
+  "name": "Prohibited Stockpile",
+  "domain": "prohibitedstockpile",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "nocontent",
+      "title": "No Content",
+      "file": "nocontent.html"
+    }
+  ]
+}

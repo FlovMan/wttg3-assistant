@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: "Lora-Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/0dbba18874cb02349045.ttf");
+}
+
+@font-face {
+    font-family: "Lora-Bold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/deb52a34ec9821830893.ttf");
+}
+
+.lora-bold {
+    font-family: "Lora-Bold";
+}
+
+:root {
+    --latus: #464646;
+    --centrum: #2e2e2e;
+    --inanis: #1A1A1A;
+    --interius: #7c7c7c;
+}
+
+.background-stripes {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.stripe {
+    z-index: inherit;
+    width: 20%;
+    height: 100vh;
+    background-color: var(--grey);
+}
+
+.inanis {
+    background-color: var(--inanis);
+}
+
+.centrum {
+    background-color: var(--centrum);
+}
+
+.interius {
+    background-color: var(--interius);
+}
+
+.latus {
+    background-color: var(--latus);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#header img {
+    width: 252px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    vertical-align: middle;
+}
+
+body {
+    color: silver;
+    background-color: #6D6D6D;
+    font-family: "Lora-Regular";
+    font-size: 18px;
+    line-height: 20px;
+    word-spacing: 0.2em;
+}
+
+img {
+    max-width: 100%;
+}
+
+.p-hr {
+    height: 2px;
+    width: 20px;
+    background-color: #fff;
+}
+
+a,
+a:focus,
+a:visited,
+a:hover {
+    display: block;
+    color: white;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    display: inline !important;
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    font-size: 48px;
+    padding-bottom: 15px;
+}
+
+div {
+    padding-bottom: 25px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+section {
+    background-color: #666666;
+    padding: 25px 50px;
+}
+
+#container {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 70%;
+}
+
+.text-hidden {
+    color: rgba(192, 192, 192, 0.1);
+    user-select: none;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 40px;
+}
+
+.pr {
+    padding-right: 40px;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.mts {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 40px;
+}
+
+.mb-1 {
+    margin-bottom: 10px;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
+}
+
+.mbs {
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-xlarge {
+    font-size: 48px;
+}
+
+.text-large {
+    font-size: 32px;
+}
+
+.text-medium {
+    font-size: 24px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#walls-links *{
+    margin: auto;
+    margin-bottom: 15px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.25s ease-in-out;
+}
+
+#walls-links :nth-child(1):hover {
+    background-color: var(--latus);
+}
+
+#walls-links :nth-child(2):hover {
+    background-color: var(--centrum);
+}
+
+#walls-links :nth-child(3):hover {
+    background-color: var(--inanis);
+}
+
+.fadeout-top {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #66666600, #666666);
+}
+
+.fadeout-bottom {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #666666, #66666600);
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: "Lora-Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/0dbba18874cb02349045.ttf");
+}
+
+@font-face {
+    font-family: "Lora-Bold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/deb52a34ec9821830893.ttf");
+}
+
+.lora-bold {
+    font-family: "Lora-Bold";
+}
+
+:root {
+    --latus: #464646;
+    --centrum: #2e2e2e;
+    --inanis: #1A1A1A;
+    --interius: #7c7c7c;
+}
+
+.background-stripes {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.stripe {
+    z-index: inherit;
+    width: 20%;
+    height: 100vh;
+    background-color: var(--grey);
+}
+
+.inanis {
+    background-color: var(--inanis);
+}
+
+.centrum {
+    background-color: var(--centrum);
+}
+
+.interius {
+    background-color: var(--interius);
+}
+
+.latus {
+    background-color: var(--latus);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#header img {
+    width: 252px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    vertical-align: middle;
+}
+
+body {
+    color: silver;
+    background-color: #6D6D6D;
+    font-family: "Lora-Regular";
+    font-size: 18px;
+    line-height: 20px;
+    word-spacing: 0.2em;
+}
+
+img {
+    max-width: 100%;
+}
+
+.p-hr {
+    height: 2px;
+    width: 20px;
+    background-color: #fff;
+}
+
+a,
+a:focus,
+a:visited,
+a:hover {
+    display: block;
+    color: white;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    display: inline !important;
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    font-size: 48px;
+    padding-bottom: 15px;
+}
+
+div {
+    padding-bottom: 25px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+section {
+    background-color: #666666;
+    padding: 25px 50px;
+}
+
+#container {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 70%;
+}
+
+.text-hidden {
+    color: rgba(192, 192, 192, 0.1);
+    user-select: none;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 40px;
+}
+
+.pr {
+    padding-right: 40px;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.mts {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 40px;
+}
+
+.mb-1 {
+    margin-bottom: 10px;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
+}
+
+.mbs {
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-xlarge {
+    font-size: 48px;
+}
+
+.text-large {
+    font-size: 32px;
+}
+
+.text-medium {
+    font-size: 24px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#walls-links *{
+    margin: auto;
+    margin-bottom: 15px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.25s ease-in-out;
+}
+
+#walls-links :nth-child(1):hover {
+    background-color: var(--latus);
+}
+
+#walls-links :nth-child(2):hover {
+    background-color: var(--centrum);
+}
+
+#walls-links :nth-child(3):hover {
+    background-color: var(--inanis);
+}
+
+.fadeout-top {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #66666600, #666666);
+}
+
+.fadeout-bottom {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #666666, #66666600);
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<title>TheGrey</title>
+	<link rel="stylesheet" href="../Global/reset.css"/>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+<body id="page">
+	<div id="container">
+		<div id="header" class="text-center">
+			<img src="https://wttgiii.peterrock.dev/website-assets/34489c826d7591609b31.jpg" style="width: 300px">
+			<img src="https://wttgiii.peterrock.dev/website-assets/3abcf036fec0312a6f3f.jpg" style="width: 720px">
+		</div>
+		<div class="fadeout-top"></div>
+		<section class="text-normal">
+			<p class="mb-1"> Welcome. We are glad to have you here with us. Many <a class="CPTAG">souls</a> are tossed about by the turbulent winds of their emotions every
+				day of their lives. We become so engrossed in our own being and our own gratification that we often forget that there
+				is another living, breathing, human behind every angry outburst, sigh of frustration, and careless act that we give birth
+				to and let fly free into the world. </p>
+
+			<p class="mb-1"> We, as a people on this beautiful earth, have lost our <a class="CFTAG">ability</a> to empathize and truly let those who are our own brothers
+				and sisters live the way they wish to live. You to yours and I to mine. So many are selfish and lost that they can no
+				longer feel. This is true torture to the soul. To <a class="CPTAG">live</a> but be consumed by anger or dizzying excitement over someone else's
+				life and choices that you may never know your own. We in the shade of grey want true equality. We want to simply let
+				others live the path their own lives provide. You to yours and I to mine. </p>
+
+			<p class="mb-1"> Those who truly live in grey are neutral. We simply let others be the piece of art that each of us are born to be. We
+				live the lives we live and we die when the great forces of our universe decide that we shall. If one is meant to be judged
+				by their own actions, so be it. If one is meant to devote their love to others and influence peace, so be it. You to
+				yours and I to mine. </p>
+
+			<p class="mb-1"> If you feel the desire to be truly free and live your own way while other's live theirs. Please join us in the shade and
+				learn more of our ways in the walls of interius. Become grey and bring true equality to yourself and our world. </p>
+
+			<p class="mb-1 text-center"><a class="CFTAG"><img src="https://wttgiii.peterrock.dev/website-assets/de8fd85df25211425c7c.png" width="252"></a> </p>
+
+			<p class="mb-1 text-underline text-medium strong"> THE <em class="PTAG"></em> INTERIUS </p>
+
+			<p class="mb-1"> Our symbol consists of three parts called walls. This is because when you are in the shade. The shade of grey. You are
+				living within your own house. Three walls because it is the minimum needed to provide a full enclosure for your wellbeing.
+				We are not materialistic and do not seek what we do not need. The walls in our symbol are parallel because our walls
+				are still open to the world though we dwell safely within them. We are not shut off from the actions of others. We do
+				not bury our heads in the sand and pretend all is right. We simply except the world as it unfolds. </p>
+
+			<p class="mb-1"> Finally, the center. The Self. You are your own house within the walls of interius. Within your soul is the true source
+				of our shade yet still empty and open. Not filled with life's inconveniences or cares. </p>
+
+			<p class="mb-2"> While symbolic of our way life. The interius <em class="PTAG"></em> is also representative of the path to the shade of grey. The walls of interius
+				are broken into three lessons to become a member in our chain. </p>
+
+			<span class="text-center">
+				<p style="color: var(--latus);" class="text-medium lora-bold flex-row"> <a class="CPTAG"> &#9866; LATUS &#9866; </a></p>
+				<p class="mb-2">Our outer perception of the world and the way we are perceived by others. </p>
+
+				<p style="color: var(--centrum);" class="text-medium lora-bold"> <a class="CFTAG"> &#9868; CENTRUM &#9868; </a></p>
+				<p class="mb-2">The way we live as ourselves for ourselves. </p>
+
+				<p style="color: var(--inanis);" class="text-medium lora-bold"> &#9776; INANIS &#9776; </p>
+				<p class="mb-1">Balance. To be <em class="PTAG"></em> truly grey. </p>
+
+				<p class="mt text-medium mb-1"> Do you wish to walk in the shade? </p>
+				<p class="text-large text-underline lora-bold">
+					<a class="mt" onClick="LinkClick('interius.html')"> YES </a>
+				</p>
+			</span>
+		</section>
+		<div class="fadeout-bottom"></div>
+	</div>
+</body>
+</html>
+</body>
+</html>

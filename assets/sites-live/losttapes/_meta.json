@@ -1,0 +1,24 @@
+{
+  "name": "LostTapes",
+  "domain": "losttapes",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "page2",
+      "title": "Page2",
+      "file": "page2.html"
+    },
+    {
+      "id": "purchase",
+      "title": "Purchase",
+      "file": "purchase.html"
+    }
+  ]
+}

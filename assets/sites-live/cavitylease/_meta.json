@@ -1,0 +1,19 @@
+{
+  "name": "Cavity Lease",
+  "domain": "cavitylease",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "submit",
+      "title": "Submit",
+      "file": "submit.html"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Synapse Decay",
+  "domain": "synapsedecay",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "getmoney",
+      "title": "Get Money",
+      "file": "getmoney.html"
+    },
+    {
+      "id": "myfriends",
+      "title": "My Friends",
+      "file": "myfriends.html"
+    },
+    {
+      "id": "occasionally",
+      "title": "Cccasionally",
+      "file": "occasionally.html"
+    },
+    {
+      "id": "succulentmeal",
+      "title": "Succulentmeal",
+      "file": "succulentmeal.html"
+    }
+  ]
+}

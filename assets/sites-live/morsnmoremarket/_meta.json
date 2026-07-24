@@ -1,0 +1,29 @@
+{
+  "name": "Mors N More Market",
+  "domain": "morsnmoremarket",
+  "availability": "FIRST_QUARTER",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "menu",
+      "title": "Menu",
+      "file": "menu.html"
+    },
+    {
+      "id": "order",
+      "title": "Order",
+      "file": "order.html"
+    },
+    {
+      "id": "ordersent",
+      "title": "Order Sent",
+      "file": "ordersent.html"
+    }
+  ]
+}

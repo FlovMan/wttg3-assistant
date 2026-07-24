@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+*{
+    margin: 0;
+    font-family: NotoSans-Medium;
+}
+
+/* fonts */
+.bold{
+    font-family: NotoSans-Bold;
+}
+.semibold{
+    font-family: NotoSans-SemiBold;
+}
+.bolditalic{
+    font-family: NotoSans-BoldItalic;
+}
+.light{
+    font-family: NotoSans-Light;
+}
+.medium{
+    font-family: NotoSans-Medium;
+}
+.underlined{
+    text-decoration: underline;
+}
+.italic{
+    font-family: NotoSans-Italic;
+}
+/* /// */
+
+body{
+    display: block;
+    width: 100%;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/f97484a8191a042a2e59.png");
+}
+
+#content{
+    display: block;
+    margin: auto;
+    width: 768px;
+}
+
+header{
+    display: flex;
+    height: 118px;
+    width: 768px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/a7058a27e4f3ec41385f.png");
+    background-repeat: no-repeat;
+}
+
+#logo{
+    display: block;
+    margin: auto;
+    zoom: 1;
+}
+
+main{
+    display: block;
+    margin-top: -3px;
+    /* height: 1650px; */
+    width: 768px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+}
+
+nav{
+    display: block;
+    width: 100%;
+}
+
+#home{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/bd99ab3c26a7a766ab3d.png");
+    width: 93px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+
+#submit{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/514726de32fa5ccb4c5c.png");
+    width: 106px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+
+#about{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/b0680e301429be2d0d4d.png");
+    width: 106px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+nav > a{
+    height: 40px;
+}
+
+article{
+    margin-top: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: inset -10px -10px 40px -10px black;
+}
+
+#handson{
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+h2{
+    font-size: 1.4em;
+}
+
+#lidar{
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 450px;
+}
+
+#lidarInfo{
+    display: block;
+    margin-top: 10px;
+    margin-left: 50px;
+    font-size: 0.75em;
+}
+
+textarea{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/cd15ce5bec1de8dcb2ff.png");
+    padding: 20px;
+    font-family: NotoSans-BoldItalic;
+    width: 663px;
+    font-size: 0.8em;
+    height: 177px;
+    resize: none;
+    word-wrap: break-word;
+}
+
+#disclosure{
+    margin-top: 50px;
+    font-size: 0.9em;
+    font-family: NotoSans-Light;
+}
+
+#infoForm{
+    margin-top: 30px;
+}
+
+#infoForm > input {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/21a7bec79a2efc4b99b8.png");
+    width: 663px;
+    background-repeat: no-repeat;
+    height: 34px;
+    padding: 10px;
+    font-family: NotoSans-BoldItalic;
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+
+#conditions{
+    margin-top: 50px;
+}
+
+#submitFormBtn{
+    text-align: center;
+    display: block;
+    margin: auto;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/f2b3622930c02eaddc1f.png");
+    width: 215px;
+    height: 65px;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+}
+
+.target {
+    width: 100%;
+    position: relative;
+}
+
+.target a {
+    background-color: transparent;
+    position: absolute;
+}
+
+.A a {
+    width: 260px;
+    height: 135px;
+    left: 100px;
+    top: 25px;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+*{
+    margin: 0;
+    font-family: NotoSans-Medium;
+}
+
+/* fonts */
+.bold{
+    font-family: NotoSans-Bold;
+}
+.semibold{
+    font-family: NotoSans-SemiBold;
+}
+.bolditalic{
+    font-family: NotoSans-BoldItalic;
+}
+.light{
+    font-family: NotoSans-Light;
+}
+.medium{
+    font-family: NotoSans-Medium;
+}
+.underlined{
+    text-decoration: underline;
+}
+.italic{
+    font-family: NotoSans-Italic;
+}
+/* /// */
+
+body{
+    display: block;
+    width: 100%;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/f97484a8191a042a2e59.png");
+}
+
+#content{
+    display: block;
+    margin: auto;
+    width: 768px;
+}
+
+header{
+    display: flex;
+    height: 118px;
+    width: 768px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/a7058a27e4f3ec41385f.png");
+    background-repeat: no-repeat;
+}
+
+#logo{
+    display: block;
+    margin: auto;
+    zoom: 1;
+}
+
+main{
+    display: block;
+    margin-top: -3px;
+    /* height: 1650px; */
+    width: 768px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+}
+
+nav{
+    display: block;
+    width: 100%;
+}
+
+#home{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/bd99ab3c26a7a766ab3d.png");
+    width: 93px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+
+#submit{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/514726de32fa5ccb4c5c.png");
+    width: 106px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+
+#about{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/b0680e301429be2d0d4d.png");
+    width: 106px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+nav > a{
+    height: 40px;
+}
+
+article{
+    margin-top: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: inset -10px -10px 40px -10px black;
+}
+
+#handson{
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+h2{
+    font-size: 1.4em;
+}
+
+#lidar{
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 450px;
+}
+
+#lidarInfo{
+    display: block;
+    margin-top: 10px;
+    margin-left: 50px;
+    font-size: 0.75em;
+}
+
+textarea{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/cd15ce5bec1de8dcb2ff.png");
+    padding: 20px;
+    font-family: NotoSans-BoldItalic;
+    width: 663px;
+    font-size: 0.8em;
+    height: 177px;
+    resize: none;
+    word-wrap: break-word;
+}
+
+#disclosure{
+    margin-top: 50px;
+    font-size: 0.9em;
+    font-family: NotoSans-Light;
+}
+
+#infoForm{
+    margin-top: 30px;
+}
+
+#infoForm > input {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/21a7bec79a2efc4b99b8.png");
+    width: 663px;
+    background-repeat: no-repeat;
+    height: 34px;
+    padding: 10px;
+    font-family: NotoSans-BoldItalic;
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+
+#conditions{
+    margin-top: 50px;
+}
+
+#submitFormBtn{
+    text-align: center;
+    display: block;
+    margin: auto;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/f2b3622930c02eaddc1f.png");
+    width: 215px;
+    height: 65px;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+}
+
+.target {
+    width: 100%;
+    position: relative;
+}
+
+.target a {
+    background-color: transparent;
+    position: absolute;
+}
+
+.A a {
+    width: 260px;
+    height: 135px;
+    left: 100px;
+    top: 25px;
+}
+@font-face {
+    font-family: NotoSans-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/8b6389d671315ddf9e50.ttf");
+}
+@font-face {
+    font-family: NotoSans-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/d0ca625b4975f20205e8.ttf");
+}
+@font-face {
+    font-family: NotoSans-BoldItalic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/4db08a19f477ac46be76.ttf");
+}
+@font-face {
+    font-family: NotoSans-Light;
+    src: url("https://wttgiii.peterrock.dev/website-assets/9ad3eac2298dcc17b94c.ttf");
+}
+@font-face{
+    font-family: NotoSans-Medium;
+    src: url("https://wttgiii.peterrock.dev/website-assets/2931199120fc5c13ccca.ttf");
+}
+@font-face {
+    font-family: NotoSans-SemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/9cbfd620ad9ee275c952.ttf");
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <title>Worldwide Workers</title>
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+<body>
+
+    <div id="content">
+        <header>
+            <img id="logo" src="https://wttgiii.peterrock.dev/website-assets/e3d91e453f963b57860f.png" alt="logo">
+            <em class="PTAG text-dark" style="color: rgb(77, 75, 68); position: absolute; right: 180px; font-size: 0.9em;"></em>
+        </header>
+    
+        <main>
+            <nav>
+                <a onClick="LinkClick('index.html')" class="active" id="home"></a>
+                <a onClick="LinkClick('submit.html')" class="active" id="submit"></a>
+                <a onClick="LinkClick('about.html')" class="active" id="about"></a>
+            </nav>
+    
+            <article>
+                <p>
+                    WorldWide Workers(WWW) is composed of many members who span across the world. These members come from all walks of life, and are chosen based on their ability to blend into their surrounding environment. 
+                </p>
+                <br>
+                <p>
+                    Seamless assimilation with your targetted business, government entity, etc. allows said members to have near free-reign to do as they please and collect large amounts of data undetected; supporting the planning phase of your upcoming work.
+                </p><br>
+            </article>
+    
+            <div class="target A">
+                <img id="handson" src="https://wttgiii.peterrock.dev/website-assets/8e71ae324531cad6c05f.png" alt="handsOn">
+                <a class="CPTAG"></a>
+            </div>
+            <em class="PTAG text-dark" style="position: absolute; margin-left: 210px; margin-top: -56px; font-size: 0.7em; font-family: NotoSans-Bold;"></em>
+            <article style="font-size: 0.85em;">
+                <p>
+                    Our service has provided mastermind plans to crime <a class = "CFTAG">syndicates</a>, large scale bank robbers, and more.
+                </p>
+                <br>
+                <p>
+                    No identifying information will be needed nor should it be included in a submission, only the essentials are asked for.
+                </p>
+                <br>
+                <h2>
+                    You can submit a proposal <a class="bold underlined active" onClick="LinkClick('submit.html')">HERE</a>
+                </h2>
+                <br>
+                <p>Some services we provide include:</p>
+                <p>
+                    - <span class="bold">LiDAR </span><span class="bolditalic">(laser imaging, detection, and ranging):</span> used to 3-D scan an environment in high resolution
+                </p>
+                <p>
+                    - <span class="bold">Key cloning:</span> making entry simple and effortless for you
+                </p>
+                <p>
+                    - <span class="bold">Information to counter current security measures:</span> locations of devices, points of interest, etc.<em class="PTAG text-dark"></em>
+                </p>
+                <p>
+                    - <span class="bold">Detailed personal records:</span> highlighting potential vulnerabilities and POI
+                </p>
+                <br>
+                <p>
+                    Our contacts who are established in the big data sector aid us in extrapolating the
+                    information we collect on persons to offer highly accurate personal records which we deliver on <a class="CFTAG">payment</a>.
+                </p>
+                <br>
+            </article>
+    
+            <img id="lidar" src="https://wttgiii.peterrock.dev/website-assets/dcf5ec8998baf829069c.gif" alt="LiDAR"><br>
+            <span id="lidarInfo" class="italic">Figure displays a <a class="CPTAG">LiDAR</a> created environment. Deliverable will offer interactive controls to navigate the 3-D <em class="PTAG text-dark"></em> scan, and accurate measurements for any captured object can be revealed.</span><br><br>
+        </main>
+    </div>
+    
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Order</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: SyneMono-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/df4946bac0b47143e0f7.ttf");
+}
+
+@font-face {
+    font-family: VictorMono-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/54dd796a89e47913f220.ttf");
+}
+
+@font-face {
+    font-family: VictorMono-SemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/b02384e4f538ac4ad974.ttf");
+}
+
+* {
+    margin: 1pt;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    position: relative;
+    font-family: SyneMono-Regular;
+    background-color: #eeebdc;
+}
+
+table {
+    padding-top: 8pt;
+    width: 450pt;
+    table-layout: auto;
+    vertical-align: auto;
+}
+
+table td,
+table td * {
+    vertical-align: top;
+}
+
+table td {
+    border: 1.5pt solid #eeebdc;
+}
+
+div {
+    height: 100%;
+    display: inline-block;
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar {
+    width: 142pt;
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.wrapper .mainContent {
+    width: 100%;
+    margin-left: 142pt;
+}
+
+.mainTitle {
+    color: #1c1216;
+    font-family: SyneMono-Regular;
+    font-size: 36pt;
+}
+
+#sidebarMenu {
+    overflow-y: auto;
+}
+
+#sidebarMenu a {
+    color: #1c1216;
+    font-family: SyneMono-Regular;
+    font-size: 18pt;
+}
+
+.headerInfo {
+    font-family: VictorMono-Bold;
+    color: #e8e3e5;
+    background-color: #1c1216;
+    padding: 0.5em;
+    font-size: 16pt;
+    min-width: 570pt;
+    max-width: 570pt;
+}
+
+.itemBackground {
+    background-color: #6f7160;
+}
+
+.productImage {
+    padding: 0pt;
+    width: 220pt;
+    max-width: 220pt;
+}
+
+.productMainInfo {
+    height: 105pt;
+}
+
+.productInfoTitle {
+    color: #1c1216;
+    font-family: VictorMono-Bold;
+    font-size: 18pt;
+    padding-left: 3pt;
+}
+
+.productInfoDetails {
+    color: #1c1216;
+    font-family: VictorMono-Bold;
+    font-size: 14pt;
+    padding-left: 3pt;
+    padding-top: 5pt;
+    display: inline-block;
+    max-width: 200pt;
+}
+
+.productInfoDetailsComment {
+    color: #1c1216;
+    font-family: VictorMono-Bold;
+    font-size: 10pt;
+    display: inline-block;
+}
+
+.productOffers {
+    padding-left: 3pt;
+    line-height: 12pt;
+    height: 160pt;
+    max-width: 210pt;
+}
+
+.productInfoCost {
+    color: #1c1216;
+    font-family: VictorMono-Bold;
+    font-size: 14pt;
+    display: inline-block;
+}
+
+.productInfoQuantity {
+    color: #1c1216;
+    font-family: VictorMono-SemiBold;
+    font-size: 12pt;
+    display: inline-block;
+}
+
+.productInfoCostRatio {
+    color: #1c1216;
+    font-family: VictorMono-SemiBold;
+    font-size: 10pt;
+}
+
+.productRatingData {
+    height: 50pt;
+    line-height: 12pt;
+}
+
+.productInfoSeller {
+    font-family: VictorMono-SemiBold;
+    font-size: 12pt;
+    display: inline-block;
+    padding-left: 5pt;
+}
+
+.productRatingImage {
+    padding-left: 5pt;
+    width: 100pt;
+}
+
+.productInfoRatings {
+    font-family: VictorMono-SemiBold;
+    font-size: 12pt;
+    display: inline-block;
+    padding-left: 5pt;
+}
+
+.orderButton {
+    font-family: VictorMono-Bold;
+    font-size: 18pt;
+    color: #1c1216;
+    background-color: #737184;
+    padding: 2pt 35pt 2pt 8pt;
+    border: solid #1c1216 1pt;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonDiv {
+    padding-left: 3pt;
+    padding-bottom: 8pt;
+    padding-top: 20pt;
+}
+
+.navigationTable {
+    width: 675pt;
+}
+
+.navigationBarTableData {
+    text-align: center;
+}
+
+.navigationBar {
+    padding-top: 10pt;
+    font-family: VictorMono-Bold;
+}
+
+#navigationBarPage a {
+    font-size: 16pt;
+    color: #1c1216;
+    padding-left: 5pt;
+    padding-right: 5pt;
+}
+
+.errorInfo {
+    font-family: VictorMono-Bold;
+    font-size: 20pt;
+    color: #1c1216;
+    display: inline-block;
+    max-width: 550pt;
+    padding-top: 180pt;
+    padding-left: 50pt;
+}
+
+.img-container {
+    position: relative;
+}
+
+.img-container>.CTAG-1 {
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    right: 29%;
+    top: 30%;
+}
+
+.img-container>.CTAG-2 {
+    position: absolute;
+    width: 25%;
+    height: 30%;
+    right: 49%;
+    top: 30%;
+}
+
+.img-container>.CTAG-3 {
+    position: absolute;
+    width: 70%;
+    height: 50%;
+    left: 30%;
+    top: 40%;
+}
+
+.img-container>.CTAG-4 {
+    position: absolute;
+    width: 22%;
+    height: 28%;
+    left: 18%;
+    top: 45%;
+}
+
+.img-container>.CTAG-5 {
+    position: absolute;
+    width: 28%;
+    height: 42%;
+    left: 28%;
+    top: 50%;
+}
+
+/* Hi bill */
+/* Uncomment this to display all ctags */
+/* .CTAG {
+    background-color: rgba(255, 0, 0, 0.548);
+} */
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: SyneMono-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/df4946bac0b47143e0f7.ttf");
+}
+
+@font-face {
+    font-family: VictorMono-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/54dd796a89e47913f220.ttf");
+}
+
+@font-face {
+    font-family: VictorMono-SemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/b02384e4f538ac4ad974.ttf");
+}
+
+* {
+    margin: 1pt;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    position: relative;
+    font-family: SyneMono-Regular;
+    background-color: #eeebdc;
+}
+
+table {
+    padding-top: 8pt;
+    width: 450pt;
+    table-layout: auto;
+    vertical-align: auto;
+}
+
+table td,
+table td * {
+    vertical-align: top;
+}
+
+table td {
+    border: 1.5pt solid #eeebdc;
+}
+
+div {
+    height: 100%;
+    display: inline-block;
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar {
+    width: 142pt;
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+}
+
+.wrapper .mainContent {
+    width: 100%;
+    margin-left: 142pt;
+}
+
+.mainTitle {
+    color: #1c1216;
+    font-family: SyneMono-Regular;
+    font-size: 36pt;
+}
+
+#sidebarMenu {
+    overflow-y: auto;
+}
+
+#sidebarMenu a {
+    color: #1c1216;
+    font-family: SyneMono-Regular;
+    font-size: 18pt;
+}
+
+.headerInfo {
+    font-family: VictorMono-Bold;
+    color: #e8e3e5;
+    background-color: #1c1216;
+    padding: 0.5em;
+    font-size: 16pt;
+    min-width: 570pt;
+    max-width: 570pt;
+}
+
+.itemBackground {
+    background-color: #6f7160;
+}
+
+.productImage {
+    padding: 0pt;
+    width: 220pt;
+    max-width: 220pt;
+}
+
+.productMainInfo {
+    height: 105pt;
+}
+
+.productInfoTitle {
+    color: #1c1216;
+    font-family: VictorMono-Bold;
+    font-size: 18pt;
+    padding-left: 3pt;
+}
+
+.productInfoDetails {
+    color: #1c1216;
+    font-family: VictorMono-Bold;
+    font-size: 14pt;
+    padding-left: 3pt;
+    padding-top: 5pt;
+    display: inline-block;
+    max-width: 200pt;
+}
+
+.productInfoDetailsComment {
+    color: #1c1216;
+    font-family: VictorMono-Bold;
+    font-size: 10pt;
+    display: inline-block;
+}
+
+.productOffers {
+    padding-left: 3pt;
+    line-height: 12pt;
+    height: 160pt;
+    max-width: 210pt;
+}
+
+.productInfoCost {
+    color: #1c1216;
+    font-family: VictorMono-Bold;
+    font-size: 14pt;
+    display: inline-block;
+}
+
+.productInfoQuantity {
+    color: #1c1216;
+    font-family: VictorMono-SemiBold;
+    font-size: 12pt;
+    display: inline-block;
+}
+
+.productInfoCostRatio {
+    color: #1c1216;
+    font-family: VictorMono-SemiBold;
+    font-size: 10pt;
+}
+
+.productRatingData {
+    height: 50pt;
+    line-height: 12pt;
+}
+
+.productInfoSeller {
+    font-family: VictorMono-SemiBold;
+    font-size: 12pt;
+    display: inline-block;
+    padding-left: 5pt;
+}
+
+.productRatingImage {
+    padding-left: 5pt;
+    width: 100pt;
+}
+
+.productInfoRatings {
+    font-family: VictorMono-SemiBold;
+    font-size: 12pt;
+    display: inline-block;
+    padding-left: 5pt;
+}
+
+.orderButton {
+    font-family: VictorMono-Bold;
+    font-size: 18pt;
+    color: #1c1216;
+    background-color: #737184;
+    padding: 2pt 35pt 2pt 8pt;
+    border: solid #1c1216 1pt;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonDiv {
+    padding-left: 3pt;
+    padding-bottom: 8pt;
+    padding-top: 20pt;
+}
+
+.navigationTable {
+    width: 675pt;
+}
+
+.navigationBarTableData {
+    text-align: center;
+}
+
+.navigationBar {
+    padding-top: 10pt;
+    font-family: VictorMono-Bold;
+}
+
+#navigationBarPage a {
+    font-size: 16pt;
+    color: #1c1216;
+    padding-left: 5pt;
+    padding-right: 5pt;
+}
+
+.errorInfo {
+    font-family: VictorMono-Bold;
+    font-size: 20pt;
+    color: #1c1216;
+    display: inline-block;
+    max-width: 550pt;
+    padding-top: 180pt;
+    padding-left: 50pt;
+}
+
+.img-container {
+    position: relative;
+}
+
+.img-container>.CTAG-1 {
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    right: 29%;
+    top: 30%;
+}
+
+.img-container>.CTAG-2 {
+    position: absolute;
+    width: 25%;
+    height: 30%;
+    right: 49%;
+    top: 30%;
+}
+
+.img-container>.CTAG-3 {
+    position: absolute;
+    width: 70%;
+    height: 50%;
+    left: 30%;
+    top: 40%;
+}
+
+.img-container>.CTAG-4 {
+    position: absolute;
+    width: 22%;
+    height: 28%;
+    left: 18%;
+    top: 45%;
+}
+
+.img-container>.CTAG-5 {
+    position: absolute;
+    width: 28%;
+    height: 42%;
+    left: 28%;
+    top: 50%;
+}
+
+/* Hi bill */
+/* Uncomment this to display all ctags */
+/* .CTAG {
+    background-color: rgba(255, 0, 0, 0.548);
+} */
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>ViaMarisRoute</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <img src="https://wttgiii.peterrock.dev/website-assets/d39e5c5d46c39e12c4f0.png"><em class="PTAG text-dark" style="position: absolute; font-size: 0.8em; color: #cab594;"></em><br>
+        <span class="mainTitle">Via<br>Maris<br>Route</span><br><br>
+        <em class="PTAG text-dark" style="color: #e8bacc;"></em>
+    </div>
+    <div class="mainContent">
+        <div class="errorInfo">
+            <span><a class = "CPTAG">Order</a> services are currently <a class = "CFTAG">unavailable</a> at this time due to regularly scheduled maintenance.</span>
+            <br><br>
+            <span><a class = "CFTAG">Please</a> check back soon to <a class = "CPTAG">place</a> an order.</span>
+            <br>
+            <em class="PTAG text-dark" style="color: #e8cbd6;"></em>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+</body>
+</html>

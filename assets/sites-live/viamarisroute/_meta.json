@@ -1,0 +1,29 @@
+{
+  "name": "ViaMarisRoute",
+  "domain": "viamarisroute",
+  "availability": "FIRST_HALF",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "order",
+      "title": "Order",
+      "file": "order.html"
+    },
+    {
+      "id": "secondpage",
+      "title": "Second Page",
+      "file": "secondpage.html"
+    },
+    {
+      "id": "thirdpage",
+      "title": "Third Page",
+      "file": "thirdpage.html"
+    }
+  ]
+}

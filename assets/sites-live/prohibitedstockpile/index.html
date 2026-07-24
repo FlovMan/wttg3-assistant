@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+
+@font-face {
+	font-family: Cardo-Regular;
+	src: url("https://wttgiii.peterrock.dev/website-assets/618b2a4db94db3f59eed.ttf");
+}
+
+body {
+	overflow: hidden;
+	background-color: black;
+	color: white;
+	font-family: Cardo-Regular;
+}
+
+
+#noContent {
+	position: static;
+	right: 0;
+	bottom: 0;
+	margin:auto;
+	z-index: 0;
+	transform: translate(-18%, 0);
+}
+
+.message {
+	position: absolute;
+	top:100px;
+	left: 120px;
+	bottom: 0;
+	text-align: left;
+	z-index: 2;
+}
+
+h3 {
+	color: white;
+	text-align: left;
+	font-size: 26pt;
+	z-index: -1;
+}
+
+video {
+	left: 400px;
+}
+
+.PTAG.inner{
+	font-family: Cardo-Regular, sans-serif;
+	color: #2A48B2;
+	font-size: 14pt;
+	transform: translate(500px,-296px);
+	position: absolute;
+}
+
+.PTAG.stat{
+	font-family: Cardo-Regular, sans-serif;
+	color: #4874EB;
+	font-size: 14pt;
+	position: absolute;
+	transform: translate(280px,-200px);
+	writing-mode: vertical-rl;
+	/*z-index: 3;*/
+}
+
+/*
+.PTAG.shadow {
+	color: #1A1A1A;
+	font-size: 14pt;
+	writing-mode: vertical-rl;
+	filter: blur(0.75px);
+	transform: translate(400px, 240px);
+}
+*/
+
+.PTAG.FOUR {
+	font-family: Cardo-Regular, sans-serif;
+	color: #3AA0AF;
+	/*color: white;*/
+	font-size: 13pt;
+	/*zoom: 0.8;*/
+	position: absolute;
+	/*transform: translate(1060px, -960px);*/
+	transform: translate(860px, -120px);
+	z-index: 3;
+}
+
+/* index changes */
+
+h1 {
+	
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+
+@font-face {
+	font-family: Cardo-Regular;
+	src: url("https://wttgiii.peterrock.dev/website-assets/618b2a4db94db3f59eed.ttf");
+}
+
+body {
+	overflow: hidden;
+	background-color: black;
+	color: white;
+	font-family: Cardo-Regular;
+}
+
+
+#noContent {
+	position: static;
+	right: 0;
+	bottom: 0;
+	margin:auto;
+	z-index: 0;
+	transform: translate(-18%, 0);
+}
+
+.message {
+	position: absolute;
+	top:100px;
+	left: 120px;
+	bottom: 0;
+	text-align: left;
+	z-index: 2;
+}
+
+h3 {
+	color: white;
+	text-align: left;
+	font-size: 26pt;
+	z-index: -1;
+}
+
+video {
+	left: 400px;
+}
+
+.PTAG.inner{
+	font-family: Cardo-Regular, sans-serif;
+	color: #2A48B2;
+	font-size: 14pt;
+	transform: translate(500px,-296px);
+	position: absolute;
+}
+
+.PTAG.stat{
+	font-family: Cardo-Regular, sans-serif;
+	color: #4874EB;
+	font-size: 14pt;
+	position: absolute;
+	transform: translate(280px,-200px);
+	writing-mode: vertical-rl;
+	/*z-index: 3;*/
+}
+
+/*
+.PTAG.shadow {
+	color: #1A1A1A;
+	font-size: 14pt;
+	writing-mode: vertical-rl;
+	filter: blur(0.75px);
+	transform: translate(400px, 240px);
+}
+*/
+
+.PTAG.FOUR {
+	font-family: Cardo-Regular, sans-serif;
+	color: #3AA0AF;
+	/*color: white;*/
+	font-size: 13pt;
+	/*zoom: 0.8;*/
+	position: absolute;
+	/*transform: translate(1060px, -960px);*/
+	transform: translate(860px, -120px);
+	z-index: 3;
+}
+
+/* index changes */
+
+h1 {
+	
+}
+
+:root {
+    --base-color: #acacaa;
+    --border-color: #423435;
+}
+
+@font-face {
+	font-family: Cardo-Regular;
+	src: url("https://wttgiii.peterrock.dev/website-assets/618b2a4db94db3f59eed.ttf");
+}
+
+@font-face {
+    font-family: Cinzel-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/4a0d00aab504f885b98e.ttf");
+}
+
+@font-face {
+    font-family: Anybody-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/92aa52747dbee49485b2.ttf");
+}
+
+body {
+	background-color: black;
+	color: var(--base-color);
+	font-family: Cardo-Regular;
+}
+
+#top {
+    margin: auto;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    width: 500px;
+}
+
+h1 {
+    display: block;
+    font-family: Cinzel-Regular;
+    font-style: normal;
+    font-size: 3em;
+}
+
+#top > h1:nth-child(2) {
+    display: block;
+    margin-top: -40px;
+}
+
+#top > p {
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+.set {
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: top;
+    justify-content: center;
+    text-align: center;
+    border: 3px solid var(--border-color);
+    border-radius: 30px;
+    width: 90%;
+    padding: 10px;
+}
+
+.category {
+    float: left;
+    left: 0;
+    margin-left: 120px;
+    margin-top: 27px;
+    text-align: left;
+    position: absolute;
+    background-color: black;
+    max-width: auto;
+    white-space: nowrap;
+    font-size: 1.1em;
+}
+
+.cell {
+    top: 0;
+    display: inline-block;
+    width: 25%;
+    margin-top: 20px;
+}
+.cell > img {
+    display: block;
+    margin: auto;
+}
+
+.cell > span {
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+
+.cell-title {
+    margin-top: 40px;
+    line-height: 1.1;
+}
+
+.cell-title::after {
+    content: '\a';
+    white-space: pre;
+}
+
+.cell-content {
+    font-size: 0.8em;
+    line-height: 1.2;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.PTAG.last {
+    font-size: 0.8em;
+    color: #867274;
+    margin-left: 5%;
+}
+
+.CTAG {
+    text-decoration: none;
+}
+
+.PTAG.inbanner {
+    display: block;
+    margin-top: -14px;
+    margin-bottom: -10px;
+    font-size: 0.7em;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prohibited Stock Pile</title>
+    <link rel="stylesheet" href="../Global/reset.css">
+    <link rel="stylesheet" href="indexStyle.css">
+    <script src="../Global/Basic.js"></script>
+</head>
+<body>
+
+    <div id="top">
+        <h1>PROHIBITED</h1>
+        <em class="PTAG inbanner"></em>
+        <h1>STOCKPILE</h1>
+    
+        <p>DEEPWEBS MOST FREQUENTLY UPDATED LIBRARY OF BANNED VISUAL CONTENT</p>
+        <small>>>>>>>on hiatus of 6/14/2019<<<<<<<</small>
+        
+        <br>
+
+        <a onClick="LinkClick('noContent.html')">
+            <img src="https://wttgiii.peterrock.dev/website-assets/e577c90b64a928b81a6a.png" alt="Tune In Button">
+        </a>
+    </div>
+
+    <!-- Most viewed category -->
+    <span class="category">
+        Most <a class="CPTAG">Viewed</a>
+    </span>
+    <div class="set">
+        
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/f25915ea691eb1a4f607.png" alt="Strange Lights">
+            <br>
+            <span class="cell-title">
+                Strange Lights Over the Sky in Northern Mongolia
+            </span>
+            <span class="cell-content">
+                Jet planes don't move like this!
+                ((poor audio but gets clear at 2:05))
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/d01caadc82bdb3f6fd2a.png" alt="Gun Cartel in Venezuela">
+            <br>
+            <span class="cell-title">
+                Venezuelan Gun Cartel Gunfight in the Streets
+            </span>
+            <span class="cell-content">
+                Some poor bastard caught this while hiding in his kitchen ((skip to 7:22 to see his window and door get blasted in by an IED))
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/197da52a86e8d7b53afb.png" alt="Simmer Down">
+            <br>
+            <span class="cell-title">
+                Simmer Down, Man
+            </span>
+            <span class="cell-content">
+                Man boiled down into soup
+                ((anonymous submission))
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/36f2c34db16642c5f454.png" alt="Supermodel Diet">
+            <br>
+            <span class="cell-title">
+            The Supermodel Diet
+            </span>
+            <span class="cell-content">
+                See what they really get up to behind the curtain! ((not as sexy as you'd think))
+            </span>
+        </div>
+    </div>
+
+    <!-- Classics category -->
+    <span class="category">
+        Classics
+    </span>
+    <div class="set">
+        
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/4c6ca01d7c556f96b10e.png" alt="Brazil Mayhem">
+            <br>
+            <span class="cell-title">
+                Brazil Mayhem #4
+            </span>
+            <span class="cell-content">
+                Dismemberment and Decapitation
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/d9d00767231258bdcb59.png" alt="Unexplainable paranormal phenomena">
+            <br>
+            <span class="cell-title">
+                Unexplainable Paranormal Phenomena Caught on Film
+            </span>
+            <span class="cell-content">
+                REAL undoctored footage, proof of an afterlife or something else?
+                ((Keeps getting removed from other platforms, very suspicious, 4:11 makes my skin crawl))
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/2183f1f5d24b80a68ed7.png" alt="Train Versus Human Compilation">
+            <br>
+            <span class="cell-title">
+                Train Versus Human Compilation
+            </span>
+            <span class="cell-content">
+                Hint: the human loses every time. 
+                ((There were so many of these I just decided to put
+                <em class="PTAG"></em> them all in one
+                giga-compilation. You're welcome!!))
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/d4e9a7faa2b623e291b0.png" alt="Can i get a hand here">
+            <br>
+            <span class="cell-title">
+            Can I Get a Hand Here?
+            </span>
+            <span class="cell-content">
+                Gang member gets hand severed by rival gang, then gets inserted somewhere suprising
+                ((best moments @ 1:17, 1:45, 2:20, 5:50))
+            </span>
+        </div>
+    </div>
+
+    <!-- Recently added category -->
+    <span class="category">
+        Recently Added
+    </span>
+    <div class="set">
+        
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/6a3a524734409381f89e.png" alt="Meat grinder">
+            <br>
+            <span class="cell-title">
+                Meat Grinder Incident
+            </span>
+            <span class="cell-content">
+                Man's hand caught in a meat grinder ((sausage anyone?))
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/d37bb6f2901170696bbd.png" alt="Night's Creature">
+            <br>
+            <span class="cell-title">
+                Creature at night
+            </span>
+            <span class="cell-content">
+                Definitely not human, so what is it?
+            </span>
+        </div>
+
+        <div class="cell">
+            <a class="CPTAG"><img src="https://wttgiii.peterrock.dev/website-assets/f966f2348ed89d0fbb0e.png" alt="Powerline thief"></a>
+            <br>
+            <span class="cell-title">
+                Powerline Thief
+            </span>
+            <span class="cell-content">
+                What happens when you try to scavenge scrap metal without testing the line first
+                ((imagine the smell))
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/8ef5995d20b7055c5961.png" alt="Half and half">
+            <br>
+            <span class="cell-title">
+                Half n Half
+            </span>
+            <span class="cell-content">
+                Dramatic car accident footage
+                ((it gets <a class="CFTAG">juicy</a> @ 5:31, literally)?
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/07b354af903866cb66f2.png" alt="Man's Best Friend">
+            <br>
+            <span class="cell-title">
+                Man's Best Friend
+            </span>
+            <span class="cell-content">
+                Man dies, gets partially eaten by stray dog
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/9f5e1aa865fc6c00c701.png" alt="Celebrity Autopsy">
+            <br>
+            <span class="cell-title">
+                Celebrity <a class="CFTAG">Autopsy</a>
+            </span>
+            <span class="cell-content">
+                Rock 'n Roll is dead. Long live the Legend. Evidence submitted by Memphis coroner
+                ((See his last meal at 12:32. Disgusting!))
+            </span>
+        </div>
+
+        <div class="cell">
+            <img src="https://wttgiii.peterrock.dev/website-assets/341971c5c59ca14cd16d.png" alt="Botched Execution">
+            <br>
+            <span class="cell-title">
+                Botched Execution in Texas
+            </span>
+            <span class="cell-content">
+                Story of a fat man plus <a class="CFTAG">poorly</a> mixed injection
+            </span>
+        </div>
+    </div>
+
+    <footer>
+        <small>>>>>>>on <a class="CPTAG">hiatus</a> of 6/14/2019<<<<<<<</small>
+    </footer>
+    <em class="PTAG last"></em> 
+</body>
+</html>
+</body>
+</html>

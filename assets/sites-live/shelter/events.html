@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Events</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family:"shelter-font";
+    src: url("https://wttgiii.peterrock.dev/website-assets/911a85f56c44e8a71245.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Goldman';
+    src: url("https://wttgiii.peterrock.dev/website-assets/6727648213e39490e4a5.ttf") format("truetype");
+}
+
+body {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/a787e18f5e4000ff0ecd.png");
+    background-size: 100vw;
+    background-repeat: repeat-y;
+    font-family: 'shelter-font';
+}
+
+.header {
+    display: flex;
+    justify-content: left;
+    align-items: baseline;
+    padding: 2%;
+    margin-left: 5%;
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: 5%;
+    font-size: 48px;
+}
+
+.navbar a {
+    font-size: 18px;
+    text-decoration: underline;
+    margin-right: 15px;
+}
+
+.bodyText {
+    width: 80%;
+    margin-left: 10%;
+    padding-bottom: 40px;
+}
+
+/* INDEX */
+
+.imgContent {
+    margin: auto;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/a46474809e28b74e1ac6.png");
+    width: 564px;
+    height: 444px;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.imgContent span {
+    text-align: center;
+}
+
+.imgSubtitle {
+    font-size: 16px;
+    position: absolute;
+    transform: translate(150%, 100%);
+}
+
+.timer {
+    font-size: 18px;
+    position: absolute;
+    transform: translate(150%, 180%);
+}
+
+#minutes {
+    font-family: 'Goldman', sans-serif;
+    font-size: 60px;
+}
+
+.minutes {
+    font-family: 'Goldman', sans-serif;
+    text-align: center;
+    font-size: 18px;
+    position: absolute;
+    transform: translate(135%, 115%);
+}
+
+.finalText {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.video {
+    margin:auto;
+    text-align: center;
+    font-size: 24px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/6a36c8fcd795624a1a5d.png");
+    height: 321px;
+    width: 634px;
+}
+
+.btnPlay {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, 150%);
+}
+
+.bottomText {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.wantMore {
+    margin-top: 5%;
+    font-size: 24px;
+}
+
+.bottomText a {
+    text-decoration: underline;
+}
+
+/* events */
+
+.events {
+    margin: 2% 0 3% 0;
+}
+
+.title {
+    font-family: 'Goldman', sans-serif;
+    font-size: 20px;
+}
+
+.description {
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: underline;
+    margin-left: 5%;
+}
+
+.playerText {
+    margin-bottom: 3%;
+}
+
+#videoTitle {
+    font-size: 24px;
+}
+
+.eventVideo {
+    position: relative;
+    margin: auto;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/37c4996ba68379f9f1a1.png");
+    width: 634px;
+    height: 321px;
+    text-align: center;
+}
+
+.accessCode {
+    font-size: 18pt;
+    position: absolute;
+    transform: translate(40%, 175%);
+}
+
+#inputAccessCode {
+    background-color: #6F6836 !important;
+    margin-top: 5px;
+    height: 30px;
+}
+
+.VIDEO-TAG {
+    position: absolute;
+    bottom: 0;
+    left: 36px;
+    width: 30px;
+    height: 35px;
+}
+
+/* donate */
+
+.donateTitle {
+    font-size: 22px;
+}
+
+.donation {
+    margin-top: 3%;
+    padding: 3% 5% 3% 5% ;
+    background-color: #716C48;
+    border: solid 1px #544E23;
+}
+
+.donationTitle {
+    font-size: 24px;
+}
+
+.segmented-container {
+    width: 324px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/46d1e8746e3b3e87259f.png");
+    display: flex;
+    overflow: hidden;
+    border: none;
+    border-radius: 60px;
+}
+
+.segmented-button {
+    width: 170px;
+    height: 41px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 60px;
+}
+
+.segmented-button.active {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/14445211beb980a68df4.png");
+    background-repeat: no-repeat;
+}
+
+.option {
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/94168bbfa7512d9614a0.png");
+}
+
+/* On mouse-over, add a grey background color */
+.option:hover {
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.option.active{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/64876a6da460bf592ff3.png");
+}
+
+.other {
+    width: 65px;
+    background-color: #716C48;
+    border: solid 1px black;
+}
+
+.btnDonate {
+    cursor: pointer;
+    width: 150px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/120e4a3f7edd1df3243e.png");
+    background-size: 150px;
+    height: 40px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.btnDonate:active {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/d6678422096d1b8c4712.png");
+}
+
+.subscribe {
+    margin-top: 5%;
+    padding: 3% 5% 3% 5% ;
+    background-color: #716C48;
+    border: solid 1px #544E23;
+}
+
+.subsTitle {
+    font-size: 24px;
+}
+
+.subsDesc {
+    font-size: 18px;
+}
+
+.subsDesc input {
+    width: 350px;
+    background-color: #716C48;
+    border: solid 1px black;
+}
+
+.footer {
+    font-size: 14px;
+}
+
+/* PTAGs */
+.PTAG.text-dark {
+    position: absolute;
+    writing-mode: vertical-rl;
+    transform: translate(300px, 160px);
+    color: #282828;
+    font-family: 'Goldman', sans-serif;
+    font-size: 14px;
+}
+
+.PTAG.text-blend {
+    position: absolute;
+    transform: translate(300px, 160px);
+    color: #807969;
+    font-family: 'Goldman', sans-serif;
+    font-size: 14px;
+}
+
+.PTAG.text2 {
+    position: absolute;
+    color: #a1a81b;
+    transform: translate(0%, -40%);
+    font-family: 'Goldman', sans-serif;
+    font-size: 14px;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family:"shelter-font";
+    src: url("https://wttgiii.peterrock.dev/website-assets/911a85f56c44e8a71245.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Goldman';
+    src: url("https://wttgiii.peterrock.dev/website-assets/6727648213e39490e4a5.ttf") format("truetype");
+}
+
+body {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/a787e18f5e4000ff0ecd.png");
+    background-size: 100vw;
+    background-repeat: repeat-y;
+    font-family: 'shelter-font';
+}
+
+.header {
+    display: flex;
+    justify-content: left;
+    align-items: baseline;
+    padding: 2%;
+    margin-left: 5%;
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: 5%;
+    font-size: 48px;
+}
+
+.navbar a {
+    font-size: 18px;
+    text-decoration: underline;
+    margin-right: 15px;
+}
+
+.bodyText {
+    width: 80%;
+    margin-left: 10%;
+    padding-bottom: 40px;
+}
+
+/* INDEX */
+
+.imgContent {
+    margin: auto;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/a46474809e28b74e1ac6.png");
+    width: 564px;
+    height: 444px;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.imgContent span {
+    text-align: center;
+}
+
+.imgSubtitle {
+    font-size: 16px;
+    position: absolute;
+    transform: translate(150%, 100%);
+}
+
+.timer {
+    font-size: 18px;
+    position: absolute;
+    transform: translate(150%, 180%);
+}
+
+#minutes {
+    font-family: 'Goldman', sans-serif;
+    font-size: 60px;
+}
+
+.minutes {
+    font-family: 'Goldman', sans-serif;
+    text-align: center;
+    font-size: 18px;
+    position: absolute;
+    transform: translate(135%, 115%);
+}
+
+.finalText {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.video {
+    margin:auto;
+    text-align: center;
+    font-size: 24px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/6a36c8fcd795624a1a5d.png");
+    height: 321px;
+    width: 634px;
+}
+
+.btnPlay {
+    cursor: pointer;
+    position: absolute;
+    transform: translate(-50%, 150%);
+}
+
+.bottomText {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.wantMore {
+    margin-top: 5%;
+    font-size: 24px;
+}
+
+.bottomText a {
+    text-decoration: underline;
+}
+
+/* events */
+
+.events {
+    margin: 2% 0 3% 0;
+}
+
+.title {
+    font-family: 'Goldman', sans-serif;
+    font-size: 20px;
+}
+
+.description {
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: underline;
+    margin-left: 5%;
+}
+
+.playerText {
+    margin-bottom: 3%;
+}
+
+#videoTitle {
+    font-size: 24px;
+}
+
+.eventVideo {
+    position: relative;
+    margin: auto;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/37c4996ba68379f9f1a1.png");
+    width: 634px;
+    height: 321px;
+    text-align: center;
+}
+
+.accessCode {
+    font-size: 18pt;
+    position: absolute;
+    transform: translate(40%, 175%);
+}
+
+#inputAccessCode {
+    background-color: #6F6836 !important;
+    margin-top: 5px;
+    height: 30px;
+}
+
+.VIDEO-TAG {
+    position: absolute;
+    bottom: 0;
+    left: 36px;
+    width: 30px;
+    height: 35px;
+}
+
+/* donate */
+
+.donateTitle {
+    font-size: 22px;
+}
+
+.donation {
+    margin-top: 3%;
+    padding: 3% 5% 3% 5% ;
+    background-color: #716C48;
+    border: solid 1px #544E23;
+}
+
+.donationTitle {
+    font-size: 24px;
+}
+
+.segmented-container {
+    width: 324px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/46d1e8746e3b3e87259f.png");
+    display: flex;
+    overflow: hidden;
+    border: none;
+    border-radius: 60px;
+}
+
+.segmented-button {
+    width: 170px;
+    height: 41px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 60px;
+}
+
+.segmented-button.active {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/14445211beb980a68df4.png");
+    background-repeat: no-repeat;
+}
+
+.option {
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/94168bbfa7512d9614a0.png");
+}
+
+/* On mouse-over, add a grey background color */
+.option:hover {
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.option.active{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/64876a6da460bf592ff3.png");
+}
+
+.other {
+    width: 65px;
+    background-color: #716C48;
+    border: solid 1px black;
+}
+
+.btnDonate {
+    cursor: pointer;
+    width: 150px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/120e4a3f7edd1df3243e.png");
+    background-size: 150px;
+    height: 40px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.btnDonate:active {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/d6678422096d1b8c4712.png");
+}
+
+.subscribe {
+    margin-top: 5%;
+    padding: 3% 5% 3% 5% ;
+    background-color: #716C48;
+    border: solid 1px #544E23;
+}
+
+.subsTitle {
+    font-size: 24px;
+}
+
+.subsDesc {
+    font-size: 18px;
+}
+
+.subsDesc input {
+    width: 350px;
+    background-color: #716C48;
+    border: solid 1px black;
+}
+
+.footer {
+    font-size: 14px;
+}
+
+/* PTAGs */
+.PTAG.text-dark {
+    position: absolute;
+    writing-mode: vertical-rl;
+    transform: translate(300px, 160px);
+    color: #282828;
+    font-family: 'Goldman', sans-serif;
+    font-size: 14px;
+}
+
+.PTAG.text-blend {
+    position: absolute;
+    transform: translate(300px, 160px);
+    color: #807969;
+    font-family: 'Goldman', sans-serif;
+    font-size: 14px;
+}
+
+.PTAG.text2 {
+    position: absolute;
+    color: #a1a81b;
+    transform: translate(0%, -40%);
+    font-family: 'Goldman', sans-serif;
+    font-size: 14px;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <link rel="stylesheet" href="../Global/reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script type="text/javascript" src="script.js"></script>
+    <div class="header">
+      <div class="logo">
+        <a onClick="LinkClick('index.html')" class="active">shelter</a>
+      </div>
+      <div class="navbar">
+        <a onClick="LinkClick('donate.html')" class="active">donate/subscribe</a>
+        <a onClick="LinkClick('events.html')" class="active">events</a>
+      </div>
+    </div>
+    <div class="bodyText">
+      <span>
+        Events are refreshed every two weeks. Next refresh occurs
+        <span style="font-family: 'Goldman'">tomorrow at <a class="CFTAG">0600</a> ZULU.</span>
+        <em class="PTAG"></em>
+
+        <br /><br />Click on <a class="CPTAG">any</a> underlined event to watch a replay.
+      </span>
+      <div class="events">
+        <span class="title">44,<a class = "CPTAG">490</a> minutes elapsed</span>
+        <br />
+        <span class="description" id="44490" onclick="playVideo(id)">
+          Mother begs to be released before eventually eating from the toilet.
+        </span>
+        <br /><em class="PTAG"></em><br />
+        <span class="title">43,481 minutes elapsed</span>
+        <br />
+        <span class="description" id="43481" onclick="playVideo(id)">
+          Daughter freaks out after 5109 minutes are added to the timer.
+        </span>
+        <br /><br />
+        <span class="title"><a class = "CFTAG">41,766</a> minutes elapsed</span>
+        <br />
+        <span class="description" id="41766" onclick="playVideo(id)">
+          Family cries pleading for donations to stop. Some members throw feces
+          at camera to prevent recording.
+        </span>
+        <br /><br />
+        <span class="title">37,998 minutes elapsed</span>
+        <br />
+        <span class="description" id="37998" onclick="playVideo(id)">
+          Mother faints from standing up too quickly. Upon hitting the ground
+          breaks nose and knocks herself out.
+        </span>
+        <br /><em class="PTAG"></em><br />
+        <span class="title">36,815 minutes elapsed</span>
+        <br />
+        <span class="description" id="36815" onclick="playVideo(id)">
+          Father dislocates ankle to retrieve otherwise unreachable food supply
+          for family.
+        </span>
+        <br /><br />
+        <span class="title">32,307 minutes elapsed</span>
+        <br />
+        <span class="description" id="32307" onclick="playVideo(id)">
+          Daughter is challenged to eat amputated finger from Father’s hand to
+          decrease timer by 3100 minutes. Struggles, but is successful.
+        </span>
+        <br /><em class="PTAG"></em><br />
+        <span class="title">30,242 minutes elapsed</span>
+        <br />
+        <span class="description" id="30242" onclick="playVideo(id)">
+          Father is challenged to amputate ring finger for 2200 minutes to be
+          removed from the timer. Moments after amputation timer increases by
+          2841 minutes courtesy of donations.
+        </span>
+        <br /><br />
+      </div>
+      <div class="playerText">
+        <span style="font-size: 24px">
+          Click on an underlined event above to <a class="CPTAG">play</a> it.
+        </span>
+        <br />
+        <span
+          >Note: You must be a subscriber to watch any of the events.
+          <em class="PTAG"></em> <br />You can subscribe
+          <a
+            onClick="LinkClick('donate.html')" class="active"
+            style="text-decoration: underline"
+            >here</a
+          >.
+        </span>
+        <br /><br />
+      </div>
+      <span id="videoTitle">&lt;Selected Event&gt;.<a class="CFTAG">webm</a></span>
+      <br /><br />
+      <div class="eventVideo">
+        <div class="accessCode">
+          <span>ENTER SUBSCRIBER ACCESS CODE</span>
+          <br />
+          <input
+            type="password"
+            id="inputAccessCode"
+            onkeydown="accessCheck(event)"
+          />
+        </div>
+        <div class="VIDEO-TAG"></div>
+        <br />
+      </div>
+    </div>
+  </body>
+</html>
+
+</body>
+</html>

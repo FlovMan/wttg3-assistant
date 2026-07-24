@@ -1,0 +1,24 @@
+{
+  "name": "Crisis Calls",
+  "domain": "crisiscalls",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "account",
+      "title": "Account",
+      "file": "account.html"
+    },
+    {
+      "id": "resetpassword",
+      "title": "Reset Password",
+      "file": "resetpassword.html"
+    }
+  ]
+}

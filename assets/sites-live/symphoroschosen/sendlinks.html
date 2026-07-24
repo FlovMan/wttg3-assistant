@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Send Links</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+/* Fonts */
+
+
+@font-face {
+    font-family: "Charm-Bold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/c0c142a444168658f486.ttf");
+}
+
+@font-face {
+    font-family: "MPLUS-Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/9fcaf51e9764344b102c.ttf");
+}
+
+@font-face {
+    font-family: "MPLUS-Medium";
+    src: url("https://wttgiii.peterrock.dev/website-assets/c0b19f58646edb9eb83d.ttf");
+}
+
+@font-face {
+    font-family: "MPLUS-SemiBold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/c4931493585180cfab44.ttf");
+}
+
+@font-face {
+    font-family: "MPLUS-Bold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/73040cf28c0cdc3e51d8.ttf");
+}
+
+@font-face {
+    font-family: "Orbitron-Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/e90e73f2e9a383510d62.ttf");
+}
+
+@font-face {
+    font-family: "Syncopate-Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/45fb563597441296689b.ttf");
+}
+
+.Charm-Bold {
+    font-family: "Charm-Bold";
+}
+
+.MPLUS-Regular {
+    font-family: "MPLUS-Regular";
+}
+
+.MPLUS-Medium {
+    font-family: "MPLUS-Medium";
+}
+
+.MPLUS-SemiBold {
+    font-family: "MPLUS-SemiBold";
+}
+
+.MPLUS-Bold {
+    font-family: "MPLUS-Bold";
+}
+
+.Orbitron-Regular {
+    font-family: "Orbitron-Regular";
+}
+
+.Syncopate-Regular {
+    font-family: "Syncopate-Regular";
+}
+
+
+/* Container adjustments */
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    z-index: 1;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/743c5bb32bdc63bea309.jpg");
+    background-size: cover;
+}
+
+header {
+    z-index: 3 !important;
+    background-color: #fff;
+    color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header * {
+    margin: 10px;
+}
+
+#index-content {
+    width: max-content;
+}
+
+#catalog {
+    background-size: 100% 100%;
+}
+
+#content {
+    max-width: 710px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-none {
+    pointer-events: none;
+    user-select: none;
+    
+}
+
+
+/* index.html */
+
+
+#header-line {
+    height: 5px;
+    background-color: #cdcdcd;
+    border: none;
+}
+
+#watch-btn {
+    background: transparent;
+    border: 2px solid #cdcdcd;
+    padding: 8px;
+    width: fit-content;
+}
+
+#live img, #upcoming img, #expired img {
+    width: 222px !important;
+    height: 378px !important;
+    max-inline-size: none;
+}
+
+.relative-block {
+    position: relative;
+}
+
+#live .relative-block, #upcoming .relative-block, #expired .relative-block {
+    width: min-content;
+}
+
+.description-block {
+    width: auto;
+    background-color: #211c1b;
+    margin-top: 10px;
+    padding: 10px;
+    padding-top: 15px;
+}
+
+#live .description-block {
+    height: 165px;
+}
+
+#upcoming .description-block {
+    height: 125px;
+}
+
+#expired .description-block {
+    height: 105px;
+}
+
+.scroll-margin-top {
+    scroll-margin-top: 100px;
+}
+
+.coming-soon-text {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 222px;
+    height: 378px;
+    opacity: 0.2;
+    user-select: none;
+}
+
+#watch-count {
+    width: 100%;
+    position: absolute;
+    top: 160px;
+    left: 0;
+}
+
+#IMAGE-LINK {
+    position: absolute;
+    top: 150px;
+    left: 90px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+#UPCOMING-LINK {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 222px;
+    height: 378px;
+}
+
+#HR-TAG {
+    position: absolute;
+    top: 11px;
+    left: 0;
+    color: #664d00;
+    font-size: 1.2em;
+}
+
+#LIVE-TAG {
+    position: absolute;
+    top: 202px;
+    left: 78px;
+    font-size: 14px;
+    color: #302927;
+}
+
+#UPCOMING-TAG-1 {
+    z-index: 2;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-size: 1.2em;
+    color: #636262;
+    opacity: 0.9;
+}
+
+#UPCOMING-TAG-2 {
+    z-index: 2;
+    position: absolute;
+    top: 170px;
+    left: 20px;
+    color: rgb(124, 122, 122);
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+
+/* live.html */
+
+
+#live-payment {
+    background-color: #2a2421;
+    border: 1px solid #000;
+    max-width: 710px;
+    height: fit-content;
+    padding: 50px;
+}
+
+#live-payment form {
+    max-width: 350px;
+}
+
+#live-payment form input {
+    background-color: #5e5654;
+    border: 1px solid #000;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+#qr-code {
+    max-width: 221px;
+    max-height: 221px;
+    margin-right: 30px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+#qr-block {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+
+#qr-link {
+    transform-origin: left bottom;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 55px;
+    height: 55px;
+}
+
+#validate-btn {
+    width: 375px;
+    height: 40px;
+}
+
+#HEADER-TAG {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 10px;
+    color: #999999;
+}
+
+#QR-TAG {
+    position: absolute;
+    top: 47px;
+    left: 0;
+    font-size: 14px;
+    color: #4e4641;
+}
+
+#CORNER-TAG {
+    transform-origin: right;
+    position: absolute;
+    color: #221309;
+    bottom: 5px;
+    right: 15px;
+    transform: rotate(90deg);
+    font-size: 19px;
+}
+
+
+/* sendLinks.html */
+
+
+#tip-line {
+    height: 5px;
+    background-color: #cdcdcd;
+    border: none;
+}
+
+#TEXT-TAG {
+    color: #6e442a;
+}
+
+#BOTTOM-TAG {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    color: #6e442a;
+}
+
+
+/* Container sizing */
+
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+.w-18 {
+    width: 18%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.me-auto {
+    margin-inline-end: auto;
+}
+
+.ms-auto {
+    margin-inline-start: auto;
+}
+
+
+/* Text adjustments */
+
+
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-size-71 {
+    font-size: 71px !important;
+}
+
+.text-size-32 {
+    font-size: 32px !important;
+}
+
+.text-size-24 {
+    font-size: 24px !important;
+}
+
+.text-size-18 {
+    font-size: 18px !important;
+}
+
+.text-size-14 {
+    font-size: 14px !important;
+}
+
+.text-line-through {
+    text-decoration: line-through;
+}
+
+.text-white {
+    color: #cdcdcd;
+}
+
+.text-grey {
+    color: #8e817a;
+}
+
+.text-grayed-out {
+    color: #756f6d;
+}
+
+.text-light-brown {
+    color: #a06846;
+}
+
+.text-yellow {
+    color: #f8b500;
+}
+
+.text-underline {
+    text-decoration: underline !important;
+}
+
+/* Margin adjustments */
+
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.mt-1 {
+    margin-top: 10px !important;
+}
+
+.mt-2 {
+    margin-top: 20px !important;
+}
+
+.mt-3 {
+    margin-top: 40px !important;
+}
+
+.mt-4 {
+    margin-top: 100px !important;
+}
+
+.mt-5 {
+    margin-top: 150px !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-1 {
+    margin-bottom: 2px !important;
+}
+
+.mb-2 {
+    margin-bottom: 20px !important;
+}
+
+.mb-3 {
+    margin-bottom: 40px !important;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.mx-1 {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+
+/* Padding adjustments */
+
+
+.pb-3 {
+    padding-bottom: 40px !important;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+/* Fonts */
+
+
+@font-face {
+    font-family: "Charm-Bold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/c0c142a444168658f486.ttf");
+}
+
+@font-face {
+    font-family: "MPLUS-Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/9fcaf51e9764344b102c.ttf");
+}
+
+@font-face {
+    font-family: "MPLUS-Medium";
+    src: url("https://wttgiii.peterrock.dev/website-assets/c0b19f58646edb9eb83d.ttf");
+}
+
+@font-face {
+    font-family: "MPLUS-SemiBold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/c4931493585180cfab44.ttf");
+}
+
+@font-face {
+    font-family: "MPLUS-Bold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/73040cf28c0cdc3e51d8.ttf");
+}
+
+@font-face {
+    font-family: "Orbitron-Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/e90e73f2e9a383510d62.ttf");
+}
+
+@font-face {
+    font-family: "Syncopate-Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/45fb563597441296689b.ttf");
+}
+
+.Charm-Bold {
+    font-family: "Charm-Bold";
+}
+
+.MPLUS-Regular {
+    font-family: "MPLUS-Regular";
+}
+
+.MPLUS-Medium {
+    font-family: "MPLUS-Medium";
+}
+
+.MPLUS-SemiBold {
+    font-family: "MPLUS-SemiBold";
+}
+
+.MPLUS-Bold {
+    font-family: "MPLUS-Bold";
+}
+
+.Orbitron-Regular {
+    font-family: "Orbitron-Regular";
+}
+
+.Syncopate-Regular {
+    font-family: "Syncopate-Regular";
+}
+
+
+/* Container adjustments */
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    z-index: 1;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/743c5bb32bdc63bea309.jpg");
+    background-size: cover;
+}
+
+header {
+    z-index: 3 !important;
+    background-color: #fff;
+    color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header * {
+    margin: 10px;
+}
+
+#index-content {
+    width: max-content;
+}
+
+#catalog {
+    background-size: 100% 100%;
+}
+
+#content {
+    max-width: 710px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-none {
+    pointer-events: none;
+    user-select: none;
+    
+}
+
+
+/* index.html */
+
+
+#header-line {
+    height: 5px;
+    background-color: #cdcdcd;
+    border: none;
+}
+
+#watch-btn {
+    background: transparent;
+    border: 2px solid #cdcdcd;
+    padding: 8px;
+    width: fit-content;
+}
+
+#live img, #upcoming img, #expired img {
+    width: 222px !important;
+    height: 378px !important;
+    max-inline-size: none;
+}
+
+.relative-block {
+    position: relative;
+}
+
+#live .relative-block, #upcoming .relative-block, #expired .relative-block {
+    width: min-content;
+}
+
+.description-block {
+    width: auto;
+    background-color: #211c1b;
+    margin-top: 10px;
+    padding: 10px;
+    padding-top: 15px;
+}
+
+#live .description-block {
+    height: 165px;
+}
+
+#upcoming .description-block {
+    height: 125px;
+}
+
+#expired .description-block {
+    height: 105px;
+}
+
+.scroll-margin-top {
+    scroll-margin-top: 100px;
+}
+
+.coming-soon-text {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 222px;
+    height: 378px;
+    opacity: 0.2;
+    user-select: none;
+}
+
+#watch-count {
+    width: 100%;
+    position: absolute;
+    top: 160px;
+    left: 0;
+}
+
+#IMAGE-LINK {
+    position: absolute;
+    top: 150px;
+    left: 90px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+#UPCOMING-LINK {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 222px;
+    height: 378px;
+}
+
+#HR-TAG {
+    position: absolute;
+    top: 11px;
+    left: 0;
+    color: #664d00;
+    font-size: 1.2em;
+}
+
+#LIVE-TAG {
+    position: absolute;
+    top: 202px;
+    left: 78px;
+    font-size: 14px;
+    color: #302927;
+}
+
+#UPCOMING-TAG-1 {
+    z-index: 2;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-size: 1.2em;
+    color: #636262;
+    opacity: 0.9;
+}
+
+#UPCOMING-TAG-2 {
+    z-index: 2;
+    position: absolute;
+    top: 170px;
+    left: 20px;
+    color: rgb(124, 122, 122);
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+
+/* live.html */
+
+
+#live-payment {
+    background-color: #2a2421;
+    border: 1px solid #000;
+    max-width: 710px;
+    height: fit-content;
+    padding: 50px;
+}
+
+#live-payment form {
+    max-width: 350px;
+}
+
+#live-payment form input {
+    background-color: #5e5654;
+    border: 1px solid #000;
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+#qr-code {
+    max-width: 221px;
+    max-height: 221px;
+    margin-right: 30px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+#qr-block {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+
+#qr-link {
+    transform-origin: left bottom;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 55px;
+    height: 55px;
+}
+
+#validate-btn {
+    width: 375px;
+    height: 40px;
+}
+
+#HEADER-TAG {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 10px;
+    color: #999999;
+}
+
+#QR-TAG {
+    position: absolute;
+    top: 47px;
+    left: 0;
+    font-size: 14px;
+    color: #4e4641;
+}
+
+#CORNER-TAG {
+    transform-origin: right;
+    position: absolute;
+    color: #221309;
+    bottom: 5px;
+    right: 15px;
+    transform: rotate(90deg);
+    font-size: 19px;
+}
+
+
+/* sendLinks.html */
+
+
+#tip-line {
+    height: 5px;
+    background-color: #cdcdcd;
+    border: none;
+}
+
+#TEXT-TAG {
+    color: #6e442a;
+}
+
+#BOTTOM-TAG {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    color: #6e442a;
+}
+
+
+/* Container sizing */
+
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+.w-18 {
+    width: 18%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.me-auto {
+    margin-inline-end: auto;
+}
+
+.ms-auto {
+    margin-inline-start: auto;
+}
+
+
+/* Text adjustments */
+
+
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-size-71 {
+    font-size: 71px !important;
+}
+
+.text-size-32 {
+    font-size: 32px !important;
+}
+
+.text-size-24 {
+    font-size: 24px !important;
+}
+
+.text-size-18 {
+    font-size: 18px !important;
+}
+
+.text-size-14 {
+    font-size: 14px !important;
+}
+
+.text-line-through {
+    text-decoration: line-through;
+}
+
+.text-white {
+    color: #cdcdcd;
+}
+
+.text-grey {
+    color: #8e817a;
+}
+
+.text-grayed-out {
+    color: #756f6d;
+}
+
+.text-light-brown {
+    color: #a06846;
+}
+
+.text-yellow {
+    color: #f8b500;
+}
+
+.text-underline {
+    text-decoration: underline !important;
+}
+
+/* Margin adjustments */
+
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.mt-1 {
+    margin-top: 10px !important;
+}
+
+.mt-2 {
+    margin-top: 20px !important;
+}
+
+.mt-3 {
+    margin-top: 40px !important;
+}
+
+.mt-4 {
+    margin-top: 100px !important;
+}
+
+.mt-5 {
+    margin-top: 150px !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-1 {
+    margin-bottom: 2px !important;
+}
+
+.mb-2 {
+    margin-bottom: 20px !important;
+}
+
+.mb-3 {
+    margin-bottom: 40px !important;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.mx-1 {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+
+/* Padding adjustments */
+
+
+.pb-3 {
+    padding-bottom: 40px !important;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symphoros Chosen</title>
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="flex-row align-items-center w-100 Syncopate-Regular">
+    <div onClick="LinkClick('index.html')" id="logo" class="flex-col me-auto w-fit self-start Charm-Bold cursor-pointer">
+        <p class="mt-0 mb-0 text-size-32">Symphoro's Chosen</p>
+        <p class="mt-0 mb-0 text-center">Red Room Hub</p>
+    </div>
+</header>
+<div id="content" class="flex-col mt-5 MPLUS-Regular mx-auto text-white">
+    <p class="MPLUS-SemiBold text-size-32">SUBMIT <a class="CPTAG">A</a> TIP</p>
+
+    <a class="CFTAG">
+        <hr id="tip-line" class="mt-1 w-100">
+    </a>
+
+    <p class="mt-2 MPLUS-Medium text-size-24">How can I submit a red <a class="CPTAG">room?</a></p>
+    <p class="mt-2">
+        Only pre-recorded content is linked on this site, streamed content is not viable or reliable.
+        Direct all red room tips to this email: symphorosubmit@Zq7ITZM6jtgUe63Rv.ann
+    </p>
+    <p class="mt-2">
+        On submission you will receive a secret number automatically in response.
+        Keep this number it'll be your identity <em class="PTAG"></em> inside our system.
+        Never share your secret code number with anyone and never give your name or any information in a message that could identify you. <em id="TEXT-TAG" class="PTAG"></em>
+    </p>
+    <p class="mt-2">
+        A submission that provides content which matches this site's purpose will be rehosted.
+        Afterwards a message will be sent to the tip email with an expected <a class="CFTAG">start</a> time.
+        Based on rehosting sales analytics <em class="PTAG"></em> you'll receive a part of the sales,
+        scaling to higher percentages with the <a class="CPTAG">number</a> of purchased admissions to your linked show.
+        This payment process is further detailed in its email message.
+    </p>
+</div>
+
+<em id="BOTTOM-TAG" class="PTAG"></em>
+</body>
+</html>
+</body>
+</html>

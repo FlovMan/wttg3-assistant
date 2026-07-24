@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: 'Anton';
+    src: url("https://wttgiii.peterrock.dev/website-assets/28beb8f6542f642ba414.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url("https://wttgiii.peterrock.dev/website-assets/542046d84e641bfdcda7.ttf") format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url("https://wttgiii.peterrock.dev/website-assets/24f3536b4c5342f57b43.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url("https://wttgiii.peterrock.dev/website-assets/1a688b4e45c9e941be39.ttf") format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url("https://wttgiii.peterrock.dev/website-assets/df1fb2021b0b08ae32e1.ttf") format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fdc4b4;
+    margin: 0 auto;
+}
+
+footer {
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.container {
+    width: 900px;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 48px;
+    color: #a91051;
+    line-height: 1.2;
+}
+
+h2 {
+    font-family: Lexend, sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Lexend', sans-serif;
+    font-size: 26px;
+    margin: 72px 0 16px 0;
+    font-weight: 300;
+}
+
+h4 {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    margin-top: 72px;
+}
+
+h5 {
+    font-family: Lexend, sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+h6 {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 200;
+    font-size: 14.5px;
+    text-align: center;
+}
+
+.plain-text {
+    font-family: Lexend, sans-serif;
+    font-size: 21px;
+    font-weight: 200;
+}
+
+.spaced {
+    margin: 72px 0;
+    font-weight: 300;
+    text-align: center;
+}
+
+.delayed {
+    margin-top: 8px;
+}
+
+.bold {
+    font-weight: 300;
+}
+
+.underlined {
+    text-decoration: underline;
+    margin-bottom: 4px;
+}
+
+.center {
+    text-align: center;
+}
+
+.descriptive {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.descriptive p {
+    margin: 32px 0;
+}
+
+.frame {
+    width: 100%;
+    background-color: #bb9185;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: inset 0 6px 3px #fed6cb;
+    padding: 6px;
+    margin-bottom: 32px;
+}
+
+.how-it-works {
+    width: 100%;
+    height: 100%;
+    background-color: #6a93fb;
+    border: #1d1317 3px solid;
+    border-radius: 3px;
+    box-shadow: inset 0 3px 3px rgba(255, 255, 255, 0.5), inset 0 -3px 3px rgba(0, 0, 0, 0.5), inset 3px 0 3px rgba(0, 0, 0, 0.5), inset -3px 0 3px rgba(0, 0, 0, 0.5), 0 2px 2px #fed6cb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 16px 45px;
+}
+
+.how-it-works p, .how-it-works h2 {
+    margin: 16px 0;
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 16px;
+}
+
+.user-info {
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.user-preference {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 3px;
+    margin: 48px 0;
+}
+
+.user-preference .input {
+    width: 636px;
+    height: 575px;
+}
+
+form textarea {
+    width: 100%;
+    height: 100%;
+    font-family: Lexend, sans-serif;
+    font-weight: 200;
+    padding: 2px 3px;
+}
+
+.input {
+    width: 408px;
+    height: 32px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: 3px dotted black;
+}
+
+form input {
+    width: 100%;
+    height: 100%;
+    font-family: Lexend, sans-serif;
+    font-weight: 200;
+    padding: 2px 3px;
+}
+
+.how-it-works h4 {
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.how-it-works h5{
+    width: 100%;
+    text-align: left;
+}
+
+.how-it-works-extension {
+    padding: 16px 116px;
+}
+
+input[type='radio'] {
+    appearance: none;
+    margin: 0;
+    background-color: #e0a206;
+    width: 32px;
+    height: 29px;
+    border: 1px solid #000c0f;
+    transition: background-color 200ms ease-in-out;
+    cursor: pointer;
+    transform: translateY(8px);
+}
+
+input[type='radio']:checked {
+    background-color: #a91051;
+    transition: background-color 200ms ease-in-out;
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+    text-align: left;
+    gap: 32px;
+}
+
+.sub-option {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
+}
+
+.sub-option p {
+    margin-bottom: 0;
+}
+
+.call-to-action {
+    background-color: #e0a206;
+    margin: 0 auto;
+    width: 564px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px #000c0f solid;
+    filter: drop-shadow(6px 4px 0 #000c0f);
+    margin-top: 56px;
+    margin-bottom: 72px;
+    cursor: pointer;
+}
+
+.samples {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.sample-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    border: solid 1px #000c0f;
+    margin: 2px 2.5px;
+}
+
+.sample-description {
+    margin: 12px 8px;
+}
+
+.sample-card h5 {
+    font-weight: 200;
+}
+
+.image-tag {
+    position: absolute;
+    width: 80px;
+    height: 100px;
+    transform: translateX(80px) translateY(25px);
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: 'Anton';
+    src: url("https://wttgiii.peterrock.dev/website-assets/28beb8f6542f642ba414.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url("https://wttgiii.peterrock.dev/website-assets/542046d84e641bfdcda7.ttf") format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url("https://wttgiii.peterrock.dev/website-assets/24f3536b4c5342f57b43.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url("https://wttgiii.peterrock.dev/website-assets/1a688b4e45c9e941be39.ttf") format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url("https://wttgiii.peterrock.dev/website-assets/df1fb2021b0b08ae32e1.ttf") format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fdc4b4;
+    margin: 0 auto;
+}
+
+footer {
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.container {
+    width: 900px;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 48px;
+    color: #a91051;
+    line-height: 1.2;
+}
+
+h2 {
+    font-family: Lexend, sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Lexend', sans-serif;
+    font-size: 26px;
+    margin: 72px 0 16px 0;
+    font-weight: 300;
+}
+
+h4 {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    margin-top: 72px;
+}
+
+h5 {
+    font-family: Lexend, sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+h6 {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 200;
+    font-size: 14.5px;
+    text-align: center;
+}
+
+.plain-text {
+    font-family: Lexend, sans-serif;
+    font-size: 21px;
+    font-weight: 200;
+}
+
+.spaced {
+    margin: 72px 0;
+    font-weight: 300;
+    text-align: center;
+}
+
+.delayed {
+    margin-top: 8px;
+}
+
+.bold {
+    font-weight: 300;
+}
+
+.underlined {
+    text-decoration: underline;
+    margin-bottom: 4px;
+}
+
+.center {
+    text-align: center;
+}
+
+.descriptive {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.descriptive p {
+    margin: 32px 0;
+}
+
+.frame {
+    width: 100%;
+    background-color: #bb9185;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: inset 0 6px 3px #fed6cb;
+    padding: 6px;
+    margin-bottom: 32px;
+}
+
+.how-it-works {
+    width: 100%;
+    height: 100%;
+    background-color: #6a93fb;
+    border: #1d1317 3px solid;
+    border-radius: 3px;
+    box-shadow: inset 0 3px 3px rgba(255, 255, 255, 0.5), inset 0 -3px 3px rgba(0, 0, 0, 0.5), inset 3px 0 3px rgba(0, 0, 0, 0.5), inset -3px 0 3px rgba(0, 0, 0, 0.5), 0 2px 2px #fed6cb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 16px 45px;
+}
+
+.how-it-works p, .how-it-works h2 {
+    margin: 16px 0;
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 16px;
+}
+
+.user-info {
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.user-preference {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 3px;
+    margin: 48px 0;
+}
+
+.user-preference .input {
+    width: 636px;
+    height: 575px;
+}
+
+form textarea {
+    width: 100%;
+    height: 100%;
+    font-family: Lexend, sans-serif;
+    font-weight: 200;
+    padding: 2px 3px;
+}
+
+.input {
+    width: 408px;
+    height: 32px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: 3px dotted black;
+}
+
+form input {
+    width: 100%;
+    height: 100%;
+    font-family: Lexend, sans-serif;
+    font-weight: 200;
+    padding: 2px 3px;
+}
+
+.how-it-works h4 {
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.how-it-works h5{
+    width: 100%;
+    text-align: left;
+}
+
+.how-it-works-extension {
+    padding: 16px 116px;
+}
+
+input[type='radio'] {
+    appearance: none;
+    margin: 0;
+    background-color: #e0a206;
+    width: 32px;
+    height: 29px;
+    border: 1px solid #000c0f;
+    transition: background-color 200ms ease-in-out;
+    cursor: pointer;
+    transform: translateY(8px);
+}
+
+input[type='radio']:checked {
+    background-color: #a91051;
+    transition: background-color 200ms ease-in-out;
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+    text-align: left;
+    gap: 32px;
+}
+
+.sub-option {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
+}
+
+.sub-option p {
+    margin-bottom: 0;
+}
+
+.call-to-action {
+    background-color: #e0a206;
+    margin: 0 auto;
+    width: 564px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px #000c0f solid;
+    filter: drop-shadow(6px 4px 0 #000c0f);
+    margin-top: 56px;
+    margin-bottom: 72px;
+    cursor: pointer;
+}
+
+.samples {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.sample-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    border: solid 1px #000c0f;
+    margin: 2px 2.5px;
+}
+
+.sample-description {
+    margin: 12px 8px;
+}
+
+.sample-card h5 {
+    font-weight: 200;
+}
+
+.image-tag {
+    position: absolute;
+    width: 80px;
+    height: 100px;
+    transform: translateX(80px) translateY(25px);
+}
+</style>
+</head>
+<body>
+<!doctype html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blushing Brides</title>
+</head>
+<body>
+<div class="container">
+
+    <h1>Real Foreign Ladies!!!!!!!! INTERNATIONAL! Eastern European WOMEN! <a class="CPTAG">ASIAN</a>! Middle-Eastern Ladies!! LATINA! South AMERICAN!! AFRICAN WOMEN & MORE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1>
+
+    <p class="plain-text spaced">SEARCH NOW and secure your <em class="PTAG"></em> happiness!</p>
+    <div class="plain-text descriptive">
+
+        <p>
+            <span class="bold">Tired of the dating pool?</span> Are you tired of navigating the ins and outs of <a class="CFTAG">socially</a> obligatory courting rituals only to face rejection repeatedly?
+        </p>
+
+        <p>
+            <span class="bold">Meet beautiful foreign singles.</span> Browse tens of thousands of available future brides, and find the One that is perfect for you!
+        </p>
+
+        <p>
+            <span class="bold">Scroll through photo listings.</span> <em class="PTAG"></em> Go into more in-depth detail to find the <a class="CFTAG">woman</a> of your dreams!
+        </p>
+
+    </div>
+
+    <h3>How <a class="CPTAG">It</a> Works</h3>
+
+    <div class="frame">
+        <div class="how-it-works plain-text">
+
+            <p class="bold text-container">
+                To get started, simply pay one flat rate basic membership fee and gain access to over <em class="PTAG"></em> <a class="CFTAG">30,000</a> profiles*
+            </p>
+
+            <p>
+                The premium membership tier unlocks more photos <em class="PTAG"></em> of the Brides that show their more exciting features and advanced chat functions (monitored by discreet staff and translator when available)
+            </p>
+
+            <p>
+                <span class="bold">Create a Profile<br /></span>
+                Fill out some basic information about yourself to help us personalize your search results. Let us know your preferences, and we'll filter the available profiles based on what you want most in a bride, your geographical limitations, and your budget. Don't worry; the only ones with access to your details are us!
+            </p>
+
+            <p>
+                <span class="bold">Browse Profiles<br /></span>
+                Search our large profile base with a wide range of preferences and settings. With Blushing Brides, your own details are no longer a limiting factor! All that matters is your <a class="CPTAG">satisfaction</a> and the chance to get what you want from a future wife.
+            </p>
+
+            <h2><a onClick="LinkClick('samples.html')" class="active">CLICK HERE TO CHECK OUT OUR SAMPLE BRIDES NOW!</a></h2>
+
+            <p>
+                <span class="bold">Meet your Future Bride!<br /></span>
+                Our <a class="CPTAG">brides</a> are eager and willing to begin a new life with you! All your dreams <em class="PTAG"></em> of spending your days with a beautiful and compliant companion at your side can come true. Enjoy a truly risk-free path to love.
+            </p>
+
+        </div>
+    </div>
+
+    <h2><a onClick="LinkClick('join.html')" class="active">JOIN TODAY!</a></h2>
+</div>
+<footer>*membership fee does not cover the cost of the bride; each bride has a value <em class="PTAG"></em> assigned according to desirability and demand</footer>
+</body>
+</html>
+</body>
+</html>

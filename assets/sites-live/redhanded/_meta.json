@@ -1,0 +1,39 @@
+{
+  "name": "Red Handed",
+  "domain": "redhanded",
+  "availability": "FIRST_HALF",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "login",
+      "title": "Login",
+      "file": "login.html"
+    },
+    {
+      "id": "post1",
+      "title": "Post 1",
+      "file": "post1.html"
+    },
+    {
+      "id": "post2",
+      "title": "Post 2",
+      "file": "post2.html"
+    },
+    {
+      "id": "post4",
+      "title": "Post 4",
+      "file": "post4.html"
+    },
+    {
+      "id": "post6",
+      "title": "Post 6",
+      "file": "post6.html"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Encrave",
+  "domain": "encrave",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "gateopen",
+      "title": "Gateopen",
+      "file": "gateopen.html"
+    },
+    {
+      "id": "evident",
+      "title": "Evident",
+      "file": "evident.html"
+    }
+  ]
+}

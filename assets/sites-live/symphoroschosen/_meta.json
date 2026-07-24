@@ -1,0 +1,24 @@
+{
+  "name": "Symphoros Chosen",
+  "domain": "symphoroschosen",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "sendlinks",
+      "title": "Send Links",
+      "file": "sendlinks.html"
+    },
+    {
+      "id": "live",
+      "title": "Live",
+      "file": "live.html"
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: BarlowR;
+    src: url("https://wttgiii.peterrock.dev/website-assets/77fb1ac54d2ceb980e3e.ttf");
+}
+
+@font-face {
+    font-family: BarlowI;
+    src: url("https://wttgiii.peterrock.dev/website-assets/b4f6fcb952de98bb75f9.ttf");
+}
+
+@font-face {
+    font-family: BarlowB;
+    src: url("https://wttgiii.peterrock.dev/website-assets/07ea3ff2743cf6716122.ttf");
+}
+
+@font-face {
+    font-family: BarlowBI;
+    src: url("https://wttgiii.peterrock.dev/website-assets/aad663fc84b5bf01687d.ttf");
+}
+
+:root {
+    --gold: #b0a475;
+    --blackg: #171717;
+    --grey: #c6c6c6;
+}
+
+.buyTextBox {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 95px;
+}
+
+.widthFit {
+    width: fit-content;
+}
+
+.width90 {
+    width: 90%;
+}
+
+.fsize80 {
+    font-size: 80%;
+}
+
+.marginTB20 {
+    margin: 20px 0;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+
+* {
+    font-family: BarlowR;
+}
+
+main {
+    position: relative;
+    height: fit-content;
+    min-height: 100vh;
+    margin: auto;
+    width: 100%;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/5e9628803a3303431f15.png");
+    background-size: cover;
+    padding-bottom: 25px;
+}
+
+main img {
+    width: 100%;
+    max-height: 150px;
+}
+
+h1 {
+    margin-bottom: 12px;
+}
+
+form input {
+    background-color: black;
+    color: white;
+    width: 100%;
+    margin-bottom: 2px;
+    padding: 10px 5px;
+}
+
+.buyBTN {
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--blackg);
+    color: var(--grey);
+}
+
+.container {
+    zoom: 150%;
+    background-color: var(--gold);
+    border-radius: 5px;
+    padding: 25px;
+    padding-top: 10px;
+    margin: 25px auto;
+}
+
+.mainCont {
+    padding: 5px;
+    zoom: 250%;
+    margin: 15px;
+    margin-bottom: 25px;
+}
+
+.mainCont * {
+    margin: auto;
+}
+
+#pgArrow {
+    zoom: 130%;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    cursor: pointer;
+    margin: 60px auto;
+}
+
+.footerCont {
+    margin: auto;
+    width: 60%;
+}
+
+.footerCont h1 {
+    font-size: 150%;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: auto;
+}
+
+h1, h1 *, .textBold, .textBold *{
+    font-family: BarlowB;
+}
+
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: BarlowR;
+    src: url("https://wttgiii.peterrock.dev/website-assets/77fb1ac54d2ceb980e3e.ttf");
+}
+
+@font-face {
+    font-family: BarlowI;
+    src: url("https://wttgiii.peterrock.dev/website-assets/b4f6fcb952de98bb75f9.ttf");
+}
+
+@font-face {
+    font-family: BarlowB;
+    src: url("https://wttgiii.peterrock.dev/website-assets/07ea3ff2743cf6716122.ttf");
+}
+
+@font-face {
+    font-family: BarlowBI;
+    src: url("https://wttgiii.peterrock.dev/website-assets/aad663fc84b5bf01687d.ttf");
+}
+
+:root {
+    --gold: #b0a475;
+    --blackg: #171717;
+    --grey: #c6c6c6;
+}
+
+.buyTextBox {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 95px;
+}
+
+.widthFit {
+    width: fit-content;
+}
+
+.width90 {
+    width: 90%;
+}
+
+.fsize80 {
+    font-size: 80%;
+}
+
+.marginTB20 {
+    margin: 20px 0;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+
+* {
+    font-family: BarlowR;
+}
+
+main {
+    position: relative;
+    height: fit-content;
+    min-height: 100vh;
+    margin: auto;
+    width: 100%;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/5e9628803a3303431f15.png");
+    background-size: cover;
+    padding-bottom: 25px;
+}
+
+main img {
+    width: 100%;
+    max-height: 150px;
+}
+
+h1 {
+    margin-bottom: 12px;
+}
+
+form input {
+    background-color: black;
+    color: white;
+    width: 100%;
+    margin-bottom: 2px;
+    padding: 10px 5px;
+}
+
+.buyBTN {
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--blackg);
+    color: var(--grey);
+}
+
+.container {
+    zoom: 150%;
+    background-color: var(--gold);
+    border-radius: 5px;
+    padding: 25px;
+    padding-top: 10px;
+    margin: 25px auto;
+}
+
+.mainCont {
+    padding: 5px;
+    zoom: 250%;
+    margin: 15px;
+    margin-bottom: 25px;
+}
+
+.mainCont * {
+    margin: auto;
+}
+
+#pgArrow {
+    zoom: 130%;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    cursor: pointer;
+    margin: 60px auto;
+}
+
+.footerCont {
+    margin: auto;
+    width: 60%;
+}
+
+.footerCont h1 {
+    font-size: 150%;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: auto;
+}
+
+h1, h1 *, .textBold, .textBold *{
+    font-family: BarlowB;
+}
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../Global/Basic.js"></script>
+  <link rel="stylesheet" href="../Global/reset.css"/>
+  <link rel="stylesheet" href="style.css">
+  <title>LostTapes</title>
+</head>
+<body>
+    <main>
+        <div class="mainCont container widthFit">
+          <h1>LostTapes.0021 <em class="PTAG text-dark"></em></h1>
+          <p>'The Mind Cannot Unsee the Seen.'</p>
+        </div>
+
+        <img src="https://wttgiii.peterrock.dev/website-assets/91d34502d57b3a1e6921.png">
+
+        <div class="container width90">
+          <h1>Transcendence of Locke - 2004, 3 hours 10 minutes</h1>
+          <p>Banned Documentary film about American scientist Peter Locke who switched loyalty to the Nazis during WWII. Banned Worldwide due to heavy Nazi <a class="CPTAG">propaganda</a>. Acquired from private collection <em class="PTAG text-dark"></em></p>
+        </div>
+
+        <img src="https://wttgiii.peterrock.dev/website-assets/71c68e625bebfb151b78.png">
+
+        <div class="container width90">
+          <h1>Family Reunion 93' - 1993, 10 minutes</h1>
+          <p>A handheld video recording made by a child filming herself killing her parents. Found by an anonymous donor in the attic of an abandoned house. Looks very real though anything related to a crime like this can't be found anywhere</p>
+      </div>
+
+      <img src="https://wttgiii.peterrock.dev/website-assets/56f91eaabcd70f3fa060.png">
+
+      <div class="container width90">
+        <h1>Equality Of A <a class="CFTAG">Nuclear</a> Winter - 1982, 1 hour 35 minutes <em class="PTAG text-dark"></em></h1>
+        <p>Speculative fiction film where the cold war resulted in a worldwide nuclear catastrophe. Focuses on real powerful figures in the US suffering especially during the aftermath</p>
+      </div>
+
+      <img src="https://wttgiii.peterrock.dev/website-assets/ea0fe3e36d9142854d26.png">
+
+      <div class="container width90">
+        <h1>Suffer No Beasts - 1975, 1 hour 3 minutes</h1>
+        <p>Graphic glorified imagery of legitimate recorded war atrocities during Vietnam, strung together with a fictional narrative of an alien <a class="CPTAG">invasion</a>. Unreleased due to extreme racism and real depictions of violence
+        </p>
+      </div>
+
+      <img src="https://wttgiii.peterrock.dev/website-assets/48bde8413211b130d9dc.png">
+
+      <div class="container width90">
+        <h1>Emperor of Dreams - 1998, 2 hours 1 minute</h1>
+        <p>A step-by-step "fictional" instruction video for how to use hypnosis and drugs to build your own cult. Methods <em class="PTAG text-dark"></em> depicted are proven techniques and involve criminal acts</p>
+      </div>
+
+      <img src="https://wttgiii.peterrock.dev/website-assets/817e08dd85be4ee9c680.png">
+
+      <div class="container width90">
+        <h1>Becoming My End - 1993, 2 hours 17 minutes</h1>
+        <p>Recorded footage of an unnamed artist who slowly poisons himself to death on camera. Filmed himself over a period of 1 month for the purpose of a masterpiece in the "unexplored territory" of mortality</p>
+      </div>
+
+        <a class="CFTAG"><img src="https://wttgiii.peterrock.dev/website-assets/a7b74b6e6a37feec5c59.png"></a>
+
+      <div class="container width90">
+        <h1>Perfection of Lust - 2020, 1 hour 48 minutes</h1>
+        <p>Documentary of extreme body modification procedures involving traumatic optical mutilations, showing the procedures graphically and fully</p>
+      </div>
+
+      <img src="https://wttgiii.peterrock.dev/website-assets/cf7ec2ea14d078539a75.png">
+
+      <div class="container width90">
+        <h1><a class="CFTAG">God</a> Without Shame - 1963, 2 hours 40 minutes</h1>
+        <p>Unreleased fictional epic centering around a small-town preacher who gains the powers of Jesus after being rescued from a near-death experience by an angel. Banned by religious groups internationally due to depictions of anti-christian rhetoric, and for unrelated public indecency charges against the lead actor</p>
+      </div>
+
+      <img src="https://wttgiii.peterrock.dev/website-assets/9f8e46a76529a69b1dbb.png">
+
+      <div class="container width90">
+        <h1>True Royals - 1997, 3 hours 45 minutes</h1>
+        <p>Banned (and thought <a class="CPTAG">destroyed</a>) paparazzo footage a European royal family members behind the scenes, including illegal ritualistic acts and drug use. Original creator disappeared mysteriously</p>
+      </div>
+
+      <img src="https://wttgiii.peterrock.dev/website-assets/a10dd45b7000b0ce959a.png">
+
+      <div class="container width90">
+        <h1>Giggler - 2006, 1 hour 43 minutes</h1>
+        <p>Banned horror film in which a dentist subdues his patients using concentrated laughing gas and tortures them while they helplessly laugh. <em class="PTAG text-dark"></em> Banned after filming completed when the director was charged with assault and battery by the actors who complained of his "method directing using real physical abuse</p>
+      </div>
+
+      <span id="pgArrow">
+        <a onClick="LinkClick('page2.html')"><img src="https://wttgiii.peterrock.dev/website-assets/c08f0c9adc3a2d6b17cf.png"></a>
+      </span>
+
+      <div class="footerCont container width90">
+        <a onClick="LinkClick('purchase.html')"><h1>PURCHASE THE COLLECTION*</h1></a>
+        <p class="fsize80">*All 18 tapes will be available to download once transaction is confirmed. You will not receive any physical product when purchasing this collection. <em class="PTAG text-dark"></em></p>
+      </div>
+    </main>
+</body>
+</html>
+
+
+</body>
+</html>

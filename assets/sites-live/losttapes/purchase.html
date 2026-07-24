@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Purchase</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: BarlowR;
+    src: url("https://wttgiii.peterrock.dev/website-assets/77fb1ac54d2ceb980e3e.ttf");
+}
+
+@font-face {
+    font-family: BarlowI;
+    src: url("https://wttgiii.peterrock.dev/website-assets/b4f6fcb952de98bb75f9.ttf");
+}
+
+@font-face {
+    font-family: BarlowB;
+    src: url("https://wttgiii.peterrock.dev/website-assets/07ea3ff2743cf6716122.ttf");
+}
+
+@font-face {
+    font-family: BarlowBI;
+    src: url("https://wttgiii.peterrock.dev/website-assets/aad663fc84b5bf01687d.ttf");
+}
+
+:root {
+    --gold: #b0a475;
+    --blackg: #171717;
+    --grey: #c6c6c6;
+}
+
+.buyTextBox {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 95px;
+}
+
+.widthFit {
+    width: fit-content;
+}
+
+.width90 {
+    width: 90%;
+}
+
+.fsize80 {
+    font-size: 80%;
+}
+
+.marginTB20 {
+    margin: 20px 0;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+
+* {
+    font-family: BarlowR;
+}
+
+main {
+    position: relative;
+    height: fit-content;
+    min-height: 100vh;
+    margin: auto;
+    width: 100%;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/5e9628803a3303431f15.png");
+    background-size: cover;
+    padding-bottom: 25px;
+}
+
+main img {
+    width: 100%;
+    max-height: 150px;
+}
+
+h1 {
+    margin-bottom: 12px;
+}
+
+form input {
+    background-color: black;
+    color: white;
+    width: 100%;
+    margin-bottom: 2px;
+    padding: 10px 5px;
+}
+
+.buyBTN {
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--blackg);
+    color: var(--grey);
+}
+
+.container {
+    zoom: 150%;
+    background-color: var(--gold);
+    border-radius: 5px;
+    padding: 25px;
+    padding-top: 10px;
+    margin: 25px auto;
+}
+
+.mainCont {
+    padding: 5px;
+    zoom: 250%;
+    margin: 15px;
+    margin-bottom: 25px;
+}
+
+.mainCont * {
+    margin: auto;
+}
+
+#pgArrow {
+    zoom: 130%;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    cursor: pointer;
+    margin: 60px auto;
+}
+
+.footerCont {
+    margin: auto;
+    width: 60%;
+}
+
+.footerCont h1 {
+    font-size: 150%;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: auto;
+}
+
+h1, h1 *, .textBold, .textBold *{
+    font-family: BarlowB;
+}
+
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: BarlowR;
+    src: url("https://wttgiii.peterrock.dev/website-assets/77fb1ac54d2ceb980e3e.ttf");
+}
+
+@font-face {
+    font-family: BarlowI;
+    src: url("https://wttgiii.peterrock.dev/website-assets/b4f6fcb952de98bb75f9.ttf");
+}
+
+@font-face {
+    font-family: BarlowB;
+    src: url("https://wttgiii.peterrock.dev/website-assets/07ea3ff2743cf6716122.ttf");
+}
+
+@font-face {
+    font-family: BarlowBI;
+    src: url("https://wttgiii.peterrock.dev/website-assets/aad663fc84b5bf01687d.ttf");
+}
+
+:root {
+    --gold: #b0a475;
+    --blackg: #171717;
+    --grey: #c6c6c6;
+}
+
+.buyTextBox {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 95px;
+}
+
+.widthFit {
+    width: fit-content;
+}
+
+.width90 {
+    width: 90%;
+}
+
+.fsize80 {
+    font-size: 80%;
+}
+
+.marginTB20 {
+    margin: 20px 0;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+
+* {
+    font-family: BarlowR;
+}
+
+main {
+    position: relative;
+    height: fit-content;
+    min-height: 100vh;
+    margin: auto;
+    width: 100%;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/5e9628803a3303431f15.png");
+    background-size: cover;
+    padding-bottom: 25px;
+}
+
+main img {
+    width: 100%;
+    max-height: 150px;
+}
+
+h1 {
+    margin-bottom: 12px;
+}
+
+form input {
+    background-color: black;
+    color: white;
+    width: 100%;
+    margin-bottom: 2px;
+    padding: 10px 5px;
+}
+
+.buyBTN {
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--blackg);
+    color: var(--grey);
+}
+
+.container {
+    zoom: 150%;
+    background-color: var(--gold);
+    border-radius: 5px;
+    padding: 25px;
+    padding-top: 10px;
+    margin: 25px auto;
+}
+
+.mainCont {
+    padding: 5px;
+    zoom: 250%;
+    margin: 15px;
+    margin-bottom: 25px;
+}
+
+.mainCont * {
+    margin: auto;
+}
+
+#pgArrow {
+    zoom: 130%;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    cursor: pointer;
+    margin: 60px auto;
+}
+
+.footerCont {
+    margin: auto;
+    width: 60%;
+}
+
+.footerCont h1 {
+    font-size: 150%;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: auto;
+}
+
+h1, h1 *, .textBold, .textBold *{
+    font-family: BarlowB;
+}
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../Global/Basic.js"></script>
+  <link rel="stylesheet" href="../Global/reset.css"/>
+  <link rel="stylesheet" href="style.css">
+  <script src="buyError.js"></script>
+  <title>LostTapes</title>
+</head>
+<body>
+    <main>
+        <div class="mainCont container widthFit">
+            <h1>LostTapes.0021 <em class="PTAG text-dark"></em></h1>
+            <p>'The Mind Cannot Unsee the <a class="CPTAG">Seen</a>.'</p>
+        </div>
+        <div class="container width90">
+            <span class="buyTextBox">
+                <p id="buyLabel1">Cost of the collection is <span class="textBold">81 DOSCoin</span>. Input a valid <a class = "CPTAG">email</a> with your payment to receive a link containing all 18 tapes in downloadable format.</p>
+                <p id="buyLabel2" class="fsize80 marginTB20">No physical copies of the tapes can be <a class = "CFTAG">purchased</a>.</p>
+            </span>
+            <form>
+                <p class="textBold"><a class="CFTAG">Email</a> <em class="PTAG text-dark"></em></p>
+                <input type="text">
+                <input onclick="errorMSG()" class="buyBTN" type="button" value="BUY COLLECTION FOR 81 DOSCoin">
+            </form>
+        </div>
+        <span id="pgArrow">
+            <a onClick="LinkClick('index.html')"><img src="https://wttgiii.peterrock.dev/website-assets/8acb68e6d234b79e1c7c.png"></a>
+        </span>
+        <em class="PTAG text-dark" style="position: absolute; bottom: 0; left: 0; color: white; font-size: 1.2em; margin-left: 5px;"></em>
+        <em class="PTAG text-dark" style="position: absolute; top: 0; right: 0; color: white; font-size: 1.2em; margin-right: 5px;"></em>
+    </main>
+</body>
+</html>
+</body>
+</html>

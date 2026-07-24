@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Anybody-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/92aa52747dbee49485b2.ttf");
+  }
+  @font-face {
+    font-family: Anybody-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/eed36177e212196dd192.ttf");
+  }
+  @font-face {
+    font-family: Anybody-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/581c3c2c6393dcf97712.ttf");
+  }
+  @font-face {
+    font-family: Anybody-SemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/aa2a9bbf78080f3a211c.ttf");
+  }
+  @font-face {
+    font-family: ShortStack-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/e784abf10db68a62bbb1.ttf");
+  }
+
+* {
+    margin: auto;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    position: relative;
+    font-family: ShortStack-Regular;
+    background-color: #487c44;
+    font-size: 1.2em;
+}
+
+main, article {
+    width: 800px;
+}
+
+article {
+    text-align: left;
+}
+
+.purpleBG {
+    background-color: #4a275f;
+}
+
+header {
+    display: flex;
+    align-content: center;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/777e67eb8e70a65f2fec.png");
+}
+
+#intro, #prompt {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+#intro {
+    margin-bottom: 20px;
+}
+
+#background {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.thread {
+    background-color: #481b62;
+    font-family: Anybody-Regular;
+    padding: 15px;
+    border: 1px solid white;
+}
+
+.lock {
+    position: absolute;
+    width: 32px;
+    height: auto;
+    margin-left: -32px;
+    margin-top: -32px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.pdb30 {
+    padding-bottom: 30px;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#intro h1 {
+    text-decoration: underline 2px white;
+    text-underline-offset: 8px;
+}
+h2 {
+    font-family: Anybody-SemiBold;
+    font-size: 1.15em;
+}
+
+#time {
+    font-size: 2.5em;
+}
+
+#timer {
+    padding: 5px;
+    border: 2px solid white;
+}
+
+main p {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.textYellow {
+    color: #ffe404;
+}
+
+.textBold {
+    font-family: Anybody-SemiBold;
+    font-size: 1.25em;
+}
+
+.textRegular {
+    font-family: Anybody-Regular;
+    font-size: 1.25em;
+}
+
+.textMid {
+    font-family: Anybody-SemiBold;
+    font-size: 1em;
+}
+
+.textSmall {
+    font-size: 0.8em;
+}
+
+.textCenter {
+    text-align: center;
+}
+.formLeft {
+    width: 60%;
+    vertical-align: top;
+}
+
+.formRight {
+    width: 40%;
+    border-left: 1px solid #ffe404;
+    padding: 5px;
+}
+
+form, form img {
+    width: 100%;
+}
+
+label {
+    cursor: pointer;
+}
+
+button {
+    font-size: 1.1em;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #487c44;
+  }
+
+table {
+    font-family: Anybody-Regular;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table tr {
+    border-top: 1px solid #ffe404;
+    border-bottom: 1px solid #ffe404;
+}
+
+table td {
+    height: 220px;
+    padding-bottom: 20px;
+}
+
+table p {
+    text-align: left;
+}
+
+#submit {
+    font-family: Anybody-Bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+}
+
+#prompt {
+    display: none;
+    font-family: Anybody-Regular;
+}
+
+#prompt a {
+    display: flex;
+    width: fit-content;
+    align-self: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: #ffe404;
+    font-size: 3em;
+    font-family: ShortStack-Regular;
+    text-decoration: underline 3px #ffe404;
+    text-underline-offset: 8px;
+}
+
+/* inputs */
+
+.container {
+    display: flex;
+    width: fit-content;
+    height: auto;
+    float: left;
+    clear: both;
+    position: relative;
+    padding-left: 25px;
+    padding-top: 3px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On hover purple background color */
+  .container:hover input ~ .checkmark {
+    background-color: #4a275f;
+  }
+  
+  /* When the radio button is checked, add a yellow background */
+  .container input:checked ~ .checkmark {
+    background-color: #ffe404;
+  }
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Anybody-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/92aa52747dbee49485b2.ttf");
+  }
+  @font-face {
+    font-family: Anybody-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/eed36177e212196dd192.ttf");
+  }
+  @font-face {
+    font-family: Anybody-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/581c3c2c6393dcf97712.ttf");
+  }
+  @font-face {
+    font-family: Anybody-SemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/aa2a9bbf78080f3a211c.ttf");
+  }
+  @font-face {
+    font-family: ShortStack-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/e784abf10db68a62bbb1.ttf");
+  }
+
+* {
+    margin: auto;
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    position: relative;
+    font-family: ShortStack-Regular;
+    background-color: #487c44;
+    font-size: 1.2em;
+}
+
+main, article {
+    width: 800px;
+}
+
+article {
+    text-align: left;
+}
+
+.purpleBG {
+    background-color: #4a275f;
+}
+
+header {
+    display: flex;
+    align-content: center;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/777e67eb8e70a65f2fec.png");
+}
+
+#intro, #prompt {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+#intro {
+    margin-bottom: 20px;
+}
+
+#background {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.thread {
+    background-color: #481b62;
+    font-family: Anybody-Regular;
+    padding: 15px;
+    border: 1px solid white;
+}
+
+.lock {
+    position: absolute;
+    width: 32px;
+    height: auto;
+    margin-left: -32px;
+    margin-top: -32px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.pdb30 {
+    padding-bottom: 30px;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#intro h1 {
+    text-decoration: underline 2px white;
+    text-underline-offset: 8px;
+}
+h2 {
+    font-family: Anybody-SemiBold;
+    font-size: 1.15em;
+}
+
+#time {
+    font-size: 2.5em;
+}
+
+#timer {
+    padding: 5px;
+    border: 2px solid white;
+}
+
+main p {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.textYellow {
+    color: #ffe404;
+}
+
+.textBold {
+    font-family: Anybody-SemiBold;
+    font-size: 1.25em;
+}
+
+.textRegular {
+    font-family: Anybody-Regular;
+    font-size: 1.25em;
+}
+
+.textMid {
+    font-family: Anybody-SemiBold;
+    font-size: 1em;
+}
+
+.textSmall {
+    font-size: 0.8em;
+}
+
+.textCenter {
+    text-align: center;
+}
+.formLeft {
+    width: 60%;
+    vertical-align: top;
+}
+
+.formRight {
+    width: 40%;
+    border-left: 1px solid #ffe404;
+    padding: 5px;
+}
+
+form, form img {
+    width: 100%;
+}
+
+label {
+    cursor: pointer;
+}
+
+button {
+    font-size: 1.1em;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #487c44;
+  }
+
+table {
+    font-family: Anybody-Regular;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table tr {
+    border-top: 1px solid #ffe404;
+    border-bottom: 1px solid #ffe404;
+}
+
+table td {
+    height: 220px;
+    padding-bottom: 20px;
+}
+
+table p {
+    text-align: left;
+}
+
+#submit {
+    font-family: Anybody-Bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+}
+
+#prompt {
+    display: none;
+    font-family: Anybody-Regular;
+}
+
+#prompt a {
+    display: flex;
+    width: fit-content;
+    align-self: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: #ffe404;
+    font-size: 3em;
+    font-family: ShortStack-Regular;
+    text-decoration: underline 3px #ffe404;
+    text-underline-offset: 8px;
+}
+
+/* inputs */
+
+.container {
+    display: flex;
+    width: fit-content;
+    height: auto;
+    float: left;
+    clear: both;
+    position: relative;
+    padding-left: 25px;
+    padding-top: 3px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On hover purple background color */
+  .container:hover input ~ .checkmark {
+    background-color: #4a275f;
+  }
+  
+  /* When the radio button is checked, add a yellow background */
+  .container input:checked ~ .checkmark {
+    background-color: #ffe404;
+  }
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <script type="text/javascript" src="unhide.js"></script>
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>CrystalGuild</title>
+</head>
+<body>
+    <em class="PTAG text-dark" style="position: absolute; top: -400; right: -600; font-size: 0.8em; color: black;"></em>
+    <header>
+        <img src="https://wttgiii.peterrock.dev/website-assets/92ebf20aee29197a6908.gif">
+    </header>
+    <main>
+        <section id="intro">
+            <p>Welcome Home, <span class="textYellow">pilgrim</span>. You don't need to <a class="CPTAG">worry</a> anymore, you are among the <span class="textYellow">future collective</span> of your dreams, and we are pleased to bring you into the <span class="textYellow">glimmering fold</span> once you have achieved the worthiness of <span class="textYellow">matriculation</span>.</p>
+            <p>In order to better assist your journey, we ask you a series of simple questions. Please, proceed to <a class="CPTAG">admittance.</a></p>
+        </section>
+        <form>
+            <table>
+                <tr>
+                    <td class="formLeft">
+                        <p>What color is the <a class="CFTAG">sky</a>?</p><br/>
+                        <label class="container textSmall"><input type="radio" name="q1" value="Blue"><span class="checkmark"></span>Blue</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q1" value="Red"><span class="checkmark"></span>Red</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q1" value="Ochre"><span class="checkmark"></span>Ochre</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q1" value="Verdant"><span class="checkmark"></span>Verdant</label><br/>
+                    </td>
+                    <td class="formRight">
+                        <img src="https://wttgiii.peterrock.dev/website-assets/1f86a81cbe5bd2374d61.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="formLeft">
+                        <p>Where does your consciousness reside in slumber?</p><br/>
+                        <label class="container textSmall"><input type="radio" name="q2" value="In dreams"><span class="checkmark"></span>In <a class="CFTAG">dreams</a></label><br/>
+                        <label class="container textSmall"><input type="radio" name="q2" value="In limbo"><span class="checkmark"></span>In limbo</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q2" value="Atop the pinnacle"><span class="checkmark"></span>Atop the pinnacle</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q2" value="Within the Before and After"><span class="checkmark"></span>Within the Before and After</label>
+                    </td>
+                    <td class="formRight">
+                        <img src="https://wttgiii.peterrock.dev/website-assets/3b9df7cd0440c22a91f0.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="formLeft">
+                        <p>How many attempts does one need to succeed in transcendance?</p><br/>
+                        <label class="container textSmall"><input type="radio" name="q3" value="12"><span class="checkmark"></span>12</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q3" value="72,106"><span class="checkmark"></span>72,106</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q3" value="42"><span class="checkmark"></span>42</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q3" value="132,121"><span class="checkmark"></span>132,121</label>
+                    </td>
+                    <td class="formRight">
+                        <em class="PTAG text-dark" style="position: absolute; margin-top: 170px; margin-left: 5px; color: #ff7d7d;"></em>
+                        <img src="https://wttgiii.peterrock.dev/website-assets/d4fa908458d05d6750a5.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="formLeft">
+                        <p>What voice does your <a class="CPTAG">soul</a> speak in?<em class="PTAG text-dark" style="margin-left: 5px; color: #54ba4c;"></em></p><br/>
+                        <label class="container textSmall"><input type="radio" name="q4" value="Silence"><span class="checkmark"></span>Silence</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q4" value="Chaos"><span class="checkmark"></span>Chaos</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q4" value="Reverberations"><span class="checkmark"></span>Reverberations</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q4" value="Frequencies"><span class="checkmark"></span>Frequencies</label>
+                    </td>
+                    <td class="formRight">
+                        <img src="https://wttgiii.peterrock.dev/website-assets/4955aba1ab90eaa38528.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="formLeft">
+                        <p>What secret message is carried within the charges of magnets?</p><br/>
+                        <label class="container textSmall"><input type="radio" name="q5" value="The Formula"><span class="checkmark"></span>The Formula</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q5" value="The "><span class="checkmark"></span>The Epiphany</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q5" value="The Ratio"><span class="checkmark"></span>The Ratio</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q5" value="The Balance"><span class="checkmark"></span>The Balance</label>
+                    </td>
+                    <td class="formRight">
+                        <img src="https://wttgiii.peterrock.dev/website-assets/a05ca8c993d99896fd68.jpg">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="formLeft">
+                        <p>How do we greet the One Who Sings?</p><br/>
+                        <label class="container textSmall"><input type="radio" name="q6" value="We sing"><span class="checkmark"></span>We sing</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q6" value="We die"><span class="checkmark"></span>We die</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q6" value="We cry"><span class="checkmark"></span>We cry</label><br/>
+                        <label class="container textSmall"><input type="radio" name="q6" value="We respire"><span class="checkmark"></span>We <a class="CFTAG">respire</a></label><br/>
+                    </td>
+                    <td class="formRight">
+                        <img src="https://wttgiii.peterrock.dev/website-assets/d059ce75a1510ddad290.jpg">
+                    </td>
+                </tr>
+            </table>
+            <button type="button" class="purpleBG" id="submit" onclick="unhide();">
+                <span>S</span>
+                <span>U</span>
+                <span>B</span>
+                <span>M</span>
+                <span>I</span>
+                <span>T</span>
+            </button>
+        </form>
+        <section id="prompt">
+            <em class="PTAG text-dark" style="position: absolute; bottom: 0; left: 0; margin-bottom: 20px; font-size: 0.8em; rotate: 90deg; color: #284226;"></em>
+            <p>At last you've arrived upon the entrance gate.</p>
+            <p>It matters not how you answered, or if you answered at all. This was only a small trial to gauge interest and you, pilgrim, have passed.</p>
+            <p>Please come forth, the collective welcomes all inquisitive minds</p> <em class="PTAG text-dark"></em>
+            <a onClick="LinkClick('welcome.html')" class="active">PROCEED</a>
+        </section>
+    </main>
+</body>
+</html>
+</body>
+</html>

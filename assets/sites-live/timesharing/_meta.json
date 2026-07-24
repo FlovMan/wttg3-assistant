@@ -1,0 +1,24 @@
+{
+  "name": "Time Sharing",
+  "domain": "timesharing",
+  "availability": "—",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "packages",
+      "title": "Packages",
+      "file": "packages.html"
+    },
+    {
+      "id": "watch",
+      "title": "Watch",
+      "file": "watch.html"
+    }
+  ]
+}

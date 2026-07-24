@@ -1,0 +1,24 @@
+{
+  "name": "Drug Tickets",
+  "domain": "drugtickets",
+  "availability": "FIRST_HALF",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "checkout",
+      "title": "Checkout",
+      "file": "checkout.html"
+    },
+    {
+      "id": "error",
+      "title": "Error",
+      "file": "error.html"
+    }
+  ]
+}

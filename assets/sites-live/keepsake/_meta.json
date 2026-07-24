@@ -1,0 +1,24 @@
+{
+  "name": "Keep Sake",
+  "domain": "keepsake",
+  "availability": "THRID_QUARTER",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": " Index",
+      "file": "index.html"
+    },
+    {
+      "id": "thesearch",
+      "title": "The Search",
+      "file": "thesearch.html"
+    },
+    {
+      "id": "contact",
+      "title": "Contact",
+      "file": "contact.html"
+    }
+  ]
+}

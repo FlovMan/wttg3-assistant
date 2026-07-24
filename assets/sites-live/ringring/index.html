@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Overpass-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/af07445c58e78e83da39.ttf");
+  }
+*{
+    font-family: Overpass-Bold;
+    overflow-x: hidden;
+}
+
+body{
+    margin: 0;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/778a08061fed2110f718.png");
+    background-size: cover;
+}
+
+#blur{
+    position: absolute;
+    display: block;
+    user-select: none;
+    width: 100%;
+    height: 5800px;
+    z-index: 2;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/6dba336596b5ae9aab41.png");
+}
+
+h1,h2,h3,h4,span{
+    position: relative;
+    margin:0;
+    z-index: 1;
+}
+
+h1{
+    font-size: 4.4em;
+}
+
+h2{
+    font-size: 3.1em;
+    color: #fff;
+}
+
+h3{
+    color: #fff;
+    font-size: 2.5em;
+}
+
+h4{
+    color: #fff;
+    font-size: 1.9em;
+}
+
+span{
+    font-size: 2.3em;
+}
+
+#main{
+    margin: auto;
+    width: 768px;
+    height: 4750px;
+    position: relative;
+    /*REMOVE BELOW TO BE A COLUMN (psd file) */
+    zoom: 1.2;
+}
+
+#main * {
+    user-select: none;
+    z-index: 4;
+}
+
+#main em {
+    user-select: text;
+}
+
+#main > :nth-child(1){
+    left:26px;
+    top: 120px;
+    color: #f7f41c;
+}
+
+#main > :nth-child(2){
+    left:230px;
+    top: 220px;
+}
+
+#main > :nth-child(3){
+    text-align: center;
+    display: block;
+    width: 100%;
+    color: #fff;
+    top: 352px;
+}
+
+#main > :nth-child(4){
+    display: block;
+    top: 410px;
+    left: 25px;
+}
+
+#main > :nth-child(5){
+    color: #fff;
+    top: 490px;
+    left: 250px
+
+}
+
+#main > :nth-child(6){
+    color: #fff;
+    top: 610px;
+    left: 180px;
+}
+
+#main > :nth-child(7){
+    color: #f7f41c;
+    top: 690px;
+    left: 360px;
+}
+
+#main > :nth-child(8){
+
+    top: 690px;
+    left: 30px;
+}
+
+#main > :nth-child(9){
+    color: #fff;
+    top: 750px;
+    left: 70px;
+}
+
+#main > :nth-child(10){
+    font-size: 3em;
+    text-align: center;
+    color: #f7f41c;
+    top: 850px;
+    left: -100px;
+}
+
+#main > :nth-child(11){
+    font-size: 3em;
+    color: #fff;
+    top: 990px;
+    left: 20px;
+}
+
+#main > :nth-child(12){
+    font-size: 3em;
+    color: #f7f41c;
+    top: 1110px;
+    left: 40px;
+}
+
+#main > :nth-child(13){
+    color: #fff;
+    font-size: 2.3em;
+    top: 1125px;
+    left: 80px;
+}
+
+#main > :nth-child(14){
+    color: #f7f41c;
+    top: 1155px;
+    width: 100%;
+    text-align: center;
+}
+
+#main > :nth-child(15){
+    color: #fff;
+    top: 1160px;
+    left: 95px;
+}
+
+#main > :nth-child(16){
+    color: #f7f41c;
+    font-size: 2.2em;
+    top: 1210px;
+    left: 30px;
+}
+
+#main > :nth-child(17){
+    color: #fff;
+    top: 1270px;
+    left: 30px;
+    text-align: center;
+}
+
+#main > :nth-child(18){
+    color: #f7f41c;
+    top: 1290px;
+    left: 110px;
+}
+
+#main > :nth-child(19){
+    color: #fff;
+    top: 1300px;
+    left: 360px;
+}
+
+#main > :nth-child(20){
+    color: #f7f41c;
+    top: 1320px;
+    left: 30px;
+}
+#main > :nth-child(21){
+    color: #f7f41c;
+    top: 1300px;
+    left: 180px;
+}
+#main > :nth-child(22){
+    color: #f7f41c;
+    top: 1275px;
+    left: 360px;
+}
+
+#main > :nth-child(23){
+    color: #fff;
+    top: 1280px;
+    left: 180px;
+}
+
+#main > :nth-child(24){
+    color: #f7f41c;
+    top: 1300px;
+    left: 240px;
+}
+
+#main > :nth-child(25){
+    color: #fff;
+    top: 1320px;
+    left: 300px;
+}
+
+#main > :nth-child(26){
+    color: #f7f41c;
+    top: 1390px;
+    left: 50px;
+    font-size: 2.2em;
+}
+
+#main > :nth-child(27){
+    color: #fff;
+    top: 1410px;
+    text-align: center;
+    left: 50px;
+}
+
+
+#main > :nth-child(28){
+    color: #f7f41c;
+    top: 1440px;
+    text-align: center;
+    left: 50px;
+}
+
+#main > :nth-child(29){
+    color: #fff;
+    top: 1470px;
+    left: 50px;
+}
+
+#main > :nth-child(30){
+    color: #f7f41c;
+    top: 1490px;
+    text-align: center;
+    font-size: 2.3em;
+    left: 30px;
+}
+
+
+#main > :nth-child(31) > img{
+    display: block;
+    position: absolute;
+    bottom: 50px;
+    height: auto;
+    width: 350px;
+    left: 130px;
+    z-index: 3;
+}
+
+.PHONE-TAG-1 {
+    position: absolute;
+    top: 200px;
+    left: 348px;
+    width: 80px;
+    height: 80px;
+    border-radius: 30%;
+}
+
+.PHONE-TAG-2 {
+    position: absolute;
+    top: 548px;
+    left: 363px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Overpass-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/af07445c58e78e83da39.ttf");
+  }
+*{
+    font-family: Overpass-Bold;
+    overflow-x: hidden;
+}
+
+body{
+    margin: 0;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/778a08061fed2110f718.png");
+    background-size: cover;
+}
+
+#blur{
+    position: absolute;
+    display: block;
+    user-select: none;
+    width: 100%;
+    height: 5800px;
+    z-index: 2;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/6dba336596b5ae9aab41.png");
+}
+
+h1,h2,h3,h4,span{
+    position: relative;
+    margin:0;
+    z-index: 1;
+}
+
+h1{
+    font-size: 4.4em;
+}
+
+h2{
+    font-size: 3.1em;
+    color: #fff;
+}
+
+h3{
+    color: #fff;
+    font-size: 2.5em;
+}
+
+h4{
+    color: #fff;
+    font-size: 1.9em;
+}
+
+span{
+    font-size: 2.3em;
+}
+
+#main{
+    margin: auto;
+    width: 768px;
+    height: 4750px;
+    position: relative;
+    /*REMOVE BELOW TO BE A COLUMN (psd file) */
+    zoom: 1.2;
+}
+
+#main * {
+    user-select: none;
+    z-index: 4;
+}
+
+#main em {
+    user-select: text;
+}
+
+#main > :nth-child(1){
+    left:26px;
+    top: 120px;
+    color: #f7f41c;
+}
+
+#main > :nth-child(2){
+    left:230px;
+    top: 220px;
+}
+
+#main > :nth-child(3){
+    text-align: center;
+    display: block;
+    width: 100%;
+    color: #fff;
+    top: 352px;
+}
+
+#main > :nth-child(4){
+    display: block;
+    top: 410px;
+    left: 25px;
+}
+
+#main > :nth-child(5){
+    color: #fff;
+    top: 490px;
+    left: 250px
+
+}
+
+#main > :nth-child(6){
+    color: #fff;
+    top: 610px;
+    left: 180px;
+}
+
+#main > :nth-child(7){
+    color: #f7f41c;
+    top: 690px;
+    left: 360px;
+}
+
+#main > :nth-child(8){
+
+    top: 690px;
+    left: 30px;
+}
+
+#main > :nth-child(9){
+    color: #fff;
+    top: 750px;
+    left: 70px;
+}
+
+#main > :nth-child(10){
+    font-size: 3em;
+    text-align: center;
+    color: #f7f41c;
+    top: 850px;
+    left: -100px;
+}
+
+#main > :nth-child(11){
+    font-size: 3em;
+    color: #fff;
+    top: 990px;
+    left: 20px;
+}
+
+#main > :nth-child(12){
+    font-size: 3em;
+    color: #f7f41c;
+    top: 1110px;
+    left: 40px;
+}
+
+#main > :nth-child(13){
+    color: #fff;
+    font-size: 2.3em;
+    top: 1125px;
+    left: 80px;
+}
+
+#main > :nth-child(14){
+    color: #f7f41c;
+    top: 1155px;
+    width: 100%;
+    text-align: center;
+}
+
+#main > :nth-child(15){
+    color: #fff;
+    top: 1160px;
+    left: 95px;
+}
+
+#main > :nth-child(16){
+    color: #f7f41c;
+    font-size: 2.2em;
+    top: 1210px;
+    left: 30px;
+}
+
+#main > :nth-child(17){
+    color: #fff;
+    top: 1270px;
+    left: 30px;
+    text-align: center;
+}
+
+#main > :nth-child(18){
+    color: #f7f41c;
+    top: 1290px;
+    left: 110px;
+}
+
+#main > :nth-child(19){
+    color: #fff;
+    top: 1300px;
+    left: 360px;
+}
+
+#main > :nth-child(20){
+    color: #f7f41c;
+    top: 1320px;
+    left: 30px;
+}
+#main > :nth-child(21){
+    color: #f7f41c;
+    top: 1300px;
+    left: 180px;
+}
+#main > :nth-child(22){
+    color: #f7f41c;
+    top: 1275px;
+    left: 360px;
+}
+
+#main > :nth-child(23){
+    color: #fff;
+    top: 1280px;
+    left: 180px;
+}
+
+#main > :nth-child(24){
+    color: #f7f41c;
+    top: 1300px;
+    left: 240px;
+}
+
+#main > :nth-child(25){
+    color: #fff;
+    top: 1320px;
+    left: 300px;
+}
+
+#main > :nth-child(26){
+    color: #f7f41c;
+    top: 1390px;
+    left: 50px;
+    font-size: 2.2em;
+}
+
+#main > :nth-child(27){
+    color: #fff;
+    top: 1410px;
+    text-align: center;
+    left: 50px;
+}
+
+
+#main > :nth-child(28){
+    color: #f7f41c;
+    top: 1440px;
+    text-align: center;
+    left: 50px;
+}
+
+#main > :nth-child(29){
+    color: #fff;
+    top: 1470px;
+    left: 50px;
+}
+
+#main > :nth-child(30){
+    color: #f7f41c;
+    top: 1490px;
+    text-align: center;
+    font-size: 2.3em;
+    left: 30px;
+}
+
+
+#main > :nth-child(31) > img{
+    display: block;
+    position: absolute;
+    bottom: 50px;
+    height: auto;
+    width: 350px;
+    left: 130px;
+    z-index: 3;
+}
+
+.PHONE-TAG-1 {
+    position: absolute;
+    top: 200px;
+    left: 348px;
+    width: 80px;
+    height: 80px;
+    border-radius: 30%;
+}
+
+.PHONE-TAG-2 {
+    position: absolute;
+    top: 548px;
+    left: 363px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>RINGRING</title>
+</head>
+<body>
+    <div id="blur"><!-- :) --></div>
+    <em style="font-size: 1.4em; display: block;" class="PTAG"></em>
+    <div id="main">
+        <h1>CALL NOW</h1>
+        <h2>NOT <a class = "CFTAG">SOLD</a> IN STORES</h2>
+        <span>Plus S&H</span>
+        <h3>YOU MUST BE 18 OR OLDER TO CALL<br><em style="font-size: 0.3em; display: block; margin-top: -11px; margin-left: 97px; font-style: normal; color: #7170d3" class="PTAG"></em></h3>
+        <span>Money Back Guarantee</span>
+        <h2>24 HOURS A DAY <br>7 DAYS A WEEK</h2>
+        <h1>CALL <a class="CPTAG">NOW!</a></h1>
+        <h4>RUSH DELIVERY AVAILABLE!</h4>
+        <span>Shipping and Handling NOT INCLUDED</span>
+        <h1>AVAILABLE WHILE<br>SUPPLIES LAST</h1>
+        <h2>MUST BE 18 OR OLDER TO CALL</h2>
+        <h1>14 EASY PAYMENTS</h1>
+        <h4>30 DAY MONEY BACK GUARANTEE</h4>
+        <h1>CALL TODAY</h1>
+        <h2>FREE SHIPPING</h2>
+        <h2>A $60 VALUE FOR ONLY $19.95</h2>
+        <h2>IF YOU ORDER NOW<br>WE'LL INCLUDE A FREE GIFT</h2>
+        <h2>LIMITED TIME OFFER</h2>
+        <span>Call for FREE!</span>
+        <h1>CALL</h1>
+        <h1><a class="CFTAG">CALL</a></h1>
+        <h1>CALL</h1>
+        <h2>30 Day Trial</h2>
+        <h1>MUST BE 18+</h1>
+        <h2>DOUBLE OFFER</h2>
+        <h4>THIS DEAL WON'T LAST LONG</h4>
+        <h2>WE'LL DOUBLE IT<br>FOR NO <a class="CPTAG">EXTRA</a> CHARGE</h2>
+        <h1>YOU MUST<br>CALL NOW</h1>
+        <h2>Satisfaction Guaranteed</h2>
+        <h4>HAVE YOUR CREDIT CARD READY<br>AND CALL TOLL FREE<br><em style="font-size: 0.3em; display: block; margin-top: -5px;" class="PTAG"></em></h4>
+        <a onClick="LinkClick('answer.html')" class="active"><img src="https://wttgiii.peterrock.dev/website-assets/65c46887b6ae56536010.gif" alt="payphonering"></a>
+        <em class="PTAG" style="position: absolute; bottom: 0; font-size: 0.7em;"></em>
+    </div>
+</body>
+</html>
+</body>
+</html>

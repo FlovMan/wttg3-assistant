@@ -1,0 +1,29 @@
+{
+  "name": "Lab Monkey",
+  "domain": "labmonkey",
+  "availability": "SECOND_HALF",
+  "source": "https://wttgiii.peterrock.dev/website-visualizer/",
+  "patch": "1.0.5",
+  "pages": [
+    {
+      "id": "index",
+      "title": "Index",
+      "file": "index.html"
+    },
+    {
+      "id": "catalog",
+      "title": "Catalog",
+      "file": "catalog.html"
+    },
+    {
+      "id": "sign-in",
+      "title": "Sign In",
+      "file": "sign-in.html"
+    },
+    {
+      "id": "error",
+      "title": "Error",
+      "file": "error.html"
+    }
+  ]
+}

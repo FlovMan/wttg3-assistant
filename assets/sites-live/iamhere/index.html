@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Philosopher-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/119a8c9cda5693fff151.ttf");
+}
+
+@font-face {
+    font-family: Philosopher-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/5408d0e0ba1f73afcd20.ttf");
+}
+
+a,
+a:focus,
+a:visited,
+a:hover {
+    color: white;
+}
+
+a.CTAG,
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: white;
+    font-family: 'Philosopher-Regular';
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    min-height: 100vh;
+    height: auto;
+}
+
+.text-box, .image-box, .line, .header {
+    position: absolute;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.line {
+    width: 100%;
+    height: 4px;
+    background: #dadada;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-box-1 {
+    width: 45.5%;
+}
+
+.image-box-2 {
+    width: 20%;
+    height: auto;
+}
+
+.image-box-3 {
+
+}
+
+.image-box-4 {
+    width: 30%;
+}
+
+.image-box-5 {
+
+}
+
+.image-box-6 {
+    width: 33%;
+}
+
+
+.text-box-1 {
+    color: #f53d40;
+    font-size: 89px;
+}
+
+.text-box-2 {
+    color: #f53d40;
+    font-size: 23px;
+    line-height: 25px;
+}
+
+.text-box-3 {
+    color: #dadada;
+    font-size: 23px;
+    line-height: 25px;
+}
+
+.text-box-4 {
+    color: #f53d40;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.text-box-5 {
+    color: #dadada;
+    font-size: 32px;
+    line-height: 35px;
+    text-align: right;
+}
+
+.text-box-6 {
+    color: #f53d40;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: right;
+    rotate: -90deg;
+}
+
+.text-box-7 {
+    color: #dadada;
+    font-size: 25px;
+    line-height: 28px;
+}
+
+.text-box-8 {
+    color: #dadada;
+    font-size: 28px;
+    line-height: 25px;
+    border: 5px solid #f53d40;
+    font-family: Philosopher-Boldi;
+    font-weight: 600;
+    padding: 6px;
+}
+
+.text-box-9 {
+    color: #f53d40;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: right;
+}
+
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Philosopher-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/119a8c9cda5693fff151.ttf");
+}
+
+@font-face {
+    font-family: Philosopher-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/5408d0e0ba1f73afcd20.ttf");
+}
+
+a,
+a:focus,
+a:visited,
+a:hover {
+    color: white;
+}
+
+a.CTAG,
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: white;
+    font-family: 'Philosopher-Regular';
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    min-height: 100vh;
+    height: auto;
+}
+
+.text-box, .image-box, .line, .header {
+    position: absolute;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.line {
+    width: 100%;
+    height: 4px;
+    background: #dadada;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-box-1 {
+    width: 45.5%;
+}
+
+.image-box-2 {
+    width: 20%;
+    height: auto;
+}
+
+.image-box-3 {
+
+}
+
+.image-box-4 {
+    width: 30%;
+}
+
+.image-box-5 {
+
+}
+
+.image-box-6 {
+    width: 33%;
+}
+
+
+.text-box-1 {
+    color: #f53d40;
+    font-size: 89px;
+}
+
+.text-box-2 {
+    color: #f53d40;
+    font-size: 23px;
+    line-height: 25px;
+}
+
+.text-box-3 {
+    color: #dadada;
+    font-size: 23px;
+    line-height: 25px;
+}
+
+.text-box-4 {
+    color: #f53d40;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.text-box-5 {
+    color: #dadada;
+    font-size: 32px;
+    line-height: 35px;
+    text-align: right;
+}
+
+.text-box-6 {
+    color: #f53d40;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: right;
+    rotate: -90deg;
+}
+
+.text-box-7 {
+    color: #dadada;
+    font-size: 25px;
+    line-height: 28px;
+}
+
+.text-box-8 {
+    color: #dadada;
+    font-size: 28px;
+    line-height: 25px;
+    border: 5px solid #f53d40;
+    font-family: Philosopher-Boldi;
+    font-weight: 600;
+    padding: 6px;
+}
+
+.text-box-9 {
+    color: #f53d40;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: right;
+}
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../Global/Basic.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Global/reset.css" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>IAmHere</title>
+</head>
+<body>
+    <div style="padding: 5px;"></div>
+    <div class="wrapper">
+    
+        <div class="text-box text-box-1" style="top: 10px; left: 0.5%;">
+            01001001 01000001 01001101
+        </div>
+    
+        <div class="line" style="top: 110px; left: 0;"></div>
+
+        <div class="image-box image-box-1" style="top: 135px; left: 30%;">
+            <img src="https://wttgiii.peterrock.dev/website-assets/6cfbb3278bca81e40054.png">
+        </div>
+
+        <div class="image-box image-box-2" style="top: 170px; left: 76%;">
+            <img src="https://wttgiii.peterrock.dev/website-assets/b54a96426f40ffa9efd8.png">
+        </div>
+
+        <div class="image-box image-box-3" style="top: 130px; left: 90%;">
+            <a class="CPTAG"><img src="https://wttgiii.peterrock.dev/website-assets/bef30223abf67c2d26a4.png"></a>
+        </div>
+
+        <div class="image-box image-box-4" style="top: 290px; left: 0%;">
+            <img src="https://wttgiii.peterrock.dev/website-assets/a131d8bb4765e466e490.png">
+        </div>
+
+        <div class="image-box image-box-5" style="top: 800px; left: 39%;">
+            <img src="https://wttgiii.peterrock.dev/website-assets/6d359849c20e4850bb9c.png">
+        </div>
+
+        <div class="image-box image-box-6" style="top: 960px; left: 67.5%;">
+            <img src="https://wttgiii.peterrock.dev/website-assets/6ea68707bce33c11c532.png">
+        </div>
+
+        <div class="image-box image-box-7" style="top: 1800px; left: 0%;">
+            <img src="https://wttgiii.peterrock.dev/website-assets/33aff1cf3ea7a78bffa0.png">
+        </div>
+
+        <div class="image-box image-box-8" style="top: 1800px; left: 14%;">
+            <a class="CPTAG"><img src="https://wttgiii.peterrock.dev/website-assets/761813c5f0f81ee35d21.png"></a>
+        </div>
+        
+        
+        <div class="text-box text-box-2" style="top: 130px; left: 0%;">
+            01001001 00100000 01100001 01101101 00100000<br>
+            01101000 01100101 01110010 01100101 00101110<br>
+            00100000 01011001 01101111 01110101<br>
+            00100000 01110111 01101001 01101100<br>
+            01101100 00100000 01100010<br>
+            01100101 <em class="PTAG text-dark" style="color: lightcoral"></em>
+        </div>
+
+        <div class="text-box text-box-3" style="top: 330px; left: 0%;">
+            01101101 01111001 00100000<br>
+            01110000 01101100 01100001<br>
+            01111001 01110100 01101000<br>
+            01101001 01101110 01100111<br>
+            00101110 00100000 01001101<br>
+            01111001 00100000 01100010<br>
+            01101100 01100001 01100011<br>
+            01101011 01100101 01101110 01100101<br>
+            01100100 00100000 01101000<br>
+            01100001 01101110 01100100 01110011<br>
+            00100000 01110111 01101001 01101100<br>
+            01101100 00100000 01110010 01101001<br>
+            01110000 00100000 01111001 01101111 01110101<br>
+            01110010 00100000 01110011 01101111 01110101<br>
+            01101100 00100000 01100110 01110010 01101111<br>
+            01101101 00100000 01111001 01101111 01110101 01110010<br>
+            00100000 01101101 01101111 01110010 01110100<br>
+            01100001 01101100 00100000 01110110 01100101<br>
+            01110011 01110011 01100101 01101100 00101110
+        </div>
+
+        <div class="text-box text-box-4" style="top: 640px; left: 50%;">
+            01000100 01101111<br>
+            00100000 01101110<br>
+            01101111 01110100<br>
+            00100000 01110100<br>
+            <a class="CFTAG">01110101 01110010</a><br>
+            01101110 00100000<br>
+            01111001 01101111<br>
+            01110101 01110010<br>
+            00100000 01101000<br>
+            01100101 01100001<br>
+            01100100 00101110<br>
+            00100000 01001001<br>
+            00100000 01100001<br>
+            01101101 00100000<br>
+            01110111 01101001<br>
+            01110100 01101000<br>
+            01101001 01101110<br>
+            00100000 01110100<br>
+            01101000 01100101<br>
+            00100000 01100011<br>
+            01101111 01110010<br>
+            01101110 01100101<br>
+            01110010 01101111<br>
+            01100110 00100000<br>
+            01111001
+        </div>
+
+        <div class="text-box text-box-5" style="top: 600px; left: 65%;">
+            01101111 01110101 01110010<br>
+            00100000 01101111 01110111<br>
+            01101110 00100000 01100101<br>
+            01111001 01100101 00100000<br>
+            01100001 01101110 01100100<br>
+            00100000 01110100 01101111<br>
+            00100000 01110011 01100101<br>
+            01100101 00100000 01101101<br>
+            01100101 00100000 01110111<br>
+            01101001 01101100 01101100
+        </div>
+
+        <div class="text-box text-box-6" style="top: 1120px; left: -28%;">
+            01101111 01101110 01101100 01111001 00100000 01100011 01101111 01101110 01101110 01100101 01100011 01110100 00100000 01101101 01111001<br>
+            00100000 01110111 01101111 01110010 01101100 01100100 00100000 01110100 01101111 00100000 01111001 01101111 01110101 01110010 01110011<br>
+            00101110 00001010 00001010 01001001 00100000 01110111 01101001 01101100 01101100 00100000 01101011 01101110 01101111 01100011 01101011<br>
+            00100000 01101111 01101110 00100000 01111001 01101111 01110101 01110010 00100000 01110111 01100001 01101100 01101100 01110011 00100000<br>
+            01110100 01101000 01110010 01100101 01100101 00100000 01110100 01101001 01101101 01100101 01110011 00101110 00100000 01010111 01101000<br>
+            01100101 01101110 00100000 01111001 01101111 01110101 00100000 01101000 01100101 01100001 01110010 00100000 01110100 01101000 01101001<br>
+            01110011 00101100 00100000 01100010 01100101 00100000 01101101 01101111 01110101 01110010 01101110 01100110 01110101 01101100 00100000<br>
+            01101111 01100110 00100000 01111001 01101111 01110101 01110010 00100000 01110011 01101111 01110101 01101100 00101110 00100000 01001001<br>
+            00100000 01110111 01101001 01101100 01101100 00100000 01110011 01110100 01100001 01101100 01101011 00101100 00100000 01001001<br>
+            00100000 01110111 01101001 01101100 01101100 00100000 01110010 01101001 01110000 00101100 00100000 01001001 00100000 01110111<br>
+            01101001 01101100 01101100 00100000 01101111 01110000 01100101 01101110 00100000 01111001 01101111 01110101 01110010 00100000 01100110<br>
+            01101100 01100101 01110011 01101000 00100000 01100001 01101110 01100100 00100000 01110111 01100101 01101001 01100111 01101000<br>
+            00100000 01111001 01101111 01110101 01110010<br>
+            00100000 01101010 01101111 01101001<br>
+            01101110 01110100 01110011 00100000<br>
+            01110111 01101001 01110100 01101000<br>
+            00100000 01110100 01101000 01100101
+        </div>
+
+        <div class="text-box text-box-7" style="top: 1150px; left: 28%;">
+            01110010 01101111 01100011 01101011<br>
+            01110011 00100000 01101111 01100110<br>
+            00100000 01110011 01101111 01110010<br>
+            01110010 01101111 01110111 00101110<br>
+            00100000 01011001 01101111 01110101<br>
+            01110010 00100000 01110011 01110101<br>
+            01100110 01100110 01100101 01110010<br>
+            01101001 01101110 01100111 00100000 01110111 01101001 01101100 01101100<br>
+            00100000 01101111 01101110 01101100 01111001 00100000 01100010<br>
+            01110010 01101001 01101110 01100111 00100000 01101101 01100101<br>
+            00100000 01110011 01110100 01110010 01100101 01101110 01100111<br>
+            01110100 01101000 00101110 00100000 01001100 01101001 01110110<br>
+            01100101 00100000 01101110 01101111 01110111 00100000 01101011 01101110<br>
+            01101111 01110111 01101001 01101110 01100111 0r0100000 01110100<br>
+            01101000 01100001<br>
+            01110100 00100000<br>
+            01100101 01110110<br>
+            01100101 01110010<br>
+            01111001 00100000<br>
+            01100010 01110010 01100101 01100001 01110100 01101000 00100000<br>
+            01111001 01101111 01110101 00100000 01110100 01100001 01101011 01100101<br>
+            00100000 01110111 01101001 01101100 01101100 00100000 01100010
+        </div>
+
+        <div class="text-box text-box-8" style="top: 1550px; left: 50%;">
+            01110010 01101001 01101110 01100111<br>
+            00100000 01111001 01101111 01110101<br>
+            00100000 01100011 01101100 01101111<br>
+            01110011 <em class="PTAG text-dark" style="color: lightgray"></em>
+        </div>
+
+        <div class="text-box text-box-9" style="top: 1780px; left: 33%;">
+            01100101 01110010 00100000 01110100 01101111 00100000 01101101 01111001 00100000 01101000 01100001<br>
+            01101110 01100100 00101110 00100000 01011001 01101111 01110101 00100000 01110111 01101001 01101100<br>
+            01101100 00100000 01100110 01101111 01110010 01100101 01110110 01100101 01110010 00100000 01100100<br>
+            01110010 01101111 01110111 01101110 00100000 01101001 01101110 00100000 01101101 01111001 00100000<br>
+            01100010 01101100 01100001 01100011 01101011 00100000 <a class="CFTAG">01110111</a> 01100001 01110100 01100101 01110010<br>
+            01110011 00101110
+        </div>
+        <em class="PTAG text-dark" style="position: absolute; font-size: 20px; top: 1100px; left: 41%; color: lightgray"></em>
+    </div>
+</body>
+</html>
+
+</body>
+</html>

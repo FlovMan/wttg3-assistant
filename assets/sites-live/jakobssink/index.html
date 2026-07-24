@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+/* Lato-Bold */
+@font-face {
+  font-family: "Lato-Bold";
+  src: url("https://wttgiii.peterrock.dev/website-assets/d7f0b7f2570f2f28b504.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lato-Italic */
+@font-face {
+  font-family: "Lato-Italic";
+  src: url("https://wttgiii.peterrock.dev/website-assets/3be26bf6973f49df6a7d.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Lato-Regular */
+@font-face {
+  font-family: "Lato-Regular";
+  src: url("https://wttgiii.peterrock.dev/website-assets/e82542aed8293f49fc83.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Sarabun-Bold */
+@font-face {
+  font-family: "Sarabun-Bold";
+  src: url("https://wttgiii.peterrock.dev/website-assets/5d1fc1ee63ab861fb202.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Sarabun-Regular */
+@font-face {
+  font-family: "Sarabun-Regular";
+  src: url("https://wttgiii.peterrock.dev/website-assets/b8150084e25734e6f316.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/77f8c303bed7096f85c4.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+  width: 786px;
+}
+
+#header {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/e609f847b1dde7feb22b.png");
+  background-size: 100% 100%;
+  height: 73px;
+  width: 742px;
+  margin: 0 auto;
+}
+
+.rowBox {
+  margin-top: 30px;
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.rowBox > div {
+  display: flex;
+  flex-basis: auto;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+#broadcast > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+#broadcast > div > p,
+#broadcast > div > div {
+  font-family: "Sarabun-Regular";
+  margin: 5px 10px 10px 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+#broadcast {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/019f7a2c10f261dbc07d.png");
+  color: #e6e6e6;
+  background-size: 100% 100%;
+}
+
+#broadcast > h2 {
+  font-size: 16px;
+  font-family: "Sarabun-Bold";
+  margin-left: 10px;
+  padding: 2%;
+}
+
+.vertical {
+  border-left: 2px solid #b0b0b0;
+  height: 18px;
+}
+
+#commentBox {
+  font-family: "Sarabun-Bold";
+  font-size: 12px;
+  color: #000;
+  height: 350px;
+  width: 363px;
+  background-color: white;
+}
+
+#commentBox > h2 {
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 2%;
+}
+
+#commentBox div > input,
+#commentBox div > textarea {
+  margin-left: 5px;
+  border: 1px solid black;
+}
+
+#commentBox div {
+  display: flex;
+  padding: 0 0 10px 20px;
+}
+
+#nameInput {
+  width: 229px;
+  height: 23px;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+}
+
+#commentInput {
+  width: 229px;
+  height: 123px;
+}
+
+#commentBox > button {
+  margin-left: 61%;
+  background-color: #676767;
+  color: #3a3a3a;
+  width: 89px;
+  height: 22px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#commentBox > div:last-of-type {
+  padding: 0 0 5px 20px;
+}
+
+#livecast {
+  font-family: "Sarabun-Regular";
+  font-size: 14px;
+  color: #e6e6e6;
+  height: 165px;
+  width: 700px;
+  background-color: #171717;
+  padding: 3%;
+}
+
+#livecast h2 {
+  font-size: 20px;
+  font-family: "Sarabun-Bold";
+}
+
+#livecast p {
+  margin: 15px 0 10px 0;
+}
+
+#disclaimerBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/b53633c80ec4bd5385da.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 356px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+}
+
+#disclaimerBox h1 {
+  font-size: 24px;
+  font-family: "Lato-Bold";
+  text-align: center;
+  margin-top: 15px;
+}
+
+#disclaimerBox p {
+  padding: 6%;
+  margin-top: 10px;
+}
+
+#scheduleBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/8bc511bbbba58995395f.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 376px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+}
+
+#scheduleBox h1 {
+  font-size: 24px;
+  font-family: "Lato-Bold";
+  text-align: center;
+  margin-top: 15px;
+}
+
+#scheduleBox p {
+  padding: 10px 15px 10px 15px;
+}
+
+#scheduleBox p:first-of-type {
+  margin-top: 25px;
+}
+
+.grid {
+  display: flex;
+  gap: 60px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+#clockBox {
+  text-align: center;
+}
+
+#donationsBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/00ecef433ef0b16cff27.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 461px;
+  font-family: "Lato-Regular";
+  font-size: 13px;
+}
+
+#donationsBox h1 {
+  font-size: 24px;
+  font-family: "Lato-Bold";
+  text-align: center;
+  margin-top: 15px;
+}
+
+#donationsBox p {
+  padding: 10px 15px 10px 15px;
+}
+
+#donationsBox p:first-of-type {
+  margin-top: 25px;
+}
+
+#widgetBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/dc8cde38bc46574b2ab6.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 193px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+  padding: 7%;
+}
+
+.italic {
+  font-style: italic;
+}
+
+#widgetTitle {
+  font-size: 11px;
+}
+
+#widgetBox p:not(:first-child) {
+  margin-top: 15px;
+}
+
+.grid-item div {
+  padding: 2%;
+  margin-bottom: 10px;
+}
+#widgetImgs img {
+  margin: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+#rulesBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/709689bde298d52c44c9.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 356px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+}
+
+#rulesBox h1 {
+  font-size: 24px;
+  font-family: "Lato-Bold";
+  text-align: center;
+  margin-top: 15px;
+}
+
+#rulesBox p {
+  padding: 10px 15px 10px 15px;
+}
+
+#rulesBox p:first-of-type {
+  margin-top: 25px;
+}
+
+#emailBox {
+  text-align: center;
+}
+
+#consentBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/d5acbe80b093ad2d9d87.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 223px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+}
+
+#consentBox p {
+  padding: 0 10px 10px 10px;
+}
+
+#consentBox textarea {
+  border: 1px solid black;
+  width: 207px;
+  height: 32px;
+  text-align: center;
+  margin: 0 10px 0 10px;
+  background-color: #484848;
+}
+
+#consentBox button {
+  width: 72px;
+  height: 26px;
+  text-align: center;
+  background-color: #33343f;
+  font-family: "Lato-Bold";
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+#consentBtn {
+  margin-top: -8px;
+  text-align: center;
+}
+
+#unsubscribe {
+  font-size: 12px;
+}
+
+#powered {
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+#hitCounter {
+  margin: 0 auto;
+}
+
+#hitCounterBox {
+  text-align: center;
+}
+
+em {
+  color: #a1a1a1;
+  font-size: 10px;
+  font-style: normal;
+}
+
+.text-dark {
+  color: #454545
+}
+
+#hitCounterBox p {
+  color: white;
+  font-family: "Lato-Italic";
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+/* Lato-Bold */
+@font-face {
+  font-family: "Lato-Bold";
+  src: url("https://wttgiii.peterrock.dev/website-assets/d7f0b7f2570f2f28b504.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Lato-Italic */
+@font-face {
+  font-family: "Lato-Italic";
+  src: url("https://wttgiii.peterrock.dev/website-assets/3be26bf6973f49df6a7d.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Lato-Regular */
+@font-face {
+  font-family: "Lato-Regular";
+  src: url("https://wttgiii.peterrock.dev/website-assets/e82542aed8293f49fc83.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Sarabun-Bold */
+@font-face {
+  font-family: "Sarabun-Bold";
+  src: url("https://wttgiii.peterrock.dev/website-assets/5d1fc1ee63ab861fb202.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Sarabun-Regular */
+@font-face {
+  font-family: "Sarabun-Regular";
+  src: url("https://wttgiii.peterrock.dev/website-assets/b8150084e25734e6f316.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/77f8c303bed7096f85c4.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+  width: 786px;
+}
+
+#header {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/e609f847b1dde7feb22b.png");
+  background-size: 100% 100%;
+  height: 73px;
+  width: 742px;
+  margin: 0 auto;
+}
+
+.rowBox {
+  margin-top: 30px;
+  min-height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.rowBox > div {
+  display: flex;
+  flex-basis: auto;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+#broadcast > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+#broadcast > div > p,
+#broadcast > div > div {
+  font-family: "Sarabun-Regular";
+  margin: 5px 10px 10px 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+#broadcast {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/019f7a2c10f261dbc07d.png");
+  color: #e6e6e6;
+  background-size: 100% 100%;
+}
+
+#broadcast > h2 {
+  font-size: 16px;
+  font-family: "Sarabun-Bold";
+  margin-left: 10px;
+  padding: 2%;
+}
+
+.vertical {
+  border-left: 2px solid #b0b0b0;
+  height: 18px;
+}
+
+#commentBox {
+  font-family: "Sarabun-Bold";
+  font-size: 12px;
+  color: #000;
+  height: 350px;
+  width: 363px;
+  background-color: white;
+}
+
+#commentBox > h2 {
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 2%;
+}
+
+#commentBox div > input,
+#commentBox div > textarea {
+  margin-left: 5px;
+  border: 1px solid black;
+}
+
+#commentBox div {
+  display: flex;
+  padding: 0 0 10px 20px;
+}
+
+#nameInput {
+  width: 229px;
+  height: 23px;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+}
+
+#commentInput {
+  width: 229px;
+  height: 123px;
+}
+
+#commentBox > button {
+  margin-left: 61%;
+  background-color: #676767;
+  color: #3a3a3a;
+  width: 89px;
+  height: 22px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#commentBox > div:last-of-type {
+  padding: 0 0 5px 20px;
+}
+
+#livecast {
+  font-family: "Sarabun-Regular";
+  font-size: 14px;
+  color: #e6e6e6;
+  height: 165px;
+  width: 700px;
+  background-color: #171717;
+  padding: 3%;
+}
+
+#livecast h2 {
+  font-size: 20px;
+  font-family: "Sarabun-Bold";
+}
+
+#livecast p {
+  margin: 15px 0 10px 0;
+}
+
+#disclaimerBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/b53633c80ec4bd5385da.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 356px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+}
+
+#disclaimerBox h1 {
+  font-size: 24px;
+  font-family: "Lato-Bold";
+  text-align: center;
+  margin-top: 15px;
+}
+
+#disclaimerBox p {
+  padding: 6%;
+  margin-top: 10px;
+}
+
+#scheduleBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/8bc511bbbba58995395f.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 376px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+}
+
+#scheduleBox h1 {
+  font-size: 24px;
+  font-family: "Lato-Bold";
+  text-align: center;
+  margin-top: 15px;
+}
+
+#scheduleBox p {
+  padding: 10px 15px 10px 15px;
+}
+
+#scheduleBox p:first-of-type {
+  margin-top: 25px;
+}
+
+.grid {
+  display: flex;
+  gap: 60px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+#clockBox {
+  text-align: center;
+}
+
+#donationsBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/00ecef433ef0b16cff27.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 461px;
+  font-family: "Lato-Regular";
+  font-size: 13px;
+}
+
+#donationsBox h1 {
+  font-size: 24px;
+  font-family: "Lato-Bold";
+  text-align: center;
+  margin-top: 15px;
+}
+
+#donationsBox p {
+  padding: 10px 15px 10px 15px;
+}
+
+#donationsBox p:first-of-type {
+  margin-top: 25px;
+}
+
+#widgetBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/dc8cde38bc46574b2ab6.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 193px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+  padding: 7%;
+}
+
+.italic {
+  font-style: italic;
+}
+
+#widgetTitle {
+  font-size: 11px;
+}
+
+#widgetBox p:not(:first-child) {
+  margin-top: 15px;
+}
+
+.grid-item div {
+  padding: 2%;
+  margin-bottom: 10px;
+}
+#widgetImgs img {
+  margin: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+#rulesBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/709689bde298d52c44c9.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 356px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+}
+
+#rulesBox h1 {
+  font-size: 24px;
+  font-family: "Lato-Bold";
+  text-align: center;
+  margin-top: 15px;
+}
+
+#rulesBox p {
+  padding: 10px 15px 10px 15px;
+}
+
+#rulesBox p:first-of-type {
+  margin-top: 25px;
+}
+
+#emailBox {
+  text-align: center;
+}
+
+#consentBox {
+  background-image: url("https://wttgiii.peterrock.dev/website-assets/d5acbe80b093ad2d9d87.png");
+  color: #000000;
+  background-size: 100% 100%;
+  width: 243px;
+  height: 223px;
+  font-family: "Lato-Regular";
+  font-size: 14px;
+}
+
+#consentBox p {
+  padding: 0 10px 10px 10px;
+}
+
+#consentBox textarea {
+  border: 1px solid black;
+  width: 207px;
+  height: 32px;
+  text-align: center;
+  margin: 0 10px 0 10px;
+  background-color: #484848;
+}
+
+#consentBox button {
+  width: 72px;
+  height: 26px;
+  text-align: center;
+  background-color: #33343f;
+  font-family: "Lato-Bold";
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+#consentBtn {
+  margin-top: -8px;
+  text-align: center;
+}
+
+#unsubscribe {
+  font-size: 12px;
+}
+
+#powered {
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+#hitCounter {
+  margin: 0 auto;
+}
+
+#hitCounterBox {
+  text-align: center;
+}
+
+em {
+  color: #a1a1a1;
+  font-size: 10px;
+  font-style: normal;
+}
+
+.text-dark {
+  color: #454545
+}
+
+#hitCounterBox p {
+  color: white;
+  font-family: "Lato-Italic";
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <meta name="description" content="" />
+  <title>Jakobs Sink</title>
+  <link rel="stylesheet" href="../Global/reset.css" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" src="../Global/Basic.js"></script>
+  <script type="text/javascript" src="easyVerify.js"></script>
+</head>
+
+<body id="page">
+  <div id="header"></div>
+  <div class="rowBox">
+    <div class="box">
+      <div id="broadcast">
+        <h2>Learning moments with momma<em class="PTAG text-dark"></em> deer</h2>
+        <img src="https://wttgiii.peterrock.dev/website-assets/3d0cf1fc56eafef105f5.png" />
+        <div>
+          <p>Last Broadcast: 09/21</p>
+          <div class="vertical"></div>
+          <p><a class="CFTAG">Peak</a> Viewership: 53 Watchers</p>
+        </div>
+        <div>
+          <p>Last Broadcast Duration: 3 hours 41 minutes 17 seconds</p>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div id="commentBox">
+        <h2>Comments can only be sent when broadcast is LIVE</h2>
+        <div><label>Name</label> <input type="text" id="nameInput" /></div>
+        <div>Comment <textarea id="commentInput"></textarea></div>
+        <div>
+          <img id="captcha" />
+        </div>
+        <div>
+          Type the characters above <input type="text" id="captchaInput" />
+        </div>
+        <button>Continue</button>
+      </div>
+    </div>
+    <div class="box full-width">
+      <div id="livecast">
+        <h2>What to expect in a live cast</h2>
+        <p>
+          The beauty of life must never be wasted. While the end comes for us
+          all, those who stumble upon recent remains should rejoice and take
+          pride in repurposing that which otherwise would go to waste.
+        </p>
+        <p>
+          Join me in my live<em class="PTAG"></em> broadcasts where I display how you can make the
+          most of a roadside tragedy! Everything you see me working with is
+          sourced locally from <a class="CPTAG">old</a> country roads.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="grid-item">
+      <div id="disclaimerBox">
+        <h1>DISCLAIMER</h1>
+        <p>
+          The broadcast’s sole purpose is to inform and grant an educational
+          form of media to those who wish to learn.
+        </p>
+        <p>
+          Other platforms don’t seem to understand the educational value this
+          program provides. I’ve spent<em class="PTAG"></em> plenty of my own savings to ensure that
+          my teachings don’t go to waste. Thank you for coming here to engage
+          with the informative topics covered.
+        </p>
+      </div>
+      <div id="clockBox">
+        <img src="https://wttgiii.peterrock.dev/website-assets/874eb4e21d613d76c8f3.png" />
+      </div>
+      <div id="widgetBox">
+        <p id="widgetTitle">TIME CONVERTER WIDGET v1.03</p>
+        <p>
+          Next broadcast will start at 7:00PM tomorrow
+          <span class="italic">(widget adjusted to local timezone)</span>
+        </p>
+        <p class="italic">Please rate this service</p>
+        <p id="widgetImgs">
+          <img src="https://wttgiii.peterrock.dev/website-assets/6f98a8c029418f0d8ab9.png" onclick="" /><em class="PTAG"></em>
+          <img src="https://wttgiii.peterrock.dev/website-assets/17013783cc54455453a9.png" onclick="" />
+        </p>
+      </div>
+      <div id="rulesBox">
+        <h1>RULES</h1>
+        <p>
+          I only know English and Czech. Comments in other languages will be
+          ignored.
+        </p>
+        <p>I never speak during broadcasts.</p>
+        <p>
+          No on demand content is available. Record the broadcast yourself.
+        </p>
+        <p><a class="CFTAG">Enjoy</a>.</p>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div id="scheduleBox">
+        <h1>SCHEDULE</h1>
+        <p>
+          Broadcasts happen more frequently in the warmer months when there’s
+          a greater amount of harvestable product.
+        </p>
+        <p>
+          Expect at least one broadcast per month on the last Friday of the
+          month.
+        </p>
+        <p>
+          <a class="CPTAG">Time</a> of upcoming broadcast will be automatically adjusted to your
+          timezone on the widget. You can receive a broadcast reminder by
+          consenting to emails below.
+        </p>
+      </div>
+      <div id="donationsBox">
+        <h1>DONATIONS</h1>
+        <p>
+          Care to send a tip? My <a class="CFTAG">DOSCoin</a> wallet address is:<em class="PTAG"></em>
+          9S4rLIZekcaCZrbNFES0Wl90Hp6vg
+        </p>
+        <p>
+          Donations are non-refundable. Anything sent is appreciated, but not
+          necessary. This stream is something I enjoy doing and aim to
+          continue sharing info to other interested minds who come across my
+          page with or without donations.
+        </p>
+        <p>
+          From time to time I will set donation goals for more hands on large
+          scale projects. Contributing then will help speed up the time it
+          takes to organize and eventually orchestrate the project on camera.
+        </p>
+      </div>
+      <div id="emailBox">
+        <img src="https://wttgiii.peterrock.dev/website-assets/f963a4de6a600cfaf842.png" />
+      </div>
+      <div id="consentBox">
+        <p>
+          Enter an email to receive broadcast updates<em class="PTAG"></em> (e.g. Broadcast is
+          live!)
+        </p>
+        <p class="italic" id="unsubscribe">
+          You can unsubscribe at any time.
+        </p>
+        <textarea id="consentTextArea"></textarea>
+        <div id="consentBtn">
+          <button onclick="clearTextBox()" style="margin-top: 10px;">consent</button>
+        </div>
+        <p class="italic" id="powered">powered by MailWidgeon</p>
+      </div>
+    </div>
+  </div>
+  <div id="hitCounterBox">
+    <img id="hitCounter" src="https://wttgiii.peterrock.dev/website-assets/1f1c784cb556d9728128.png" />
+    <p> all time total <a class="CPTAG">hits</a> </p>
+  </div>
+</body>
+
+</html>
+</body>
+</html>

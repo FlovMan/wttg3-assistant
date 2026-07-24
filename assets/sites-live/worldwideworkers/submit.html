@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Submit</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+*{
+    margin: 0;
+    font-family: NotoSans-Medium;
+}
+
+/* fonts */
+.bold{
+    font-family: NotoSans-Bold;
+}
+.semibold{
+    font-family: NotoSans-SemiBold;
+}
+.bolditalic{
+    font-family: NotoSans-BoldItalic;
+}
+.light{
+    font-family: NotoSans-Light;
+}
+.medium{
+    font-family: NotoSans-Medium;
+}
+.underlined{
+    text-decoration: underline;
+}
+.italic{
+    font-family: NotoSans-Italic;
+}
+/* /// */
+
+body{
+    display: block;
+    width: 100%;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/f97484a8191a042a2e59.png");
+}
+
+#content{
+    display: block;
+    margin: auto;
+    width: 768px;
+}
+
+header{
+    display: flex;
+    height: 118px;
+    width: 768px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/a7058a27e4f3ec41385f.png");
+    background-repeat: no-repeat;
+}
+
+#logo{
+    display: block;
+    margin: auto;
+    zoom: 1;
+}
+
+main{
+    display: block;
+    margin-top: -3px;
+    /* height: 1650px; */
+    width: 768px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+}
+
+nav{
+    display: block;
+    width: 100%;
+}
+
+#home{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/bd99ab3c26a7a766ab3d.png");
+    width: 93px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+
+#submit{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/514726de32fa5ccb4c5c.png");
+    width: 106px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+
+#about{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/b0680e301429be2d0d4d.png");
+    width: 106px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+nav > a{
+    height: 40px;
+}
+
+article{
+    margin-top: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: inset -10px -10px 40px -10px black;
+}
+
+#handson{
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+h2{
+    font-size: 1.4em;
+}
+
+#lidar{
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 450px;
+}
+
+#lidarInfo{
+    display: block;
+    margin-top: 10px;
+    margin-left: 50px;
+    font-size: 0.75em;
+}
+
+textarea{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/cd15ce5bec1de8dcb2ff.png");
+    padding: 20px;
+    font-family: NotoSans-BoldItalic;
+    width: 663px;
+    font-size: 0.8em;
+    height: 177px;
+    resize: none;
+    word-wrap: break-word;
+}
+
+#disclosure{
+    margin-top: 50px;
+    font-size: 0.9em;
+    font-family: NotoSans-Light;
+}
+
+#infoForm{
+    margin-top: 30px;
+}
+
+#infoForm > input {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/21a7bec79a2efc4b99b8.png");
+    width: 663px;
+    background-repeat: no-repeat;
+    height: 34px;
+    padding: 10px;
+    font-family: NotoSans-BoldItalic;
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+
+#conditions{
+    margin-top: 50px;
+}
+
+#submitFormBtn{
+    text-align: center;
+    display: block;
+    margin: auto;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/f2b3622930c02eaddc1f.png");
+    width: 215px;
+    height: 65px;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+}
+
+.target {
+    width: 100%;
+    position: relative;
+}
+
+.target a {
+    background-color: transparent;
+    position: absolute;
+}
+
+.A a {
+    width: 260px;
+    height: 135px;
+    left: 100px;
+    top: 25px;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+*{
+    margin: 0;
+    font-family: NotoSans-Medium;
+}
+
+/* fonts */
+.bold{
+    font-family: NotoSans-Bold;
+}
+.semibold{
+    font-family: NotoSans-SemiBold;
+}
+.bolditalic{
+    font-family: NotoSans-BoldItalic;
+}
+.light{
+    font-family: NotoSans-Light;
+}
+.medium{
+    font-family: NotoSans-Medium;
+}
+.underlined{
+    text-decoration: underline;
+}
+.italic{
+    font-family: NotoSans-Italic;
+}
+/* /// */
+
+body{
+    display: block;
+    width: 100%;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/f97484a8191a042a2e59.png");
+}
+
+#content{
+    display: block;
+    margin: auto;
+    width: 768px;
+}
+
+header{
+    display: flex;
+    height: 118px;
+    width: 768px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/a7058a27e4f3ec41385f.png");
+    background-repeat: no-repeat;
+}
+
+#logo{
+    display: block;
+    margin: auto;
+    zoom: 1;
+}
+
+main{
+    display: block;
+    margin-top: -3px;
+    /* height: 1650px; */
+    width: 768px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+}
+
+nav{
+    display: block;
+    width: 100%;
+}
+
+#home{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/bd99ab3c26a7a766ab3d.png");
+    width: 93px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+
+#submit{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/514726de32fa5ccb4c5c.png");
+    width: 106px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+
+#about{
+    display: inline-block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/b0680e301429be2d0d4d.png");
+    width: 106px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+nav > a{
+    height: 40px;
+}
+
+article{
+    margin-top: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: inset -10px -10px 40px -10px black;
+}
+
+#handson{
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+h2{
+    font-size: 1.4em;
+}
+
+#lidar{
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 450px;
+}
+
+#lidarInfo{
+    display: block;
+    margin-top: 10px;
+    margin-left: 50px;
+    font-size: 0.75em;
+}
+
+textarea{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/cd15ce5bec1de8dcb2ff.png");
+    padding: 20px;
+    font-family: NotoSans-BoldItalic;
+    width: 663px;
+    font-size: 0.8em;
+    height: 177px;
+    resize: none;
+    word-wrap: break-word;
+}
+
+#disclosure{
+    margin-top: 50px;
+    font-size: 0.9em;
+    font-family: NotoSans-Light;
+}
+
+#infoForm{
+    margin-top: 30px;
+}
+
+#infoForm > input {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/21a7bec79a2efc4b99b8.png");
+    width: 663px;
+    background-repeat: no-repeat;
+    height: 34px;
+    padding: 10px;
+    font-family: NotoSans-BoldItalic;
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+
+#conditions{
+    margin-top: 50px;
+}
+
+#submitFormBtn{
+    text-align: center;
+    display: block;
+    margin: auto;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/f2b3622930c02eaddc1f.png");
+    width: 215px;
+    height: 65px;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+}
+
+.target {
+    width: 100%;
+    position: relative;
+}
+
+.target a {
+    background-color: transparent;
+    position: absolute;
+}
+
+.A a {
+    width: 260px;
+    height: 135px;
+    left: 100px;
+    top: 25px;
+}
+@font-face {
+    font-family: NotoSans-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/8b6389d671315ddf9e50.ttf");
+}
+@font-face {
+    font-family: NotoSans-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/d0ca625b4975f20205e8.ttf");
+}
+@font-face {
+    font-family: NotoSans-BoldItalic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/4db08a19f477ac46be76.ttf");
+}
+@font-face {
+    font-family: NotoSans-Light;
+    src: url("https://wttgiii.peterrock.dev/website-assets/9ad3eac2298dcc17b94c.ttf");
+}
+@font-face{
+    font-family: NotoSans-Medium;
+    src: url("https://wttgiii.peterrock.dev/website-assets/2931199120fc5c13ccca.ttf");
+}
+@font-face {
+    font-family: NotoSans-SemiBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/9cbfd620ad9ee275c952.ttf");
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <title>Worldwide Workers</title>
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <div id="content">
+        <header>
+            <img id="logo" src="https://wttgiii.peterrock.dev/website-assets/e3d91e453f963b57860f.png" alt="logo">
+        </header>
+    
+        <main>
+            <nav>
+                <a onClick="LinkClick('index.html')" class="active" id="home"></a>
+                <a onClick="LinkClick('submit.html')" class="active" id="submit"></a>
+                <a onClick="LinkClick('about.html')" class="active" id="about"></a>
+            </nav>
+
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                All fields should meet the recommended minimum character count before a submission is made. This helps ensure enough detail has been provided, which speeds up processing on our end, and saves you from having to pay additional fees.
+            </p>
+            <br>
+            <p style="font-size: 0.9em;">
+                Refrain from <a class="CPTAG">mentioning</a> any personal details when answering these prompts. Only the key specifics are requested to validate WorldWide Workers can properly provide an accurate assessment of your submitted proposal.
+            </p>
+            <br><br>
+            <div id="submitForm">
+                <div id="locationInfo">
+                    <textarea type="text" id="locationInput" placeholder="Location(s) (Address, describe environment, level of security, other pertinent details)" maxlength="800"></textarea>
+                    <p class="bolditalic" style="font-size: 0.7em;"><span id="charlocationInput">0</span>/800 recommended minimum character count.</p>
+                </div>
+                <br>
+                <div id="targetInfo">
+                    <textarea type="text" id="tagetInput" placeholder="Target(s) (Person, object of interest, objective/goal)" maxlength="800"></textarea>
+                    <p class="bolditalic" style="font-size: 0.7em;"><span id="chartagetInput">0</span>/800 <em class="PTAG text-dark"></em> recommended minimum character count.</p>
+                </div>
+                <br>
+                <div id="crewInfo">
+                    <textarea type="text" id="crewInput" placeholder="Crew (Available crew, specialities or skills)" maxlength="800"></textarea>
+                    <p class="bolditalic" style="font-size: 0.7em;"><span id="charcrewInput">0</span>/800 recommended minimum character count.</p>
+                </div>
+                <br>
+                <div id="eqInfo">
+                    <textarea type="text" id="eqInput" placeholder="Equipment you intend to use (firearms, vehicles, available capital)" maxlength="800"></textarea>
+                    <p class="bolditalic" style="font-size: 0.7em;"><span id="chareqInput">0</span>/800 recommended minimum character count.</p>
+                </div>
+            </div>
+
+            <div id="disclosure">
+                <p>
+                    You will be charged an additional processing fee <span class="bold">(200 DOSCoin)</span> if any field does not include enough information to adequately fulfill our requirements.
+                </p>
+                <br>
+                <p>
+                    If a submission requires more than the <span class="bolditalic">three business day maximum</span> to process an <span class="bolditalic">additional 200 DOSCoin payment</span> will be required to continue. That fee will cover the next 2 business days. Proposals that demand more additional time <em class="PTAG text-dark"></em> will be charged <span class="bolditalic">125 DOSCoin per added business day</span> following the first 200 DOSCoin extension.
+                </p>
+                <br>
+                <p>
+                    There are no <a class="CFTAG">refunds</a> for proposals once submitted.
+                </p>
+                <br>
+                <p>
+                    Amendments on a proposal can be made up to a maximum of 24 hours after submission. Within this 24 hour <em class="PTAG text-dark"></em> period amendments should be sent to the contact email provided in your transaction confirmation. If the 24 hour period has lapsed you will be charged the additional processing fee <span class="bold">(200 DOSCoin)</span>.
+                </p>
+                <br>
+                <p>
+                    Failing to pay any additional fees incurred will result in your proposal being dropped by our team. Clients who are dropped will not receive any information from us about the work we had done up until that point in time and you will be blacklisted from using our services in the future.
+                </p>
+            </div>
+            
+            <div id="infoForm">
+                <input type="text" placeholder="Enter preferred contact email address">
+                <em class="PTAG text-dark" style="font-size: 0.7em; position: absolute; left: 230px; margin-top: 55px; font-family: NotoSans-Light;"></em>
+                <br>
+                <input type="text" placeholder="Enter linked wallet address">
+            </div>
+
+            <div id="conditions" class="bold">
+                <p>
+                    I accept the 550 DOSCoin charge to process this proposal. I have reviewed it to the best of my ability and believe it meets the expected level of detail requested from WorldWide Workers.
+                </p>
+                <br>
+                <p>
+                    I have been made aware of all additional fees I may incur and the refund <a class="CPTAG">policy</a>.
+                </p>
+                <br>
+                <p>
+                    By clicking the <a class = "CFTAG">submit</a> button below I am consenting to all above statements and any applicable terms made available on this site.
+                </p>
+            </div>
+            <br>
+            <span id="paymentFailedText" class="bold" style="color:#861313; display: block; text-align: center; font-size: 1.2em;">PAYMENT FAILED</span>
+            <a onClick="submitPayment()" id="submitFormBtn"></a>
+            <br><br>
+            <em class="PTAG text-dark" style="position: absolute; top: 5px; left: 5px; color: #0c400c; font-size: 0.6em;"></em>
+        </main>
+    </div>
+    <script>
+        document.getElementById("submitForm").addEventListener("input", characterCounter)
+
+        function characterCounter() {
+            let text = document.getElementById(event.target.id).value;
+            let counter = "char" + event.target.id;
+            console.log(counter)
+            document.getElementById(counter).innerHTML = text.length;
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>

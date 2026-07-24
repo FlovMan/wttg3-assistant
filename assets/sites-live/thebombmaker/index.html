@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Index</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a.CPTAG,
+a.CFTAG,
+a.CPTAG:focus,
+a.CFTAG:focus,
+a.CPTAG:visited,
+a.CFTAG:visited,
+a.CPTAG:hover,
+a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+body {
+    color: rgb(240, 231, 225);
+    background: #5F1E07;
+    font-family: 'Arimo';
+    font-size: large;
+    line-height: 1.2;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.relative {
+    display: inline-block;
+    position: relative;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 10px;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 50px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-large {
+    font-size: 48px;
+}
+
+.text-medium {
+    font-size: 32px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+    display: inline-block;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+    position: absolute;
+    right: 0;
+    color: black;
+}
+
+#top {
+    background: black;
+}
+
+#left {
+    display: inline-block;
+    width: 30%;
+}
+
+#right {
+    background: #393331;
+    margin-right: 1%;
+    padding: 40px 20px;
+    float: right;
+    width: 68%;
+}
+
+
+.img-container {
+    position: relative;
+    display: block;
+    margin: auto;
+    max-width: 330px;
+}
+
+.img-container>.CTAG {
+    display: block;
+    position: absolute;
+
+    bottom: 10%;
+    left: 14%;
+    width: 16%;
+    height: 15%;
+
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a.CPTAG,
+a.CFTAG,
+a.CPTAG:focus,
+a.CFTAG:focus,
+a.CPTAG:visited,
+a.CFTAG:visited,
+a.CPTAG:hover,
+a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+body {
+    color: rgb(240, 231, 225);
+    background: #5F1E07;
+    font-family: 'Arimo';
+    font-size: large;
+    line-height: 1.2;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.relative {
+    display: inline-block;
+    position: relative;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 10px;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 50px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-large {
+    font-size: 48px;
+}
+
+.text-medium {
+    font-size: 32px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+    display: inline-block;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+    position: absolute;
+    right: 0;
+    color: black;
+}
+
+#top {
+    background: black;
+}
+
+#left {
+    display: inline-block;
+    width: 30%;
+}
+
+#right {
+    background: #393331;
+    margin-right: 1%;
+    padding: 40px 20px;
+    float: right;
+    width: 68%;
+}
+
+
+.img-container {
+    position: relative;
+    display: block;
+    margin: auto;
+    max-width: 330px;
+}
+
+.img-container>.CTAG {
+    display: block;
+    position: absolute;
+
+    bottom: 10%;
+    left: 14%;
+    width: 16%;
+    height: 15%;
+
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <title>The BombMaker</title>
+    <link rel="stylesheet" href="../Global/reset.css" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+<body>
+    <div id="top" class="text-right">
+        <img src="https://wttgiii.peterrock.dev/website-assets/527ed054f35c414957af.png" width="70%"><em class="PTAG pull-right"></em>
+    </div>
+    <div id="container">
+        <div id="left" class="text-right pt">
+            <img src="https://wttgiii.peterrock.dev/website-assets/8cd5756580ef1b97af88.jpg" class="mt" width="400">
+            <img src="https://wttgiii.peterrock.dev/website-assets/3e25696c31988f743e7a.jpg" class="mt" width="400">
+            <img src="https://wttgiii.peterrock.dev/website-assets/955c061acd81f6762bfe.jpg" class="mt" width="400">
+            <img src="https://wttgiii.peterrock.dev/website-assets/18c66f9be012f8670374.jpg" class="mt" width="400">
+            <img src="https://wttgiii.peterrock.dev/website-assets/ac307c233411af9e71f0.jpg" class="mt" width="400">
+            <img src="https://wttgiii.peterrock.dev/website-assets/33275b56538abeda647a.jpg" class="mt" width="400">
+            <img src="https://wttgiii.peterrock.dev/website-assets/c1bd5f4eb6ea2e6d6642.jpg" class="mt" width="400">
+        </div>
+        <div id="right">
+            <p>
+                I'm still here... I haven't been found. You will only know where I've been when the earth shakes and the
+                flame fills your lungs, marking a gasp as your final goodbye.
+            </p>
+            <p>
+                So many inferior creatures disgracing everything that humanity should be. All scratching at the insipid
+                crust of the sycophants who aid the greedy. Pleading for someone to acknowledge their existence long
+                enough so they can forget it themselves. All of you are <a class="CPTAG">worthless</a>...
+            </p>
+            <p>
+                From the beggars, soiling our streets, forcing upstanding citizens to feel for them; to the rich who
+                make the rules for everyone only to screw over those who work hardest for their admiration. The fucking
+                worker bees who go <a class="CFTAG">about</a> their days with it all on their backs so they can feel
+                like they serve a
+                purpose to this world. You mean <em class="PTAG"></em>nothing. Your life is worthless. All of you
+                deserve to die. If you don't have the smallest modicum of intelligence to recognize that your life gives
+                nothing to this world and in turn put and end to it yourself, then I will happily do it for you.
+            </p>
+            <p>
+                The news will explain so many deaths away as accidental. Mechanical failures at factories, leaking gas
+                lines in houses, improper procedure when <a class="CFTAG">transporting</a> flammable materials. It's all
+                bullshit. They don't
+                want you to know that the dots are connected. That you should be in constant fear for your shit stain of
+                a life. That you are all burning at my hand.
+            </p>
+            <p>
+                I have only gotten more <a class="CPTAG">proficient</a> and better suited for not being tracked by the
+                police. You will die. Never feel safe.
+            </p>
+            <p>
+                I could simply turn to chemicals, biological methods, or any other of a litany of methods... but I love
+                the explosives. You know why? You are wiped out. Instantly. It's all you squirming masses deserve. You
+                have no time to reflect on your <a class="CFTAG">loved</a> ones. No time to try to understand WHY this
+                is happening to you. I don't give you that satisfaction. You don't deserve it.
+            </p>
+            <p>
+                You made your <a class="CPTAG">choices</a>. You live the way you do. You have corrupted your children. So
+                the result is
+                already made up as well.
+            </p>
+            <p>
+                When you are riding on the train to work and the children are waiting patiently to arrive at their stop
+                for school. You will feel the pressure compress your <em class="PTAG"></em> body with a massive force as
+                the atmosphere is instantly altered and your air is removed from your lungs. The heat will come long
+                after your death and your remains will be ashes. A symbol of your impact on the world. Instantly
+                forgotten. Instantly nothing. This is why I love the <a class="CPTAG">bomb</a>.
+            </p>
+            <p>You are never <a class="CFTAG">safe</a>.</p>
+            <div class="img-container">
+                <img src="https://wttgiii.peterrock.dev/website-assets/88e7c9d7aa639522e507.jpg" width="330" height="200">
+            </div>
+        </div>
+
+        <em class="PTAG" style="float:right; margin: 10px;"></em>
+    </div>
+</body>
+</body>
+</html>

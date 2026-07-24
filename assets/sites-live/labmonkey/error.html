@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Error</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    font-family: Sarabun-Regular;
+}
+
+/* logo letters */
+#logo>span,
+#logo>a {
+    font-size: 6em;
+    letter-spacing: -5px;
+}
+
+#logo1 {
+    font-family: GloriaHallelujah-Regular;
+}
+
+#logo2 {
+    font-family: Courgette-Regular;
+}
+
+#logo3 {
+    font-family: RockSalt-Regular;
+}
+
+#logo4 {
+    font-family: Anton-Regular;
+}
+
+#logo5 {
+    font-family: GlassAntiqua-Regular;
+}
+
+#logo6 {
+    font-family: LuckiestGuy-Regular;
+}
+
+#logo7 {
+    font-family: Pangolin-Regular;
+}
+
+#logo8 {
+    font-family: PermamentMarker-Regular;
+}
+
+#logo9 {
+    font-family: Lumanosimo-Regular;
+}
+
+#logo {
+    display: block;
+    margin: auto;
+    width: 650px;
+    text-align: center;
+    color: white;
+    line-height: 120px;
+}
+
+/* --- */
+
+body {
+    background-color: #015C3D;
+}
+
+nav {
+    zoom: 1.2;
+    display: block;
+    margin: auto;
+    color: white;
+    font-family: Sarabun-Bold;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/e0d8f55750384621eb6e.png");
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 675px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+nav>table {
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+td {
+    vertical-align: middle;
+    height: 80px;
+}
+
+table>tr>td>a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    display: block;
+    width: 800px;
+    margin: auto;
+    margin-top: 30px;
+    color: white;
+    text-align: center;
+}
+
+.italic {
+    font-family: Sarabun-Italic;
+}
+
+.bold {
+    font-family: Sarabun-Bold;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.extrabold {
+    font-family: Sarabun-ExtraBold;
+}
+
+.bolditalic {
+    font-family: Sarabun-BoldItalic;
+}
+
+h2 {
+    margin-top: 40px;
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.1em;
+}
+
+.left {
+    text-align: left;
+}
+
+.medicine {
+    width: 100%;
+    color: white;
+    padding: 20px;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+.bg_black {
+    background-color: #171717;
+}
+
+.bg_gray {
+    background-color: #7D7D7D;
+}
+
+.list {
+    padding-left: 50px;
+    font-size: 1.2em;
+}
+
+h1 {
+    font-size: 10em;
+    margin-top: 40px;
+}
+
+#login {
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+    color: black;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/c55ab17fcb774aa947f7.png");
+    width: 628px;
+    background-repeat: no-repeat;
+    margin-top: 40px;
+}
+
+#username {
+    text-align: left;
+    padding-left: 70px;
+    width: 440px;
+    background-repeat: no-repeat;
+    height: 45px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/30afd1f97540d2df0ec2.png");
+    margin-top: 30px;
+}
+
+#password {
+    text-align: left;
+    padding-left: 70px;
+    width: 440px;
+    background-repeat: no-repeat;
+    height: 45px;
+    margin-top: 30px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/912c7c14e8543a95c108.png");
+}
+
+#login>#signinbtn {
+    display: block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/933a23805c84e66c0904.png");
+    width: 500px;
+    margin: auto;
+    height: 50px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    font-family: Sarabun-Regular;
+}
+
+/* logo letters */
+#logo>span,
+#logo>a {
+    font-size: 6em;
+    letter-spacing: -5px;
+}
+
+#logo1 {
+    font-family: GloriaHallelujah-Regular;
+}
+
+#logo2 {
+    font-family: Courgette-Regular;
+}
+
+#logo3 {
+    font-family: RockSalt-Regular;
+}
+
+#logo4 {
+    font-family: Anton-Regular;
+}
+
+#logo5 {
+    font-family: GlassAntiqua-Regular;
+}
+
+#logo6 {
+    font-family: LuckiestGuy-Regular;
+}
+
+#logo7 {
+    font-family: Pangolin-Regular;
+}
+
+#logo8 {
+    font-family: PermamentMarker-Regular;
+}
+
+#logo9 {
+    font-family: Lumanosimo-Regular;
+}
+
+#logo {
+    display: block;
+    margin: auto;
+    width: 650px;
+    text-align: center;
+    color: white;
+    line-height: 120px;
+}
+
+/* --- */
+
+body {
+    background-color: #015C3D;
+}
+
+nav {
+    zoom: 1.2;
+    display: block;
+    margin: auto;
+    color: white;
+    font-family: Sarabun-Bold;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/e0d8f55750384621eb6e.png");
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 675px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+nav>table {
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+td {
+    vertical-align: middle;
+    height: 80px;
+}
+
+table>tr>td>a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    display: block;
+    width: 800px;
+    margin: auto;
+    margin-top: 30px;
+    color: white;
+    text-align: center;
+}
+
+.italic {
+    font-family: Sarabun-Italic;
+}
+
+.bold {
+    font-family: Sarabun-Bold;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.extrabold {
+    font-family: Sarabun-ExtraBold;
+}
+
+.bolditalic {
+    font-family: Sarabun-BoldItalic;
+}
+
+h2 {
+    margin-top: 40px;
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.1em;
+}
+
+.left {
+    text-align: left;
+}
+
+.medicine {
+    width: 100%;
+    color: white;
+    padding: 20px;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+.bg_black {
+    background-color: #171717;
+}
+
+.bg_gray {
+    background-color: #7D7D7D;
+}
+
+.list {
+    padding-left: 50px;
+    font-size: 1.2em;
+}
+
+h1 {
+    font-size: 10em;
+    margin-top: 40px;
+}
+
+#login {
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+    color: black;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/c55ab17fcb774aa947f7.png");
+    width: 628px;
+    background-repeat: no-repeat;
+    margin-top: 40px;
+}
+
+#username {
+    text-align: left;
+    padding-left: 70px;
+    width: 440px;
+    background-repeat: no-repeat;
+    height: 45px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/30afd1f97540d2df0ec2.png");
+    margin-top: 30px;
+}
+
+#password {
+    text-align: left;
+    padding-left: 70px;
+    width: 440px;
+    background-repeat: no-repeat;
+    height: 45px;
+    margin-top: 30px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/912c7c14e8543a95c108.png");
+}
+
+#login>#signinbtn {
+    display: block;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/933a23805c84e66c0904.png");
+    width: 500px;
+    margin: auto;
+    height: 50px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+/* LOGO FONTS */
+@font-face {
+    font-family: Anton-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/28beb8f6542f642ba414.ttf");
+}
+@font-face {
+    font-family: Courgette-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/914b9aef892d4df29600.ttf");
+}
+@font-face {
+    font-family: GlassAntiqua-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/5f2450c221b5cba30ddc.ttf");
+}
+@font-face {
+    font-family: GloriaHallelujah-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/4206cbda828ccde275f6.ttf");
+}
+@font-face {
+    font-family: LuckiestGuy-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/fbe683091b0db0faa8f3.ttf");
+}
+@font-face {
+    font-family: Lumanosimo-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/d67b5b71109c050a7edf.ttf");
+}
+@font-face {
+    font-family: Pangolin-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/a48db64eadc589c2e9f1.ttf");
+}
+@font-face {
+    font-family: PermamentMarker-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/4a613a4e0a67ad9c48ee.ttf");
+}
+@font-face {
+    font-family: RockSalt-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/90cc7e78ac2a8e2165c7.ttf");
+}
+/* OTHER FONTS */
+@font-face {
+    font-family: Sarabun-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/b8150084e25734e6f316.ttf");
+}
+@font-face {
+    font-family: Sarabun-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/5d1fc1ee63ab861fb202.ttf");
+}
+@font-face {
+    font-family: Sarabun-BoldItalic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/a497ef98fad371e04bc6.ttf");
+}
+@font-face {
+    font-family: Sarabun-ExtraBold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/447bfb5ecb30465df5ef.ttf");
+}
+@font-face {
+    font-family: Sarabun-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/fb86138e0cf99786db40.ttf");
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <title>Lab Monkey</title>
+    <link rel="stylesheet" href="../Global/reset.css" />
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+<body>
+    <main>
+        <h1 class="bold">404</h1>
+        <em class="PTAG text-dark" style="position: absolute; margin-top: -50px; font-size: 0.8em;"></em>
+        <img src="https://wttgiii.peterrock.dev/website-assets/bf1810557660c5d21477.png" alt="ahh">
+        <em class="PTAG text-dark"  style="position: absolute; margin-left: -110px; margin-top: 260px; font-size: 1em; color: black"></em>
+        <h2>The page <a class="CPTAG">you</a> requested was <a class="CFTAG">not</a> found</h2>
+        <a onClick="LinkClick('index.html')" class="active"> <h2 class="bold underlined">Return to the homepage</h2></a>
+        <em class="PTAG text-dark" style="position: absolute; left: 1px; bottom: 0px; font-size: 0.8em;"></em>
+    </main>
+</body>
+</html>
+</body>
+</html>

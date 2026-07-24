@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inanis</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: "Lora-Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/0dbba18874cb02349045.ttf");
+}
+
+@font-face {
+    font-family: "Lora-Bold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/deb52a34ec9821830893.ttf");
+}
+
+.lora-bold {
+    font-family: "Lora-Bold";
+}
+
+:root {
+    --latus: #464646;
+    --centrum: #2e2e2e;
+    --inanis: #1A1A1A;
+    --interius: #7c7c7c;
+}
+
+.background-stripes {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.stripe {
+    z-index: inherit;
+    width: 20%;
+    height: 100vh;
+    background-color: var(--grey);
+}
+
+.inanis {
+    background-color: var(--inanis);
+}
+
+.centrum {
+    background-color: var(--centrum);
+}
+
+.interius {
+    background-color: var(--interius);
+}
+
+.latus {
+    background-color: var(--latus);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#header img {
+    width: 252px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    vertical-align: middle;
+}
+
+body {
+    color: silver;
+    background-color: #6D6D6D;
+    font-family: "Lora-Regular";
+    font-size: 18px;
+    line-height: 20px;
+    word-spacing: 0.2em;
+}
+
+img {
+    max-width: 100%;
+}
+
+.p-hr {
+    height: 2px;
+    width: 20px;
+    background-color: #fff;
+}
+
+a,
+a:focus,
+a:visited,
+a:hover {
+    display: block;
+    color: white;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    display: inline !important;
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    font-size: 48px;
+    padding-bottom: 15px;
+}
+
+div {
+    padding-bottom: 25px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+section {
+    background-color: #666666;
+    padding: 25px 50px;
+}
+
+#container {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 70%;
+}
+
+.text-hidden {
+    color: rgba(192, 192, 192, 0.1);
+    user-select: none;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 40px;
+}
+
+.pr {
+    padding-right: 40px;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.mts {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 40px;
+}
+
+.mb-1 {
+    margin-bottom: 10px;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
+}
+
+.mbs {
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-xlarge {
+    font-size: 48px;
+}
+
+.text-large {
+    font-size: 32px;
+}
+
+.text-medium {
+    font-size: 24px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#walls-links *{
+    margin: auto;
+    margin-bottom: 15px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.25s ease-in-out;
+}
+
+#walls-links :nth-child(1):hover {
+    background-color: var(--latus);
+}
+
+#walls-links :nth-child(2):hover {
+    background-color: var(--centrum);
+}
+
+#walls-links :nth-child(3):hover {
+    background-color: var(--inanis);
+}
+
+.fadeout-top {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #66666600, #666666);
+}
+
+.fadeout-bottom {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #666666, #66666600);
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: "Lora-Regular";
+    src: url("https://wttgiii.peterrock.dev/website-assets/0dbba18874cb02349045.ttf");
+}
+
+@font-face {
+    font-family: "Lora-Bold";
+    src: url("https://wttgiii.peterrock.dev/website-assets/deb52a34ec9821830893.ttf");
+}
+
+.lora-bold {
+    font-family: "Lora-Bold";
+}
+
+:root {
+    --latus: #464646;
+    --centrum: #2e2e2e;
+    --inanis: #1A1A1A;
+    --interius: #7c7c7c;
+}
+
+.background-stripes {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.stripe {
+    z-index: inherit;
+    width: 20%;
+    height: 100vh;
+    background-color: var(--grey);
+}
+
+.inanis {
+    background-color: var(--inanis);
+}
+
+.centrum {
+    background-color: var(--centrum);
+}
+
+.interius {
+    background-color: var(--interius);
+}
+
+.latus {
+    background-color: var(--latus);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#header img {
+    width: 252px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    vertical-align: middle;
+}
+
+body {
+    color: silver;
+    background-color: #6D6D6D;
+    font-family: "Lora-Regular";
+    font-size: 18px;
+    line-height: 20px;
+    word-spacing: 0.2em;
+}
+
+img {
+    max-width: 100%;
+}
+
+.p-hr {
+    height: 2px;
+    width: 20px;
+    background-color: #fff;
+}
+
+a,
+a:focus,
+a:visited,
+a:hover {
+    display: block;
+    color: white;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    display: inline !important;
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    font-size: 48px;
+    padding-bottom: 15px;
+}
+
+div {
+    padding-bottom: 25px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+section {
+    background-color: #666666;
+    padding: 25px 50px;
+}
+
+#container {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 70%;
+}
+
+.text-hidden {
+    color: rgba(192, 192, 192, 0.1);
+    user-select: none;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 40px;
+}
+
+.pr {
+    padding-right: 40px;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.mts {
+    margin-top: 20px;
+}
+
+.mb {
+    margin-bottom: 40px;
+}
+
+.mb-1 {
+    margin-bottom: 10px;
+}
+
+.mb-2 {
+    margin-bottom: 20px;
+}
+
+.mbs {
+    margin-bottom: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-xlarge {
+    font-size: 48px;
+}
+
+.text-large {
+    font-size: 32px;
+}
+
+.text-medium {
+    font-size: 24px;
+}
+
+.text-normal {
+    font-size: 18px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#walls-links *{
+    margin: auto;
+    margin-bottom: 15px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.25s ease-in-out;
+}
+
+#walls-links :nth-child(1):hover {
+    background-color: var(--latus);
+}
+
+#walls-links :nth-child(2):hover {
+    background-color: var(--centrum);
+}
+
+#walls-links :nth-child(3):hover {
+    background-color: var(--inanis);
+}
+
+.fadeout-top {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #66666600, #666666);
+}
+
+.fadeout-bottom {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #666666, #66666600);
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<title>TheGrey</title>
+	<link rel="stylesheet" href="../Global/reset.css"/>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+<body id="page">
+	<div class="background-stripes">
+		<div class="stripe inanis"></div>
+		<div class="stripe inanis"></div>
+		<div class="stripe inanis"></div>
+	</div>
+	<div id="container">
+		<div id="header" class="text-center">
+			<img src="https://wttgiii.peterrock.dev/website-assets/de8fd85df25211425c7c.png">
+			<p class="mts mbs text-xlarge lora-bold"> &#9776; INANIS &#9776; </p>
+			<p class="nopadding lora-bold"> WALL THREE <em class="PTAG"></em> OF INTERIUS </p>
+		</div>
+		<div class="fadeout-top"></div>
+		<section>
+			<p class="mb-1"> The void of emotion within yourself. When mastered, you have become grey. When you have managed to shut yourself off from
+				the emotions that pull us to <a class="CFTAG">irrationality</a> and can no longer be moved by others meaningless lives, you have emptied your
+				center and may live in peace which, in turn, will give <em class="PTAG"></em> peace to others for eternity. </p>
+			<p class="mb-1"> When you can live your life removed from all. Numb to the zeitgeist of our world. You can begin to help others return
+				the world to balance. You <a class="CFTAG">understand</a> that many can simply not live in the shade. When you are grey, you possess an ability
+				others simply do not have. The ability to not be harmed. Invincible to the petty nothingness that is the lives of others.
+				</p>
+			<p class="mb-1"> Their needs and wants no <a class="CPTAG">longer</a> hold meaning and the absence of their presence brings more <a class="CPTAG">balance</a> to your world and the
+				world around you. When you understand that those within the hues of the dizzying world are simply selfish and feeding
+				off of the life force of others, it is simple to remove them. </p>
+			<p class="mb-1"> Their lives do not <a class="CFTAG">belong</a> in the grey world. A world where all exist in peace where all can be who they truly are. Who
+				you are. You are special. You are strong. You are in the shade apart from others. They will burn in the bright
+				rays of emotion for their judgments <em class="PTAG"></em> upon others. Your house is built and they may never enter it's sacred walls. They
+				will plead. They will scream. They will die as they are meant to die just as they are meant to live. Let them <a class="CPTAG">die</a> as
+				they are no importance. </p>
+			<p class="mb-1"> Their lives are short. They provide no benefit to your world. They are a cancer for the peace of all and they will be
+				removed. You and the many links in the chain of grey will pull them away from their selfish lives. When their is void
+				there is peace. </p>
+			<p class="mb-1"> Go into the shade now. Your house is built. </p>
+			<p class="mts text-center text-large text-underline lora-bold">
+				<a class="mt" onClick="LinkClick('interius.html')"> RETURN </a>
+			</p>
+		</section>
+		<div class="fadeout-bottom"></div>
+	</div>
+</body>
+
+</html>
+</body>
+</html>

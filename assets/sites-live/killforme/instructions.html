@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Instructions</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+ 
+ol,
+ul {
+    list-style: none;
+}
+ 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ 
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+ 
+body {
+    line-height: 1;
+}
+ 
+img {
+    max-width: 100%;
+}
+ 
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+ 
+.container {
+    margin: 0 auto;
+    width: 85%;
+    min-width: 800px;
+    max-width: 1550px;
+    font-size: 18px;
+}
+ 
+
+.strong {
+    font-weight: 600;
+}
+ 
+.nopadding {
+    padding: 0;
+}
+ 
+.relative {
+    display: inline-block;
+    position: relative;
+}
+ 
+.pt {
+    padding-top: 20px;
+}
+ 
+.pb {
+    padding-bottom: 50px;
+}
+ 
+.pl {
+    padding-left: 10px;
+}
+ 
+.pr {
+    padding-right: 10px;
+}
+ 
+.mt {
+    margin-top: 20px;
+}
+ 
+.mb {
+    margin-bottom: 50px;
+}
+ 
+.text-center {
+    text-align: center;
+}
+ 
+.text-justify {
+    text-align: justify;
+}
+ 
+.text-left {
+    text-align: left;
+}
+ 
+.text-right {
+    text-align: right;
+}
+ 
+.text-large {
+    font-size: 48px;
+}
+ 
+.text-medium {
+    font-size: 32px;
+}
+ 
+.text-normal {
+    font-size: 18px;
+}
+ 
+.text-small {
+    font-size: 12px;
+}
+ 
+.text-underline {
+    text-decoration: underline;
+}
+ 
+.clearfix {
+    clear: both;
+    display: inline-block;
+}
+ 
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+ 
+.pull-left {
+    float: left;
+}
+ 
+.pull-right {
+    float: right;
+}
+
+/*   CSS  */
+
+body{
+    background-color: black;
+    font-family: 'Open Sans';
+    color: white;
+    max-width: 1550px;
+    margin: 0 auto;
+}
+
+.header {
+    display: block;
+    width: 85%;
+    min-width: 800px;
+    max-width: 1550px;
+    margin: 0 auto;
+}
+
+.main-menu{
+    display: flex;
+    width: 85%;
+    min-width: 800px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-menu ul li{
+    float: left;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 0 3px;
+}
+
+
+li.hidden{
+    margin: 0;
+    padding: 0;
+}
+
+
+.content{
+    width: 100%;
+    padding: 25px 30px;
+    background-color: rgb(40, 40, 40);
+    margin-top: 50px;
+    line-height: 120%;
+}
+
+.content p{
+    margin-bottom: 5px;
+}
+
+.red-text{
+    color: rgb(193, 0, 5);
+    font-weight: 700;
+}
+
+.logo1{
+    max-width: 80%;
+}
+
+.logo2{
+    max-width: 20%;
+}
+
+.row{
+    width: 100%;
+    display: inline-block;
+    margin-top: 40px;
+}
+
+.pic{
+    width: 40%;
+    display: inline-block;
+    max-width: 600px;
+}
+
+.desc{
+    width: 59%;
+    background-color: rgb(40, 40, 40);
+    padding: 25px 30px;
+    float: right;
+    font-size: 16px;
+    font-family: 'Calibri';
+}
+
+.desc b{
+    font-weight: 700;
+}
+
+.pic img{
+    float: right;
+}
+
+a,
+a:visited,
+a:focus,
+a:hover{
+    color: white;
+}
+
+a.active{
+    color: red;
+}
+
+.target-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.target-element {
+    display: flex;
+    background: black;
+    margin-bottom: 20px;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.target-element img {
+    width: 350px;
+    height: auto;
+}
+
+.target-info {
+    flex: 1;
+    background-color: rgb(40, 40, 40);
+    height: auto;
+    margin: 0;
+    color: white;
+    padding: 10px;
+    font-size: 17px;
+    font-family: Sans-serif;
+}
+.target-info .label {
+    font-family: 'Sans-serif';
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 5px;
+    font-size: 19px;
+}
+
+.kill-price {
+    font-family: Sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    color: #C10005;
+    font-size: 50px;
+}
+
+.redacted {
+    position: relative;
+    white-space: pre;
+}
+
+.redacted::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1.2em;
+    background: black;
+    border-radius: 0.1em;
+    box-shadow: 0 0 1px rgba(0,0,0,0.35);
+    transform: skewY(-5deg) rotate(5deg);
+}
+
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+ 
+ol,
+ul {
+    list-style: none;
+}
+ 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ 
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+ 
+body {
+    line-height: 1;
+}
+ 
+img {
+    max-width: 100%;
+}
+ 
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+ 
+.container {
+    margin: 0 auto;
+    width: 85%;
+    min-width: 800px;
+    max-width: 1550px;
+    font-size: 18px;
+}
+ 
+
+.strong {
+    font-weight: 600;
+}
+ 
+.nopadding {
+    padding: 0;
+}
+ 
+.relative {
+    display: inline-block;
+    position: relative;
+}
+ 
+.pt {
+    padding-top: 20px;
+}
+ 
+.pb {
+    padding-bottom: 50px;
+}
+ 
+.pl {
+    padding-left: 10px;
+}
+ 
+.pr {
+    padding-right: 10px;
+}
+ 
+.mt {
+    margin-top: 20px;
+}
+ 
+.mb {
+    margin-bottom: 50px;
+}
+ 
+.text-center {
+    text-align: center;
+}
+ 
+.text-justify {
+    text-align: justify;
+}
+ 
+.text-left {
+    text-align: left;
+}
+ 
+.text-right {
+    text-align: right;
+}
+ 
+.text-large {
+    font-size: 48px;
+}
+ 
+.text-medium {
+    font-size: 32px;
+}
+ 
+.text-normal {
+    font-size: 18px;
+}
+ 
+.text-small {
+    font-size: 12px;
+}
+ 
+.text-underline {
+    text-decoration: underline;
+}
+ 
+.clearfix {
+    clear: both;
+    display: inline-block;
+}
+ 
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+ 
+.pull-left {
+    float: left;
+}
+ 
+.pull-right {
+    float: right;
+}
+
+/*   CSS  */
+
+body{
+    background-color: black;
+    font-family: 'Open Sans';
+    color: white;
+    max-width: 1550px;
+    margin: 0 auto;
+}
+
+.header {
+    display: block;
+    width: 85%;
+    min-width: 800px;
+    max-width: 1550px;
+    margin: 0 auto;
+}
+
+.main-menu{
+    display: flex;
+    width: 85%;
+    min-width: 800px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-menu ul li{
+    float: left;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 0 3px;
+}
+
+
+li.hidden{
+    margin: 0;
+    padding: 0;
+}
+
+
+.content{
+    width: 100%;
+    padding: 25px 30px;
+    background-color: rgb(40, 40, 40);
+    margin-top: 50px;
+    line-height: 120%;
+}
+
+.content p{
+    margin-bottom: 5px;
+}
+
+.red-text{
+    color: rgb(193, 0, 5);
+    font-weight: 700;
+}
+
+.logo1{
+    max-width: 80%;
+}
+
+.logo2{
+    max-width: 20%;
+}
+
+.row{
+    width: 100%;
+    display: inline-block;
+    margin-top: 40px;
+}
+
+.pic{
+    width: 40%;
+    display: inline-block;
+    max-width: 600px;
+}
+
+.desc{
+    width: 59%;
+    background-color: rgb(40, 40, 40);
+    padding: 25px 30px;
+    float: right;
+    font-size: 16px;
+    font-family: 'Calibri';
+}
+
+.desc b{
+    font-weight: 700;
+}
+
+.pic img{
+    float: right;
+}
+
+a,
+a:visited,
+a:focus,
+a:hover{
+    color: white;
+}
+
+a.active{
+    color: red;
+}
+
+.target-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.target-element {
+    display: flex;
+    background: black;
+    margin-bottom: 20px;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.target-element img {
+    width: 350px;
+    height: auto;
+}
+
+.target-info {
+    flex: 1;
+    background-color: rgb(40, 40, 40);
+    height: auto;
+    margin: 0;
+    color: white;
+    padding: 10px;
+    font-size: 17px;
+    font-family: Sans-serif;
+}
+.target-info .label {
+    font-family: 'Sans-serif';
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 5px;
+    font-size: 19px;
+}
+
+.kill-price {
+    font-family: Sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    color: #C10005;
+    font-size: 50px;
+}
+
+.redacted {
+    position: relative;
+    white-space: pre;
+}
+
+.redacted::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1.2em;
+    background: black;
+    border-radius: 0.1em;
+    box-shadow: 0 0 1px rgba(0,0,0,0.35);
+    transform: skewY(-5deg) rotate(5deg);
+}
+
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<title>Kill for Me</title>
+	<script type="text/javascript" src="../Global/Basic.js"></script>
+	<link rel="stylesheet" href="../Global/reset.css"/>
+	<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+	<div class="header">
+		<div class="logo1 pull-left">
+			<img src="https://wttgiii.peterrock.dev/website-assets/2109c1cedfa3ead7c4b1.png">
+		</div>
+		<div class="logo2 pull-right">
+			<img src="https://wttgiii.peterrock.dev/website-assets/147881800822d1354288.png">
+		</div><em class="PTAG pull-right"></em>
+	</div>
+	<div class="main-menu">
+		<ul>
+			<li><a onClick="LinkClick('index.html')">HOME</a></li>
+			<li class="hidden">&nbsp;</li>
+			<li>|</li>
+			<li><a onClick="LinkClick('targets.html')">TARGETS</a></li>
+			<li>|</li>
+			<li><a onClick="LinkClick('instructions.html')">INSTRUCTIONS</a></li>
+		</ul>
+	</div>
+	
+	<div class="container">
+		<div class="content">
+			<p>
+				Once you choose a target, apply through our <a class="CPTAG">email</a>. Provide <a class="CPTAG">available</a> time frames for the
+				job and distance you would be traveling. If you're chosen to carry out the task you will
+				be sent all available information on the <a class="CFTAG">target</a>. You will not be told why these targets
+				have been chosen. The less you know, the better for everyone.
+			</p>
+			<p>
+				It is very important to monitor <em class="PTAG text-dark"></em> your target once you have located them. If you
+				kill the wrong person, you receive no <a class="CPTAG">payment</a> and we will no longer hold any
+				communications with you. If you fail to follow the <a class="CFTAG">kill</a> note associated with the
+				target, you will receive no <a class="CPTAG">payment</a> and we will no longer consider you for future targets.
+			</p>
+			<p>
+				In order to receive your payment you need to prove you were the one to kill the target.
+				Take a picture, send it to us, and write the date, time, method used, and a detail that
+				won't be <a class="CFTAG">released</a> to the media right away. After receipt we will then send payment to your
+				specified account. Example image below is what we expect to see from you. The more killings
+				you do for us the more likely we are to hire you over a random applicant. <em class="PTAG text-dark"></em>
+			</p>
+			<a class="CPTAG"><img src="https://wttgiii.peterrock.dev/website-assets/0cb51352bf992be690d9.png" style="margin: 15px;"></a>
+			<p>
+				We are not responsible for any repercussions you may encounter <em class="PTAG text-dark"></em> due to your actions including
+				interaction through this <a class="CFTAG">site</a>.
+			</p>
+			<p class="red-text">
+				submit@7a59da628c70bb155993bfdfd8ec4dea.ann
+			</p>
+		</div>
+	</div>
+</body>
+</html>
+
+</body>
+</html>

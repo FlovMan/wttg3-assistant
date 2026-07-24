@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gateopen</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    color: white;
+    background-color: black;
+    font-size: 18px;
+    line-height: 40px;
+    padding: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a,
+a:focus,
+a:visited,
+a:hover {
+    color: grey;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+a.CTAG,
+a.CTAG:focus,
+a.CTAG:visited,
+a.CTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    font-size: 32px;
+    padding-bottom: 15px;
+}
+
+div {
+    padding-bottom: 25px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+#container {
+    background-color: black;
+    padding: 20px 10px;
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 80%;
+}
+
+.arialblack {
+    font-family: 'Arial Black';
+}
+
+.abs {
+    position: absolute;
+}
+
+.compact,
+.compact-md,
+.compact-sm {
+    margin: 0 auto;
+    max-width: 1130px;
+}
+
+.compact-md {
+    max-width: 720px;
+}
+
+.compact-sm {
+    max-width: 600px;
+}
+
+.w80 {
+    width: 80%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 10px;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.mb {
+    margin-bottom: 80px;
+}
+
+.mblarge {
+    margin-bottom: 200px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-xlarge {
+    font-size: 48px;
+}
+
+.text-large {
+    font-size: 32px;
+}
+
+.text-medium {
+    font-size: 24px;
+}
+
+.text-normal {
+    font-size: 16px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-yellow {
+    color: yellow;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-green {
+    color: #085102;
+}
+
+.text-grey {
+    color: grey;
+}
+
+.text-silver {
+    color: silver;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pulled-in {
+    margin-left: -20px;
+}
+
+.content {
+    max-width: 1600px;
+    width: 1600px;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.background {
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 5;
+    left: 50%;
+    width: 1600px;
+    height: auto;
+    min-width: 1600px;
+    max-width: 1600px;
+    min-height: 900px;
+    max-height: 900px;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
+.corrupted {
+    position: relative; 
+    top: 3rem; 
+    right: 12rem;
+}
+
+.collage {
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+.grid {
+    display: grid; 
+    grid-template-columns: 512px 256px 445px; 
+    gap: 16px;
+}
+
+.grid > .collage {
+    width: 256px; 
+    height: 256px;
+}
+
+.row1 {
+    display: flex; 
+    flex-direction: column; 
+    gap: 128px;
+}
+
+.gift {
+    width: 256px;
+}
+
+.gift p {
+    top: 28px;
+}
+
+.powerless p {
+    bottom: 10px;
+}
+
+.row2 {
+    display: flex; 
+    flex-direction: row; 
+    gap: 48px; 
+    position: relative; 
+    bottom: 32px;
+}
+
+.row2 > div {
+    width: fit-content; 
+    padding: 0;
+}
+
+.floating-text {
+    width: 512px; 
+    align-self: flex-end;
+}
+
+.cryptic-numbers {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    padding: 0; 
+    word-spacing: 24px;
+}
+
+.thoughts1 {
+    margin: 0 128px 0 0; 
+    position: absolute; 
+    top: -70px; 
+    right: 0; 
+    z-index: -1;
+}
+
+.thoughts3 {
+    z-index: -1;
+}
+
+.emphasized {
+    text-emphasis: "ҫ" white;
+}
+
+#evident {
+    display: flex;
+    align-self: center;
+}
+
+#evident p {
+    line-height: 1.2;
+}
+
+.PTAG.smallGreen {
+    font-size: 16pt;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    color: white;
+    background-color: black;
+    font-size: 18px;
+    line-height: 40px;
+    padding: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a,
+a:focus,
+a:visited,
+a:hover {
+    color: grey;
+}
+
+a.CPTAG, a.CFTAG,
+a.CPTAG:focus, a.CFTAG:focus,
+a.CPTAG:visited, a.CFTAG:visited,
+a.CPTAG:hover, a.CFTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+a.CTAG,
+a.CTAG:focus,
+a.CTAG:visited,
+a.CTAG:hover {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-decoration: inherit !important;
+}
+
+h1 {
+    font-size: 32px;
+    padding-bottom: 15px;
+}
+
+div {
+    padding-bottom: 25px;
+}
+
+p {
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+#container {
+    background-color: black;
+    padding: 20px 10px;
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 80%;
+}
+
+.arialblack {
+    font-family: 'Arial Black';
+}
+
+.abs {
+    position: absolute;
+}
+
+.compact,
+.compact-md,
+.compact-sm {
+    margin: 0 auto;
+    max-width: 1130px;
+}
+
+.compact-md {
+    max-width: 720px;
+}
+
+.compact-sm {
+    max-width: 600px;
+}
+
+.w80 {
+    width: 80%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.strong {
+    font-weight: 600;
+}
+
+.nopadding {
+    padding: 0;
+}
+
+.pt {
+    padding-top: 20px;
+}
+
+.pb {
+    padding-bottom: 50px;
+}
+
+.pl {
+    padding-left: 10px;
+}
+
+.pr {
+    padding-right: 10px;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.mb {
+    margin-bottom: 80px;
+}
+
+.mblarge {
+    margin-bottom: 200px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-xlarge {
+    font-size: 48px;
+}
+
+.text-large {
+    font-size: 32px;
+}
+
+.text-medium {
+    font-size: 24px;
+}
+
+.text-normal {
+    font-size: 16px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-yellow {
+    color: yellow;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-green {
+    color: #085102;
+}
+
+.text-grey {
+    color: grey;
+}
+
+.text-silver {
+    color: silver;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pulled-in {
+    margin-left: -20px;
+}
+
+.content {
+    max-width: 1600px;
+    width: 1600px;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.background {
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 5;
+    left: 50%;
+    width: 1600px;
+    height: auto;
+    min-width: 1600px;
+    max-width: 1600px;
+    min-height: 900px;
+    max-height: 900px;
+    transform: translateX(-50%);
+    position: absolute;
+}
+
+.corrupted {
+    position: relative; 
+    top: 3rem; 
+    right: 12rem;
+}
+
+.collage {
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+.grid {
+    display: grid; 
+    grid-template-columns: 512px 256px 445px; 
+    gap: 16px;
+}
+
+.grid > .collage {
+    width: 256px; 
+    height: 256px;
+}
+
+.row1 {
+    display: flex; 
+    flex-direction: column; 
+    gap: 128px;
+}
+
+.gift {
+    width: 256px;
+}
+
+.gift p {
+    top: 28px;
+}
+
+.powerless p {
+    bottom: 10px;
+}
+
+.row2 {
+    display: flex; 
+    flex-direction: row; 
+    gap: 48px; 
+    position: relative; 
+    bottom: 32px;
+}
+
+.row2 > div {
+    width: fit-content; 
+    padding: 0;
+}
+
+.floating-text {
+    width: 512px; 
+    align-self: flex-end;
+}
+
+.cryptic-numbers {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    padding: 0; 
+    word-spacing: 24px;
+}
+
+.thoughts1 {
+    margin: 0 128px 0 0; 
+    position: absolute; 
+    top: -70px; 
+    right: 0; 
+    z-index: -1;
+}
+
+.thoughts3 {
+    z-index: -1;
+}
+
+.emphasized {
+    text-emphasis: "ҫ" white;
+}
+
+#evident {
+    display: flex;
+    align-self: center;
+}
+
+#evident p {
+    line-height: 1.2;
+}
+
+.PTAG.smallGreen {
+    font-size: 16pt;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <title>The Gate Is Open</title>
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+</head>
+<body id="page">
+    <em class="PTAG pull-right"></em>
+    <div class="compact-sm text-center">
+        <a class="CPTAG"><img src="https://wttgiii.peterrock.dev/website-assets/212d4d647d49733d1c75.jpg" width="612"></a>
+        <p class="mb">THE <a class="CFTAG">GATE</a> <em class="PTAG"></em> IS <a class="CPTAG">OPEN</a></p>
+        <p class="text-medium"> Y&#823;&#830;&#861;&#769;&#786;&#774;&#859;&#777;&#843;&#768;&#769;&#784;&#772;&#844;&#770;&#834;&#782;&#771;&#831;&#794;&#848;&#838;&#771;&#833;&#850;&#855;&#794;&#789;&#843;&#831;&#777;&#780;&#864;&#849;&#774;&#773;&#769;&#792;&#845;&#793;&#806;&#801;&#804;&#845;&#803;&#805;&#799;&#813;&#841;&#802;&#811;&#809;&#797;&#825;&#817;&#797;&#791;&#799;&#809;&#798;&#791;&#814;O&#822;&#771;&#776;&#850;&#770;&#831;&#830;&#772;&#780;&#842;&#861;&#835;&#780;&#771;&#770;&#849;&#829;&#833;&#781;&#787;&#784;&#861;&#770;&#782;&#833;&#772;&#836;&#795;&#861;&#856;&#855;&#861;&#780;&#786;&#861;&#849;&#856;&#835;&#771;&#813;&#857;&#799;&#828;&#817;&#807;&#851;&#806;&#808;&#817;&#806;&#813;&#796;&#798;&#811;&#808;&#828;&#826;&#792;&#801;&#797;&#818;&#813;&#826;&#851;U
+            &#821;&#795;&#842;&#819;&#810;&#851;&#819;&#792;&#808;&#812;&#814;&#804;&#815;&#825;&#854;&#825;&#846;&#858;&#791;&#799;&#851;&#819;&#852;&#815;&#837;&#806;&#816;&#802;&#857;
+            &#823;&#788;&#859;&#861;&#782;&#838;&#787;&#836;&#843; <em class="PTAG"></em> &#861;&#770;&#779;&#836;&#849;&#782;&#771;&#861;&#788;&#777;&#848;&#778;&#782;&#861;&#834;&#840;&#846;&#810;&#826;&#857;&#798;&#800;&#799;&#804;&#793;&#827;&#813;&#796;&#792;&#791;H&#824;&#830;&#772;&#782;&#855;&#778;&#859;&#794;&#859;&#784;&#838;&#829;&#774;&#864;&#778;&#788;&#855;&#836;&#834;&#777;&#771;&#830;&#771;&#827;&#828;&#853;&#815;&#802;&#802;&#801;&#816;&#811;&#809;&#840;&#817;&#811;&#841;&#805;&#851;&#805;&#851;&#851;&#827;&#801;&#851;&#803;&#799;&#802;&#846;&#816;&#841;&#839;&#801;&#790;&#815;A&#824;&#832;&#856;&#783;&#861;&#788;&#829;&#829;&#783;&#861;&#775;&#855;&#788;&#768;&#783;&#771;&#829;&#848;&#848;&#836;&#855;&#784;&#785;&#829;&#831;&#788;&#784;&#775;&#769;&#778;&#784;&#788;&#835;&#787;&#861;&#794;&#830;&#792;&#803;&#797;&#816;&#802;&#818;&#792;&#853;&#826;&#791;&#811;&#860;&#804;&#827;&#802;&#793;V&#820;&#859;&#787;&#842;&#781;&#843;&#771;&#783;&#856;&#861;&#832;&#835;&#780;&#785;&#836;&#772;&#856;&#849;&#830;&#836;&#849;&#830;&#861;&#861;&#794;&#861;&#794;&#786;&#844;&#841;&#828;&#796;&#792;&#801;&#808;&#818;&#827;&#846;E&#821;&#830;&#849;&#789;&#789;&#861;&#780;&#769;&#780;&#771;&#848;&#848;&#794;&#772;&#831;&#861;&#864;&#842;&#774;&#782;&#783;&#778;&#853;&#798;
+            &#822;&#768;&#829;&#771;&#781;&#834;&#861;&#784;&#836;&#836;&#830;&#791;&#818;&#825;&#825;&#854;&#852;&#860;&#828;&#813;&#790;&#799;&#793;&#839;&#798;&#818;&#791;&#827;&#854;&#809;&#800;B&#822;&#785;&#794;&#834;&#859;&#788;&#795;&#855;&#787;&#782;&#772;&#789;&#861;&#781;&#843;&#784;&#776;&#835;&#785;&#835;&#807;&#811;&#801;&#797;&#827;&#808;&#852;&#808;&#840;&#792;&#814;&#816;&#841;&#797;&#791;&#857;&#815;&#828;&#839;&#852;&#796;&#799;&#818;&#803;&#800;&#802;E&#821;&#772;&#864;&#784;&#772;&#842;&#789;&#842;&#844;&#848;&#831;&#781;&#860;&#845;&#852;&#814;&#815;&#837;&#792;&#840;&#800;&#812;&#852;&#801;&#846;&#851;&#790;&#854;&#799;&#805;&#799;&#809;&#812;&#853;&#816;&#810;&#796;&#826;&#809;&#800;&#816;&#818;&#841;&#851;E&#821;&#829;&#769;&#784;&#771;&#833;&#777;&#856;&#784;&#774;&#768;&#855;&#849;&#795;&#786;&#834;&#795;&#830;&#836;&#858;&#854;&#791;&#812;&#799;&#818;&#839;&#805;&#860;&#857;&#805;&#815;&#851;&#839;&#802;&#805;&#790;&#825;&#802;&#839;&#812;&#852;&#803;&#840;&#851;&#797;&#797;&#854;&#852;&#825;&#796;&#803;&#798;&#814;&#816;&#791;&#802;&#846;&#798;&#796;&#839;N&#820;&#782;&#859;&#779;&#861;&#783;&#836;&#834;&#850;&#776;&#779;&#840;&#800;&#841;&#815;&#796;&#793;&#825;&#799;&#812;&#801;&#804;&#803;&#851;&#790;&#815;&#804;&#806;&#816;&#815;&#806;&#802;&#797;&#805;&#790;&#804;&#857;&#805;&#807;&#827;&#791;&#814;&#837;
+            &#823;&#833;&#864;&#833;&#864;&#793;&#811;&#798;&#846;&#853;&#811;&#816;&#819;&#825;&#825;&#854;&#852;&#806;W&#824;&#859;&#794;&#844;&#856;&#836;&#789;&#774;&#785;&#835;&#789;&#784;&#773;&#776;&#861;&#848;&#843;&#772;&#855;&#830;&#777;&#788;&#834;&#843;&#769;&#861;&#775;&#779;&#842;&#861;&#835;&#838;&#779;&#830;&#779;&#842;&#856;&#806;&#852;&#825;&#799;&#801;A&#824;&#779;&#844;&#785;&#831;&#768;&#786;&#859;&#779;&#844;&#834;&#781;&#859;&#781;&#778;&#777;&#775;&#807;&#816;&#816;&#841;&#837;&#812;R&#820;&#842;&#778;&#842;&#836;&#855;&#776;&#859;&#861;&#778;&#787;&#833;&#836;&#773;&#861;&#782;&#864;&#794;&#777;&#842;&#768;&#829;&#836;&#838;&#779;&#781;&#784;&#778;&#833;&#818;&#841;&#857;&#804;&#804;&#815;&#798;&#800;&#858;&#828;&#813;&#853;&#828;&#814;&#804;&#805;&#827;&#796;&#846;&#812;&#840;N&#820;&#833;&#833;&#864;&#856;&#780;&#779;&#785;&#830;&#786;&#864;&#861;&#796;&#826;E&#820;&#772;&#783;&#844;&#777;&#836;&#772;&#861;&#770;&#771;&#832;&#811;&#826;&#804;&#815;&#798;&#796;&#792;&#837;&#827;&#840;&#857;&#837;&#803;&#845;&#805;&#841;&#810;&#857;&#852;&#845;&#840;&#800;&#793;&#807;&#796;&#841;&#840;&#818;&#837;&#814;&#840;&#797;&#817;&#825;&#804;&#854;&#845;D&#824;&#775;&#855;&#776;&#831;&#780;&#843;&#784;&#856;&#861;&#835;&#836;&#788;&#831;&#781;&#794;&#861;&#780;&#789;&#836;&#836;&#773;&#806;&#810;&#806;&#841;&#797;&#810;&#806;
+            </p>
+        <p class="text-grey text-medium"> THE <a class="CFTAG">ground</a> is <a class="CPTAG">dead</a> under our <a class="CFTAG">feet</a> </p>
+    </div>
+</body>
+
+</html>
+</body>
+</html>

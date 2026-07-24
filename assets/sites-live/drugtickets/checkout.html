@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Checkout</title>
+<style>
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Cardo-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/618b2a4db94db3f59eed.ttf");
+}
+@font-face {
+    font-family: Lato-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/d7f0b7f2570f2f28b504.ttf");
+}
+@font-face {
+    font-family: Lato-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/3be26bf6973f49df6a7d.ttf");
+}
+@font-face {
+    font-family: Lato-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/e82542aed8293f49fc83.ttf");
+}
+*{
+    margin: 0;
+    font-family: Lato-Regular;
+}
+
+body{
+    background-color: #73819D;
+}
+
+header > img{
+    display: block;
+    height: 100px;
+}
+
+header{
+    display: flex;
+    width: 900px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+header > h1{
+    font-size: 3em;
+    font-family: Cardo-Regular;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+main{
+    display: block;
+    width: 820px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+p{
+    font-size: 1.1em;
+}
+
+#notice{
+    font-family: Lato-Italic;
+    background-color: white;
+    padding: 4px;
+    text-align: center;
+}
+
+h3{
+    margin-top: 40px;
+    font-family: Lato-Bold;
+    font-weight: bold;
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+#themap{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    height: auto;
+    width: auto;
+}
+
+small{
+    display: block;
+    font-family: Lato-Italic;
+    margin-top: 20px;
+}
+
+.pads{
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    width: 650px;
+}
+
+.pads > small{
+    margin-top: 0;
+}
+
+.pads > h4{
+    font-family: Lato-Bold;
+}
+
+.pads > img, .pads > h4, .pads > small{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.2em;
+}
+.pads > h4{
+    margin-left: 10px;
+}
+.order{
+    display: block;
+    margin-left: 60px;
+    margin-top: 5px;
+}
+.pads > img{
+    float:left;
+}
+
+.pads > .order > label{
+    display: inline-block;
+    font-family: Lato-Italic;
+    margin-top: 5px;
+    font-size: 1.1em;
+}
+
+input[type=number]{
+    background: url("https://wttgiii.peterrock.dev/website-assets/8c3cc5116bbc5f9d078c.png");
+    width: 60px;
+    height: 22px;
+    background-repeat: no-repeat;
+    display: inline;
+    text-align: right;
+    color: white;
+}
+hr {
+    display: inline-block;
+    width: 300px;
+    background: black;
+    height: 1px;
+    margin-left: 15px;
+    vertical-align: middle;
+    z-index: 1;
+}
+
+.order > a {
+    display: inline-block;
+    background: url("https://wttgiii.peterrock.dev/website-assets/6b0ffc4a69142f438ac6.png");
+    width: 82px;
+    height: 33px;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.proceedinfo{
+    zoom: 1.2;
+    display: flex;
+    margin: auto;
+    width: 800px;
+    height: 56px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/44f7778619b5ac6d6fb7.png");
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.proceedinfo > input {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/9a909e821cc95b2e2855.png");
+    height: 38px;
+    width: 240px;
+    font-family: Lato-Bold;
+    padding-left: 15px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.proceedinfo > a{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/ce30eaf7c57212dda760.png");
+    display: block;
+    width: 200px;
+    height: 40px;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+a{
+    cursor: pointer;
+}
+
+a.CFTAG, a.CPTAG{
+    cursor: inherit;
+}
+
+a.CFTAG img, a.CPTAG img{
+    cursor: default;
+}
+
+.TagHoverShow{
+    cursor: pointer !important;
+}
+
+.TagHoverShow img{
+    cursor: pointer !important;
+}
+@font-face {
+    font-family: Cardo-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/618b2a4db94db3f59eed.ttf");
+}
+@font-face {
+    font-family: Lato-Bold;
+    src: url("https://wttgiii.peterrock.dev/website-assets/d7f0b7f2570f2f28b504.ttf");
+}
+@font-face {
+    font-family: Lato-Italic;
+    src: url("https://wttgiii.peterrock.dev/website-assets/3be26bf6973f49df6a7d.ttf");
+}
+@font-face {
+    font-family: Lato-Regular;
+    src: url("https://wttgiii.peterrock.dev/website-assets/e82542aed8293f49fc83.ttf");
+}
+*{
+    margin: 0;
+    font-family: Lato-Regular;
+}
+
+body{
+    background-color: #73819D;
+}
+
+header > img{
+    display: block;
+    height: 100px;
+}
+
+header{
+    display: flex;
+    width: 900px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+header > h1{
+    font-size: 3em;
+    font-family: Cardo-Regular;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+main{
+    display: block;
+    width: 820px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+p{
+    font-size: 1.1em;
+}
+
+#notice{
+    font-family: Lato-Italic;
+    background-color: white;
+    padding: 4px;
+    text-align: center;
+}
+
+h3{
+    margin-top: 40px;
+    font-family: Lato-Bold;
+    font-weight: bold;
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+#themap{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    height: auto;
+    width: auto;
+}
+
+small{
+    display: block;
+    font-family: Lato-Italic;
+    margin-top: 20px;
+}
+
+.pads{
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    width: 650px;
+}
+
+.pads > small{
+    margin-top: 0;
+}
+
+.pads > h4{
+    font-family: Lato-Bold;
+}
+
+.pads > img, .pads > h4, .pads > small{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.2em;
+}
+.pads > h4{
+    margin-left: 10px;
+}
+.order{
+    display: block;
+    margin-left: 60px;
+    margin-top: 5px;
+}
+.pads > img{
+    float:left;
+}
+
+.pads > .order > label{
+    display: inline-block;
+    font-family: Lato-Italic;
+    margin-top: 5px;
+    font-size: 1.1em;
+}
+
+input[type=number]{
+    background: url("https://wttgiii.peterrock.dev/website-assets/8c3cc5116bbc5f9d078c.png");
+    width: 60px;
+    height: 22px;
+    background-repeat: no-repeat;
+    display: inline;
+    text-align: right;
+    color: white;
+}
+hr {
+    display: inline-block;
+    width: 300px;
+    background: black;
+    height: 1px;
+    margin-left: 15px;
+    vertical-align: middle;
+    z-index: 1;
+}
+
+.order > a {
+    display: inline-block;
+    background: url("https://wttgiii.peterrock.dev/website-assets/6b0ffc4a69142f438ac6.png");
+    width: 82px;
+    height: 33px;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.proceedinfo{
+    zoom: 1.2;
+    display: flex;
+    margin: auto;
+    width: 800px;
+    height: 56px;
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/44f7778619b5ac6d6fb7.png");
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.proceedinfo > input {
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/9a909e821cc95b2e2855.png");
+    height: 38px;
+    width: 240px;
+    font-family: Lato-Bold;
+    padding-left: 15px;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.proceedinfo > a{
+    background-image: url("https://wttgiii.peterrock.dev/website-assets/ce30eaf7c57212dda760.png");
+    display: block;
+    width: 200px;
+    height: 40px;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    vertical-align: middle;
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <title>Drug Tickets</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="../Global/reset.css"/>
+    <script type="text/javascript" src="../Global/Basic.js"></script>
+    <style>
+        p{font-family: Lato-Bold;}
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://wttgiii.peterrock.dev/website-assets/59260e33e34a98ef0040.png" alt="Logo">
+    <h1>Drug <a class="CFTAG">Tickets</a></h1>
+</header>
+
+<main>
+    <p>
+        Fill out the two sections below to move along the <a class="CPTAG">checkout</a> process.<em class="PTAG text-dark"></em>
+    </p><br>
+    <p>
+        If you are ordering <a class="CFTAG">multiple</a> items from<em class="PTAG text-dark"></em> different <a class="CPTAG">listings</a> you will need to perform this step every time.
+    </p><br>
+    <p>
+        The next <a class="CFTAG">page</a> will <a class="CPTAG">calculate</a> your total charge.
+    </p>
+
+</main><br><br><br>
+<div class="proceedinfo">
+    <input type="email" name="email" id="emailinput" placeholder="Enter email contact">
+    <input type="text" name="address" id="addressinput" placeholder="Enter shipping address">
+    <a onClick="if(document.getElementById('emailinput').value != '' && document.getElementById('addressinput') != '') LinkClick('error.html')" class="active"></a>
+    <em class="PTAG text-dark" style="position: absolute; margin-left: 700px; margin-top: 65px; font-size: 0.7em;"></em>
+</div>
+<em class="PTAG text-dark" style="position: absolute; left: 5px; bottom: 0;"></em>
+</body>
+</html>
+</body>
+</html>
