@@ -307,7 +307,8 @@ const I18N = {
       "Ten asystent to narzędzia i ściągawki pomagające w Welcome to the Game III. Instrukcję znajdziesz w zakładce „Jak używać”.",
     welcomeWarningHead: "----- [Ostrzeżenie o treści!] -----",
     welcomeCreditsHead: "----- [Credits / Źródła] -----",
-    welcomeAccept: ">> Rozumiem i akceptuję",
+    welcomeAccept: ">> Rozumiem",
+    welcomeRemember: ">> Zapamiętaj mnie",
     creditsTitle: "Credits i źródła",
     creditsDisclaimer:
       "Stworzyłem tylko tego asystenta (UI i narzędzia). Nie jestem powiązany z twórcami gry. Dane, notatki i screenshoty pochodzą z publicznych poradników społeczności Steam — nie tworzyłem ich treści.",
@@ -429,8 +430,8 @@ const I18N = {
       ["Notatnik — klucze:", "format „N - kod”. Długi kod = zaszyfrowany. Krótki = zdekryptowany (idzie do montażu)."],
       ["Montaż 1–8:", "zdekryptowane kody w slotach #1–#8 według numeru. Cel: zebrać wszystkie 8, potem „Kopiuj finalny klucz”."],
       ["Sensory / zagrożenia:", "zakładki z setupem 3 sensorów oraz tabelą cue/obrona. Bomb Maker jest pod spoilerem."],
-      ["Credits:", "zakładka z zastrzeżeniami i linkami do poradników Steam. Pierwsze wejście pokazuje ekran powitalny z akceptacją."],
-      ["Język i zapis:", "domyślnie EN; PL/EN w prawym górnym rogu. Notatki, postęp i listy zapisują się lokalnie. Reset czyści postęp (nie ekran powitalny)."],
+      ["Credits:", "zakładka z zastrzeżeniami i linkami do poradników Steam. Ekran powitalny pokazuje się przy każdym wejściu — zaznacz „Zapamiętaj mnie”, żeby go pominąć."],
+      ["Język i zapis:", "domyślnie EN; PL/EN w prawym górnym rogu (także na ekranie powitalnym). Notatki, postęp i listy zapisują się lokalnie. Reset czyści postęp."],
       ["Layout:", "przeciągnij uchwyty między panelami (koparki, priorytety, instrukcja), aby zmienić wysokości."],
     ],
     faq: [
@@ -527,7 +528,8 @@ const I18N = {
       "This assistant is a set of guides and tools for Welcome to the Game III. How the tools work is explained under “How to use”.",
     welcomeWarningHead: "----- [Content Warning!] -----",
     welcomeCreditsHead: "----- [Credits / Sources] -----",
-    welcomeAccept: ">> I understand and accept",
+    welcomeAccept: ">> I understand",
+    welcomeRemember: ">> Remember Me",
     creditsTitle: "Credits & sources",
     creditsDisclaimer:
       "I only built this assistant (UI and tools). I am not affiliated with the game’s creators. Site data, notes, and screenshots come from public Steam community guides — I did not author that guide content.",
@@ -649,8 +651,8 @@ const I18N = {
       ["Notebook — keys:", "format “N - code”. Long code = encrypted. Short = decrypted (feeds assembly)."],
       ["Assembly 1–8:", "decrypted codes fill slots #1–#8 by number. Collect all 8, then “Copy final key”."],
       ["Sensors / threats:", "tabs for the 3-sensor setup and cue/counter table. Bomb Maker is behind a spoiler."],
-      ["Credits:", "tab with disclaimers and Steam guide links. First visit shows a welcome screen you must accept."],
-      ["Language & save:", "English by default; PL/EN switch top-right. Notes, progress and lists persist locally. Reset clears progress (not the welcome accept)."],
+      ["Credits:", "tab with disclaimers and Steam guide links. Welcome screen shows on every visit — check “Remember Me” to skip it next time."],
+      ["Language & save:", "English by default; PL/EN switch top-right (also on the welcome screen). Notes, progress and lists persist locally. Reset clears progress."],
       ["Layout:", "drag the handles between panels (miners, priority board, guide) to resize."],
     ],
     faq: [
@@ -1703,7 +1705,12 @@ function isWelcomeAccepted() {
 }
 
 function acceptWelcome() {
-  localStorage.setItem(STORAGE_WELCOME, "1");
+  const remember = document.getElementById("welcome-remember")?.checked;
+  if (remember) {
+    localStorage.setItem(STORAGE_WELCOME, "1");
+  } else {
+    localStorage.removeItem(STORAGE_WELCOME);
+  }
   const overlay = document.getElementById("welcome-overlay");
   if (overlay) overlay.hidden = true;
   document.body.classList.remove("welcome-locked");
@@ -1719,6 +1726,8 @@ function showWelcomeIfNeeded() {
   }
   overlay.hidden = false;
   document.body.classList.add("welcome-locked");
+  const remember = document.getElementById("welcome-remember");
+  if (remember) remember.checked = false;
   renderCredits();
   document.getElementById("welcome-accept")?.focus();
 }

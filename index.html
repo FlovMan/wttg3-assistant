@@ -152,7 +152,12 @@
         </div>
       </div>
       <div class="welcome-actions">
-        <button type="button" id="welcome-accept" class="btn btn-primary welcome-accept" data-i18n="welcomeAccept">&gt;&gt; I understand</button>
+        <label class="welcome-remember">
+          <span data-i18n="welcomeRemember">&gt;&gt; Remember Me</span>
+          <input type="checkbox" id="welcome-remember" />
+          <span class="welcome-remember-box" aria-hidden="true"></span>
+        </label>
+        <button type="button" id="welcome-accept" class="btn btn-ghost welcome-accept" data-i18n="welcomeAccept">&gt;&gt; I understand</button>
       </div>
     </div>
   </div>

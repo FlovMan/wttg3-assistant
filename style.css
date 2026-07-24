@@ -2137,12 +2137,68 @@ body.welcome-locked .app {
   padding-top: 14px;
   border-top: 1px solid var(--border);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.welcome-remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--green);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.welcome-remember input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.welcome-remember-box {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--green);
+  background: transparent;
+  flex-shrink: 0;
+  display: inline-block;
+  position: relative;
+}
+
+.welcome-remember input:checked + .welcome-remember-box::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--green);
+}
+
+.welcome-remember:hover .welcome-remember-box {
+  box-shadow: 0 0 8px rgba(51, 255, 153, 0.35);
 }
 
 .welcome-accept {
-  letter-spacing: 0.08em;
-  min-width: 220px;
+  letter-spacing: 0.04em;
+  min-width: 0;
+  padding: 4px 0;
+  border: none;
+  background: transparent;
+  color: var(--green);
+  text-transform: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.welcome-accept:hover {
+  color: var(--cyan);
+  background: transparent;
+  border: none;
+  text-shadow: 0 0 8px rgba(61, 224, 255, 0.35);
 }
 
 .credits-body-welcome .credits-heading {
