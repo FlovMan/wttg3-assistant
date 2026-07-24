@@ -453,7 +453,10 @@ const I18N = {
     galleryZoomReset: "Reset zoom",
     galleryModeShots: "Screenshots",
     galleryModeLive: "Live HTML",
-    galleryLiveHint: "Live HTML from game dump (preview). Assets load from reverse wiki CDN.",
+    galleryLiveHint: "Live HTML z dumpu gry (preview). Kwadraty = miejsca na klucz/fetch.",
+    galleryLegendPtag: "PTAG — klucz bezpośrednio / po CPTAG",
+    galleryLegendCptag: "CPTAG — kliknij najpierw",
+    galleryLegendCftag: "CFTAG — klucz lub plik fetch",
     priorityTitle: "Priorytet stron",
     priorityMax: "Max (25% / h)",
     priorityMedium: "Medium (50% / h)",
@@ -694,7 +697,10 @@ const I18N = {
     galleryZoomReset: "Reset zoom",
     galleryModeShots: "Screenshots",
     galleryModeLive: "Live HTML",
-    galleryLiveHint: "Live HTML from game dump (preview). Assets load from reverse wiki CDN.",
+    galleryLiveHint: "Live HTML from game dump (preview). Colored boxes = key/fetch click spots.",
+    galleryLegendPtag: "PTAG — key directly / after CPTAG",
+    galleryLegendCptag: "CPTAG — click first",
+    galleryLegendCftag: "CFTAG — key or fetch file",
     priorityTitle: "Site priority",
     priorityMax: "Max (25% / h)",
     priorityMedium: "Medium (50% / h)",
@@ -1354,6 +1360,11 @@ function renderGallerySlide() {
     noteBits.push(
       `<div class="gallery-note"><span class="gallery-note-label">LIVE</span>${escapeHtml(t("galleryLiveHint"))}</div>`
     );
+    noteBits.push(`<div class="gallery-legend">
+      <span class="gal-leg gal-leg-p">${escapeHtml(t("galleryLegendPtag"))}</span>
+      <span class="gal-leg gal-leg-cp">${escapeHtml(t("galleryLegendCptag"))}</span>
+      <span class="gal-leg gal-leg-cf">${escapeHtml(t("galleryLegendCftag"))}</span>
+    </div>`);
   }
 
   if (!slides.length) {

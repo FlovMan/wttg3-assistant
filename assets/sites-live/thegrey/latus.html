@@ -911,6 +911,19 @@ section {
 		</section>
 		<div class="fadeout-bottom"></div>
 	</div>
+<!-- wttg-key-markers -->
+<style>
+/* WTTG3 key-location markers (from reverse-wiki visualizer) */
+.PTAG,.CPTAG,.CFTAG{cursor:default!important}
+.wttg-marker-inline{display:inline!important}
+.wttg-marker-host{outline:3px solid var(--wttg-marker-color)!important;outline-offset:2px!important}
+.wttg-marker-ptag{--wttg-marker-color:#25d366}
+.wttg-marker-cptag{--wttg-marker-color:#ffb347}
+.wttg-marker-cftag{--wttg-marker-color:#ff4f70}
+.wttg-marker-ptag:empty{display:inline-block!important;min-width:64px!important;min-height:22px!important;background:rgba(37,211,102,.14)!important}
+</style>
+<script>(function(){function mark(){["PTAG","CPTAG","CFTAG"].forEach(function(tag){document.querySelectorAll("."+tag).forEach(function(el){var host=[].slice.call(el.querySelectorAll("*")).find(function(n){return [].slice.call(n.childNodes).some(function(c){return c.nodeType===Node.TEXT_NODE&&c.textContent.trim();});})||el.firstElementChild||el;if(host===el){var wrap=document.createElement("span");wrap.className="wttg-marker-inline";while(el.firstChild)wrap.appendChild(el.firstChild);el.appendChild(wrap);host=wrap;}host.classList.add("wttg-marker-host","wttg-marker-"+tag.toLowerCase());});});}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",mark);else mark();})();</script>
+<!-- /wttg-key-markers -->
 </body>
 </html>
 </body>

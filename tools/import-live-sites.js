@@ -73,18 +73,32 @@ function buildPageHtml(site, page) {
   const css = [site.css || "", page.css || ""].filter(Boolean).join("\n\n");
   const body = rewriteAssetPaths(page.rawHtml || "");
   const cssRewritten = rewriteAssetPaths(css);
+  const markerCss = `
+.PTAG,.CPTAG,.CFTAG{cursor:default!important}
+.wttg-marker-inline{display:inline!important}
+.wttg-marker-host{outline:3px solid var(--wttg-marker-color)!important;outline-offset:2px!important}
+.wttg-marker-ptag{--wttg-marker-color:#25d366}
+.wttg-marker-cptag{--wttg-marker-color:#ffb347}
+.wttg-marker-cftag{--wttg-marker-color:#ff4f70}
+.wttg-marker-ptag:empty{display:inline-block!important;min-width:64px!important;min-height:22px!important;background:rgba(37,211,102,.14)!important}
+`;
+  const markerJs = `(function(){function mark(){["PTAG","CPTAG","CFTAG"].forEach(function(tag){document.querySelectorAll("."+tag).forEach(function(el){var host=[].slice.call(el.querySelectorAll("*")).find(function(n){return [].slice.call(n.childNodes).some(function(c){return c.nodeType===Node.TEXT_NODE&&c.textContent.trim();});})||el.firstElementChild||el;if(host===el){var wrap=document.createElement("span");wrap.className="wttg-marker-inline";while(el.firstChild)wrap.appendChild(el.firstChild);el.appendChild(wrap);host=wrap;}host.classList.add("wttg-marker-host","wttg-marker-"+tag.toLowerCase());});});}if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",mark);else mark();})();`;
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-wttg-domain="${escapeHtml(site.domain || "")}">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>${escapeHtml(page.title || site.website || site.domain)}</title>
 <style>
 ${cssRewritten}
+${markerCss}
 </style>
 </head>
 <body>
 ${body}
+<!-- wttg-key-markers -->
+<script>${markerJs}</script>
+<!-- /wttg-key-markers -->
 </body>
 </html>
 `;

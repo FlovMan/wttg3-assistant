@@ -2027,6 +2027,29 @@ body.gallery-open {
   text-transform: uppercase;
 }
 
+.gallery-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+.gal-leg::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  vertical-align: -1px;
+  border: 2px solid currentColor;
+}
+
+.gal-leg-p { color: #25d366; }
+.gal-leg-cp { color: #ffb347; }
+.gal-leg-cf { color: #ff4f70; }
+
 .gallery-stage {
   display: flex;
   gap: 8px;
