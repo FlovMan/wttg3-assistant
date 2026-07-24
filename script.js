@@ -222,6 +222,20 @@ const MINERS = {
   },
 };
 
+/** Keydecryptors — who decrypts which key indexes (1–8). */
+const KEYDECRYPTORS = [
+  { name: "Aqely", indexes: [1, 2], messageChance: 100, messagesPerCycle: [0, 2], chatMessages: 10, requiresRep: false, requiredRep: 1 },
+  { name: "Belius", indexes: [1, 2], messageChance: 100, messagesPerCycle: [1, 2], chatMessages: 10, requiresRep: false, requiredRep: 1 },
+  { name: "Kari", indexes: [1, 2], messageChance: 100, messagesPerCycle: [1, 3], chatMessages: 10, requiresRep: false, requiredRep: 1 },
+  { name: "Heratkit", indexes: [3, 4], messageChance: 100, messagesPerCycle: [1, 2], chatMessages: 10, requiresRep: true, requiredRep: 2 },
+  { name: "Milkyyberry", indexes: [3, 4], messageChance: 100, messagesPerCycle: [1, 2], chatMessages: 10, requiresRep: true, requiredRep: 2 },
+  { name: "Swook", indexes: [3, 4], messageChance: 100, messagesPerCycle: [1, 3], chatMessages: 10, requiresRep: true, requiredRep: 2 },
+  { name: "AmeLem", indexes: [5, 6], messageChance: 100, messagesPerCycle: [1, 2], chatMessages: 10, requiresRep: true, requiredRep: 4 },
+  { name: "tapsicore", indexes: [5, 6], messageChance: 100, messagesPerCycle: [1, 2], chatMessages: 10, requiresRep: true, requiredRep: 4 },
+  { name: "JohnnyGlitch", indexes: [7, 8], messageChance: 100, messagesPerCycle: [1, 2], chatMessages: 10, requiresRep: true, requiredRep: 5 },
+  { name: "Jujujump", indexes: [7, 8], messageChance: 100, messagesPerCycle: [1, 2], chatMessages: 10, requiresRep: true, requiredRep: 5 },
+];
+
 /* ==========================================================================
    i18n
    ========================================================================== */
@@ -300,7 +314,17 @@ const I18N = {
     tabFaq: "FAQ",
     tabSensors: "Sensory",
     tabThreats: "Zagrożenia",
+    tabDecryptors: "Dekryptorzy",
     tabCredits: "Credits",
+    decryptorsIntro:
+      "Kto dekryptuje które sloty klucza (1–8). Message chance i chat messages są stałe (100% / 10) — pominięte w tabeli.",
+    decryptColName: "Dekryptor",
+    decryptColIndexes: "Sloty",
+    decryptColMsgs: "Wiad. / cykl",
+    decryptColRep: "Wymaga rep",
+    decryptColRepLevel: "Rep",
+    decryptYes: "Tak",
+    decryptNo: "Nie",
     pasteHint: "Tutaj wklejasz listę stron z Deep Wiki",
     welcomeFirstVisit: "----- [Wykryto pierwszą wizytę] -----",
     welcomeHello: "Witaj!",
@@ -437,6 +461,7 @@ const I18N = {
       ["Notatnik — klucze:", "format „N - kod”. Długi kod = zaszyfrowany. Krótki = zdekryptowany (idzie do montażu)."],
       ["Montaż 1–8:", "zdekryptowane kody w slotach #1–#8 według numeru. Cel: zebrać wszystkie 8, potem „Kopiuj finalny klucz”."],
       ["Sensory / zagrożenia:", "zakładki z setupem 3 sensorów oraz tabelą cue/obrona. Bomb Maker jest pod spoilerem."],
+      ["Dekryptorzy:", "zakładka Info — kto dekryptuje sloty 1–2 / 3–4 / 5–6 / 7–8 i jaki required rep."],
       ["Credits:", "zakładka z zastrzeżeniami i linkami do poradników Steam. Ekran powitalny pokazuje się przy każdym wejściu — zaznacz „Zapamiętaj mnie”, żeby go pominąć."],
       ["Język i zapis:", "domyślnie EN; PL/EN w prawym górnym rogu (także na ekranie powitalnym). Notatki, postęp i listy zapisują się lokalnie. Reset czyści postęp."],
       ["Layout:", "przeciągnij uchwyty między panelami (koparki, priorytety, instrukcja), aby zmienić wysokości."],
@@ -527,7 +552,17 @@ const I18N = {
     tabFaq: "FAQ",
     tabSensors: "Sensors",
     tabThreats: "Threats",
+    tabDecryptors: "Decryptors",
     tabCredits: "Credits",
+    decryptorsIntro:
+      "Who decrypts which key slots (1–8). Message chance and chat messages are constant (100% / 10) — omitted from the table.",
+    decryptColName: "Decryptor",
+    decryptColIndexes: "Slots",
+    decryptColMsgs: "Msgs / cycle",
+    decryptColRep: "Needs rep",
+    decryptColRepLevel: "Rep",
+    decryptYes: "Yes",
+    decryptNo: "No",
     pasteHint: "Paste Deep Wiki site lists here",
     welcomeFirstVisit: "----- [First Visit Detected] -----",
     welcomeHello: "Welcome!",
@@ -664,6 +699,7 @@ const I18N = {
       ["Notebook — keys:", "format “N - code”. Long code = encrypted. Short = decrypted (feeds assembly)."],
       ["Assembly 1–8:", "decrypted codes fill slots #1–#8 by number. Collect all 8, then “Copy final key”."],
       ["Sensors / threats:", "tabs for the 3-sensor setup and cue/counter table. Bomb Maker is behind a spoiler."],
+      ["Decryptors:", "Info tab — who decrypts slots 1–2 / 3–4 / 5–6 / 7–8 and required reputation."],
       ["Credits:", "tab with disclaimers and Steam guide links. Welcome screen shows on every visit — check “Remember Me” to skip it next time."],
       ["Language & save:", "English by default; PL/EN switch top-right (also on the welcome screen). Notes, progress and lists persist locally. Reset clears progress."],
       ["Layout:", "drag the handles between panels (miners, priority board, guide) to resize."],
@@ -1695,6 +1731,43 @@ function renderThreats() {
     .join("");
 }
 
+function renderDecryptors() {
+  const el = document.getElementById("decryptors-body");
+  if (!el) return;
+
+  const rows = KEYDECRYPTORS.map((d) => {
+    const indexes = `${d.indexes[0]}–${d.indexes[1]}`;
+    const msgs = `${d.messagesPerCycle[0]}–${d.messagesPerCycle[1]}`;
+    const repNeed = d.requiresRep ? t("decryptYes") : t("decryptNo");
+    const tip = [
+      `Message chance: ${d.messageChance}%`,
+      `Chat messages: ${d.chatMessages}`,
+    ].join(" · ");
+    return `<tr title="${escapeHtml(tip)}">
+      <td class="decrypt-name">${escapeHtml(d.name)}</td>
+      <td class="decrypt-indexes">${escapeHtml(indexes)}</td>
+      <td class="decrypt-msgs">${escapeHtml(msgs)}</td>
+      <td class="decrypt-rep-need">${escapeHtml(repNeed)}</td>
+      <td class="decrypt-rep-level">${d.requiredRep}</td>
+    </tr>`;
+  }).join("");
+
+  el.innerHTML = `<div class="decryptors-table-wrap">
+    <table class="decryptors-table">
+      <thead>
+        <tr>
+          <th>${escapeHtml(t("decryptColName"))}</th>
+          <th>${escapeHtml(t("decryptColIndexes"))}</th>
+          <th>${escapeHtml(t("decryptColMsgs"))}</th>
+          <th>${escapeHtml(t("decryptColRep"))}</th>
+          <th>${escapeHtml(t("decryptColRepLevel"))}</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+}
+
 function buildCreditsHtml(opts = {}) {
   const { forWelcome = false } = opts;
   const sources = CREDIT_SOURCES.filter((s) => s && (s.url || s.author || s.profileUrl));
@@ -1838,6 +1911,7 @@ function applyLanguage() {
   renderFaq();
   renderSensors();
   renderThreats();
+  renderDecryptors();
   renderCredits();
   renderMiners();
   renderCurrentTab();

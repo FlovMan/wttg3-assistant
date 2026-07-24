@@ -347,15 +347,15 @@ body.is-resizing textarea {
 .info-tab {
   flex: 1;
   font-family: inherit;
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
-  padding: 7px 4px;
+  padding: 7px 3px;
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
@@ -1581,6 +1581,86 @@ button.priority-chip.priority-keyed:hover {
 .threats-table td strong {
   color: var(--amber);
   font-weight: 600;
+}
+
+.decryptors-intro {
+  flex-shrink: 0;
+  padding: 8px 14px 4px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.decryptors-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.decryptors-table-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 10px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--green-dim) var(--bg-input);
+}
+
+.decryptors-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.76rem;
+}
+
+.decryptors-table th {
+  position: sticky;
+  top: 0;
+  background: var(--bg-panel);
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+  z-index: 1;
+}
+
+.decryptors-table td {
+  padding: 7px 8px;
+  border-bottom: 1px solid rgba(26, 58, 42, 0.5);
+  color: var(--text-dim);
+  vertical-align: middle;
+  line-height: 1.35;
+}
+
+.decryptors-table tr:hover td {
+  background: rgba(51, 255, 153, 0.04);
+}
+
+.decrypt-name {
+  color: var(--green) !important;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.decrypt-indexes {
+  color: var(--cyan) !important;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.decrypt-msgs {
+  font-variant-numeric: tabular-nums;
+}
+
+.decrypt-rep-level {
+  color: var(--amber) !important;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 .spoiler-badge {
