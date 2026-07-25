@@ -351,7 +351,7 @@ const I18N = {
     creditsContentWarning:
       "Asystent pokazuje zrzuty i treści wyjęte z Welcome to the Game III. Mogą być niepokojące. Korzystasz na własną odpowiedzialność.",
     creditsUnofficial:
-      "Fanowski, nieoficjalny projekt. Welcome to the Game III i powiązane znaki należą do ich właścicieli. Anonimowa statystyka odwiedzin (Plausible, bez cookies) — szczegóły w ANALYTICS.md w repozytorium.",
+      "Fanowski, nieoficjalny projekt. Welcome to the Game III i powiązane znaki należą do ich właścicieli. Anonimowa statystyka odwiedzin (GoatCounter, darmowa, bez cookies) — szczegóły w ANALYTICS.md w repozytorium.",
     sensorsIntro: "Setup 3 motion sensorów przy motelu — kolejność i kierunek mają znaczenie.",
     sensorsDistinguishTitle: "Jak odróżnić Tannera od Lucasa",
     sensorsDistinguishBody: [
@@ -595,7 +595,7 @@ const I18N = {
     creditsContentWarning:
       "This tool shows extracted screenshots and content from Welcome to the Game III. Material may be disturbing. Use at your own discretion.",
     creditsUnofficial:
-      "Fan-made, unofficial project. Welcome to the Game III and related marks belong to their respective owners. Anonymous visit stats via Plausible (no cookies) — see ANALYTICS.md in the repo.",
+      "Fan-made, unofficial project. Welcome to the Game III and related marks belong to their respective owners. Anonymous visit stats via GoatCounter (free, no cookies) — see ANALYTICS.md in the repo.",
     sensorsIntro: "3 motion sensor motel setup — placement and facing direction matter.",
     sensorsDistinguishTitle: "How to distinguish between Tanner and Lucas",
     sensorsDistinguishBody: [

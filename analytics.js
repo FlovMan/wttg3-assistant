@@ -1,6 +1,6 @@
 /**
- * Privacy-friendly analytics (Plausible) — loaded only on the public GitHub Pages build.
- * Dashboard setup: see ANALYTICS.md
+ * Privacy-friendly analytics (GoatCounter) — free, no cookies.
+ * Loaded only on the public GitHub Pages build. Setup: see ANALYTICS.md
  */
 (function () {
   const host = location.hostname;
@@ -8,8 +8,8 @@
   if (!location.pathname.startsWith("/wttg3-assistant")) return;
 
   const s = document.createElement("script");
-  s.defer = true;
-  s.dataset.domain = "flovman.github.io";
-  s.src = "https://plausible.io/js/script.js";
+  s.async = true;
+  s.dataset.goatcounter = "https://wttg3-assistant.goatcounter.com/count";
+  s.src = "https://gc.zgo.at/count.js";
   document.head.appendChild(s);
 })();

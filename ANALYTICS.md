@@ -1,29 +1,33 @@
 # Statystyki odwiedzin / Visit analytics
 
-Asystent używa [Plausible](https://plausible.io/) — lekkiej analityki bez cookies i bez śledzenia użytkowników po innych stronach.
+Asystent używa [GoatCounter](https://www.goatcounter.com/) — **darmowej**, prywatnej analityki (bez cookies, open source).
 
-## Jednorazowa konfiguracja (2–3 min)
+## Jednorazowa konfiguracja (ok. 2 min)
 
-1. Załóż konto: https://plausible.io/register  
-   (jest trial; potem płatny plan albo [self-hosted Community Edition](https://plausible.io/self-hosted-web-analytics) za darmo).
-2. **Add website** → domena: `flovman.github.io`
-3. W dashboardzie filtruj ścieżkę **`/wttg3-assistant`** (Pages → Filter → Path contains).
+1. Załóż konto: https://www.goatcounter.com/signup (darmowe, bez karty).
+2. **Add new site** → kod strony: **`wttg3-assistant`**  
+   (musi być dokładnie tak — skrypt w `analytics.js` wskazuje na `wttg3-assistant.goatcounter.com`).
+3. Wejdź na https://flovman.github.io/wttg3-assistant/ — po chwili w dashboardzie powinny pojawić się odsłony.
 
-Skrypt jest już w projekcie (`analytics.js` + `index.html`). Po dodaniu domeny w Plausible dane zaczną wpadać automatycznie.
+Skrypt jest już w projekcie. Po utworzeniu strony w GoatCounter dane zbierają się automatycznie.
 
 ## Co zobaczysz
 
-- unikalni odwiedzający (dzień / tydzień / miesiąc)
-- odsłony strony asystenta
-- skąd przychodzą (referrer: Steam, Discord, Reddit…)
-- **Realtime** — ile osób jest teraz na stronie (szacunek)
+- odsłony i unikalni odwiedzający (dzień / tydzień / miesiąc)
+- skąd przychodzą (referrer)
+- popularne podstrony / ścieżki
+- **Live** — kto jest teraz na stronie (przybliżenie)
 
 ## Czego nie ma
 
-- listy nicków ani danych osobowych
-- śledzenia poza `flovman.github.io/wttg3-assistant`
-- statystyk z lokalnego `localhost` (loader się nie włącza)
+- cookies ani banerów RODO od analityki
+- listy nicków / danych osobowych
+- statystyk z `localhost` (loader się nie włącza)
+
+## Koszt
+
+GoatCounter jest **bezpłatny** dla projektów osobistych / fanowskich (non-commercial). Nie ma 30-dniowego trialu jak u Plausible.
 
 ## Prywatność
 
-Krótki disclaimer jest też w zakładce **Credits** w aplikacji (PL/EN).
+Krótki disclaimer jest w zakładce **Credits** (PL/EN).
