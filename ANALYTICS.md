@@ -5,8 +5,8 @@ Asystent używa [GoatCounter](https://www.goatcounter.com/) — **darmowej**, pr
 ## Jednorazowa konfiguracja (ok. 2 min)
 
 1. Załóż konto: https://www.goatcounter.com/signup (darmowe, bez karty).
-2. **Add new site** → kod strony: **`wttg3-assistant`**  
-   (musi być dokładnie tak — skrypt w `analytics.js` wskazuje na `wttg3-assistant.goatcounter.com`).
+2. Konto / strona: **`flovman`** → dashboard: https://flovman.goatcounter.com  
+   (skrypt w `analytics.js` wskazuje na `flovman.goatcounter.com/count`).
 3. Wejdź na https://flovman.github.io/wttg3-assistant/ — po chwili w dashboardzie powinny pojawić się odsłony.
 
 Skrypt jest już w projekcie. Po utworzeniu strony w GoatCounter dane zbierają się automatycznie.

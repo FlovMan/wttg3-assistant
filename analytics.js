@@ -9,7 +9,7 @@
 
   const s = document.createElement("script");
   s.async = true;
-  s.dataset.goatcounter = "https://wttg3-assistant.goatcounter.com/count";
+  s.dataset.goatcounter = "https://flovman.goatcounter.com/count";
   s.src = "https://gc.zgo.at/count.js";
   document.head.appendChild(s);
 })();
