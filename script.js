@@ -176,7 +176,7 @@ const MINERS = {
     label: "Tier I",
     costKey: "minerCostTier1",
     computers: [
-      { name: "WebTyk", rate: 1.84, access: [384, 768], fail: [120, 220], reset: [240, 300] },
+      { name: "WebTyk", rate: 2.06, access: [384, 768], fail: [120, 220], reset: [240, 300] },
       { name: "UserJyx", rate: 1.8, access: [384, 768], fail: [120, 480], reset: [120, 300] },
       { name: "NetVorn", rate: 1.45, access: [380, 1008], fail: [240, 420], reset: [240, 300] },
       { name: "CloudFuz", rate: 0.88, access: [440, 928], fail: [180, 240], reset: [180, 220] },
@@ -192,7 +192,7 @@ const MINERS = {
     label: "Tier II",
     costKey: "minerCostTier2",
     computers: [
-      { name: "OpsHax", rate: 3.23, access: [1200, 1620], fail: [600, 1200], reset: [300, 420] },
+      { name: "OpsHax", rate: 4.04, access: [1200, 1620], fail: [600, 1200], reset: [300, 420] },
       { name: "SecCrux", rate: 2.73, access: [900, 1320], fail: [180, 240], reset: [340, 380] },
       { name: "GameDrux", rate: 2.57, access: [900, 1320], fail: [360, 600], reset: [300, 420] },
       { name: "PrintYiv", rate: 2.43, access: [845, 1186], fail: [90, 270], reset: [360, 420] },
@@ -208,7 +208,7 @@ const MINERS = {
     label: "Tier III",
     costKey: "minerCostTier3",
     computers: [
-      { name: "Phoenix", rate: 4.79, access: [1740, 2160], fail: [1200, 1500], reset: [600, 780] },
+      { name: "Phoenix", rate: 5.47, access: [1740, 2160], fail: [1200, 1500], reset: [600, 780] },
       { name: "MediaVlu", rate: 3.93, access: [1500, 1620], fail: [300, 420], reset: [540, 560] },
       { name: "QA_Pivz", rate: 3.58, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
       { name: "HR_Treq", rate: 3.42, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },

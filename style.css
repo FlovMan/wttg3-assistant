@@ -741,13 +741,23 @@ body.is-resizing textarea {
   box-shadow: inset 3px 0 0 var(--amber);
 }
 
-.site-table tr.row-visited td {
+.site-table tr.row-visited td.site-name,
+.site-table tr.row-visited td.site-time,
+.site-table tr.row-visited td.site-status {
   opacity: 0.55;
 }
 
-.site-table tr.row-keyed td {
-  opacity: 0.3;
-  filter: saturate(0.45);
+.site-table tr.row-keyed td.site-name,
+.site-table tr.row-keyed td.site-time,
+.site-table tr.row-keyed td.site-status {
+  opacity: 0.48;
+  filter: saturate(0.6);
+}
+
+.site-table tr.row-visited td.check-cell,
+.site-table tr.row-keyed td.check-cell {
+  opacity: 1;
+  filter: none;
 }
 
 .site-table tr.row-priority-max td.site-name {
@@ -764,8 +774,12 @@ body.is-resizing textarea {
   color: #7ad4ff;
 }
 
-.site-table tr.row-visited:hover td,
-.site-table tr.row-keyed:hover td {
+.site-table tr.row-visited:hover td.site-name,
+.site-table tr.row-visited:hover td.site-time,
+.site-table tr.row-visited:hover td.site-status,
+.site-table tr.row-keyed:hover td.site-name,
+.site-table tr.row-keyed:hover td.site-time,
+.site-table tr.row-keyed:hover td.site-status {
   opacity: 0.85;
   filter: none;
 }
