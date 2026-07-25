@@ -894,6 +894,17 @@ function saveFlags(flags) {
   localStorage.setItem(STORAGE_FLAGS, JSON.stringify(flags));
 }
 
+/** Opening the site gallery (screenshots or Live HTML) counts as visited. */
+function markSiteVisitedOnGalleryOpen(siteName) {
+  if (!siteName) return false;
+  const flags = loadFlags();
+  if (!flags[siteName]) flags[siteName] = {};
+  if (flags[siteName].visited) return false;
+  flags[siteName].visited = true;
+  saveFlags(flags);
+  return true;
+}
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, "&amp;")
@@ -1238,6 +1249,12 @@ function buildGallerySlides(entry) {
 function openGallery(siteName) {
   const entry = getGalleryEntry(siteName);
   if (!entry) return;
+
+  const displayName = entry.name || siteName;
+  if (markSiteVisitedOnGalleryOpen(displayName)) {
+    renderCurrentTab();
+    renderPriorityBoard();
+  }
 
   const built = buildGallerySlides(entry);
   galleryState = {
