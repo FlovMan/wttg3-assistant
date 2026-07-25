@@ -216,7 +216,7 @@ const MINERS = {
       { name: "SalesMiv", rate: 3.21, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
       { name: "ChatEzk", rate: 3.17, access: [1500, 2100], fail: [420, 600], reset: [480, 600] },
       { name: "EngZolp", rate: 2.63, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
-      { name: "FinLoxu", rate: null, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
+      { name: "FinLoxu", rate: 3.86, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
       { name: "LogJuk", rate: 0.3, access: [2700, 3600], fail: [800, 1600], reset: [480, 600] },
     ],
   },
