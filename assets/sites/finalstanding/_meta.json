@@ -1,8 +1,0 @@
-{
-  "name": "finalStanding",
-  "slug": "finalstanding",
-  "pages": [
-    "index"
-  ],
-  "note": "Custom scrolling makes click spots annoying to show. Prefer timestamps to figure out which one to click."
-}

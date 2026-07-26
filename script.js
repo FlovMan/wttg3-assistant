@@ -194,14 +194,14 @@ const MINERS = {
     computers: [
       { name: "OpsHax", rate: 4.04, access: [1200, 1620], fail: [600, 1200], reset: [300, 420] },
       { name: "SecCrux", rate: 2.73, access: [900, 1320], fail: [180, 240], reset: [340, 380] },
-      { name: "GameDrux", rate: 2.57, access: [900, 1320], fail: [360, 600], reset: [300, 420] },
+      { name: "GameDrux", rate: 3.21, access: [900, 1320], fail: [360, 600], reset: [300, 420] },
       { name: "PrintYiv", rate: 2.43, access: [845, 1186], fail: [90, 270], reset: [360, 420] },
-      { name: "FileNuz", rate: 1.88, access: [900, 1320], fail: [180, 240], reset: [70, 220] },
+      { name: "FileNuz", rate: 2.35, access: [900, 1320], fail: [180, 240], reset: [70, 220] },
       { name: "ProdGlin", rate: 1.8, access: [996, 1468], fail: [180, 540], reset: [120, 360] },
       { name: "VM_Wekl", rate: 1.74, access: [900, 1320], fail: [30, 90], reset: [240, 360] },
       { name: "BackSkiv", rate: 1.49, access: [845, 1320], fail: [20, 40], reset: [120, 200] },
       { name: "TestXor", rate: 1.36, access: [900, 1320], fail: [240, 480], reset: [180, 420] },
-      { name: "LabBZop", rate: 0.48, access: [988, 1419], fail: [60, 90], reset: [300, 420] },
+      { name: "LabBZop", rate: 0.61, access: [988, 1419], fail: [60, 90], reset: [300, 420] },
     ],
   },
   tier3: {
@@ -211,10 +211,10 @@ const MINERS = {
       { name: "Phoenix", rate: 5.47, access: [1740, 2160], fail: [1200, 1500], reset: [600, 780] },
       { name: "MediaVlu", rate: 3.93, access: [1500, 1620], fail: [300, 420], reset: [540, 560] },
       { name: "QA_Pivz", rate: 3.58, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
-      { name: "HR_Treq", rate: 3.42, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
-      { name: "VPN_Qwer", rate: 3.38, access: [1500, 2100], fail: [420, 660], reset: [480, 600] },
-      { name: "SalesMiv", rate: 3.21, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
-      { name: "ChatEzk", rate: 3.17, access: [1500, 2100], fail: [420, 600], reset: [480, 600] },
+      { name: "HR_Treq", rate: 3.91, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
+      { name: "VPN_Qwer", rate: 3.86, access: [1500, 2100], fail: [420, 660], reset: [480, 600] },
+      { name: "SalesMiv", rate: 3.66, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
+      { name: "ChatEzk", rate: 3.63, access: [1500, 2100], fail: [420, 600], reset: [480, 600] },
       { name: "EngZolp", rate: 2.63, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
       { name: "FinLoxu", rate: 3.86, access: [1500, 2100], fail: [420, 660], reset: [300, 600] },
       { name: "LogJuk", rate: 0.3, access: [2700, 3600], fail: [800, 1600], reset: [480, 600] },
@@ -248,7 +248,6 @@ const STORAGE_LANG = "wttg3_lang";
 const STORAGE_BOMB_SPOILER = "wttg3_bomb_spoiler";
 const STORAGE_LAYOUT = "wttg3_layout";
 const STORAGE_WELCOME = "wttg3_welcome_accepted";
-const STORAGE_GALLERY_MODE = "wttg3_gallery_mode";
 
 /* ==========================================================================
    Credits / Steam guide sources
@@ -261,11 +260,6 @@ const CREDIT_SOURCES = [
     author: "TwisTonFire",
     url: "https://steamcommunity.com/sharedfiles/filedetails/?id=3767348828",
     profileUrl: "https://steamcommunity.com/id/TwisTonFire",
-  },
-  {
-    author: "MazKnight | Twitch",
-    url: "https://steamcommunity.com/sharedfiles/filedetails/?id=3767406609",
-    profileUrl: "https://steamcommunity.com/profiles/76561198832123127",
   },
   {
     author: "freddy fart bear",
@@ -343,13 +337,13 @@ const I18N = {
     welcomeRemember: ">> Zapamiętaj mnie",
     creditsTitle: "Credits i źródła",
     creditsDisclaimer:
-      "Stworzyłem tylko tego asystenta (UI i narzędzia). Nie jestem powiązany z twórcami gry. Dane, notatki i screenshoty pochodzą z publicznych poradników społeczności Steam oraz z WTTG3 Reverse Wiki (PeterRock) — nie tworzyłem ich treści. Tryb Live HTML korzysta z odtworzonych stron z website-visualizer.",
+      "Stworzyłem tylko tego asystenta (UI i narzędzia). Nie jestem powiązany z twórcami gry. Dane, notatki i strony HTML pochodzą z publicznych poradników społeczności Steam oraz z WTTG3 Reverse Wiki (PeterRock) — nie tworzyłem ich treści. Podgląd stron korzysta z odtworzonych plików HTML (website-visualizer).",
     creditsSourcesHeading: "Źródła:",
     creditsEmpty: "Lista źródeł zostanie wkrótce uzupełniona.",
     creditsGuideLink: "Poradnik",
     creditsProfileLink: "Profil",
     creditsContentWarning:
-      "Asystent pokazuje zrzuty i treści wyjęte z Welcome to the Game III. Mogą być niepokojące. Korzystasz na własną odpowiedzialność.",
+      "Asystent pokazuje treści wyjęte z Welcome to the Game III. Mogą być niepokojące. Korzystasz na własną odpowiedzialność.",
     creditsUnofficial:
       "Fanowski, nieoficjalny projekt. Welcome to the Game III i powiązane znaki należą do ich właścicieli. Anonimowa statystyka odwiedzin (GoatCounter, darmowa, bez cookies) — szczegóły w ANALYTICS.md w repozytorium.",
     sensorsIntro: "Setup 3 motion sensorów przy motelu — kolejność i kierunek mają znaczenie.",
@@ -447,13 +441,11 @@ const I18N = {
     galleryNext: "Następny",
     galleryPage: "Podstrona",
     gallerySiteNote: "Notatka",
-    galleryNoImages: "Brak screenshotów — tylko notatka.",
-    galleryOpenHint: "Kliknij, aby zobaczyć screenshoty",
+    galleryNoImages: "Brak strony HTML — tylko notatka.",
+    galleryOpenHint: "Kliknij, aby zobaczyć stronę HTML",
     galleryZoomIn: "Przybliż",
     galleryZoomOut: "Oddal",
     galleryZoomReset: "Reset zoom",
-    galleryModeShots: "Screenshots",
-    galleryModeLive: "Live HTML",
     galleryLiveHint: "Live HTML z dumpu gry (preview). Kwadraty = miejsca na klucz/fetch.",
     galleryLegendPtag: "PTAG — klucz bezpośrednio / po CPTAG",
     galleryLegendCptag: "CPTAG — kliknij najpierw",
@@ -468,7 +460,7 @@ const I18N = {
       ["Format wklejania:", "linie „Nazwa - opis” — liczy się tekst przed myślnikiem. Kolejność na liście = kolejność wklejenia."],
       ["Postęp:", "Odw. / Klucz / KF / Plik. Do zrobienia = mocniej podświetlone. Odwiedzona = przygaszona (także na tablicy priorytetów). Klucz = prawie wygaszona."],
       ["Priorytety:", "tablica Max / Medium / Low pod listą. Strony z bieżącej zakładki świecą się na zielono, dopóki nie oznaczysz Odw./Klucz. Klik w nazwę = galeria."],
-      ["Screenshoty:", "klik w nazwę strony. Tryb Screenshots = zrzuty z poradników; Live HTML = strony gry (HTML). Start 100%; +/− / Ctrl+scroll / 0. Esc zamyka."],
+      ["Strony HTML:", "klik w nazwę strony — podgląd Live HTML z dumpu gry. Zoom: +/− / Ctrl+scroll / 0. Esc zamyka."],
       ["Okna czasowe:", "strony timed: minuty każdej godziny gry (np. :00–:14). Martwe = zawsze offline."],
       ["Koparki:", "VM Grid Tier I–III: DOS/min + Access window (jak długo masz dostęp po udanym hacku). Fail/Reset CD w podpowiedzi (hover). Wybieraj najwyższe DOS w odblokowanym tierze."],
       ["Notatnik — klucze:", "format „N - kod”. Długi kod = zaszyfrowany. Krótki = zdekryptowany (idzie do montażu)."],
@@ -587,13 +579,13 @@ const I18N = {
     welcomeRemember: ">> Remember Me",
     creditsTitle: "Credits & sources",
     creditsDisclaimer:
-      "I only built this assistant (UI and tools). I am not affiliated with the game’s creators. Site data, notes, and screenshots come from public Steam community guides and the WTTG3 Reverse Wiki (PeterRock) — I did not author that content. Live HTML mode uses reconstructed pages from the website-visualizer.",
+      "I only built this assistant (UI and tools). I am not affiliated with the game’s creators. Site data, notes, and HTML pages come from public Steam community guides and the WTTG3 Reverse Wiki (PeterRock) — I did not author that content. Site preview uses reconstructed HTML from the website-visualizer.",
     creditsSourcesHeading: "Sources:",
     creditsEmpty: "Source list will be added shortly.",
     creditsGuideLink: "Guide",
     creditsProfileLink: "Profile",
     creditsContentWarning:
-      "This tool shows extracted screenshots and content from Welcome to the Game III. Material may be disturbing. Use at your own discretion.",
+      "This tool shows content from Welcome to the Game III. Material may be disturbing. Use at your own discretion.",
     creditsUnofficial:
       "Fan-made, unofficial project. Welcome to the Game III and related marks belong to their respective owners. Anonymous visit stats via GoatCounter (free, no cookies) — see ANALYTICS.md in the repo.",
     sensorsIntro: "3 motion sensor motel setup — placement and facing direction matter.",
@@ -691,13 +683,11 @@ const I18N = {
     galleryNext: "Next",
     galleryPage: "Page",
     gallerySiteNote: "Note",
-    galleryNoImages: "No screenshots — note only.",
-    galleryOpenHint: "Click to view screenshots",
+    galleryNoImages: "No HTML page — note only.",
+    galleryOpenHint: "Click to view HTML page",
     galleryZoomIn: "Zoom in",
     galleryZoomOut: "Zoom out",
     galleryZoomReset: "Reset zoom",
-    galleryModeShots: "Screenshots",
-    galleryModeLive: "Live HTML",
     galleryLiveHint: "Live HTML from game dump (preview). Colored boxes = key/fetch click spots.",
     galleryLegendPtag: "PTAG — key directly / after CPTAG",
     galleryLegendCptag: "CPTAG — click first",
@@ -712,7 +702,7 @@ const I18N = {
       ["Paste format:", "lines like “Name - description” — only text before the dash counts. List order = paste order."],
       ["Progress:", "Vis. / Key / KF / File. To-do rows are highlighted. Visited dims the row and the priority chip. Key found nearly extinguishes it."],
       ["Priorities:", "Max / Medium / Low board under the list. Sites on the current tab glow green until marked Visited/Key. Click a name for the gallery."],
-      ["Screenshots:", "click a site name. Screenshots mode = guide captures; Live HTML = in-game pages. Starts at 100%; +/− / Ctrl+scroll / 0. Esc closes."],
+      ["HTML pages:", "click a site name for a Live HTML preview from the game dump. Zoom: +/− / Ctrl+scroll / 0. Esc closes."],
       ["Time windows:", "timed sites use in-game hour minutes (e.g. :00–:14). Dead sites stay offline."],
       ["Miners:", "VM Grid Tier I–III: DOS/min + Access window (how long you keep access after a successful hack). Fail/Reset CD in the hover tooltip. Pick the highest DOS in your unlocked tier."],
       ["Notebook — keys:", "format “N - code”. Long code = encrypted. Short = decrypted (feeds assembly)."],
@@ -894,7 +884,7 @@ function saveFlags(flags) {
   localStorage.setItem(STORAGE_FLAGS, JSON.stringify(flags));
 }
 
-/** Opening the site gallery (screenshots or Live HTML) counts as visited. */
+/** Opening the site gallery counts as visited. */
 function markSiteVisitedOnGalleryOpen(siteName) {
   if (!siteName) return false;
   const flags = loadFlags();
@@ -1031,13 +1021,11 @@ function renderCheckCell(siteName, flags, def) {
 }
 
 /* ==========================================================================
-   Screenshot / Live HTML gallery
+   Live HTML gallery
    ========================================================================== */
 
 let SITE_GALLERY = {};
 let galleryState = null;
-/** @type {"shots"|"live"} */
-let galleryMode = "shots";
 
 const GALLERY_ZOOM_MIN = 1;
 const GALLERY_ZOOM_MAX = 5;
@@ -1053,51 +1041,20 @@ function clampGalleryZoom(z) {
   return Math.min(GALLERY_ZOOM_MAX, Math.max(GALLERY_ZOOM_MIN, Math.round(z * 100) / 100));
 }
 
-function resolveGalleryMode() {
-  const params = new URLSearchParams(window.location.search);
-  const q = params.get("gallery");
-  if (q === "live" || q === "html") return "live";
-  if (q === "shots" || q === "screenshots") return "shots";
-  const saved = localStorage.getItem(STORAGE_GALLERY_MODE);
-  if (saved === "live" || saved === "shots") return saved;
-  return "live";
-}
-
-function setGalleryMode(mode, opts = {}) {
-  const next = mode === "live" ? "live" : "shots";
-  galleryMode = next;
-  if (!opts.skipSave) localStorage.setItem(STORAGE_GALLERY_MODE, next);
-  document.querySelectorAll("[data-gallery-mode]").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.galleryMode === next);
-  });
-  document.body.classList.toggle("gallery-mode-live", next === "live");
-}
-
 function applyGalleryZoom() {
-  const img = document.getElementById("gallery-image");
   const frame = document.getElementById("gallery-frame");
   const label = document.querySelector("[data-gallery-zoom-reset]");
   const wrap = document.querySelector(".gallery-image-wrap");
-  if (!galleryState) return;
+  if (!galleryState || !frame || frame.hidden) return;
 
   const z = galleryState.zoom || 1;
   const baseW = wrap ? wrap.clientWidth : 0;
   const widthPx = baseW > 0 ? `${Math.round(baseW * z)}px` : `${z * 100}%`;
 
-  if (galleryState.kind === "live") {
-    if (!frame || frame.hidden) return;
-    frame.style.width = widthPx;
-    frame.style.minHeight = `${Math.round((wrap?.clientHeight || 720) * Math.min(z, 1.25))}px`;
-    frame.style.height = z > 1 ? `${Math.round((wrap?.clientHeight || 720) * z)}px` : "100%";
-    wrap?.classList.toggle("is-zoomed", z > 1);
-  } else {
-    if (!img || img.hidden) return;
-    img.style.width = widthPx;
-    img.style.maxWidth = "none";
-    img.style.height = "auto";
-    img.classList.toggle("is-zoomed", z > 1);
-    wrap?.classList.toggle("is-zoomed", z > 1);
-  }
+  frame.style.width = widthPx;
+  frame.style.minHeight = `${Math.round((wrap?.clientHeight || 720) * Math.min(z, 1.25))}px`;
+  frame.style.height = z > 1 ? `${Math.round((wrap?.clientHeight || 720) * z)}px` : "100%";
+  wrap?.classList.toggle("is-zoomed", z > 1);
   if (label) label.textContent = `${Math.round(z * 100)}%`;
 }
 
@@ -1151,35 +1108,19 @@ async function loadGalleryManifestFrom(url) {
 
 async function loadGalleryManifest() {
   try {
-    if (galleryMode === "live") {
-      SITE_GALLERY = await loadGalleryManifestFrom("assets/sites-live/manifest.json");
-    } else {
-      SITE_GALLERY = await loadGalleryManifestFrom("assets/sites/manifest.json");
-    }
+    SITE_GALLERY = await loadGalleryManifestFrom("assets/sites-live/manifest.json");
   } catch (err) {
     console.warn("Gallery manifest unavailable:", err);
     SITE_GALLERY = {};
   }
 }
 
-async function switchGalleryMode(mode) {
-  const wasOpen = galleryState?.siteName || null;
-  if (galleryState) closeGallery();
-  setGalleryMode(mode);
-  await loadGalleryManifest();
-  renderCurrentTab();
-  renderPriorityBoard();
-  if (wasOpen && siteHasGallery(wasOpen)) openGallery(wasOpen);
-}
-
 function getGalleryEntry(siteName) {
   const key = normalizeName(siteName);
   if (SITE_GALLERY[key]) return SITE_GALLERY[key];
-  if (galleryMode === "live") {
-    const alias = LIVE_GALLERY_ALIASES[key];
-    if (alias && SITE_GALLERY[alias]) {
-      return { ...SITE_GALLERY[alias], name: siteName };
-    }
+  const alias = LIVE_GALLERY_ALIASES[key];
+  if (alias && SITE_GALLERY[alias]) {
+    return { ...SITE_GALLERY[alias], name: siteName };
   }
   return null;
 }
@@ -1188,7 +1129,7 @@ function siteHasGallery(siteName) {
   const g = getGalleryEntry(siteName);
   if (!g) return false;
   if (g.note) return true;
-  return (g.pages || []).some((p) => (p.images || []).length > 0 || !!p.html);
+  return (g.pages || []).some((p) => !!p.html);
 }
 
 function formatPageLabel(pageId) {
@@ -1200,46 +1141,22 @@ function formatPageLabel(pageId) {
 function buildGallerySlides(entry) {
   const slides = [];
   const pages = [];
-  const live = galleryMode === "live" || entry.mode === "live";
 
   for (const page of entry.pages || []) {
+    if (!page.html) continue;
     const pageLabel = page.title || formatPageLabel(page.id);
-    if (live && page.html) {
-      const startIndex = slides.length;
-      slides.push({
-        kind: "live",
-        html: page.html,
-        pageId: page.id,
-        pageLabel,
-        pageNote: page.note || null,
-      });
-      pages.push({
-        id: page.id,
-        label: pageLabel,
-        startIndex,
-        count: 1,
-        note: page.note || null,
-      });
-      continue;
-    }
-
-    const imgs = page.images || [];
-    if (!imgs.length) continue;
     const startIndex = slides.length;
-    for (const src of imgs) {
-      slides.push({
-        kind: "image",
-        src,
-        pageId: page.id,
-        pageLabel,
-        pageNote: page.note || null,
-      });
-    }
+    slides.push({
+      html: page.html,
+      pageId: page.id,
+      pageLabel,
+      pageNote: page.note || null,
+    });
     pages.push({
       id: page.id,
       label: pageLabel,
       startIndex,
-      count: imgs.length,
+      count: 1,
       note: page.note || null,
     });
   }
@@ -1264,14 +1181,12 @@ function openGallery(siteName) {
     pages: built.pages,
     index: 0,
     zoom: 1,
-    kind: galleryMode === "live" ? "live" : "image",
   };
 
   const root = document.getElementById("gallery-lightbox");
   root.hidden = false;
   document.body.classList.add("gallery-open");
-  document.getElementById("gallery-site-name").textContent =
-    galleryState.siteName + (galleryMode === "live" ? " · LIVE" : "");
+  document.getElementById("gallery-site-name").textContent = galleryState.siteName + " · LIVE";
 
   const closeBtn = root.querySelector(".gallery-close");
   closeBtn.setAttribute("aria-label", t("galleryClose"));
@@ -1291,15 +1206,7 @@ function closeGallery() {
   if (!root || root.hidden) return;
   root.hidden = true;
   document.body.classList.remove("gallery-open");
-  const img = document.getElementById("gallery-image");
   const frame = document.getElementById("gallery-frame");
-  img.removeAttribute("src");
-  img.alt = "";
-  img.style.width = "";
-  img.style.maxWidth = "";
-  img.style.height = "";
-  img.classList.remove("is-zoomed");
-  img.hidden = false;
   if (frame) {
     frame.removeAttribute("src");
     frame.hidden = true;
@@ -1348,8 +1255,7 @@ function renderGalleryPageTabs() {
   el.innerHTML = pages
     .map((p) => {
       const active = p.id === currentPageId ? "active" : "";
-      const count = p.count > 1 ? ` <span class="gallery-page-count">${p.count}</span>` : "";
-      return `<button type="button" class="gallery-page-tab ${active}" role="tab" aria-selected="${p.id === currentPageId}" data-gallery-page="${escapeHtml(p.id)}" title="${escapeHtml(p.label)}">${escapeHtml(p.label)}${count}</button>`;
+      return `<button type="button" class="gallery-page-tab ${active}" role="tab" aria-selected="${p.id === currentPageId}" data-gallery-page="${escapeHtml(p.id)}" title="${escapeHtml(p.label)}">${escapeHtml(p.label)}</button>`;
     })
     .join("");
 }
@@ -1357,7 +1263,6 @@ function renderGalleryPageTabs() {
 function renderGallerySlide() {
   if (!galleryState) return;
   const { slides, index, siteNote } = galleryState;
-  const img = document.getElementById("gallery-image");
   const frame = document.getElementById("gallery-frame");
   const empty = document.getElementById("gallery-empty");
   const pageLabel = document.getElementById("gallery-page-label");
@@ -1373,20 +1278,16 @@ function renderGallerySlide() {
       `<div class="gallery-note"><span class="gallery-note-label">${escapeHtml(t("gallerySiteNote"))}</span>${escapeHtml(siteNote)}</div>`
     );
   }
-  if (galleryMode === "live") {
-    noteBits.push(
-      `<div class="gallery-note"><span class="gallery-note-label">LIVE</span>${escapeHtml(t("galleryLiveHint"))}</div>`
-    );
-    noteBits.push(`<div class="gallery-legend">
+  noteBits.push(
+    `<div class="gallery-note"><span class="gallery-note-label">LIVE</span>${escapeHtml(t("galleryLiveHint"))}</div>`
+  );
+  noteBits.push(`<div class="gallery-legend">
       <span class="gal-leg gal-leg-p">${escapeHtml(t("galleryLegendPtag"))}</span>
       <span class="gal-leg gal-leg-cp">${escapeHtml(t("galleryLegendCptag"))}</span>
       <span class="gal-leg gal-leg-cf">${escapeHtml(t("galleryLegendCftag"))}</span>
     </div>`);
-  }
 
   if (!slides.length) {
-    img.hidden = true;
-    img.removeAttribute("src");
     if (frame) {
       frame.hidden = true;
       frame.removeAttribute("src");
@@ -1409,7 +1310,6 @@ function renderGallerySlide() {
   const slide = slides[index];
   const pageSlides = slides.filter((s) => s.pageId === slide.pageId);
   const pagePos = pageSlides.findIndex((s) => s === slide) + 1;
-  galleryState.kind = slide.kind || "image";
 
   empty.hidden = true;
   if (wrap) {
@@ -1417,25 +1317,9 @@ function renderGallerySlide() {
     wrap.scrollLeft = 0;
   }
 
-  if (slide.kind === "live") {
-    img.hidden = true;
-    img.removeAttribute("src");
-    if (frame) {
-      frame.hidden = false;
-      if (frame.getAttribute("src") !== slide.html) frame.src = slide.html;
-    }
-  } else {
-    if (frame) {
-      frame.hidden = true;
-      frame.removeAttribute("src");
-    }
-    img.hidden = false;
-    const srcChanged = img.getAttribute("src") !== slide.src;
-    if (srcChanged) {
-      galleryState.zoom = 1;
-      img.src = slide.src;
-    }
-    img.alt = `${galleryState.siteName} — ${slide.pageLabel}`;
+  if (frame) {
+    frame.hidden = false;
+    if (frame.getAttribute("src") !== slide.html) frame.src = slide.html;
   }
 
   pageLabel.hidden = false;
@@ -1448,15 +1332,7 @@ function renderGallerySlide() {
   nextBtn.hidden = slides.length < 2;
 
   if (galleryState.zoom == null) galleryState.zoom = 1;
-  const sizeImage = () => applyGalleryZoom();
-  if (slide.kind === "live") {
-    requestAnimationFrame(sizeImage);
-  } else if (img.complete && img.naturalWidth) {
-    sizeImage();
-  } else {
-    img.addEventListener("load", sizeImage, { once: true });
-  }
-  requestAnimationFrame(sizeImage);
+  requestAnimationFrame(() => applyGalleryZoom());
 
   if (slide.pageNote) {
     noteBits.push(
@@ -2484,19 +2360,12 @@ function init() {
   applyLanguage();
   showWelcomeIfNeeded();
 
-  setGalleryMode(resolveGalleryMode(), { skipSave: true });
   loadGalleryManifest().then(() => {
     renderCurrentTab();
   });
 
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
-  });
-
-  document.querySelectorAll("[data-gallery-mode]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      switchGalleryMode(btn.dataset.galleryMode);
-    });
   });
 
   document.getElementById("reset-btn").addEventListener("click", factoryReset);
@@ -2588,11 +2457,6 @@ function init() {
     },
     { passive: false }
   );
-
-  galleryRoot.querySelector("#gallery-image")?.addEventListener("dblclick", () => {
-    if (!galleryState || !galleryState.slides.length) return;
-    galleryZoomSet(galleryState.zoom > 1 ? 1 : 2);
-  });
 
   document.addEventListener("keydown", (e) => {
     if (!isWelcomeAccepted()) {

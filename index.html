@@ -19,10 +19,6 @@
         <h1>WTTG3 Assistant</h1>
       </div>
       <div class="header-meta">
-        <div class="gallery-mode-switch" role="group" aria-label="Gallery mode">
-          <button type="button" class="gallery-mode-btn active" data-gallery-mode="shots" data-i18n="galleryModeShots">Screenshots</button>
-          <button type="button" class="gallery-mode-btn" data-gallery-mode="live" data-i18n="galleryModeLive">Live HTML</button>
-        </div>
         <button type="button" id="reset-btn" class="btn btn-ghost reset-btn" data-i18n="resetBtn" title="Reset">Reset</button>
         <div class="lang-switch" role="group" aria-label="Language">
           <button type="button" class="lang-btn" data-lang="pl" title="Polski">PL</button>
@@ -183,7 +179,6 @@
       <div class="gallery-stage">
         <button type="button" class="gallery-nav gallery-prev" data-gallery-prev aria-label="Previous">‹</button>
         <div class="gallery-image-wrap">
-          <img id="gallery-image" class="gallery-image" alt="" />
           <iframe id="gallery-frame" class="gallery-frame" title="Live site preview" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" hidden></iframe>
           <p id="gallery-empty" class="gallery-empty" hidden></p>
         </div>

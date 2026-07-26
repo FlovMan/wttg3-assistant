@@ -168,41 +168,6 @@ body {
   background: var(--green);
 }
 
-.gallery-mode-switch {
-  display: inline-flex;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.gallery-mode-btn {
-  font-family: inherit;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 4px 8px;
-  border: none;
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
-
-.gallery-mode-btn + .gallery-mode-btn {
-  border-left: 1px solid var(--border);
-}
-
-.gallery-mode-btn:hover {
-  color: var(--text);
-  background: rgba(61, 224, 255, 0.08);
-}
-
-.gallery-mode-btn.active {
-  color: var(--bg-deep);
-  background: var(--cyan);
-}
-
 .reset-btn {
   padding: 4px 10px;
   font-size: 0.68rem;
@@ -1898,9 +1863,9 @@ body.gallery-open {
   inset: 0;
   z-index: 10000;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  padding: 24px;
+  padding: 10px;
 }
 
 .gallery-lightbox[hidden] {
@@ -1918,30 +1883,17 @@ body.gallery-open {
 .gallery-dialog {
   position: relative;
   z-index: 1;
-  width: min(980px, 100%);
-  max-height: min(94vh, 960px);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 18px 18px 14px;
-  background: linear-gradient(180deg, rgba(12, 28, 20, 0.98), rgba(8, 18, 14, 0.98));
-  border: 1px solid var(--border);
-  box-shadow: 0 0 0 1px rgba(51, 255, 153, 0.08), 0 24px 80px rgba(0, 0, 0, 0.55);
-}
-
-/* Live HTML needs a near-fullscreen stage; screenshots keep the compact modal. */
-body.gallery-mode-live .gallery-lightbox {
-  align-items: stretch;
-  padding: 10px;
-}
-
-body.gallery-mode-live .gallery-dialog {
   width: min(1680px, 98vw);
   height: 96vh;
   max-height: 96vh;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   padding: 14px 16px 12px;
   overflow: hidden;
+  background: linear-gradient(180deg, rgba(12, 28, 20, 0.98), rgba(8, 18, 14, 0.98));
+  border: 1px solid var(--border);
+  box-shadow: 0 0 0 1px rgba(51, 255, 153, 0.08), 0 24px 80px rgba(0, 0, 0, 0.55);
 }
 
 .gallery-close {
@@ -2028,7 +1980,7 @@ body.gallery-mode-live .gallery-dialog {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  max-height: 14vh;
+  max-height: 10vh;
   overflow-y: auto;
   flex-shrink: 0;
 }
@@ -2084,15 +2036,17 @@ body.gallery-mode-live .gallery-dialog {
   gap: 8px;
   align-items: stretch;
   min-height: 0;
-  flex: 1;
+  flex: 1 1 auto;
+  height: 0;
 }
 
 .gallery-image-wrap {
   flex: 1 1 auto;
   min-width: 0;
+  min-height: 0;
   width: 100%;
-  height: min(64vh, 680px);
-  max-height: min(64vh, 680px);
+  height: auto;
+  max-height: none;
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(26, 58, 42, 0.8);
   overflow: auto;
@@ -2100,40 +2054,13 @@ body.gallery-mode-live .gallery-dialog {
   scrollbar-color: var(--green-dim) transparent;
 }
 
-body.gallery-mode-live .gallery-stage {
-  flex: 1 1 auto;
-  height: 0; /* fill remaining dialog height */
-}
-
-body.gallery-mode-live .gallery-image-wrap {
-  min-height: 0;
-  height: auto;
-  max-height: none;
-}
-
-body.gallery-mode-live .gallery-notes {
-  max-height: 10vh;
-}
-
-.gallery-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: none;
-  vertical-align: top;
-}
-
 .gallery-frame {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: min(64vh, 680px);
+  min-height: 100%;
   border: 0;
   background: #fff;
-}
-
-body.gallery-mode-live .gallery-frame {
-  min-height: 100%;
 }
 
 .gallery-frame[hidden] {
@@ -2223,18 +2150,10 @@ body.gallery-mode-live .gallery-frame {
 
 @media (max-width: 640px) {
   .gallery-lightbox {
-    padding: 10px;
-  }
-
-  .gallery-dialog {
-    padding: 14px 12px 10px;
-  }
-
-  body.gallery-mode-live .gallery-lightbox {
     padding: 4px;
   }
 
-  body.gallery-mode-live .gallery-dialog {
+  .gallery-dialog {
     width: 100%;
     height: 100vh;
     max-height: 100vh;
@@ -2249,14 +2168,6 @@ body.gallery-mode-live .gallery-frame {
     width: 32px;
     height: 32px;
     font-size: 1.3rem;
-  }
-
-  .gallery-image-wrap {
-    max-height: min(52vh, 460px);
-  }
-
-  body.gallery-mode-live .gallery-image-wrap {
-    max-height: none;
   }
 
   .gallery-pages {

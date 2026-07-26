@@ -143,10 +143,12 @@ async function main() {
   }
   console.log(`Found ${assetPaths.size} unique assets (CDN hotlink, not downloaded)`);
 
-  // Load old screenshot notes if present
+  // Preserve existing page notes from the live manifest when re-importing
   let oldManifest = {};
   try {
-    oldManifest = JSON.parse(fs.readFileSync(path.join(ROOT, "assets", "sites", "manifest.json"), "utf8"));
+    oldManifest = JSON.parse(
+      fs.readFileSync(path.join(ROOT, "assets", "sites-live", "manifest.json"), "utf8")
+    );
   } catch {
     /* optional */
   }

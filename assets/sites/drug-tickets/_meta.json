@@ -1,9 +1,0 @@
-{
-  "name": "Drug Tickets",
-  "slug": "drug-tickets",
-  "pages": [
-    "index",
-    "checkout",
-    "error"
-  ]
-}
