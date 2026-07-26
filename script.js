@@ -12,20 +12,20 @@ const WEBSITES = [
   { name: "Blushing Brides", status: "always", deepWiki: 1, window: null },
   { name: "Cavity Lease", status: "always", deepWiki: 1, time: null },
   { name: "Crisis Calls", status: "always", deepWiki: 1, time: null },
-  { name: "Doctor Murder", status: "always", deepWiki: 1, time: null },
-  { name: "Dont Waste It", status: "always", deepWiki: 1, time: null },
+  { name: "Doctor Murder", status: "always", deepWiki: 1, time: null, hack: { chance: 40, cooldown: 180 } },
+  { name: "Dont Waste It", status: "always", deepWiki: 1, time: null, hack: { chance: 40, cooldown: 180 } },
   { name: "Doughy", status: "always", deepWiki: 1, time: null },
   { name: "Encrave", status: "always", deepWiki: 1, time: null },
   { name: "Forever Friend", status: "always", deepWiki: 1, time: null },
   { name: "Jakobs Sink", status: "always", deepWiki: 1, time: null },
-  { name: "LostTapes", status: "always", deepWiki: 1, time: null },
+  { name: "LostTapes", status: "always", deepWiki: 1, time: null, hack: { chance: 40, cooldown: 180 } },
   { name: "Oneless", status: "always", deepWiki: 1, time: null },
   { name: "Prohibited Stockpile", status: "always", deepWiki: 1, time: null },
   { name: "Red Triangle", status: "always", deepWiki: 1, time: null },
   { name: "Ring Ring", status: "always", deepWiki: 1, time: null },
   { name: "Symphoros Chosen", status: "always", deepWiki: 1, time: null },
   { name: "Synapse Decay", status: "always", deepWiki: 1, time: null },
-  { name: "Tango Down", status: "always", deepWiki: 1, time: null },
+  { name: "Tango Down", status: "always", deepWiki: 1, time: null, hack: { chance: 87, cooldown: 255 } },
   { name: "Thanks For Visiting!", status: "always", deepWiki: 1, time: null },
   { name: "The Bomb Maker", status: "careful", deepWiki: 1, time: null },
   { name: "The Hole", status: "always", deepWiki: 1, time: null },
@@ -40,11 +40,11 @@ const WEBSITES = [
   { name: "FindLove", status: "timed", deepWiki: 2, time: { start: 0, end: 14 } },
   { name: "Forsaken Gifts", status: "timed", deepWiki: 2, time: { start: 0, end: 14 } },
   { name: "Mors N More Market", status: "timed", deepWiki: 2, time: { start: 0, end: 14 } },
-  { name: "Order Of Nine", status: "timed", deepWiki: 2, time: { start: 0, end: 14 } },
-  { name: "The Prey", status: "timed", deepWiki: 2, time: { start: 0, end: 14 } },
+  { name: "Order Of Nine", status: "timed", deepWiki: 2, time: { start: 0, end: 14 }, hack: { chance: 87, cooldown: 255 } },
+  { name: "The Prey", status: "timed", deepWiki: 2, time: { start: 0, end: 14 }, hack: { chance: 40, cooldown: 180 } },
 
   // —— Time-limited :00–:29 (Deep Wiki 2) ——
-  { name: "Blackhat Post", status: "timed", deepWiki: 2, time: { start: 0, end: 29 } },
+  { name: "Blackhat Post", status: "timed", deepWiki: 2, time: { start: 0, end: 29 }, hack: { chance: 87, cooldown: 255 } },
   { name: "Drug Tickets", status: "timed", deepWiki: 2, time: { start: 0, end: 29 } },
   { name: "Kill For Me", status: "timed", deepWiki: 2, time: { start: 0, end: 29 } },
   { name: "MamaBruguglio", status: "timed", deepWiki: 2, time: { start: 0, end: 29 } },
@@ -62,12 +62,12 @@ const WEBSITES = [
   { name: "I Am Here", status: "timed", deepWiki: 3, time: { start: 30, end: 44 } },
   { name: "Keep Sake", status: "timed", deepWiki: 3, time: { start: 30, end: 44 } },
   { name: "Shelter", status: "timed", deepWiki: 3, time: { start: 30, end: 44 } },
-  { name: "You There?", status: "timed", deepWiki: 3, time: { start: 30, end: 44 } },
+  { name: "You There?", status: "timed", deepWiki: 3, time: { start: 30, end: 44 }, hack: { chance: 87, cooldown: 255 } },
 
   // —— Time-limited :30–:59 (Deep Wiki 3) ——
   { name: "Chevron", status: "timed", deepWiki: 3, time: { start: 30, end: 59 } },
   { name: "finalStanding", status: "timed", deepWiki: 3, time: { start: 30, end: 59 } },
-  { name: "Lab Monkey", status: "timed", deepWiki: 3, time: { start: 30, end: 59 } },
+  { name: "Lab Monkey", status: "timed", deepWiki: 3, time: { start: 30, end: 59 }, hack: { chance: 87, cooldown: 255 } },
   { name: "The Grey", status: "timed", deepWiki: 3, time: { start: 30, end: 59 } },
 
   // —— Time-limited :45–:59 (Deep Wiki 3) ——
@@ -384,6 +384,7 @@ const I18N = {
     colSite: "Strona",
     colTime: "Okno czasowe",
     colStatus: "Status",
+    hackChanceTitle: "Hack {chance}% · CD {cd}",
     colProgress: "Postęp",
     flagVisited: "Odwiedzono",
     flagKey: "Znaleziono klucz",
@@ -460,6 +461,7 @@ const I18N = {
       ["Format wklejania:", "linie „Nazwa - opis” — liczy się tekst przed myślnikiem. Kolejność na liście = kolejność wklejenia."],
       ["Postęp:", "Odw. / Klucz / KF / Plik. Do zrobienia = mocniej podświetlone. Odwiedzona = przygaszona (także na tablicy priorytetów). Klucz = prawie wygaszona."],
       ["Priorytety:", "tablica Max / Medium / Low pod listą. Strony z bieżącej zakładki świecą się na zielono, dopóki nie oznaczysz Odw./Klucz. Klik w nazwę = galeria."],
+      ["Hack:", "przy nazwie strony z hackiem widać szansę (np. 87%). Hover = cooldown. Brak badge = strona bez hacka."],
       ["Strony HTML:", "klik w nazwę strony — podgląd Live HTML z dumpu gry. Zoom: +/− / Ctrl+scroll / 0. Esc zamyka."],
       ["Okna czasowe:", "strony timed: minuty każdej godziny gry (np. :00–:14). Martwe = zawsze offline."],
       ["Koparki:", "VM Grid Tier I–III: DOS/min + Access window (jak długo masz dostęp po udanym hacku). Fail/Reset CD w podpowiedzi (hover). Wybieraj najwyższe DOS w odblokowanym tierze."],
@@ -626,6 +628,7 @@ const I18N = {
     colSite: "Site",
     colTime: "Time window",
     colStatus: "Status",
+    hackChanceTitle: "Hack {chance}% · CD {cd}",
     colProgress: "Progress",
     flagVisited: "Visited",
     flagKey: "Key found",
@@ -702,6 +705,7 @@ const I18N = {
       ["Paste format:", "lines like “Name - description” — only text before the dash counts. List order = paste order."],
       ["Progress:", "Vis. / Key / KF / File. To-do rows are highlighted. Visited dims the row and the priority chip. Key found nearly extinguishes it."],
       ["Priorities:", "Max / Medium / Low board under the list. Sites on the current tab glow green until marked Visited/Key. Click a name for the gallery."],
+      ["Hack:", "hackable sites show a chance badge next to the name (e.g. 87%). Hover for cooldown. No badge = not hackable."],
       ["HTML pages:", "click a site name for a Live HTML preview from the game dump. Zoom: +/− / Ctrl+scroll / 0. Esc closes."],
       ["Time windows:", "timed sites use in-game hour minutes (e.g. :00–:14). Dead sites stay offline."],
       ["Miners:", "VM Grid Tier I–III: DOS/min + Access window (how long you keep access after a successful hack). Fail/Reset CD in the hover tooltip. Pick the highest DOS in your unlocked tier."],
@@ -870,6 +874,24 @@ function formatTimeWindow(site) {
   if (!site.time) return t("timeAlways");
   const pad = (n) => String(n).padStart(2, "0");
   return t("timeHourly", { start: pad(site.time.start), end: pad(site.time.end) });
+}
+
+function formatHackCooldown(seconds) {
+  const s = Math.max(0, Math.round(Number(seconds) || 0));
+  const m = Math.floor(s / 60);
+  const r = s % 60;
+  return `${m}:${String(r).padStart(2, "0")}`;
+}
+
+function renderHackBadge(site) {
+  const hack = site?.hack;
+  if (!hack || hack.chance == null) return "";
+  const tier = hack.chance >= 70 ? "high" : "low";
+  const title = t("hackChanceTitle", {
+    chance: hack.chance,
+    cd: formatHackCooldown(hack.cooldown),
+  });
+  return `<span class="site-hack site-hack-${tier}" title="${escapeHtml(title)}">${escapeHtml(String(hack.chance))}%</span>`;
 }
 
 function loadFlags() {
@@ -1457,9 +1479,11 @@ function renderSiteRows(sites, flags) {
         renderCheckCell(site.name, flags, d)
       ).join("");
       const hasGal = siteHasGallery(site.name);
-      const nameCell = hasGal
-        ? `<td class="site-name has-gallery"><button type="button" class="site-gallery-btn" data-gallery-site="${escapeHtml(site.name)}" title="${escapeHtml(t("galleryOpenHint"))}"><span class="site-gallery-icon" aria-hidden="true"></span><span class="site-gallery-label">${escapeHtml(site.name)}</span></button></td>`
-        : `<td class="site-name">${escapeHtml(site.name)}</td>`;
+      const hackBadge = renderHackBadge(site);
+      const nameInner = hasGal
+        ? `<button type="button" class="site-gallery-btn" data-gallery-site="${escapeHtml(site.name)}" title="${escapeHtml(t("galleryOpenHint"))}"><span class="site-gallery-icon" aria-hidden="true"></span><span class="site-gallery-label">${escapeHtml(site.name)}</span></button>${hackBadge}`
+        : `<span class="site-gallery-label">${escapeHtml(site.name)}</span>${hackBadge}`;
+      const nameCell = `<td class="site-name${hasGal ? " has-gallery" : ""}"><div class="site-name-row">${nameInner}</div></td>`;
 
       return `<tr class="${progressCls} ${priorityCls}">
         ${nameCell}

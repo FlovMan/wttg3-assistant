@@ -593,8 +593,22 @@ body.is-resizing textarea {
 .site-table .site-name {
   width: 30%;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.site-name-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.site-name-row .site-gallery-btn,
+.site-name-row > .site-gallery-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .site-table .site-time {
@@ -673,6 +687,32 @@ body.is-resizing textarea {
   color: var(--cyan);
 }
 
+.site-hack {
+  flex: 0 0 auto;
+  font-family: "Share Tech Mono", "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  padding: 2px 5px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  opacity: 0.9;
+  cursor: help;
+}
+
+.site-hack-high {
+  color: var(--green);
+  border-color: rgba(51, 255, 153, 0.28);
+  background: rgba(51, 255, 153, 0.08);
+}
+
+.site-hack-low {
+  color: var(--amber);
+  border-color: rgba(232, 197, 71, 0.3);
+  background: rgba(232, 197, 71, 0.08);
+}
+
 .site-time {
   color: var(--cyan);
   white-space: nowrap;
@@ -717,6 +757,11 @@ body.is-resizing textarea {
 .site-table tr.row-keyed td.site-status {
   opacity: 0.48;
   filter: saturate(0.6);
+}
+
+.site-table tr.row-visited td.site-name .site-hack,
+.site-table tr.row-keyed td.site-name .site-hack {
+  opacity: 0.85;
 }
 
 .site-table tr.row-visited td.check-cell,
