@@ -395,7 +395,10 @@ const I18N = {
     flagShortKeyFinder: "KF",
     flagShortFile: "Plik",
     activeNow: "Aktywna teraz",
-    simpleSiteHint: "Prosta strona — tylko 1 podstrona",
+    simpleSiteHint: "Prosta strona — {n} podstrona",
+    mediumSiteHint: "Średnia — {n} podstrony",
+    hardSiteHint: "Trudna — {n} podstron",
+    nightmareSiteHint: "Koszmar — {n} podstron (Thanks For Visiting!)",
     timeAlways: "Zawsze (24/7)",
     timeDead: "Martwa / zawsze zamknięta",
     timeFbi: "Zajęta przez FBI",
@@ -462,8 +465,8 @@ const I18N = {
       ["Format wklejania:", "linie „Nazwa - opis” — liczy się tekst przed myślnikiem. Kolejność na liście = kolejność wklejenia."],
       ["Postęp:", "Odw. / Klucz / KF / Plik. Do zrobienia = mocniej podświetlone. Odwiedzona = przygaszona (także na tablicy priorytetów). Klucz = prawie wygaszona."],
       ["Priorytety:", "tablica Max / Medium / Low pod listą. Strony z bieżącej zakładki świecą się na zielono, dopóki nie oznaczysz Odw./Klucz. Klik w nazwę = galeria."],
+      ["Złożoność stron:", "● przy nazwie = ile podstron: zielona 1, żółta 2–3, czerwona 4+, magenta = Thanks For Visiting (koszmar)."],
       ["Hack:", "przy nazwie strony z hackiem widać szansę (np. 87%). Hover = cooldown. Brak badge = strona bez hacka."],
-      ["Proste strony:", "zielona kropka ● przy nazwie = tylko 1 podstrona (szybkie do sprawdzenia)."],
       ["Strony HTML:", "klik w nazwę strony — podgląd Live HTML z dumpu gry. Zoom: +/− / Ctrl+scroll / 0. Esc zamyka."],
       ["Okna czasowe:", "strony timed: minuty każdej godziny gry (np. :00–:14). Martwe = zawsze offline."],
       ["Koparki:", "VM Grid Tier I–III: DOS/min + Access window (jak długo masz dostęp po udanym hacku). Fail/Reset CD w podpowiedzi (hover). Wybieraj najwyższe DOS w odblokowanym tierze."],
@@ -641,7 +644,10 @@ const I18N = {
     flagShortKeyFinder: "KF",
     flagShortFile: "File",
     activeNow: "Active now",
-    simpleSiteHint: "Simple site — only 1 page",
+    simpleSiteHint: "Simple site — {n} page",
+    mediumSiteHint: "Medium — {n} pages",
+    hardSiteHint: "Hard — {n} pages",
+    nightmareSiteHint: "Nightmare — {n} pages (Thanks For Visiting!)",
     timeAlways: "Always (24/7)",
     timeDead: "Dead / permanently offline",
     timeFbi: "FBI seized",
@@ -708,8 +714,8 @@ const I18N = {
       ["Paste format:", "lines like “Name - description” — only text before the dash counts. List order = paste order."],
       ["Progress:", "Vis. / Key / KF / File. To-do rows are highlighted. Visited dims the row and the priority chip. Key found nearly extinguishes it."],
       ["Priorities:", "Max / Medium / Low board under the list. Sites on the current tab glow green until marked Visited/Key. Click a name for the gallery."],
+      ["Site complexity:", "● next to the name = page count: green 1, amber 2–3, red 4+, magenta = Thanks For Visiting (nightmare)."],
       ["Hack:", "hackable sites show a chance badge next to the name (e.g. 87%). Hover for cooldown. No badge = not hackable."],
-      ["Simple sites:", "green ● next to the name = only 1 page (quick to check)."],
       ["HTML pages:", "click a site name for a Live HTML preview from the game dump. Zoom: +/− / Ctrl+scroll / 0. Esc closes."],
       ["Time windows:", "timed sites use in-game hour minutes (e.g. :00–:14). Dead sites stay offline."],
       ["Miners:", "VM Grid Tier I–III: DOS/min + Access window (how long you keep access after a successful hack). Fail/Reset CD in the hover tooltip. Pick the highest DOS in your unlocked tier."],
@@ -1158,18 +1164,30 @@ function siteHasGallery(siteName) {
   return (g.pages || []).some((p) => !!p.html);
 }
 
-/** Single-page Live HTML sites — quick to check. */
-function siteIsSimpleCheck(siteName) {
+function getSitePageCount(siteName) {
   const g = getGalleryEntry(siteName);
-  if (!g) return false;
-  const pages = (g.pages || []).filter((p) => !!p.html);
-  return pages.length === 1;
+  if (!g) return 0;
+  return (g.pages || []).filter((p) => !!p.html).length;
 }
 
-function renderSimpleSiteDot(siteName) {
-  if (!siteIsSimpleCheck(siteName)) return "";
-  const hint = t("simpleSiteHint");
-  return `<span class="site-simple-dot" title="${escapeHtml(hint)}" aria-label="${escapeHtml(hint)}">●</span>`;
+/**
+ * Complexity by Live HTML page count:
+ * easy 1 · medium 2–3 · hard 4–6 · nightmare (TFV / 7+)
+ */
+function getSiteComplexity(siteName) {
+  const n = getSitePageCount(siteName);
+  if (n <= 0) return null;
+  if (n === 1) return { tier: "easy", pages: n, hintKey: "simpleSiteHint" };
+  if (n <= 3) return { tier: "medium", pages: n, hintKey: "mediumSiteHint" };
+  if (n <= 6) return { tier: "hard", pages: n, hintKey: "hardSiteHint" };
+  return { tier: "nightmare", pages: n, hintKey: "nightmareSiteHint" };
+}
+
+function renderComplexityDot(siteName) {
+  const c = getSiteComplexity(siteName);
+  if (!c) return "";
+  const hint = t(c.hintKey, { n: c.pages });
+  return `<span class="site-complexity-dot site-complexity-${c.tier}" title="${escapeHtml(hint)}" aria-label="${escapeHtml(hint)}">●</span>`;
 }
 
 function formatPageLabel(pageId) {
@@ -1498,10 +1516,10 @@ function renderSiteRows(sites, flags) {
       ).join("");
       const hasGal = siteHasGallery(site.name);
       const hackBadge = renderHackBadge(site);
-      const simpleDot = renderSimpleSiteDot(site.name);
+      const complexityDot = renderComplexityDot(site.name);
       const nameInner = hasGal
-        ? `<button type="button" class="site-gallery-btn" data-gallery-site="${escapeHtml(site.name)}" title="${escapeHtml(t("galleryOpenHint"))}"><span class="site-gallery-icon" aria-hidden="true"></span><span class="site-gallery-label">${escapeHtml(site.name)}</span></button>${simpleDot}${hackBadge}`
-        : `<span class="site-gallery-label">${escapeHtml(site.name)}</span>${simpleDot}${hackBadge}`;
+        ? `<button type="button" class="site-gallery-btn" data-gallery-site="${escapeHtml(site.name)}" title="${escapeHtml(t("galleryOpenHint"))}"><span class="site-gallery-icon" aria-hidden="true"></span><span class="site-gallery-label">${escapeHtml(site.name)}</span></button>${complexityDot}${hackBadge}`
+        : `<span class="site-gallery-label">${escapeHtml(site.name)}</span>${complexityDot}${hackBadge}`;
       const nameCell = `<td class="site-name${hasGal ? " has-gallery" : ""}"><div class="site-name-row">${nameInner}</div></td>`;
 
       return `<tr class="${progressCls} ${priorityCls}">

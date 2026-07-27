@@ -701,13 +701,31 @@ body.is-resizing textarea {
   cursor: help;
 }
 
-.site-simple-dot {
+.site-complexity-dot {
   flex: 0 0 auto;
-  color: var(--green);
   font-size: 0.72rem;
   line-height: 1;
-  text-shadow: var(--glow-green);
   cursor: help;
+}
+
+.site-complexity-easy {
+  color: var(--green);
+  text-shadow: var(--glow-green);
+}
+
+.site-complexity-medium {
+  color: var(--amber);
+  text-shadow: 0 0 10px rgba(232, 197, 71, 0.35);
+}
+
+.site-complexity-hard {
+  color: var(--red);
+  text-shadow: 0 0 10px rgba(255, 77, 106, 0.4);
+}
+
+.site-complexity-nightmare {
+  color: var(--magenta);
+  text-shadow: 0 0 12px rgba(196, 77, 255, 0.55);
 }
 
 .site-hack-high {
