@@ -93,6 +93,7 @@
           <button type="button" class="info-tab active" data-info="help" aria-selected="true" data-i18n="tabHelp">How to use</button>
           <button type="button" class="info-tab" data-info="faq" aria-selected="false" data-i18n="tabFaq">FAQ</button>
           <button type="button" class="info-tab" data-info="sensors" aria-selected="false" data-i18n="tabSensors">Sensors</button>
+          <button type="button" class="info-tab" data-info="cameras" aria-selected="false" data-i18n="tabCameras">Cameras</button>
           <button type="button" class="info-tab" data-info="threats" aria-selected="false" data-i18n="tabThreats">Threats</button>
           <button type="button" class="info-tab" data-info="decryptors" aria-selected="false" data-i18n="tabDecryptors">Decryptors</button>
           <button type="button" class="info-tab" data-info="credits" aria-selected="false" data-i18n="tabCredits">Credits</button>
@@ -106,6 +107,9 @@
         </div>
         <div id="info-sensors" class="info-pane">
           <div id="sensors-list" class="sensors-list"></div>
+        </div>
+        <div id="info-cameras" class="info-pane">
+          <div id="cameras-list" class="sensors-list"></div>
         </div>
         <div id="info-threats" class="info-pane">
           <p class="threats-intro" data-i18n="threatsIntro"></p>
@@ -164,6 +168,14 @@
         </label>
         <button type="button" id="welcome-accept" class="btn btn-ghost welcome-accept" data-i18n="welcomeAccept">&gt;&gt; I understand</button>
       </div>
+    </div>
+  </div>
+
+  <div id="sensor-lightbox" class="sensor-lightbox" hidden>
+    <div class="sensor-lightbox-backdrop" data-sensor-lightbox-close tabindex="-1"></div>
+    <div class="sensor-lightbox-dialog" role="dialog" aria-modal="true">
+      <button type="button" class="sensor-lightbox-close" data-sensor-lightbox-close aria-label="Close">&times;</button>
+      <img id="sensor-lightbox-img" class="sensor-lightbox-img" alt="" />
     </div>
   </div>
 

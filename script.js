@@ -314,6 +314,7 @@ const I18N = {
     tabHelp: "Jak używać",
     tabFaq: "FAQ",
     tabSensors: "Sensory",
+    tabCameras: "Kamery",
     tabThreats: "Zagrożenia",
     tabDecryptors: "Dekryptorzy",
     tabCredits: "Credits",
@@ -346,13 +347,15 @@ const I18N = {
       "Asystent pokazuje treści wyjęte z Welcome to the Game III. Mogą być niepokojące. Korzystasz na własną odpowiedzialność.",
     creditsUnofficial:
       "Fanowski, nieoficjalny projekt. Welcome to the Game III i powiązane znaki należą do ich właścicieli. Anonimowa statystyka odwiedzin (GoatCounter, darmowa, bez cookies) — szczegóły w ANALYTICS.md w repozytorium.",
-    sensorsIntro: "Setup 3 motion sensorów przy motelu — kolejność i kierunek mają znaczenie.",
+    sensorsIntro:
+      "Setup 3 motion sensorów przy motelu (2× Tanner + 1× Lucas). Jeśli otworzysz Electrical Room, na Lucasa potrzebujesz drugiego sensora.",
     sensorsDistinguishTitle: "Jak odróżnić Tannera od Lucasa",
     sensorsDistinguishBody: [
-      "To setup na 3 motion sensory.",
+      "Bazowy setup to 3 motion sensory (albo 4, jeśli Electrical Room jest otwarte).",
       "Żeby wiedzieć, kto nadchodzi, słuchaj długości bipania sensorów.",
       "Tanner: bipanie ok. 2 sekundy — wciśnij panic button i zabezpiecz drzwi.",
       "Lucas: ciągłe bipanie 5+ sekund (dla pewności możesz sprawdzić wejście główne).",
+      "Przy 4 sensorach nadal rozróżniasz Lucasa od Tannera po długości bipania — tak samo jak przy 3.",
     ],
     sensor1Title: "Sensor 1 — prawy słupek motelu",
     sensor1Body: [
@@ -374,7 +377,49 @@ const I18N = {
       "Daje alert, gdy Lucas próbuje otworzyć zamek (lockpicking) tylnych drzwi.",
       "Bipanie trwa dłużej niż przy Tannerze — zwykle 6+ sekund, więc łatwo je odróżnić.",
       "Masz wtedy sporo czasu, żeby zgasić światła i się schować.",
+      "Jeden sensor na Lucasa wystarczy, o ile NIE otworzysz przejścia do Electrical Room.",
     ],
+    sensorElectricalTitle: "Electrical Room — wariant na 2 sensory (Lucas)",
+    sensorElectricalBody: [
+      "Zdjęcie pokazuje, jak wygląda klucz do Electrical Room — może się zespawnować w różnych miejscach (nie zawsze na półce).",
+      "Ten klucz otwiera drzwi Electrical Room.",
+      "Po otwarciu tych drzwi Lucas może wejść także od strony pokoju elektrycznego.",
+      "Wtedy jeden sensor na tylnych drzwiach już nie wystarczy — ustaw drugi przy wejściu od Electrical Room.",
+      "Finalnie: 2 sensory na Tannera (słupki) + 2 sensory na Lucasa (tylne drzwi + Electrical Room).",
+      "Lucas vs Tanner nadal rozróżniasz po długości bipania — tak samo jak przy setupie na 3 sensory.",
+    ],
+    sensorElectricalKeyCaption: "Klucz do Electrical Room (wygląd)",
+    sensorElectricalDoorCaption: "Drzwi Electrical Room",
+    sensorLucasBackCaption: "Sensor na tylnych drzwiach (Lucas)",
+    sensorLucasElecCaption: "Drugi sensor — wejście od Electrical Room",
+    sensorZoomHint: "Kliknij, aby powiększyć",
+    sensorZoomClose: "Zamknij",
+    camerasIntro:
+      "Żeby zawsze mieć szansę zauważyć kidnapera, ustaw dwie kamery na drewnianych słupach przy drodze. Muszą patrzeć na siebie: pierwsza na drugi słup, druga z powrotem na pierwszą (w stronę strefy zrzutu). Żadna nie może patrzeć w motel.",
+    camerasVanTitle: "Uwaga — van na parkingu motelu",
+    camerasVanBody: [
+      "Van kidnapera może pojawić się na parkingu motelu — wtedy nie zawsze widać go na kamerach.",
+      "Pusty feed nie oznacza, że go nie ma.",
+      "Gdy kamery milczą, zerknij przez drzwi rozsuwane i sprawdź parking motelu.",
+    ],
+    camera1Title: "Kamera 1 — pierwszy drewniany słup",
+    camera1Body: [
+      "Zamocuj pierwszą kamerę na drewnianym słupie przy drodze.",
+      "Ustaw ją tak, by patrzyła w kierunku drugiego drewnianego słupa.",
+      "Nie w stronę motelu.",
+      "Nie w stronę strefy zrzutu paczek.",
+    ],
+    camera2Title: "Kamera 2 — naprzeciw pierwszej",
+    camera2Body: [
+      "Drugą kamerę zamocuj naprzeciw pierwszej (na drugim słupie).",
+      "Ma patrzeć na pierwszą kamerę — w stronę strefy zrzutu paczek.",
+      "Nie w stronę motelu.",
+      "Razem obie kamery pokrywają podejście kidnapera z drogi.",
+    ],
+    camera1Caption: "Kamera 1 — montaż",
+    camera1AltCaption: "Kamera 1 — motel zostaje za Tobą",
+    camera2Caption: "Kamera 2 — naprzeciw",
+    camera2AltCaption: "Kamera 2 — w stronę zrzutu",
     sitePlaceholder:
       "{name} — wklej listę ze gry, np.\nChevron - Leaked military mission logs.\nFindLove - You don't have to be alone.",
     notebookPlaceholder:
@@ -472,7 +517,7 @@ const I18N = {
       ["Koparki:", "VM Grid Tier I–III: DOS/min + Access window (jak długo masz dostęp po udanym hacku). Fail/Reset CD w podpowiedzi (hover). Wybieraj najwyższe DOS w odblokowanym tierze."],
       ["Notatnik — klucze:", "format „N - kod”. Długi kod = zaszyfrowany. Krótki = zdekryptowany (idzie do montażu)."],
       ["Montaż 1–8:", "zdekryptowane kody w slotach #1–#8 według numeru. Cel: zebrać wszystkie 8, potem „Kopiuj finalny klucz”."],
-      ["Sensory / zagrożenia:", "zakładki z setupem 3 sensorów oraz tabelą cue/obrona. Bomb Maker jest pod spoilerem."],
+      ["Sensory / kamery / zagrożenia:", "zakładki z setupem sensorów (3 bazowo, 4 gdy Electrical Room otwarte), kamer na kidnapera oraz tabelą cue/obrona. Bomb Maker jest pod spoilerem."],
       ["Dekryptorzy:", "zakładka Info — kto dekryptuje sloty 1–2 / 3–4 / 5–6 / 7–8 i jaki required rep."],
       ["Credits:", "zakładka z zastrzeżeniami i linkami do poradników Steam. Ekran powitalny pokazuje się przy każdym wejściu — zaznacz „Zapamiętaj mnie”, żeby go pominąć."],
       ["Język i zapis:", "domyślnie EN; PL/EN w prawym górnym rogu (także na ekranie powitalnym). Notatki, postęp i listy zapisują się lokalnie. Reset czyści postęp."],
@@ -498,6 +543,42 @@ const I18N = {
       {
         q: "Czy mogę „pauzować” przy komputerze?",
         a: "Nie. Zagrożenia działają także podczas przeglądania — uważaj na otoczenie.",
+      },
+      {
+        q: "Czy wychodzić z pokoju bez sprawdzenia wizjera?",
+        a: "Nie. Tanner potrafi czekać za drzwiami — zawsze zerknij przez wizjer.",
+      },
+      {
+        q: "Co robić przy bipaniu motion sensorów?",
+        a: "Krótkie bipanie (~2 s) = Tanner — panic button i drzwi. Długie (5+ s) = Lucas — zgaś światła i schowaj się.",
+      },
+      {
+        q: "Czy jedna kamera wystarczy na kidnapera?",
+        a: "Nie. Ustaw dwie naprzeciw siebie. Van może też pojawić się na parkingu motelu — wtedy zerknij przez drzwi rozsuwane.",
+      },
+      {
+        q: "Co robić przy muzyce / banjo (Tucker)?",
+        a: "Biegnij do pokoju z asem pik (Ace of Spades) przy klamce.",
+      },
+      {
+        q: "Czy wstawać od komputera, gdy pojawia się Noir?",
+        a: "Nie. Spójrz w bok i zostań na krześle — wstanie = INSTAKILL.",
+      },
+      {
+        q: "Czy warto wcześnie otwierać Electrical Room?",
+        a: "Tylko świadomie. Po otwarciu Lucas może wchodzić także stamtąd — potrzebujesz wtedy drugiego sensora.",
+      },
+      {
+        q: "Jak odróżnić zaszyfrowany kod od zdekryptowanego?",
+        a: "Długi kod = zaszyfrowany. Krótki = zdekryptowany i idzie do montażu slotów 1–8.",
+      },
+      {
+        q: "Czy kolejność slotów klucza 1–8 ma znaczenie?",
+        a: "Tak. Wkładaj zdekryptowane kody według numeru slotu (#1–#8).",
+      },
+      {
+        q: "Co z Thanks For Visiting?",
+        a: "Koszmar — dużo podstron. Zostaw na później, gdy masz więcej czasu i spokoju.",
       },
     ],
     threats: [
@@ -563,6 +644,7 @@ const I18N = {
     tabHelp: "How to use",
     tabFaq: "FAQ",
     tabSensors: "Sensors",
+    tabCameras: "Cameras",
     tabThreats: "Threats",
     tabDecryptors: "Decryptors",
     tabCredits: "Credits",
@@ -595,13 +677,15 @@ const I18N = {
       "This tool shows content from Welcome to the Game III. Material may be disturbing. Use at your own discretion.",
     creditsUnofficial:
       "Fan-made, unofficial project. Welcome to the Game III and related marks belong to their respective owners. Anonymous visit stats via GoatCounter (free, no cookies) — see ANALYTICS.md in the repo.",
-    sensorsIntro: "3 motion sensor motel setup — placement and facing direction matter.",
+    sensorsIntro:
+      "3 motion sensor motel setup (2× Tanner + 1× Lucas). If you unlock the Electrical Room, Lucas needs a second sensor.",
     sensorsDistinguishTitle: "How to distinguish between Tanner and Lucas",
     sensorsDistinguishBody: [
-      "This is a setup for 3 motion sensors.",
+      "Base setup is 3 motion sensors (or 4 if the Electrical Room is open).",
       "To know which enemy is approaching, listen to how long the motion sensors beep.",
       "Tanner: beeps for ~2 seconds — click the panic button and secure the door.",
       "Lucas: beeps consistently for 5+ seconds (you can check the front entrance to be sure).",
+      "With 4 sensors you still tell Lucas from Tanner by beep length — same as with 3.",
     ],
     sensor1Title: "Sensor 1 — right motel pole",
     sensor1Body: [
@@ -623,7 +707,49 @@ const I18N = {
       "Alerts you when Lucas is trying to lockpick the backdoor.",
       "The beeping lasts longer than Tanner — usually 6+ seconds, so you can easily tell them apart.",
       "That gives you plenty of time to turn off lights and hide.",
+      "One Lucas sensor is enough as long as you do NOT open the Electrical Room passage.",
     ],
+    sensorElectricalTitle: "Electrical Room — 2-sensor Lucas variant",
+    sensorElectricalBody: [
+      "The photo shows what the Electrical Room key looks like — it can spawn in many places (not always on a shelf).",
+      "That key unlocks the Electrical Room door.",
+      "After you open that door, Lucas can also enter from the electrical room side.",
+      "Then one backdoor sensor is no longer enough — place a second sensor at the Electrical Room entrance.",
+      "Final setup: 2 Tanner sensors (poles) + 2 Lucas sensors (backdoor + Electrical Room).",
+      "You still tell Lucas from Tanner by beep length — same as with the 3-sensor setup.",
+    ],
+    sensorElectricalKeyCaption: "Electrical Room key (appearance)",
+    sensorElectricalDoorCaption: "Electrical Room door",
+    sensorLucasBackCaption: "Backdoor sensor (Lucas)",
+    sensorLucasElecCaption: "Second sensor — Electrical Room entrance",
+    sensorZoomHint: "Click to enlarge",
+    sensorZoomClose: "Close",
+    camerasIntro:
+      "To always have a chance to spot the kidnapper, place two cameras on the wooden poles by the road. They must face each other: the first looks toward the second pole, the second looks back at the first (toward the drop zone). Neither should face the motel.",
+    camerasVanTitle: "Warning — van in the motel parking lot",
+    camerasVanBody: [
+      "The kidnapper’s van can spawn in the motel parking lot — it is not always visible on the cameras.",
+      "An empty camera feed does not mean he is not there.",
+      "When the cameras show nothing, look through the sliding doors and check the motel parking lot.",
+    ],
+    camera1Title: "Camera 1 — first wooden pole",
+    camera1Body: [
+      "Mount the first camera on the wooden pole by the road.",
+      "Aim it toward the second wooden pole.",
+      "Not toward the motel.",
+      "Not toward the package drop zone.",
+    ],
+    camera2Title: "Camera 2 — opposite the first",
+    camera2Body: [
+      "Mount the second camera opposite the first (on the other pole).",
+      "It should look at the first camera — toward the package drop zone.",
+      "Not toward the motel.",
+      "Together, both cameras cover the kidnapper’s approach from the road.",
+    ],
+    camera1Caption: "Camera 1 — mount",
+    camera1AltCaption: "Camera 1 — motel stays behind you",
+    camera2Caption: "Camera 2 — opposite",
+    camera2AltCaption: "Camera 2 — toward the drop zone",
     sitePlaceholder:
       "{name} — paste list from the game, e.g.\nChevron - Leaked military mission logs.\nFindLove - You don't have to be alone.",
     notebookPlaceholder:
@@ -721,7 +847,7 @@ const I18N = {
       ["Miners:", "VM Grid Tier I–III: DOS/min + Access window (how long you keep access after a successful hack). Fail/Reset CD in the hover tooltip. Pick the highest DOS in your unlocked tier."],
       ["Notebook — keys:", "format “N - code”. Long code = encrypted. Short = decrypted (feeds assembly)."],
       ["Assembly 1–8:", "decrypted codes fill slots #1–#8 by number. Collect all 8, then “Copy final key”."],
-      ["Sensors / threats:", "tabs for the 3-sensor setup and cue/counter table. Bomb Maker is behind a spoiler."],
+      ["Sensors / cameras / threats:", "tabs for the sensor setup (3 base, 4 if Electrical Room is open), kidnapper cameras, and cue/counter table. Bomb Maker is behind a spoiler."],
       ["Decryptors:", "Info tab — who decrypts slots 1–2 / 3–4 / 5–6 / 7–8 and required reputation."],
       ["Credits:", "tab with disclaimers and Steam guide links. Welcome screen shows on every visit — check “Remember Me” to skip it next time."],
       ["Language & save:", "English by default; PL/EN switch top-right (also on the welcome screen). Notes, progress and lists persist locally. Reset clears progress."],
@@ -747,6 +873,42 @@ const I18N = {
       {
         q: "Can I pause while using the computer?",
         a: "No. Threats continue to exist while you're browsing, so stay aware of your surroundings.",
+      },
+      {
+        q: "Should I leave the room without checking the peephole?",
+        a: "No. Tanner can wait behind the door — always check the peephole first.",
+      },
+      {
+        q: "What should I do when motion sensors beep?",
+        a: "Short beep (~2 s) = Tanner — panic button and secure the door. Long beep (5+ s) = Lucas — lights off and hide.",
+      },
+      {
+        q: "Is one camera enough for the kidnapper?",
+        a: "No. Place two facing each other. The van can also spawn in the motel parking lot — then look through the sliding doors.",
+      },
+      {
+        q: "What should I do when I hear banjo / old music (Tucker)?",
+        a: "Run to the room with the Ace of Spades on the door handle.",
+      },
+      {
+        q: "Should I stand up from the computer when Noir appears?",
+        a: "No. Look sideways and stay seated — standing up is an INSTAKILL.",
+      },
+      {
+        q: "Is it worth opening the Electrical Room early?",
+        a: "Only if you mean it. After opening it, Lucas can also enter from there — you’ll need a second sensor.",
+      },
+      {
+        q: "How do I tell an encrypted code from a decrypted one?",
+        a: "Long code = encrypted. Short code = decrypted and goes into assembly slots 1–8.",
+      },
+      {
+        q: "Does key slot order 1–8 matter?",
+        a: "Yes. Put decrypted codes into the matching slot numbers (#1–#8).",
+      },
+      {
+        q: "What about Thanks For Visiting?",
+        a: "A nightmare site — lots of pages. Leave it for later when you have more time and calm.",
       },
     ],
     threats: [
@@ -1732,28 +1894,74 @@ function renderFaq() {
     .join("");
 }
 
+function renderSensorFigures(images) {
+  if (!images?.length) return "";
+  return `<div class="sensor-figures">${images
+    .map((img) => {
+      const caption = img.captionKey ? `<figcaption>${escapeHtml(t(img.captionKey))}</figcaption>` : "";
+      const alt = img.alt || (img.captionKey ? t(img.captionKey) : "");
+      return `<figure class="sensor-figure">
+          <button type="button" class="sensor-zoom-btn" data-sensor-zoom="${escapeHtml(img.src)}" data-sensor-zoom-alt="${escapeHtml(alt)}" title="${escapeHtml(t("sensorZoomHint"))}" aria-label="${escapeHtml(t("sensorZoomHint"))}">
+            <img src="${escapeHtml(img.src)}" alt="${escapeHtml(alt)}" loading="lazy" />
+          </button>
+          ${caption}
+        </figure>`;
+    })
+    .join("")}</div>`;
+}
+
+function openSensorZoom(src, alt) {
+  const root = document.getElementById("sensor-lightbox");
+  const img = document.getElementById("sensor-lightbox-img");
+  if (!root || !img || !src) return;
+  img.src = src;
+  img.alt = alt || "";
+  const closeBtn = root.querySelector(".sensor-lightbox-close");
+  if (closeBtn) {
+    closeBtn.setAttribute("aria-label", t("sensorZoomClose"));
+    closeBtn.title = t("sensorZoomClose");
+  }
+  root.hidden = false;
+  document.body.classList.add("sensor-lightbox-open");
+  closeBtn?.focus();
+}
+
+function closeSensorZoom() {
+  const root = document.getElementById("sensor-lightbox");
+  const img = document.getElementById("sensor-lightbox-img");
+  if (!root || root.hidden) return;
+  root.hidden = true;
+  document.body.classList.remove("sensor-lightbox-open");
+  if (img) {
+    img.removeAttribute("src");
+    img.alt = "";
+  }
+}
+
 function renderSensors() {
   const el = document.getElementById("sensors-list");
   if (!el) return;
 
   const sensors = [
     {
-      num: 1,
       titleKey: "sensor1Title",
       bodyKey: "sensor1Body",
-      image: "assets/motion-sensor-1.png",
+      images: [{ src: "assets/motion-sensor-1.png", alt: t("sensor1Title") }],
     },
     {
-      num: 2,
       titleKey: "sensor2Title",
       bodyKey: "sensor2Body",
-      image: "assets/motion-sensor-2.png",
+      images: [{ src: "assets/motion-sensor-2.png", alt: t("sensor2Title") }],
     },
     {
-      num: 3,
       titleKey: "sensor3Title",
       bodyKey: "sensor3Body",
-      image: "assets/motion-sensor-3.png",
+      images: [
+        {
+          src: "assets/motion-sensor-lucas-1.png",
+          alt: t("sensorLucasBackCaption"),
+        },
+      ],
     },
   ];
 
@@ -1775,14 +1983,107 @@ function renderSensors() {
       return `<article class="sensor-card">
         <h3 class="sensor-title">${escapeHtml(t(s.titleKey))}</h3>
         <ul class="sensor-steps">${steps}</ul>
-        <figure class="sensor-figure">
-          <img src="${s.image}" alt="${escapeHtml(t(s.titleKey))}" loading="lazy" />
-        </figure>
+        ${renderSensorFigures(s.images)}
       </article>`;
     })
     .join("");
 
-  el.innerHTML = `<p class="sensors-intro">${escapeHtml(t("sensorsIntro"))}</p>${distinguish}<div class="sensors-grid">${cards}</div>`;
+  const electrical = `<article class="sensor-card sensor-card-wide sensor-card-warn">
+    <h3 class="sensor-title">${escapeHtml(t("sensorElectricalTitle"))}</h3>
+    <ul class="sensor-steps">
+      ${t("sensorElectricalBody")
+        .map((line) => `<li>${escapeHtml(line)}</li>`)
+        .join("")}
+    </ul>
+    ${renderSensorFigures([
+      {
+        src: "assets/electrical-key.png",
+        alt: t("sensorElectricalKeyCaption"),
+        captionKey: "sensorElectricalKeyCaption",
+      },
+      {
+        src: "assets/electrical-door.png",
+        alt: t("sensorElectricalDoorCaption"),
+        captionKey: "sensorElectricalDoorCaption",
+      },
+      {
+        src: "assets/motion-sensor-lucas-2.png",
+        alt: t("sensorLucasElecCaption"),
+        captionKey: "sensorLucasElecCaption",
+      },
+      {
+        src: "assets/motion-sensor-lucas-2b.png",
+        alt: t("sensorLucasElecCaption"),
+      },
+    ])}
+  </article>`;
+
+  el.innerHTML = `<p class="sensors-intro">${escapeHtml(t("sensorsIntro"))}</p>${distinguish}<div class="sensors-grid">${cards}</div>${electrical}`;
+}
+
+function renderCameras() {
+  const el = document.getElementById("cameras-list");
+  if (!el) return;
+
+  const van = `<article class="sensor-card sensor-card-tip sensor-card-warn">
+    <h3 class="sensor-title">${escapeHtml(t("camerasVanTitle"))}</h3>
+    <ul class="sensor-steps sensor-steps-stack">
+      ${t("camerasVanBody")
+        .map((line) => `<li>${escapeHtml(line)}</li>`)
+        .join("")}
+    </ul>
+  </article>`;
+
+  const cameras = [
+    {
+      titleKey: "camera1Title",
+      bodyKey: "camera1Body",
+      images: [
+        {
+          src: "assets/camera-1.png",
+          alt: t("camera1Caption"),
+          captionKey: "camera1Caption",
+        },
+        {
+          src: "assets/camera-1b.png",
+          alt: t("camera1AltCaption"),
+          captionKey: "camera1AltCaption",
+        },
+      ],
+    },
+    {
+      titleKey: "camera2Title",
+      bodyKey: "camera2Body",
+      images: [
+        {
+          src: "assets/camera-2.png",
+          alt: t("camera2Caption"),
+          captionKey: "camera2Caption",
+        },
+        {
+          src: "assets/camera-2b.png",
+          alt: t("camera2AltCaption"),
+          captionKey: "camera2AltCaption",
+        },
+      ],
+    },
+  ];
+
+  const cards = cameras
+    .map((c) => {
+      const steps = t(c.bodyKey)
+        .map((line) => `<li>${escapeHtml(line)}</li>`)
+        .join("");
+
+      return `<article class="sensor-card">
+        <h3 class="sensor-title">${escapeHtml(t(c.titleKey))}</h3>
+        <ul class="sensor-steps">${steps}</ul>
+        ${renderSensorFigures(c.images)}
+      </article>`;
+    })
+    .join("");
+
+  el.innerHTML = `<p class="sensors-intro">${escapeHtml(t("camerasIntro"))}</p>${van}<div class="sensors-grid cameras-grid">${cards}</div>`;
 }
 
 function isBombSpoilerAccepted() {
@@ -2009,6 +2310,7 @@ function applyLanguage() {
   renderHelp();
   renderFaq();
   renderSensors();
+  renderCameras();
   renderThreats();
   renderDecryptors();
   renderCredits();
@@ -2476,6 +2778,23 @@ function init() {
     openGallery(galBtn.dataset.gallerySite);
   });
 
+  document.getElementById("sensors-list")?.addEventListener("click", (e) => {
+    const zoom = e.target.closest("[data-sensor-zoom]");
+    if (!zoom) return;
+    openSensorZoom(zoom.dataset.sensorZoom, zoom.dataset.sensorZoomAlt || "");
+  });
+
+  document.getElementById("cameras-list")?.addEventListener("click", (e) => {
+    const zoom = e.target.closest("[data-sensor-zoom]");
+    if (!zoom) return;
+    openSensorZoom(zoom.dataset.sensorZoom, zoom.dataset.sensorZoomAlt || "");
+  });
+
+  const sensorLightbox = document.getElementById("sensor-lightbox");
+  sensorLightbox?.addEventListener("click", (e) => {
+    if (e.target.closest("[data-sensor-lightbox-close]")) closeSensorZoom();
+  });
+
   const galleryRoot = document.getElementById("gallery-lightbox");
   galleryRoot.addEventListener("click", (e) => {
     if (e.target.closest("[data-gallery-close]")) {
@@ -2524,6 +2843,14 @@ function init() {
       if (e.key === "Enter" && document.activeElement?.id === "welcome-accept") {
         e.preventDefault();
         acceptWelcome();
+      }
+      return;
+    }
+    const sensorLb = document.getElementById("sensor-lightbox");
+    if (sensorLb && !sensorLb.hidden) {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeSensorZoom();
       }
       return;
     }

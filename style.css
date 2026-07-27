@@ -1540,7 +1540,27 @@ button.priority-chip.priority-keyed:hover {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-  align-items: start;
+  align-items: stretch;
+}
+
+.cameras-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cameras-grid .sensor-figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.sensor-card-tip .sensor-steps-stack,
+.sensor-card-tip.sensor-card-warn .sensor-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  list-style: disc;
+  padding-left: 18px;
+  align-content: start;
 }
 
 .sensor-card {
@@ -1552,16 +1572,19 @@ button.priority-chip.priority-keyed:hover {
   flex-direction: column;
   gap: 6px;
   min-width: 0;
+  height: 100%;
 }
 
-.sensor-card-tip {
-  border-color: var(--amber);
-  background: rgba(232, 197, 71, 0.06);
-  flex-shrink: 0;
+.sensor-card > .sensor-steps {
+  flex: 0 1 auto;
 }
 
-.sensor-card-tip .sensor-title {
-  color: var(--amber);
+.sensors-grid .sensor-card > .sensor-steps {
+  flex: 1 1 auto;
+}
+
+.sensors-grid .sensor-card > .sensor-figures {
+  margin-top: auto;
 }
 
 .sensor-card-tip .sensor-steps {
@@ -1570,6 +1593,36 @@ button.priority-chip.priority-keyed:hover {
   gap: 4px 16px;
   list-style: disc;
   padding-left: 18px;
+  align-content: start;
+}
+
+.sensors-grid .sensor-figure {
+  height: auto;
+}
+
+.sensors-grid .sensor-zoom-btn {
+  height: min(220px, 26vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #050807;
+}
+
+.sensors-grid .sensor-figure img {
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.sensor-card-tip {
+  border-color: var(--amber);
+  background: rgba(232, 197, 71, 0.06);
+  flex-shrink: 0;
+  height: auto;
+}
+
+.sensor-card-tip .sensor-title {
+  color: var(--amber);
 }
 
 .sensor-title {
@@ -1597,7 +1650,46 @@ button.priority-chip.priority-keyed:hover {
   border-radius: var(--radius);
   overflow: hidden;
   background: #050807;
-  flex: 1;
+  flex: 0 0 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sensor-figures {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sensor-card-wide .sensor-figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.sensor-zoom-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.sensor-zoom-btn:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: -2px;
+}
+
+.sensor-figure figcaption {
+  padding: 4px 6px;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .sensor-figure img {
@@ -1607,6 +1699,86 @@ button.priority-chip.priority-keyed:hover {
   max-height: min(280px, 32vh);
   object-fit: contain;
   object-position: center;
+}
+
+.sensor-card-wide {
+  margin-top: 2px;
+}
+
+.sensor-card-warn {
+  border-color: rgba(196, 77, 255, 0.45);
+  background: rgba(196, 77, 255, 0.06);
+}
+
+.sensor-card-warn .sensor-title {
+  color: var(--magenta);
+}
+
+.sensor-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.sensor-lightbox[hidden] {
+  display: none !important;
+}
+
+.sensor-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 10, 8, 0.9);
+  cursor: pointer;
+}
+
+.sensor-lightbox-dialog {
+  position: relative;
+  z-index: 1;
+  max-width: min(1100px, 96vw);
+  max-height: 94vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sensor-lightbox-close {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.55);
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sensor-lightbox-close:hover {
+  color: var(--green);
+  border-color: var(--green-dim);
+}
+
+.sensor-lightbox-img {
+  display: block;
+  max-width: 96vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid var(--border);
+  background: #050807;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+body.sensor-lightbox-open {
+  overflow: hidden;
 }
 
 .threats-intro {
@@ -1826,12 +1998,25 @@ button.priority-chip.priority-keyed:hover {
     grid-template-columns: 1fr;
   }
 
+  .cameras-grid .sensor-figures {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sensor-card-wide .sensor-figures {
+    grid-template-columns: 1fr;
+  }
+
   .sensor-figure img {
     max-height: min(340px, 40vh);
   }
 
   .sensor-card-tip .sensor-steps {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .sensor-card-tip .sensor-steps-stack,
+  .sensor-card-tip.sensor-card-warn .sensor-steps {
+    grid-template-columns: 1fr;
   }
 }
 
